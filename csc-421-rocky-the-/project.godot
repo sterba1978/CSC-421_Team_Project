@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="CSC-421 Rocky the"
+config/name="CSC-421 Rocky the Raccoon"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
