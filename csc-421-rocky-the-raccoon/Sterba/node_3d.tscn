@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d4j33sx58itj8"]
+
+[ext_resource type="PackedScene" uid="uid://drbcpo1hnuplp" path="res://Sterba/sterba_Det_Office.glb" id="1_u1jo6"]
+
+[node name="Node3D" type="Node3D" unique_id=312581796]
+
+[node name="sterba_Det_Office" parent="." unique_id=1263247509 instance=ExtResource("1_u1jo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88568604, 0, 0.3296976)
