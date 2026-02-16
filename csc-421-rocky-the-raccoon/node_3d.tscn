@@ -53,6 +53,38 @@ albedo_texture = ExtResource("5_jsk3o")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_imku0"]
 resource_local_to_scene = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjdfm"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eo4ei"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1.4300183, 2),
+"format": 34359742465,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQADAAQAAAAFAAMAAQAEAAYAAgABAAYAAwAHAAQAAwAFAAcABAAIAAYABAAHAAgAAgAGAAkABgAKAAkABgAIAAoACQAKAAsACwAKAAgACQALAAIADAAIAAcACwAIAAwADAAHAAUAAgALAA0ADQALAAwAAgANAAAADQAMAAUAAAANAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIC/AACAvwAAAAAAAIC/AACAPwAAAAAAAIA/AACAP9cKtz8AAIA/pzBrP8Z6pj0AAIA/AACAP9cKtz8AAIC/pzBrP9cKtz8AAIA/pzBrP9cKtz+nMGu/AACAv9cKtz8AAIC/AACAv9cKtz+nMGu/AACAv8Z6pj2nMGu/pzBrP8Z6pj2nMGu/AACAv8d6pj0AAIA/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wviri"]
+resource_name = "sterba_Det_Office_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1.4300183, 2),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAAA"),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAGgAZABwAGgAcAB0AHgAfACAAHgAhAB8AIAAfACIAIAAiACMAJAAlACYAJAAnACUAJgAlACgAJgAoACkA"),
+"material": SubResource("StandardMaterial3D_rjdfm"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 42,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIA/AACAPwAAAAAAAIC/AACAvwAAAAAAAIC/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAP9cKtz8AAIC/AACAv9cKtz8AAIC/AACAPwAAAAAAAIC/AACAPwAAAAAAAIC/AACAP9cKtz8AAIA/AACAP9cKtz8AAIC/AACAPwAAAAAAAIA/AACAv8d6pj0AAIA/pzBrP8Z6pj2nMGu/pzBrP8Z6pj0AAIA/AACAv8Z6pj2nMGu/AACAv8Z6pj2nMGu/pzBrP9cKtz+nMGu/pzBrP8Z6pj2nMGu/AACAv9cKtz+nMGu/pzBrP8Z6pj2nMGu/pzBrP9cKtz8AAIA/pzBrP8Z6pj0AAIA/pzBrP9cKtz+nMGu/AACAvwAAAAAAAIA/pzBrP8Z6pj0AAIA/AACAPwAAAAAAAIA/AACAv8d6pj0AAIA/pzBrP9cKtz8AAIA/AACAP9cKtz8AAIA/AACAv9cKtz8AAIC/AACAv8Z6pj2nMGu/AACAvwAAAAAAAIC/AACAv9cKtz+nMGu/AACAv8d6pj0AAIA/AACAvwAAAAAAAIA/AACAP9cKtz8AAIA/pzBrP9cKtz+nMGu/AACAP9cKtz8AAIC/pzBrP9cKtz8AAIA/AACAv9cKtz+nMGu/AACAv9cKtz8AAIC//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//////////v/////////+//////////7//////////v////3////+/////f////7////9/////v////3////+//3///////7//f///////v/9///////+//3///////7//f/9/////P/9//3////8//3//f////z//f/9/////PwAA/3////+/AAD/f////78AAP9/////vwAA/3////+//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_eo4ei")
+
 [node name="Node3D" type="Node3D" unique_id=2091086296]
 
 [node name="sterba_Det_Office" parent="." unique_id=455033896 instance=ExtResource("1_a202f")]
@@ -91,5 +123,9 @@ material_override = SubResource("StandardMaterial3D_cdqbm")
 cast_shadow = 0
 size = Vector3(0.68322754, 0.036132813, 1.5062256)
 material = SubResource("ShaderMaterial_imku0")
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=340104079]
+transform = Transform3D(7.789746, 0, 0, 0, 7.789746, 0, 0, 0, 7.789746, -24.979, 0.30181122, 0.33050346)
+mesh = SubResource("ArrayMesh_wviri")
 
 [editable path="sterba_Det_Office"]
