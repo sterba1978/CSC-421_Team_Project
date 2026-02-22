@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="CSC-421 Rocky the Raccoon"
-run/main_scene="uid://mvj30wbint4l"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 [physics]
 

@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dsmfghb2qqmbq"]
-
-[ext_resource type="PackedScene" uid="uid://cjm7rvuakb1tc" path="res://addons/kaykit_furniture_bits/Assets/gltf/shelf_B_large_decorated.gltf" id="1_bgowi"]
-
-[node name="shelf_B_large_decorated2" unique_id=1247195354 instance=ExtResource("1_bgowi")]
