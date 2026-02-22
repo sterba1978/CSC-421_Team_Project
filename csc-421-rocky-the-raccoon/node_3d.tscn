@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdkbfwcnwpjec" path="res://assets/textures/Metal/Metal_18-512x512.png" id="4_wc5p8"]
 [ext_resource type="Texture2D" uid="uid://c8wgxs2m40h0j" path="res://assets/textures/Metal/Metal_16-512x512.png" id="5_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://proto_controller/proto_controller.tscn" id="6_i5arm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tereu"]
 albedo_texture = ExtResource("4_wc5p8")
@@ -100,3 +101,11 @@ material = SubResource("ShaderMaterial_imku0")
 [node name="Plane" type="MeshInstance3D" parent="." unique_id=340104079]
 transform = Transform3D(7.789746, 0, 0, 0, 7.789746, 0, 0, 0, 7.789746, -24.979, 0.30181122, 0.33050346)
 mesh = SubResource("ArrayMesh_wviri")
+<<<<<<< Updated upstream
+=======
+
+[node name="ProtoController" parent="." unique_id=1633047606 instance=ExtResource("6_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7944784, 0, 19.445093)
+
+[editable path="sterba_Det_Office"]
+>>>>>>> Stashed changes
