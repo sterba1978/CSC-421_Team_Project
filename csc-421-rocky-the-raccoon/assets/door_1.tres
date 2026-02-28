@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://biclqd6hakn2y"]
+
+[ext_resource type="Texture2D" uid="uid://v6fxkvnwiway" path="res://addons/material/Wood/Wood_04-512x512.png" id="1_8p8d4"]
+[ext_resource type="Texture2D" uid="uid://ccr0gf8038f03" path="res://addons/material/Elements/Elements_17-512x512.png" id="2_mmoip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxkjc"]
+transparency = 1
+albedo_color = Color(0.6610268, 0.40047446, 0.40047446, 1)
+albedo_texture = ExtResource("1_8p8d4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yxyl"]
+transparency = 3
+alpha_hash_scale = 2.0
+alpha_antialiasing_mode = 0
+blend_mode = 3
+cull_mode = 2
+albedo_color = Color(0.4862745, 0.98039216, 0.96862745, 0.89411765)
+albedo_texture = ExtResource("2_mmoip")
+emission_enabled = true
+emission = Color(0, 0.5679338, 0.6533925, 1)
+emission_energy_multiplier = 3.42
+emission_on_uv2 = true
+
+[node name="Door1" type="Node3D" unique_id=1187093371]
+transform = Transform3D(0.1309784, 0, 0, 0, 0.76698047, 0, 0, 0, 0.04905575, 0, 0, 0)
+
+[node name="Door_1" type="CSGBox3D" parent="." unique_id=1286862784]
+transform = Transform3D(-0.044087764, 4.3710706e-08, 5.620637, -3.1637953e-07, 1.0000024, -2.4718682e-07, -7.237922, -4.3977753e-08, -0.034236513, 5.611225, 1.5014076, 1.451622)
+operation = 2
+use_collision = true
+size = Vector3(0.388, 3, 2)
+material = SubResource("StandardMaterial3D_jxkjc")
+
+[node name="D1_Window_1" type="CSGBox3D" parent="Door_1" unique_id=574074745]
+transform = Transform3D(1.0428649, -3.0198066e-14, 2.7008355e-08, 6.82121e-13, 1.096007, 9.664491e-13, -9.313226e-09, 1.2385926e-15, 1.0766932, 0.005461693, 0.90705395, 0.43467855)
+size = Vector3(0.388, 0.7877876, 0.74902344)
+material = SubResource("StandardMaterial3D_7yxyl")
+
+[node name="D1_Window_2" type="CSGBox3D" parent="Door_1" unique_id=1807493629]
+transform = Transform3D(1.0307441, -2.7533531e-14, 3.5390258e-08, 0, 1.0960087, 3.813616e-13, -1.3969839e-08, 4.881512e-15, 1.0762839, -0.0037446022, 0.90196896, -0.43953085)
+size = Vector3(0.388, 0.788, 0.749)
+material = SubResource("StandardMaterial3D_7yxyl")
+
+[node name="D1_Window_3" type="CSGBox3D" parent="Door_1" unique_id=402596984]
+transform = Transform3D(1.0529345, -2.3980817e-14, 1.4901161e-08, 2.842171e-14, 1.0960084, 1.9739765e-13, -9.313226e-09, 4.9023285e-15, 1.0769211, -0.007335663, -0.066046715, -0.43245506)
+size = Vector3(0.388, 0.788, 0.749)
+material = SubResource("StandardMaterial3D_7yxyl")
+
+[node name="D1_Window_4" type="CSGBox3D" parent="Door_1" unique_id=379732209]
+transform = Transform3D(1.0428659, -9.1926466e-14, 4.004687e-08, -2.842171e-14, 1.0960084, 5.162537e-13, -2.8871e-08, 7.924217e-15, 1.0766934, 0.00624609, -0.07378578, 0.44014454)
+size = Vector3(0.388, 0.788, 0.749)
+material = SubResource("StandardMaterial3D_7yxyl")

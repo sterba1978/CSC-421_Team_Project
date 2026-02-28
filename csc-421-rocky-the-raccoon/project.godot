@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="CSC-421 Rocky the Raccoon"
+config/name="Rocky_The_Raccoon"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/TileMapLayer3D/plugin.cfg", "res://addons/gdscript-templates/plugin.cfg", "res://addons/grid_map_layer/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [physics]
 

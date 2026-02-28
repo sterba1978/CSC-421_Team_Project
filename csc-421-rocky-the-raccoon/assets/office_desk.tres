@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d33em0yhcmaxu"]
+
+[ext_resource type="Texture2D" uid="uid://b2m0o7gwk3emk" path="res://addons/material/Wood/Wood_01-512x512.png" id="1_ljxi7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wjjv"]
+albedo_texture = ExtResource("1_ljxi7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkx13"]
+albedo_texture = ExtResource("1_ljxi7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6t1mt"]
+albedo_texture = ExtResource("1_ljxi7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_113jn"]
+albedo_texture = ExtResource("1_ljxi7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnl57"]
+albedo_texture = ExtResource("1_ljxi7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hnl3"]
+albedo_texture = ExtResource("1_ljxi7")
+
+[node name="OfficeDesk" type="Node3D" unique_id=540058272]
+transform = Transform3D(-0.007726063, 0.0020112074, 1.6180118, -5.5442435e-08, 1.1523281, -0.00282409, -1.2683941, -1.23010705e-05, -0.00985566, 0, 0, 0)
+
+[node name="Desk" type="CSGBox3D" parent="." unique_id=1453328265]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.8818724e-10, 4.656613e-10, -1.12034826e-10, 0.99999994, 0, 0, 0)
+size = Vector3(1.1347656, 0.1, 2.3083496)
+material = SubResource("StandardMaterial3D_5wjjv")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Desk" unique_id=629416825]
+transform = Transform3D(1, 0, 0, 0, 0.99956954, -0.0033002023, 0, 0.0029427367, 0.7947572, -0.024814606, -0.21946728, 0.041810155)
+size = Vector3(1.0132644, 0.22167969, 1.7597656)
+material = SubResource("StandardMaterial3D_qkx13")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Desk" unique_id=1062737523]
+transform = Transform3D(-4.3711374e-08, -1, 0, 0.99978584, -4.370204e-08, 0.0017449579, -0.0015559503, 6.801277e-11, 0.89149314, 0.4734249, -0.5386064, 0.028537273)
+size = Vector3(1.0044922, 0.1, 2.5)
+material = SubResource("StandardMaterial3D_6t1mt")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Desk" unique_id=237693093]
+transform = Transform3D(0.9999905, -0.0008366368, -0.0042726495, 0.00087357505, 0.9997496, 0.008693359, 0.0038024131, -0.007754982, 0.89145285, -0.04754448, -0.538774, -0.9596347)
+size = Vector3(0.95214844, 0.9940109, 0.2783203)
+material = SubResource("StandardMaterial3D_113jn")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Desk" unique_id=393090723]
+transform = Transform3D(1, 0, 0, 0, 0.99977404, -0.0052348524, 0, 0.004667833, 0.89148235, -0.04269123, -0.5429516, 1.0127718)
+size = Vector3(0.95214844, 1.0143967, 0.2783203)
+material = SubResource("StandardMaterial3D_pnl57")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Desk" unique_id=1387176795]
+transform = Transform3D(1, 0, 0, 0, 0.9997861, -0.0017449576, 0, 0.0015559505, 0.8914931, -0.012407303, -0.21908599, 0.022464395)
+size = Vector3(1.0132644, 0.34056395, 1.9354248)
+material = SubResource("StandardMaterial3D_2hnl3")
