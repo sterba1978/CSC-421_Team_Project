@@ -1,4 +1,5 @@
 extends RefCounted
+class_name SelectionManager
 
 ## ============================================================================
 ## SELECTION MANAGER - Single Source of Truth for Tile Selection

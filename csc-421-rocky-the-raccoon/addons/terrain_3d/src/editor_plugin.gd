@@ -56,13 +56,23 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
-	asset_dock.remove_dock(true)
-	asset_dock.queue_free()
-	ui.queue_free()
-	editor.free()
+	if is_instance_valid(asset_dock):
+		asset_dock.remove_dock(true)
+		asset_dock.queue_free()
+	asset_dock = null
 
-	scene_changed.disconnect(_on_scene_changed)
-	godot_editor_window.focus_entered.disconnect(_on_godot_focus_entered)
+	if is_instance_valid(ui):
+		ui.queue_free()
+	ui = null
+
+	if is_instance_valid(editor):
+		editor.free()
+	editor = null
+
+	if scene_changed.is_connected(_on_scene_changed):
+		scene_changed.disconnect(_on_scene_changed)
+	if is_instance_valid(godot_editor_window) and godot_editor_window.focus_entered.is_connected(_on_godot_focus_entered):
+		godot_editor_window.focus_entered.disconnect(_on_godot_focus_entered)
 
 
 func _on_godot_focus_entered() -> void:
@@ -96,10 +106,13 @@ func _handles(p_object: Object) -> bool:
 
 func _make_visible(p_visible: bool, p_redraw: bool = false) -> void:
 	if p_visible and is_selected():
-		ui.set_visible(true)
-		asset_dock.update_dock()
+		if is_instance_valid(ui):
+			ui.set_visible(true)
+		if is_instance_valid(asset_dock):
+			asset_dock.update_dock()
 	else:
-		ui.set_visible(false)
+		if is_instance_valid(ui):
+			ui.set_visible(false)
 
 
 func _edit(p_object: Object) -> void:
@@ -391,9 +404,13 @@ func _on_scene_changed(scene_root: Node) -> void:
 	for node in scene_root.find_children("", "Terrain3DObjects"):
 		node.editor_setup(self)
 
+	if not is_instance_valid(asset_dock):
+		return
+
 	asset_dock.update_assets()
 	await get_tree().create_timer(2).timeout
-	asset_dock.update_thumbnails()
+	if is_instance_valid(asset_dock):
+		asset_dock.update_thumbnails()
 
 		
 func is_terrain_valid(p_terrain: Terrain3D = null) -> bool:

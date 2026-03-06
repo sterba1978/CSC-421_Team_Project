@@ -188,6 +188,9 @@ func update_dock() -> void:
 
 	# Move dock to new destination
 	remove_dock()
+	# Guard against stale parent ownership before re-adding to editor containers.
+	if get_parent():
+		get_parent().remove_child(self)
 	# Sidebar
 	if slot < POS_BOTTOM:
 		state = SIDEBAR

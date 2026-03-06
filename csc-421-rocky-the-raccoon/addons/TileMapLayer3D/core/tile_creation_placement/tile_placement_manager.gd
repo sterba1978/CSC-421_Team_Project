@@ -444,7 +444,7 @@ func _validate_data_structure_integrity() -> Dictionary:
 
 		if tile_ref.chunk_index < 0 or tile_ref.chunk_index >= chunk_array_size:
 			errors.append("ORPHANED: TileRef key=%d has invalid %s chunk_index=%d (valid range: 0-%d)" %
-						  [tile_key, chunk_type_name, tile_ref.chunk_index, chunk_array_size - 1])
+			              [tile_key, chunk_type_name, tile_ref.chunk_index, chunk_array_size - 1])
 			orphaned_refs += 1
 
 	stats["orphaned_refs_found"] = orphaned_refs
@@ -955,7 +955,7 @@ func _remove_tile_from_multimesh(tile_key: int) -> void:
 	# Validate chunk was found
 	if not chunk:
 		push_error(" ORPHANED TILEREF: Tile key %d has invalid %s chunk_index %d (region_key=%d) - cleaning up orphaned reference" %
-				   [tile_key, chunk_type_name, tile_ref.chunk_index, tile_ref.region_key_packed])
+		           [tile_key, chunk_type_name, tile_ref.chunk_index, tile_ref.region_key_packed])
 		# Clean up orphaned TileRef (likely from chunk that was removed during cleanup)
 		tile_map_layer3d_root.remove_tile_ref(tile_key)
 		_spatial_index.remove_tile(tile_key)
@@ -2241,7 +2241,7 @@ func erase_area_with_undo(
 	
 	if GlobalConstants.DEBUG_AREA_OPERATIONS:
 		print("Area Erase: %.1fx%.1fx%.1f (volume=%.1f, diagonal=%.1f)" % 
-			  [selection_size.x, selection_size.y, selection_size.z, selection_volume, selection_diagonal])
+		      [selection_size.x, selection_size.y, selection_size.z, selection_volume, selection_diagonal])
 
 	# PHASE 1: Choose optimal strategy based on selection characteristics
 	var tiles_to_erase: Array[Dictionary] = []
@@ -2425,5 +2425,5 @@ func erase_area_with_undo(
 ## Used to check if backface painting is allowed (MANUAL mode only)
 func _get_tiling_mode() -> int:
 	if tile_map_layer3d_root and tile_map_layer3d_root.settings:
-		return tile_map_layer3d_root.settings.tiling_mode
-	return GlobalConstants.TILING_MODE_MANUAL  # Default
+		return tile_map_layer3d_root.settings.main_app_mode
+	return GlobalConstants.MainAppMode.MANUAL # Default
