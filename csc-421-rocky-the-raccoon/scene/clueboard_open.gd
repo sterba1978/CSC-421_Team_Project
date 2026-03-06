@@ -2,13 +2,13 @@ extends Node3D
 
 @export var hover_highlight_enabled: bool = true
 @export var hover_highlight_color: Color = Color(1.0, 0.92, 0.35, 0.35)
-@export var click_area_path: NodePath = ^"ClickArea"
+@export var click_area_path: NodePath = ^"StaticBody3D"
 
 var _highlight_targets: Array[MeshInstance3D] = []
 var _highlight_material: StandardMaterial3D
 var _is_highlighted := false
 
-@onready var _click_area: Area3D = get_node_or_null(click_area_path) as Area3D
+@onready var _click_target: CollisionObject3D = _resolve_click_target()
 
 @onready var clueboardui = $"../ClueBoardUI"
 
@@ -16,10 +16,10 @@ var _is_highlighted := false
 func _ready() -> void:
 	add_to_group("interactable")
 
-	if _click_area:
-		_click_area.input_event.connect(_on_click_area_input_event)
+	if _click_target:
+		_click_target.input_event.connect(_on_click_area_input_event)
 	else:
-		push_warning("Interactable: ClickArea not found at path '%s'." % click_area_path)
+		push_warning("Interactable: Click target not found at path '%s'." % click_area_path)
 
 	_cache_highlight_targets()
 	_build_highlight_material()
@@ -78,3 +78,21 @@ func _build_highlight_material() -> void:
 	_highlight_material.albedo_color = hover_highlight_color
 	_highlight_material.emission_enabled = true
 	_highlight_material.emission = hover_highlight_color
+
+
+func _resolve_click_target() -> CollisionObject3D:
+	var node := get_node_or_null(click_area_path)
+	if node is CollisionObject3D:
+		return node as CollisionObject3D
+	if node is CollisionShape3D and node.get_parent() is CollisionObject3D:
+		return node.get_parent() as CollisionObject3D
+
+	var fallback_click_area := find_child("ClickArea", true, false)
+	if fallback_click_area is CollisionObject3D:
+		return fallback_click_area as CollisionObject3D
+
+	var all_nodes := find_children("*", "CollisionObject3D", true, false)
+	if not all_nodes.is_empty():
+		return all_nodes[0] as CollisionObject3D
+
+	return null

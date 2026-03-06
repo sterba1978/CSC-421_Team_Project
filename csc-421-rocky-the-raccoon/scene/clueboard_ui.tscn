@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds2e63tairfv5"]
 
-[ext_resource type="Script" uid="uid://di6gg2yuksnt" path="res://scene/clueboard_ui.gd" id="1_c5akl"]
+[ext_resource type="Script" path="res://scene/clueboard_ui.gd" id="1_c5akl"]
 [ext_resource type="Texture2D" uid="uid://dii5tjdx1m4gf" path="res://assets/clueboardUI/clueboard_background.png" id="1_lj7ko"]
 [ext_resource type="Theme" uid="uid://b0mjjswb80ls0" path="res://assets/clueboardUI/clue_placeholder.tres" id="2_c5akl"]
 

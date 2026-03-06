@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cce3oci0d6152"]
 
 [ext_resource type="PackedScene" uid="uid://qm58aq4wdwyw" path="res://assets/clue_board.tscn" id="1_x2022"]
-[ext_resource type="Script" uid="uid://bt7cwxtip3jdw" path="res://scene/clueboard_open.gd" id="2_3ji0q"]
+[ext_resource type="Script" path="res://scene/clueboard_open.gd" id="2_3ji0q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x2022"]
 
@@ -15,7 +15,7 @@ size = Vector3(0.31111145, 2.4188232, 3.4494324)
 [node name="Clue_Board" unique_id=872618527 instance=ExtResource("1_x2022")]
 script = ExtResource("2_3ji0q")
 hover_highlight_color = Color(1, 0.92156863, 0.34901962, 0.38039216)
-click_area_path = NodePath("StaticBody3D/CollisionShape3D")
+click_area_path = NodePath("StaticBody3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=1878392592]
 transform = Transform3D(0.78589886, 0, 0, 0, 2.9590127, 0, 0, 0, 3.806458, 0.08669615, 1.2457786, 1.6757963)
