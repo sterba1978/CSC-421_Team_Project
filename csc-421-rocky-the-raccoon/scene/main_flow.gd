@@ -11,6 +11,10 @@ extends Node3D
 
 var _transition_queued: bool = false
 
+## Canvas UI's
+@onready var clueboardUI = $ClueBoardUI
+@onready var clueUI = $Clue_UI
+
 
 func _ready() -> void:
 	if _building_door != null and _building_door.has_signal("door_opened"):
@@ -22,6 +26,10 @@ func _ready() -> void:
 		push_warning("main_flow.gd: Building_door missing or has no door_opened/door_state_changed signal.")
 
 	_set_active_player(_exterior_player)
+	
+	## Hiding UI's
+	clueboardUI.hide()
+	clueUI.hide()
 
 
 func _on_building_door_opened() -> void:
