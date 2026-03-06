@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dddmbuyx15y10"]
+
+[ext_resource type="Texture2D" uid="uid://dii5tjdx1m4gf" path="res://assets/clueboardUI/clueboard_background.png" id="1_a3spt"]
+[ext_resource type="Script" uid="uid://dpi6rka1ntoel" path="res://scene/clue_ui.gd" id="1_invuc"]
+[ext_resource type="Texture2D" uid="uid://b0fskq0sd1fom" path="res://assets/clueboardUI/clue.png" id="2_invuc"]
+
+[node name="clue_ui" type="Control" unique_id=1775691411]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_invuc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=660667898]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -69.0
+offset_right = 1221.0
+offset_bottom = 715.0
+texture = ExtResource("1_a3spt")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=397354397]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 189.0
+offset_right = 827.0
+offset_bottom = 675.0
+texture = ExtResource("2_invuc")
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1606305034]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 35.0
+offset_right = 162.0
+offset_bottom = 95.0
+text = "Return
+"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
