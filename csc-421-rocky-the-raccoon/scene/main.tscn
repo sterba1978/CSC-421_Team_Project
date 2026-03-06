@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://c5j2f77nw3fal" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-d.glb" id="23_gn2wi"]
 [ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="27_4jm02"]
 [ext_resource type="Script" uid="uid://c0g72fn513uwq" path="res://scene/player_FPS.gd" id="28_vneqc"]
+[ext_resource type="Script" uid="uid://b0v4hcbm1xpfg" path="res://scene/main_flow.gd" id="29_k8u6l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -82,6 +83,7 @@ shading_mode = 0
 albedo_texture = ExtResource("27_4jm02")
 
 [node name="main" type="Node3D" unique_id=1500498533]
+script = ExtResource("29_k8u6l")
 
 [node name="Office" parent="." unique_id=1893820020 instance=ExtResource("13_tv8i1")]
 transform = Transform3D(0.8206144, 0, 0, 0, 2.0044506, 0, 0, 0, 0.84536386, 0.011706352, 0.51722693, 0.011011124)
@@ -105,13 +107,19 @@ operation = 2
 size = Vector3(0.5357176, 1.6853758, 10.813855)
 material = SubResource("StandardMaterial3D_nkhga")
 
-[node name="Wall4a_hole1" parent="Office/Wall_4a" parent_id_path=PackedInt32Array(1893820020, 2053911992) index="0" unique_id=1922502055]
-transform = Transform3D(2.0000005, 1.9495658e-08, -1.7476268e-05, -8.742338e-08, 0.44598275, -2.1852957e-08, 6.990787e-05, 1.9494486e-08, 0.5, 0.09716272, -1.2547414, 1.5943271)
-size = Vector3(0.17608589, 3.1854696, 2.2345734)
+[node name="CSGBox3D4" type="CSGBox3D" parent="Office/Wall_4a" parent_id_path=PackedInt32Array(1893820020, 2053911992) index="0" unique_id=289942054]
+transform = Transform3D(-0.67805225, 1.5100918e-05, -0.0036225016, 1.6970293e-05, 0.6731282, -0.00012922051, 0.0032650335, -0.00036319988, -0.23959693, -0.028258324, 0.15650201, 6.049114)
+operation = 2
+size = Vector3(0.5357176, 3.7522154, 24.608738)
+material = SubResource("StandardMaterial3D_nkhga")
+
+[node name="Wall4a_hole1" parent="Office/Wall_4a" parent_id_path=PackedInt32Array(1893820020, 2053911992) index="1" unique_id=1922502055]
+transform = Transform3D(2.0000005, 1.9495658e-08, -1.7476268e-05, -8.742313e-08, 0.445982, -2.1852868e-08, 6.990787e-05, 1.9494442e-08, 0.5, 0.09716272, -1.1797128, 1.5943271)
+size = Vector3(0.17608589, 3.521934, 2.2345734)
 
 [node name="Wall2_hole" parent="Office/Wall_4a/Wall_4b" parent_id_path=PackedInt32Array(1893820020, 1489335664) index="0" unique_id=1990018354]
-transform = Transform3D(-1.0000001, -5.728751e-13, 3.017485e-07, -1.8758328e-12, 0.44602123, -5.9718896e-13, 6.472692e-07, -1.8363436e-13, -2.0000002, 0.06461048, -6.347094, -3.1204531)
-size = Vector3(0.29765105, 15.908873, 1.1222296)
+transform = Transform3D(-1.0000001, -5.888623e-13, 3.017485e-07, -1.8758328e-12, 0.44602293, -1.1940449e-12, 6.472692e-07, -1.7602239e-13, -2.0000002, 0.06461048, -5.9334164, -3.1204531)
+size = Vector3(0.29765105, 17.76384, 1.1222296)
 
 [node name="Wall4_Window" parent="Office/Wall_4a/Wall_4b" parent_id_path=PackedInt32Array(1893820020, 1489335664) index="1" unique_id=260762076]
 transform = Transform3D(-0.48375946, 7.1054274e-14, 1.6530976e-07, -2.4300562e-12, 5.017688, -3.161582e-12, 4.004687e-08, -5.5566662e-14, -2.078927, 0.0217247, -2.4414272, 11.202533)
@@ -119,7 +127,6 @@ size = Vector3(0.6111069, 1.5600281, 3.67025)
 
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
-visible = false
 
 [node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1307945889]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
@@ -169,8 +176,11 @@ material_override = SubResource("StandardMaterial3D_mswub")
 flip_faces = true
 size = Vector3(0.001, 4.417225, 2.2823694)
 
-[node name="Building_door" parent="." unique_id=174337513 instance=ExtResource("12_mswub")]
-transform = Transform3D(-0.016640255, -3.328784e-09, 1.8092778, -8.825496e-08, 1.3237379, 1.945639e-09, -1.0098768, -1.1562901e-07, -0.029812397, 2.5240936, 1.0195323, 11.944665)
+[node name="OutsidePoster" type="CSGBox3D" parent="." unique_id=1766289633]
+transform = Transform3D(-0.0077745356, -0.9998911, -0.012547264, -0.001129291, -0.012538913, 0.99992085, -0.9999692, 0.0077880695, -0.0010316985, 9.92507, 5.2648716, 12.041991)
+material_override = SubResource("StandardMaterial3D_mswub")
+flip_faces = true
+size = Vector3(0.001, 8.74487, 5.207311)
 
 [node name="DeskMat" parent="." unique_id=619487795 instance=ExtResource("12_smf0o")]
 transform = Transform3D(-0.0007306106, -0.003709298, -0.60557616, 0.20226097, 0.0014358185, -0.0022003052, 0.00058235996, -0.5033315, 0.0044565136, -6.234865, 2.5963936, 8.792976)
@@ -243,13 +253,25 @@ material_override = SubResource("StandardMaterial3D_oldxj")
 mesh = SubResource("CylinderMesh_io27d")
 surface_material_override/0 = SubResource("StandardMaterial3D_4jm02")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=611394538]
+[node name="ExteriorPlayer" type="CharacterBody3D" parent="." unique_id=1884221395]
 script = ExtResource("28_vneqc")
 
-[node name="PitchPivot" type="Node3D" parent="Player" unique_id=1424281955]
+[node name="PitchPivot" type="Node3D" parent="ExteriorPlayer" unique_id=894175347]
 
-[node name="Camera3D" type="Camera3D" parent="Player/PitchPivot" unique_id=1257327394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.150267, 2.9714336, 10.022696)
+[node name="OutsideCamera" type="Camera3D" parent="ExteriorPlayer/PitchPivot" unique_id=330278988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5636069, 2.3364131, 24.500002)
+
+[node name="Building_door" parent="." unique_id=174337513 instance=ExtResource("12_mswub")]
+transform = Transform3D(-0.016640253, -3.7922354e-09, 1.8092778, -8.825495e-08, 1.5080359, 1.945639e-09, -1.0098767, -1.317275e-07, -0.029812397, 2.5240936, 1.0207129, 11.944665)
+
+[node name="InteriorPlayer" type="CharacterBody3D" parent="." unique_id=611394538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.150267, 1.3214335, 10.022696)
+script = ExtResource("28_vneqc")
+
+[node name="PitchPivot" type="Node3D" parent="InteriorPlayer" unique_id=1424281955]
+
+[node name="InsideCamera" type="Camera3D" parent="InteriorPlayer/PitchPivot" unique_id=1257327394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.7677288, 1.560154)
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]

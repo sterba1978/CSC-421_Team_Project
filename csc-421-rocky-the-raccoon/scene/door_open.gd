@@ -1,5 +1,8 @@
 extends Node3D
 
+signal door_state_changed(is_open: bool)
+signal door_opened
+
 enum HingeAxis {
 	X,
 	Y,
@@ -13,9 +16,14 @@ enum HingeAxis {
 @export var anim_time: float = 0.25
 @export var disable_solid_collision_when_open: bool = true
 @export var start_open: bool = false
+@export var hover_highlight_enabled: bool = true
+@export var hover_highlight_color: Color = Color(1.0, 0.92, 0.35, 0.35)
 
 var _is_open := false
 var _closed_angle := 0.0
+var _highlight_targets: Array[MeshInstance3D] = []
+var _highlight_material: StandardMaterial3D
+var _is_highlighted: bool = false
 
 @onready var _click_area: Area3D = get_node_or_null(click_area_path) as Area3D
 @onready var _solid_shape: CollisionShape3D = get_node_or_null(solid_collision_shape_path) as CollisionShape3D
@@ -23,6 +31,7 @@ var _closed_angle := 0.0
 
 func _ready() -> void:
 	_closed_angle = _get_axis_angle()
+	add_to_group("interactable")
 	if _click_area != null:
 		_click_area.input_event.connect(_on_click_area_input_event)
 	else:
@@ -31,6 +40,10 @@ func _ready() -> void:
 	_is_open = start_open
 	if _is_open:
 		_set_door_state(true, false)
+
+	_cache_highlight_targets()
+	_build_highlight_material()
+	set_highlighted(false)
 
 
 func _on_click_area_input_event(
@@ -58,6 +71,23 @@ func close() -> void:
 	_set_door_state(false, true)
 
 
+func interact() -> void:
+	toggle()
+
+
+func set_highlighted(enabled: bool) -> void:
+	if not hover_highlight_enabled:
+		return
+	if _is_highlighted == enabled:
+		return
+	_is_highlighted = enabled
+
+	for mesh in _highlight_targets:
+		if mesh == null:
+			continue
+		mesh.material_overlay = _highlight_material if enabled else null
+
+
 func _set_door_state(open_state: bool, animate: bool) -> void:
 	_is_open = open_state
 
@@ -70,6 +100,9 @@ func _set_door_state(open_state: bool, animate: bool) -> void:
 
 	if not animate:
 		_set_axis_angle(target_angle)
+		door_state_changed.emit(_is_open)
+		if _is_open:
+			door_opened.emit()
 		return
 
 	var tween_property := "rotation_degrees:y"
@@ -83,6 +116,7 @@ func _set_door_state(open_state: bool, animate: bool) -> void:
 
 	var t := create_tween()
 	t.tween_property(self, tween_property, target_angle, anim_time)
+	t.finished.connect(_on_tween_finished.bind(_is_open))
 
 
 func _get_axis_angle() -> float:
@@ -106,3 +140,32 @@ func _set_axis_angle(value: float) -> void:
 		HingeAxis.Z:
 			r.z = value
 	rotation_degrees = r
+
+
+func _on_tween_finished(open_state: bool) -> void:
+	door_state_changed.emit(open_state)
+	if open_state:
+		door_opened.emit()
+
+
+func _cache_highlight_targets() -> void:
+	_highlight_targets.clear()
+	_collect_mesh_instances(self)
+
+
+func _collect_mesh_instances(node: Node) -> void:
+	for child in node.get_children():
+		if child is MeshInstance3D:
+			_highlight_targets.append(child as MeshInstance3D)
+		_collect_mesh_instances(child)
+
+
+func _build_highlight_material() -> void:
+	_highlight_material = StandardMaterial3D.new()
+	_highlight_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	_highlight_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	_highlight_material.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
+	_highlight_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_highlight_material.albedo_color = hover_highlight_color
+	_highlight_material.emission_enabled = true
+	_highlight_material.emission = hover_highlight_color
