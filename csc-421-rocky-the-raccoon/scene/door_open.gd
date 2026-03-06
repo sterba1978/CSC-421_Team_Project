@@ -26,7 +26,7 @@ func _ready() -> void:
 	if _click_area != null:
 		_click_area.input_event.connect(_on_click_area_input_event)
 	else:
-		push_warning("office_door_open.gd: ClickArea not found at path '%s'." % click_area_path)
+		push_warning("door_open.gd: ClickArea not found at path '%s'." % click_area_path)
 
 	_is_open = start_open
 	if _is_open:
