@@ -120,16 +120,27 @@ glow_hdr_threshold = 2.0
 glow_hdr_scale = 1.0
 glow_hdr_luminance_cap = 50.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv4lv"]
-shading_mode = 0
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_216wm"]
+
+[sub_resource type="Sky" id="Sky_jey2d"]
+sky_material = SubResource("PanoramaSkyMaterial_216wm")
+
+[sub_resource type="Environment" id="Environment_vc5kc"]
+background_mode = 2
+background_color = Color(0.28515625, 0.277359, 0.277359, 1)
+background_energy_multiplier = 0.25
+sky = SubResource("Sky_jey2d")
+ambient_light_source = 2
+ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
+tonemap_exposure = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jey2d"]
 shading_mode = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_vc5kc"]
 material = SubResource("StandardMaterial3D_jey2d")
-radius = 0.3
-height = 0.4
+radius = 0.15
+height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vc5kc"]
 emission_enabled = true
@@ -137,6 +148,9 @@ emission = Color(0.9044622, 0.91015625, 0.18132019, 1)
 emission_energy_multiplier = 16.0
 emission_on_uv2 = true
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv4lv"]
+shading_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_216wm"]
 shading_mode = 0
@@ -247,7 +261,7 @@ transform = Transform3D(1.7329806, 3.6507845e-07, -2.6978887e-07, 1.4319085e-08,
 size = Vector3(0.001, 3.3203735, 7.7023315)
 
 [node name="Laptop" parent="Decoration/Interior" unique_id=2067945285 instance=ExtResource("14_t8kqr")]
-transform = Transform3D(0.31247357, -0.27481356, 2.1876448e-07, 2.8818238e-07, -6.866328e-08, -0.417774, 0.37703705, 0.22775479, 1.3801564e-07, -5.1774526, 2.9301097, 7.746215)
+transform = Transform3D(0.31247357, -0.27481356, 2.1876448e-07, 2.8818238e-07, -6.866328e-08, -0.417774, 0.37703705, 0.22775479, 1.3801564e-07, -5.1774526, 2.9824572, 7.746215)
 
 [node name="OfficeDesk" parent="Decoration/Interior" unique_id=540058272 instance=ExtResource("11_wscrc")]
 transform = Transform3D(-0.01061815, 0.0024075394, 2.1205583, -7.619613e-08, 1.3794079, -0.0037012382, -1.7431904, -1.4725141e-05, -0.012916778, -7.123657, 2.4914382, 8.116175)
@@ -344,7 +358,8 @@ script = ExtResource("28_vneqc")
 [node name="PitchPivot" type="Node3D" parent="InteriorPlayer" unique_id=1424281955]
 
 [node name="InsideCamera" type="Camera3D" parent="InteriorPlayer/PitchPivot" unique_id=1257327394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.18787, 0.44590282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.0669656, 0.084218025)
+environment = SubResource("Environment_vc5kc")
 
 [node name="building_H_withoutBase2" parent="." unique_id=489801806 instance=ExtResource("30_gj7ui")]
 transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 61.622646)
@@ -365,6 +380,30 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741,
 
 [node name="Clue_UI" parent="." unique_id=1775691411 instance=ExtResource("31_mjuaj")]
 
+[node name="OfficeLight" type="MeshInstance3D" parent="." unique_id=1985874005]
+transform = Transform3D(1, 0, 0, 0, 0.082589686, 0, 0, 0, 1, -5.1598988, 39.192314, -2.9477742)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="OfficeLight" unique_id=1858819117]
+transform = Transform3D(-0.9999967, 0.0025321129, -0.00041282334, 0.004762751, -0.09304568, -12.107692, -0.0025352102, -0.99996734, 0.007683592, 0.17013168, -440.23557, 0.18395424)
+light_energy = 30.0
+light_size = 0.5
+light_specular = 8.132
+spot_range = 5.9561496
+spot_angle = 32.325443
+
+[node name="SpotLight3D" type="SpotLight3D" parent="OfficeLight" unique_id=1192032748]
+transform = Transform3D(0.99934286, -0.036068995, -0.0035881556, 0.03325339, -0.282847, 12.1047, -0.036142834, -0.99907625, -0.023245834, 0.17013168, -430.3167, 0.18395424)
+light_energy = 30.0
+light_size = 0.5
+light_specular = 8.132
+spot_range = 5.9561496
+spot_angle = 32.325443
+
+[node name="Bulb" type="MeshInstance3D" parent="OfficeLight/SpotLight3D" unique_id=189981949]
+transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
+mesh = SubResource("SphereMesh_vc5kc")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
 [node name="StreetLamp" type="Node3D" parent="." unique_id=1846110296]
 
 [node name="SignLight" type="MeshInstance3D" parent="StreetLamp" unique_id=121238881]
@@ -376,23 +415,24 @@ material = SubResource("StandardMaterial3D_cv4lv")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="StreetLamp/SignLight" unique_id=1341920807]
 transform = Transform3D(0.9999471, 0.009639809, -0.0036193219, 0.0060949824, -0.27082077, 0.9626104, 0.008299198, -0.9625815, -0.2708652, 9.900001, 7.8, 12.2)
-light_energy = 40.0
+light_energy = 15.0
 shadow_enabled = true
 spot_range = 30.0
 spot_angle = 90.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StreetLamp" unique_id=506507414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119075775, -1.8329525, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="StreetLamp/MeshInstance3D" unique_id=1778194082]
-transform = Transform3D(0.5681175, -0.0012366277, -0.0035601154, 0.0020035408, -0.022014277, 1.0012865, -0.00074643927, -1.0002909, -0.02203179, 3.1999998, 7.7397833, 13.442768)
+transform = Transform3D(0.9987947, -0.025741812, -0.041794747, 0.03323515, -0.27195054, 0.9617371, -0.036123008, -0.96196723, -0.27076697, 3.1999998, 7.7397833, 12.584957)
 light_energy = 30.0
 light_size = 0.5
 light_specular = 8.132
 spot_range = 25.0
-spot_angle = 60.0
+spot_angle = 25.0
 
 [node name="Bulb" type="MeshInstance3D" parent="StreetLamp/MeshInstance3D/SpotLight3D" unique_id=449337877]
-transform = Transform3D(1, -4.656613e-10, 8.6401997e-10, -4.656613e-10, 1, 0, -8.185452e-11, 0, 1, -0.0011291504, 1.1966524, -0.7337222)
+transform = Transform3D(0.9995769, 0.0014543496, 0.02906057, 0.005891923, 0.96794313, -0.25110173, -0.028494138, 0.25116652, 0.96752506, -0.025823355, 0.6677828, -0.91719913)
 mesh = SubResource("SphereMesh_vc5kc")
 surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
@@ -401,7 +441,7 @@ transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight2" unique_id=1644293248]
 transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -418,7 +458,7 @@ transform = Transform3D(1.7259176, -0.24765402, 32.25512, 0.17555347, 11.517223,
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight6" unique_id=197993375]
 transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -435,7 +475,7 @@ transform = Transform3D(-0.012245297, -0.29181007, 32.301556, 0.5915179, 11.5142
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight9" unique_id=1334064496]
 transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -452,7 +492,7 @@ transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight3" unique_id=1466853988]
 transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -469,7 +509,7 @@ transform = Transform3D(0.13979077, 0.1486671, -32.30892, -0.24766286, 11.518686
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight4" unique_id=440553434]
 transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -486,7 +526,7 @@ transform = Transform3D(-0.8809912, 0.14592612, -32.296494, -0.24768874, 11.5186
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight8" unique_id=21901464]
 transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -503,7 +543,7 @@ transform = Transform3D(-1.1402047, -0.85247123, -32.20176, -0.050417036, 11.488
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight7" unique_id=1123492942]
 transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
@@ -520,7 +560,7 @@ transform = Transform3D(-0.3333569, -0.36232138, -32.2941, -0.6296239, 11.512044
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight5" unique_id=777065443]
 transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 30.0
+light_energy = 15.0
 light_size = 1.0
 light_specular = 8.132
 spot_range = 25.0
