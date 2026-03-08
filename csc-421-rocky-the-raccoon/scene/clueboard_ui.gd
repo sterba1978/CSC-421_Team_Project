@@ -1,6 +1,7 @@
 extends Control
 
 @onready var clueUI = $"../Clue_UI"
+@onready var player = $"../InteriorPlayer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _on_return_button_pressed() -> void:
 	self.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	player._update_crosshair_visibility()
 
 
 func _on_clue_button_1_pressed() -> void:

@@ -11,6 +11,7 @@ var _is_highlighted := false
 @onready var _click_area: Area3D = get_node_or_null(click_area_path) as Area3D
 
 @onready var clueboardui = $"../ClueBoardUI"
+@onready var player = $"../InteriorPlayer"
 
 
 func _ready() -> void:
@@ -42,6 +43,7 @@ func _on_click_area_input_event(
 func interact() -> void:
 	clueboardui.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	player._update_crosshair_visibility()
 
 
 func set_highlighted(enabled: bool) -> void:
