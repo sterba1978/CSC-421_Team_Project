@@ -16,6 +16,15 @@ albedo_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 albedo_texture = ExtResource("1_13kxi")
 albedo_texture_msdf = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_13kxi"]
+size = Vector3(1.1989441, 2.3145752, 1.2461548)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gxah5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffx1q"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
 [node name="FilingCabinet" type="Node3D" unique_id=469106259]
 transform = Transform3D(1.1136127, -1.048452e-08, 0.009010045, 1.1781353e-08, 0.9994084, -1.2192496e-08, -0.008979715, 1.0989831e-08, 1.117374, 0, 0, 0)
 
@@ -72,3 +81,15 @@ material = SubResource("StandardMaterial3D_1jpvt")
 transform = Transform3D(0.20000105, 0, 0, 0, 30.371902, 0, 0, 0, 13.843254, 0.01994046, 0.013687134, -0.0015258789)
 size = Vector3(0.13989258, 0.07550049, 0.2861023)
 material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1377081109]
+transform = Transform3D(1.0000001, -4.0245585e-16, -9.313226e-10, -5.620504e-16, 1.0000001, 0, 0, 8.881784e-16, 1.0000001, -8.8833135e-10, -0.09356932, 9.131537e-10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1381264005]
+transform = Transform3D(1.0000004, -2.1024849e-15, 2.7939677e-09, 9.781759e-14, 1.0000339, -2.4868996e-13, -8.8475645e-08, -9.769963e-15, 1.0000005, 0.5480572, 1.063667, 0.57865375)
+shape = SubResource("BoxShape3D_13kxi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1267038922]
+transform = Transform3D(1.260045, -1.3877788e-14, -1.21071935e-08, -9.311996e-15, 2.603091, 7.1054274e-15, -2.7939677e-09, 1.5987212e-14, 1.2841012, 0.5334333, 0.9704891, 0.61575377)
+mesh = SubResource("BoxMesh_gxah5")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffx1q")
