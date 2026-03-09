@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cr2q3rmrcea12"]
+
+[ext_resource type="Script" uid="uid://c88dv0815cuci" path="res://scene/file_ui.gd" id="1_kxheq"]
+[ext_resource type="Texture2D" uid="uid://dwk11w72ya336" path="res://assets/file2.png" id="2_kxheq"]
+
+[node name="File" type="Control" unique_id=627271888]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxheq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=833029233]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 242.0
+offset_right = 2733.0
+offset_bottom = 1607.0
+texture = ExtResource("2_kxheq")
+expand_mode = 1
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1131895248]
+layout_mode = 0
+offset_left = 1684.0
+offset_top = 90.0
+offset_right = 1851.47
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 28
+text = "Return"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
