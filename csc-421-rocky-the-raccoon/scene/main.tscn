@@ -38,6 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://botcrxvj0c6rg" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_taxi.gltf" id="32_7ty4q"]
 [ext_resource type="PackedScene" uid="uid://dtgh7mpsukxt2" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_stationwagon.gltf" id="33_7xrs8"]
 [ext_resource type="PackedScene" uid="uid://b1o2ipjwihbch" path="res://addons/kaykit_city_builder_bits/Assets/gltf/streetlight.gltf" id="38_216wm"]
+[ext_resource type="PackedScene" uid="uid://ba5rorl2gdmdt" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_F_withoutBase.gltf" id="39_vc5kc"]
+[ext_resource type="PackedScene" uid="uid://bvkqqrivbdhw0" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-a.glb" id="40_cv4lv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -328,10 +330,10 @@ mesh = SubResource("CylinderMesh_io27d")
 surface_material_override/0 = SubResource("StandardMaterial3D_4jm02")
 
 [node name="building-n2" parent="Environment" unique_id=1866627107 instance=ExtResource("22_gtqqq")]
-transform = Transform3D(11.441076, 0, 0, 0, 6.765017, 0, 0, 0, 19.556503, -33.04537, 0, -5.0830803)
+transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559, -0.0063499357, -0.46665114, 0.005569944, 19.54739, -40.396683, 0, -5.0830803)
 
 [node name="building-d2" parent="Environment" unique_id=1410098912 instance=ExtResource("23_gn2wi")]
-transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 29.190397, 0, -1.3864708)
+transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
 
 [node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("20_4jm02")]
 transform = Transform3D(1.1136127, -1.048452e-08, 0.009010045, 1.1781353e-08, 0.9994084, -1.2192496e-08, -0.008979715, 1.0989831e-08, 1.117374, -3.57796, 0.76695645, -3.4827673)
@@ -362,7 +364,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.0669656, 0.084
 environment = SubResource("Environment_vc5kc")
 
 [node name="building_H_withoutBase2" parent="." unique_id=489801806 instance=ExtResource("30_gj7ui")]
-transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 61.622646)
+transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 62.952114)
 
 [node name="car_sedan2" parent="." unique_id=1793649127 instance=ExtResource("31_bmc2w")]
 transform = Transform3D(-0.24169165, 0, 8.061265, 0, 10.892729, 0, -12.113777, 0, -0.16083677, -7.5179634, 0.94280434, 42.692387)
@@ -371,7 +373,7 @@ transform = Transform3D(-0.24169165, 0, 8.061265, 0, 10.892729, 0, -12.113777, 0
 transform = Transform3D(-0.12986876, 0, -7.777898, 0, 7.6547174, 0, 10.027649, 0, -0.100732096, 27.065329, 0.60025644, 21.012653)
 
 [node name="car_stationwagon2" parent="." unique_id=1947218835 instance=ExtResource("33_7xrs8")]
-transform = Transform3D(-9.579016, 0, 0.0011196136, 0, 8.655118, 0, -0.0011706352, 0, -9.164713, 43.80899, 1.4566488, 5.3193016)
+transform = Transform3D(-9.579016, 0, 0.0011196136, 0, 8.655118, 0, -0.0011706352, 0, -9.164713, 47.50369, 1.4566488, 5.3193016)
 
 [node name="ClueBoard1" parent="." unique_id=1421729805 instance=ExtResource("30_fa8t4")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741, 2.2750418, 0.48588872)
@@ -571,6 +573,12 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(-0.80070436, 0.59905255, 0.0026310142, -0.5984061, -0.79962015, -0.050174154, -0.027953139, -0.041749112, 0.9987359, 0.05339241, -0.12270355, -0.13196373)
 mesh = SubResource("SphereMesh_jey2d")
 surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="building_F_withoutBase2" parent="." unique_id=1861490783 instance=ExtResource("39_vc5kc")]
+transform = Transform3D(-11.472189, 0, -0.27438435, 0, 15.172017, 0, 0.18162009, 0, -17.331718, 2.332748, -1.0499029, 62.7546)
+
+[node name="building-a2" parent="." unique_id=1005441965 instance=ExtResource("40_cv4lv")]
+transform = Transform3D(31.921572, 0, 0, 0, 23.578524, 0, 0, 0, 25.67903, 33.958084, -0.06748772, 62.27114)
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
