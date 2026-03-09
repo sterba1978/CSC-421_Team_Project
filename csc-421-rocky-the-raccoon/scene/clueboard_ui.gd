@@ -3,6 +3,7 @@ extends Control
 signal clue_selected(clue_text: String)
 
 @onready var clueUI = $"../Clue_UI"
+@onready var player = $"../InteriorPlayer"
 
 @export var clue_1_text: String = "Clue 1 selected"
 @export var clue_2_text: String = "Clue 2 selected"
@@ -22,6 +23,7 @@ func _on_return_button_pressed() -> void:
 	self.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	player._update_crosshair_visibility()
 
 
 func _on_clue_button_1_pressed() -> void:
