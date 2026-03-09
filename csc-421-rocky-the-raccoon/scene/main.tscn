@@ -582,7 +582,6 @@ transform = Transform3D(-11.472189, 0, -0.27438435, 0, 15.172017, 0, 0.18162009,
 transform = Transform3D(31.921572, 0, 0, 0, 23.578524, 0, 0, 0, 25.67903, 33.958084, -0.06748772, 62.27114)
 
 [node name="File" parent="." unique_id=627271888 instance=ExtResource("41_cv4lv")]
-visible = false
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 12.0

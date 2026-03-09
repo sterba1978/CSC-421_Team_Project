@@ -18,6 +18,7 @@ var _journal_entry_label: Label
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
 @onready var clueUI = $Clue_UI
+@onready var file = $File
 
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _ready() -> void:
 	## Hiding UI's
 	clueboardUI.hide()
 	clueUI.hide()
+	file.hide()
 
 	_ensure_journal_ui()
 	_set_journal_entry(journal_default_text)
