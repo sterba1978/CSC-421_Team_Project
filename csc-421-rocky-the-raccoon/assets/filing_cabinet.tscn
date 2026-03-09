@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk5tdqmwscjmi"]
 
 [ext_resource type="Texture2D" uid="uid://c0ye7u6x24k3q" path="res://addons/material/Metal/Metal_18-512x512.png" id="1_13kxi"]
+[ext_resource type="Script" uid="uid://c4gi6vsrdowha" path="res://assets/filing_cabinet_open.gd" id="1_gxah5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahw5s"]
 no_depth_test = true
@@ -27,6 +28,7 @@ albedo_color = Color(1, 1, 1, 0)
 
 [node name="FilingCabinet" type="Node3D" unique_id=469106259]
 transform = Transform3D(1.1136127, -1.048452e-08, 0.009010045, 1.1781353e-08, 0.9994084, -1.2192496e-08, -0.008979715, 1.0989831e-08, 1.117374, 0, 0, 0)
+script = ExtResource("1_gxah5")
 
 [node name="Filing_Cabinet" type="CSGBox3D" parent="." unique_id=755270678]
 transform = Transform3D(0.011483966, 4.6064002e-08, 1.0033116, -5.719688e-08, 1.0000001, -5.6734727e-08, -0.99656796, -4.5384738e-08, 0.011483971, 0.55309796, 0.99021494, 0.5578749)
