@@ -5,16 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://cqmdand3an5x1" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-center.glb" id="3_oldxj"]
 [ext_resource type="PackedScene" uid="uid://bppcp5xvmoy10" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-corner.glb" id="4_4jm02"]
 [ext_resource type="Texture2D" uid="uid://dhg7flrolnpvt" path="res://addons/material/Stone/Stone_08-512x512.png" id="4_of57s"]
+[ext_resource type="Texture2D" uid="uid://drtwdebxogdx7" path="res://addons/material/Tile/Tile_16-512x512.png" id="5_2km5d"]
 [ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="5_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://d32sgvphnfnx0" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-side.glb" id="5_vneqc"]
+[ext_resource type="Texture2D" uid="uid://c2ro1tesc4fb5" path="res://addons/material/Plaster/Plaster_01-512x512.png" id="6_rhsrv"]
 [ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="6_tqoya"]
+[ext_resource type="PackedScene" uid="uid://bm176r27ixm7h" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/laptop.glb" id="7_rhsrv"]
 [ext_resource type="Texture2D" uid="uid://c3lr2byhh8t7m" path="res://addons/material/Plaster/Plaster_08-512x512.png" id="8_wscrc"]
 [ext_resource type="PackedScene" uid="uid://luh60yk5bsm4" path="res://assets/office_desk.tscn" id="11_wscrc"]
 [ext_resource type="PackedScene" uid="uid://cup1d16j06kha" path="res://scene/building_door.tscn" id="12_mswub"]
 [ext_resource type="PackedScene" uid="uid://deck1o0l6wukw" path="res://assets/desk_mat.tscn" id="12_smf0o"]
 [ext_resource type="PackedScene" uid="uid://67cacspodmxr" path="res://assets/office.tscn" id="13_tv8i1"]
 [ext_resource type="PackedScene" uid="uid://8mxxxbagvtwk" path="res://addons/kaykit_furniture_bits/Assets/gltf/chair_C.gltf" id="14_fdqew"]
-[ext_resource type="PackedScene" uid="uid://ddum5ndxegpnt" path="res://assets/laptop.tscn" id="14_t8kqr"]
 [ext_resource type="PackedScene" uid="uid://cy8yr4ivirw83" path="res://addons/kaykit_furniture_bits/Assets/gltf/chair_B.gltf" id="15_0d4pv"]
 [ext_resource type="PackedScene" uid="uid://cfarf1jkhybuf" path="res://addons/kaykit_furniture_bits/Assets/gltf/couch.gltf" id="16_gtqqq"]
 [ext_resource type="PackedScene" uid="uid://cjm7rvuakb1tc" path="res://addons/kaykit_furniture_bits/Assets/gltf/shelf_B_large_decorated.gltf" id="17_gn2wi"]
@@ -41,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://bvkqqrivbdhw0" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-a.glb" id="40_cv4lv"]
 [ext_resource type="PackedScene" path="res://scene/file.tscn" id="41_cv4lv"]
 [ext_resource type="PackedScene" uid="uid://c4f1qo7jet4pa" path="res://addons/Furniture Kit/Models/GLTF format/lampWall.glb" id="41_fyltn"]
+[ext_resource type="PackedScene" uid="uid://2o70amaqgn3d" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/ceilingFan.glb" id="44_abiby"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -48,6 +51,12 @@ albedo_color = Color(0.35546875, 0.2513275, 0.2513275, 1)
 albedo_texture = ExtResource("8_wscrc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkhga"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhsrv"]
+albedo_texture = ExtResource("5_2km5d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roof_flat_center2"]
+albedo_texture = ExtResource("6_rhsrv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mswub"]
 albedo_texture = ExtResource("6_tqoya")
@@ -226,6 +235,11 @@ transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.43
 
 [node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
+material_override = SubResource("StandardMaterial3D_rhsrv")
+surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
+
+[node name="laptop" parent="Office/roof-flat-center2" unique_id=1838807121 instance=ExtResource("7_rhsrv")]
+transform = Transform3D(0.20600957, 0, -0.18247284, 0, 3.3748407, 0, 0.15423827, 0, 0.24372129, -0.48925114, -6.3575745, 0.7124019)
 
 [node name="roof-flat-corner2" parent="Office" unique_id=474952056 instance=ExtResource("4_4jm02")]
 transform = Transform3D(1.580029, 0, 0, 0, 0.8348803, 0, 0, 0, 1.57444, 18.18663, 4.167302, 12.773447)
@@ -277,9 +291,6 @@ size = Vector3(0.001, 0.8385191, 7.6980095)
 [node name="CSGBox3D4" parent="Decoration/Interior/DeskMat/D_Mat" index="3" unique_id=1122950]
 transform = Transform3D(1.7329806, 3.6507845e-07, -2.6978887e-07, 1.4319085e-08, 0.999987, -3.678724e-08, -6.686241e-08, -3.1664968e-08, 0.9999646, 0.22563744, -0.02301979, 0.009090424)
 size = Vector3(0.001, 3.3203735, 7.7023315)
-
-[node name="Laptop" parent="Decoration/Interior" unique_id=2067945285 instance=ExtResource("14_t8kqr")]
-transform = Transform3D(0.31247357, -0.27481356, 2.1876448e-07, 2.8818238e-07, -6.866328e-08, -0.417774, 0.37703705, 0.22775479, 1.3801564e-07, -5.1774526, 2.9824572, 7.746215)
 
 [node name="OfficeDesk" parent="Decoration/Interior" unique_id=540058272 instance=ExtResource("11_wscrc")]
 transform = Transform3D(-0.01061815, 0.0024075394, 2.1205583, -7.619613e-08, 1.3794079, -0.0037012382, -1.7431904, -1.4725141e-05, -0.012916778, -7.123657, 2.4914382, 8.116175)
@@ -613,6 +624,9 @@ spot_angle = 38.51
 transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
 mesh = SubResource("SphereMesh_2km5d")
 surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="ceilingFan" parent="." unique_id=1634650089 instance=ExtResource("44_abiby")]
+transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.213538, 8.834871, 5.311745)
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]

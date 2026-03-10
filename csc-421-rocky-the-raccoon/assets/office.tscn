@@ -15,6 +15,10 @@ uv2_triplanar = true
 uv2_triplanar_sharpness = 78.79333
 uv2_world_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall1"]
+transparency = 1
+albedo_texture = ExtResource("1_x5vkl")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi6gp"]
 albedo_texture = ExtResource("2_b72eb")
 uv1_triplanar = true
@@ -30,6 +34,18 @@ uv1_world_triplanar = true
 uv2_triplanar = true
 uv2_triplanar_sharpness = 150.0
 uv2_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall4b"]
+transparency = 1
+albedo_texture = ExtResource("1_x5vkl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall2b"]
+transparency = 1
+albedo_texture = ExtResource("1_x5vkl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall3"]
+transparency = 1
+albedo_texture = ExtResource("1_x5vkl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yxyl"]
 transparency = 3
@@ -71,7 +87,7 @@ transform = Transform3D(0.8206144, 0, 0, 0, 1, 0, 0, 0, 0.84536386, 0, 0, 0)
 transform = Transform3D(-0.01952714, 9.79117e-08, 3.593718, -1.4012937e-07, 2.2399995, -1.580462e-07, -3.205787, -9.850992e-08, -0.021890126, -8.403077, 2.192347, -4.233326)
 use_collision = true
 size = Vector3(0.083544925, 1.7515626, 4.7892303)
-material = SubResource("StandardMaterial3D_63slf")
+material = SubResource("StandardMaterial3D_wall1")
 
 [node name="Wall1_hole" type="CSGBox3D" parent="Wall_1" unique_id=492500122]
 transform = Transform3D(1, 1.1279866e-13, 4.656613e-10, 2.1316282e-14, 0.44643894, -7.879114e-13, 0, 2.3056557e-13, 0.50000006, 0.02410543, -0.33914894, -0.055354357)
@@ -87,7 +103,7 @@ material = SubResource("StandardMaterial3D_wi6gp")
 [node name="Wall_2b" type="CSGBox3D" parent="Wall_2a" unique_id=1445706215]
 transform = Transform3D(1, 6.661338e-16, -9.313226e-10, -4.8860915e-13, 1, 5.8264504e-13, 0, 7.1054274e-15, 1, -0.13069344, 0.0047483444, -0.0019965172)
 size = Vector3(0.21108398, 3.9321532, 15.408885)
-material = SubResource("StandardMaterial3D_plo8q")
+material = SubResource("StandardMaterial3D_wall2b")
 
 [node name="Wall2_hole" type="CSGBox3D" parent="Wall_2a/Wall_2b" unique_id=206027873]
 transform = Transform3D(1.5971962, 4.355651e-08, -0.0035430708, -6.981014e-08, 1, -4.3557158e-08, 0.005658797, 4.371111e-08, 0.9999944, -0.015301153, -0.07867361, -2.072395)
@@ -108,7 +124,7 @@ material = SubResource("StandardMaterial3D_plo8q")
 [node name="Wall_3" type="CSGBox3D" parent="." unique_id=1337542510]
 transform = Transform3D(-1.6493486, 1.951365e-08, -0.012343545, 7.253579e-08, 0.44642854, -8.857861e-08, 0.010046681, -1.9632866e-08, -2.0264428, 0.018503496, 2.2006621, 4.794453)
 size = Vector3(0.3, 8.76051, 9.070435)
-material = SubResource("StandardMaterial3D_plo8q")
+material = SubResource("StandardMaterial3D_wall3")
 
 [node name="Wall_4a" type="CSGBox3D" parent="." unique_id=2053911992]
 transform = Transform3D(-0.012298646, 2.6783087e-10, 1.7973515, 1.6457236e-12, 1.0002389, -4.8129317e-10, -2.0075583, -8.1196145e-13, -0.011010885, 1.2046076, 2.2148118, 14.14154)
@@ -124,7 +140,7 @@ size = Vector3(0.17608589, 4.8921795, 2.2345734)
 [node name="Wall_4b" type="CSGBox3D" parent="Wall_4a" unique_id=1489335664]
 transform = Transform3D(-0.84113663, 8.711435e-09, 1.7556828e-05, 3.6766814e-08, 0.19929668, 2.1855833e-08, -2.9636547e-05, 8.712068e-09, -0.49999997, 0.05755949, 0.0072464943, 0.025181651)
 size = Vector3(0.14452514, 19.680304, 40.447113)
-material = SubResource("StandardMaterial3D_plo8q")
+material = SubResource("StandardMaterial3D_wall4b")
 
 [node name="Wall2_hole" type="CSGBox3D" parent="Wall_4a/Wall_4b" unique_id=1990018354]
 transform = Transform3D(-1, -5.6088467e-13, 3.017485e-07, -1.8474111e-12, 0.44601825, 5.681011e-13, 6.509945e-07, -1.9823726e-13, -2.0000002, 0.06461048, -4.4096074, -3.1204524)
