@@ -165,11 +165,12 @@ sky_material = SubResource("PanoramaSkyMaterial_216wm")
 [sub_resource type="Environment" id="Environment_vc5kc"]
 background_mode = 2
 background_color = Color(0.28515625, 0.277359, 0.277359, 1)
-background_energy_multiplier = 0.25
+background_energy_multiplier = 0.1
 sky = SubResource("Sky_jey2d")
 ambient_light_source = 2
 ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
-tonemap_exposure = 0.25
+ambient_light_energy = 0.5
+tonemap_exposure = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv4lv"]
 shading_mode = 0
