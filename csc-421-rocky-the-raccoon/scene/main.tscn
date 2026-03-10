@@ -23,15 +23,14 @@
 [ext_resource type="PackedScene" uid="uid://dk5tdqmwscjmi" path="res://assets/filing_cabinet.tscn" id="20_4jm02"]
 [ext_resource type="PackedScene" uid="uid://guxpl27v6wmf" path="res://scene/Office_door.tscn" id="21_fdqew"]
 [ext_resource type="PackedScene" uid="uid://e6igiolmds3q" path="res://addons/kaykit_furniture_bits/Assets/gltf/lamp_standing.gltf" id="21_vneqc"]
-[ext_resource type="Texture2D" uid="uid://dm7vado43hscb" path="res://cartoon_sky_panorama_4096x2048.png" id="22_7xrs8"]
 [ext_resource type="PackedScene" uid="uid://54xrqvr5c88h" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-n.glb" id="22_gtqqq"]
+[ext_resource type="Texture2D" uid="uid://ckcanld7b0mri" path="res://digital-art-sky.png" id="22_vc5kc"]
 [ext_resource type="PackedScene" uid="uid://c5j2f77nw3fal" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-d.glb" id="23_gn2wi"]
 [ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="27_4jm02"]
 [ext_resource type="Script" uid="uid://c0g72fn513uwq" path="res://scene/player_FPS.gd" id="28_vneqc"]
 [ext_resource type="Script" uid="uid://b0v4hcbm1xpfg" path="res://scene/main_flow.gd" id="29_k8u6l"]
 [ext_resource type="PackedScene" uid="uid://cce3oci0d6152" path="res://scene/clueboard1.tscn" id="30_fa8t4"]
 [ext_resource type="PackedScene" uid="uid://mbypbub7gg8p" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_H_withoutBase.gltf" id="30_gj7ui"]
-[ext_resource type="Texture2D" uid="uid://dmt01fvoswooa" path="res://noir_sky_panorama_4096x2048.png" id="30_kpobt"]
 [ext_resource type="PackedScene" uid="uid://dp4bb6e5ona40" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_sedan.gltf" id="31_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://dddmbuyx15y10" path="res://scene/clue_ui.tscn" id="31_mjuaj"]
 [ext_resource type="PackedScene" uid="uid://ds2e63tairfv5" path="res://scene/clueboard_ui.tscn" id="31_rg6nf"]
@@ -64,8 +63,8 @@ texture_repeat_mode = 1
 metadata/_custom_type_script = "uid://bli432i5uj51v"
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kpobt"]
-panorama = ExtResource("22_7xrs8")
-energy_multiplier = 2.0
+panorama = ExtResource("22_vc5kc")
+energy_multiplier = 0.0
 
 [sub_resource type="Sky" id="Sky_0d4pv"]
 sky_material = SubResource("PanoramaSkyMaterial_kpobt")
@@ -74,9 +73,11 @@ radiance_size = 6
 
 [sub_resource type="Environment" id="Environment_gtqqq"]
 background_mode = 2
+background_energy_multiplier = 2.0
 sky = SubResource("Sky_0d4pv")
 ambient_light_source = 2
 ambient_light_color = Color(0.21875, 0.21789551, 0.21789551, 1)
+ambient_light_energy = 2.54
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.58062744, 0.69102716, 0.984375, 1)
@@ -106,16 +107,21 @@ albedo_color = Color(0.375, 0.36328125, 0.36328125, 1)
 albedo_texture = ExtResource("27_4jm02")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7xrs8"]
-panorama = ExtResource("30_kpobt")
+panorama = ExtResource("22_vc5kc")
+energy_multiplier = 0.05
 
 [sub_resource type="Sky" id="Sky_kpobt"]
 sky_material = SubResource("PanoramaSkyMaterial_7xrs8")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_216wm"]
 background_mode = 2
 background_color = Color(0, 0.36078432, 0, 1)
+background_energy_multiplier = 0.21
 sky = SubResource("Sky_kpobt")
-ambient_light_sky_contribution = 0.06
+sky_rotation = Vector3(-0.4607669, -3.6966074, 0.09424778)
+ambient_light_sky_contribution = 0.2
+ambient_light_energy = 0.19
 glow_enabled = true
 glow_strength = 0.5
 glow_bloom = 0.5
