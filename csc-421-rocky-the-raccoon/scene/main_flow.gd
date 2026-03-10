@@ -123,22 +123,28 @@ func _ensure_journal_ui() -> void:
 	panel.anchor_top = 0.0
 	panel.anchor_right = 1.0
 	panel.anchor_bottom = 0.0
-	panel.offset_left = -360.0
-	panel.offset_top = 24.0
-	panel.offset_right = -24.0
-	panel.offset_bottom = 176.0
+	panel.offset_left = -260.0
+	panel.offset_top = 16.0
+	panel.offset_right = -16.0
+	panel.offset_bottom = 112.0
 	root.add_child(panel)
 
 	var content := VBoxContainer.new()
 	content.add_theme_constant_override("separation", 8)
+	content.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	panel.add_child(content)
 
 	var title := Label.new()
 	title.text = journal_title
+	title.add_theme_font_size_override("font_size", 20)
+	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	content.add_child(title)
 
 	_journal_entry_label = Label.new()
 	_journal_entry_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_journal_entry_label.add_theme_font_size_override("font_size", 14)
+	_journal_entry_label.custom_minimum_size = Vector2(220.0, 0.0)
+	_journal_entry_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	content.add_child(_journal_entry_label)
 
 
