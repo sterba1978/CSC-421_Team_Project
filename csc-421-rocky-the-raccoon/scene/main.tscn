@@ -76,6 +76,22 @@ emission_energy_multiplier = 16.0
 emission_on_uv2 = true
 uv1_triplanar = true
 
+[sub_resource type="SphereMesh" id="SphereMesh_2km5d"]
+material = SubResource("StandardMaterial3D_jey2d")
+radius = 0.15
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv4lv"]
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_216wm"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_jey2d"]
+material = SubResource("StandardMaterial3D_216wm")
+radius = 0.6
+height = 1.5
+
 [sub_resource type="Resource" id="Resource_p1hux"]
 script = ExtResource("3_0ha60")
 tileset_texture = ExtResource("4_of57s")
@@ -172,22 +188,6 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.5
 tonemap_exposure = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv4lv"]
-shading_mode = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_216wm"]
-shading_mode = 0
-
-[sub_resource type="SphereMesh" id="SphereMesh_jey2d"]
-material = SubResource("StandardMaterial3D_216wm")
-radius = 0.6
-height = 1.5
-
-[sub_resource type="SphereMesh" id="SphereMesh_2km5d"]
-material = SubResource("StandardMaterial3D_jey2d")
-radius = 0.15
-height = 0.2
-
 [node name="main" type="Node3D" unique_id=1500498533]
 script = ExtResource("29_k8u6l")
 
@@ -234,7 +234,7 @@ size = Vector3(0.6111069, 1.5600281, 3.67025)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 material_override = SubResource("StandardMaterial3D_rhsrv")
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
@@ -344,6 +344,26 @@ light_specular = 8.132
 spot_range = 3.6342661
 spot_angle = 32.325443
 
+[node name="lampWall" parent="Decoration/Interior" unique_id=1005000374 instance=ExtResource("41_fyltn")]
+transform = Transform3D(0.05665448, 0.1317735, 8.846394, 0.025017552, -7.46588, 0.15583175, 6.2825155, 0.028541686, -0.080396734, -13.7142515, 5.730563, 2.2260733)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Decoration/Interior/lampWall" unique_id=1977005082]
+transform = Transform3D(0.0019365, -0.1591506, 0.00027266736, -0.00909569, -0.00034636047, -0.13359977, 0.11281707, 0.0018554982, -0.006746954, -0.0018788874, -0.0138129, 0.011613131)
+light_energy = 30.0
+light_size = 0.5
+light_specular = 8.132
+spot_range = 5.9561496
+spot_attenuation = 1.58
+spot_angle = 38.51
+
+[node name="Bulb" type="MeshInstance3D" parent="Decoration/Interior/lampWall/SpotLight3D3" unique_id=811800168]
+transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
+mesh = SubResource("SphereMesh_2km5d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="ceilingFan" parent="Decoration/Interior" unique_id=1634650089 instance=ExtResource("44_abiby")]
+transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.213538, 8.834871, 5.311745)
+
 [node name="Exterior" type="Node" parent="Decoration" unique_id=1112303542]
 
 [node name="OutsidePoster" type="CSGBox3D" parent="Decoration/Exterior" unique_id=1766289633]
@@ -354,6 +374,192 @@ size = Vector3(0.001, 8.74487, 5.207311)
 
 [node name="dumpster2" parent="Decoration/Exterior" unique_id=1198916792 instance=ExtResource("5_b5f6u")]
 transform = Transform3D(0.06834391, 0, -10.222415, 0, 8.818269, 0, 6.440243, 0, 0.10848034, -15.909776, 0.37629747, 8.674659)
+
+[node name="StreetLamp" type="Node3D" parent="Decoration/Exterior" unique_id=1846110296]
+
+[node name="SignLight" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp" unique_id=121238881]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Decoration/Exterior/StreetLamp/SignLight" unique_id=1383624831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89423, 8.054527, 12.189583)
+size = Vector3(8.854614, 0.36035156, 0.4013672)
+material = SubResource("StandardMaterial3D_cv4lv")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/SignLight" unique_id=1341920807]
+transform = Transform3D(0.9999471, 0.009639809, -0.0036193219, 0.0060949824, -0.27082077, 0.9626104, 0.008299198, -0.9625815, -0.2708652, 9.900001, 7.8, 12.2)
+light_energy = 15.0
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp" unique_id=506507414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119075775, -1.8329525, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/MeshInstance3D" unique_id=1778194082]
+transform = Transform3D(0.9987947, -0.025741812, -0.041794747, 0.03323515, -0.27195054, 0.9617371, -0.036123008, -0.96196723, -0.27076697, 3.1999998, 7.7397833, 12.584957)
+light_energy = 30.0
+light_size = 0.5
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 25.0
+
+[node name="Bulb" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/MeshInstance3D/SpotLight3D" unique_id=449337877]
+transform = Transform3D(0.9995769, 0.0014543496, 0.02906057, 0.005891923, 0.96794313, -0.25110173, -0.028494138, 0.25116652, 0.96752506, -0.025823355, 0.6677828, -0.91719913)
+mesh = SubResource("SphereMesh_vc5kc")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight2" parent="Decoration/Exterior/StreetLamp" unique_id=1020225387 instance=ExtResource("38_216wm")]
+transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, -48.54716, 0, 16.24086)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight2" unique_id=1644293248]
+transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb2" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight2/SpotLight3D2" unique_id=942928520]
+transform = Transform3D(0.7793052, -0.6218326, -0.07750899, 0.62505865, 0.7801588, 0.025586937, 0.044558484, -0.06838766, 0.9966638, 0.16424942, -0.10645676, -0.25933838)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight6" parent="Decoration/Exterior/StreetLamp" unique_id=1879369655 instance=ExtResource("38_216wm")]
+transform = Transform3D(1.7259176, -0.24765402, 32.25512, 0.17555347, 11.517223, 0.68564516, -31.198973, 0.051106274, 1.788201, -14.311365, 0, 16.117332)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight6" unique_id=197993375]
+transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb3" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight6/SpotLight3D2" unique_id=1010521195]
+transform = Transform3D(0.78027475, -0.6216799, -0.068443984, 0.62294924, 0.7822534, -0.003513841, 0.055725064, -0.03989535, 0.9976474, 0.12662792, -0.14712524, -0.2263956)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight9" parent="Decoration/Exterior/StreetLamp" unique_id=1821286560 instance=ExtResource("38_216wm")]
+transform = Transform3D(-0.012245297, -0.29181007, 32.301556, 0.5915179, 11.514238, 0.8185785, -31.241566, 0.21812154, 0.0028378963, 20.158531, 0, 16.117332)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight9" unique_id=1334064496]
+transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb4" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight9/SpotLight3D2" unique_id=1438877082]
+transform = Transform3D(0.80740243, -0.5899637, -0.0065043797, 0.58959645, 0.8063927, 0.04589377, -0.021830583, -0.04088974, 0.9989245, 0.102176666, -0.25013542, -0.22999191)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight3" parent="Decoration/Exterior/StreetLamp" unique_id=2032313876 instance=ExtResource("38_216wm")]
+transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, 54.181465, 0, 16.24086)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight3" unique_id=1466853988]
+transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb5" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight3/SpotLight3D2" unique_id=959664379]
+transform = Transform3D(0.77930474, -0.62183285, -0.077509, 0.62505853, 0.7801582, 0.025586931, 0.04455846, -0.06838767, 0.9966636, 0.10482788, -0.16158104, -0.12249851)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight4" parent="Decoration/Exterior/StreetLamp" unique_id=31711256 instance=ExtResource("38_216wm")]
+transform = Transform3D(0.13979077, 0.1486671, -32.30892, -0.24766286, 11.518686, 0.4158346, 31.245874, 0.09063509, 0.14784294, -14.250266, 0, 47.363125)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight4" unique_id=440553434]
+transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb6" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight4/SpotLight3D2" unique_id=1920368774]
+transform = Transform3D(-0.8099088, 0.5857437, 0.030820362, -0.5863247, -0.8099451, -0.014583046, 0.016420867, -0.029881667, 0.99941844, 0.10244846, -0.15096283, -0.16216755)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight8" parent="Decoration/Exterior/StreetLamp" unique_id=705091080 instance=ExtResource("38_216wm")]
+transform = Transform3D(-0.8809912, 0.14592612, -32.296494, -0.24768874, 11.518683, 0.41667473, 31.233765, 0.09546116, -0.9076625, 19.807484, 0, 48.283787)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight8" unique_id=21901464]
+transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb7" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight8/SpotLight3D2" unique_id=661122559]
+transform = Transform3D(-0.79032505, 0.61188453, 0.031348087, -0.6124736, -0.7903655, -0.014045257, 0.016182382, -0.030300163, 0.9994092, 0.07834625, -0.13298798, -0.13430595)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight7" parent="Decoration/Exterior/StreetLamp" unique_id=1821918430 instance=ExtResource("38_216wm")]
+transform = Transform3D(-1.1402047, -0.85247123, -32.20176, -0.050417036, 11.488412, -2.3907495, 31.226318, -0.012578364, -1.179682, 54.989372, 0, 48.283787)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight7" unique_id=1123492942]
+transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb8" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight7/SpotLight3D2" unique_id=1687510064]
+transform = Transform3D(-0.7833224, 0.620165, -0.042449508, -0.617607, -0.7841978, -0.059970483, -0.070480414, -0.02075913, 0.99729705, -0.001335144, -0.118370056, -0.118524075)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="streetlight5" parent="Decoration/Exterior/StreetLamp" unique_id=1276039718 instance=ExtResource("38_216wm")]
+transform = Transform3D(-0.3333569, -0.36232138, -32.2941, -0.6296239, 11.512044, -1.0091668, 31.239046, 0.22815919, -0.36495507, -47.00532, 0, 46.6983)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Exterior/StreetLamp/streetlight5" unique_id=777065443]
+transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
+light_energy = 15.0
+light_size = 1.0
+light_specular = 8.132
+spot_range = 25.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.57434916
+
+[node name="Bulb9" type="MeshInstance3D" parent="Decoration/Exterior/StreetLamp/streetlight5/SpotLight3D2" unique_id=376060120]
+transform = Transform3D(-0.80070436, 0.59905255, 0.0026310142, -0.5984061, -0.79962015, -0.050174154, -0.027953139, -0.041749112, 0.9987359, 0.05339241, -0.12270355, -0.13196373)
+mesh = SubResource("SphereMesh_jey2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
+
+[node name="building_H_withoutBase2" parent="Decoration/Exterior" unique_id=489801806 instance=ExtResource("30_gj7ui")]
+transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 62.952114)
+
+[node name="car_sedan2" parent="Decoration/Exterior" unique_id=1793649127 instance=ExtResource("31_bmc2w")]
+transform = Transform3D(-0.24169165, 0, 8.061265, 0, 10.892729, 0, -12.113777, 0, -0.16083677, -7.5179634, 0.94280434, 42.692387)
+
+[node name="car_taxi2" parent="Decoration/Exterior" unique_id=777205071 instance=ExtResource("32_7ty4q")]
+transform = Transform3D(-0.12986876, 0, -7.777898, 0, 7.6547174, 0, 10.027649, 0, -0.100732096, 27.065329, 0.60025644, 21.012653)
+
+[node name="car_stationwagon2" parent="Decoration/Exterior" unique_id=1947218835 instance=ExtResource("33_7xrs8")]
+transform = Transform3D(-9.579016, 0, 0.0011196136, 0, 8.655118, 0, -0.0011706352, 0, -9.164713, 47.50369, 1.4566488, 5.3193016)
+
+[node name="building_F_withoutBase2" parent="Decoration/Exterior" unique_id=1861490783 instance=ExtResource("39_vc5kc")]
+transform = Transform3D(-11.472189, 0, -0.27438435, 0, 15.172017, 0, 0.18162009, 0, -17.331718, 2.332748, -1.0499029, 62.7546)
+
+[node name="building-a2" parent="Decoration/Exterior" unique_id=1005441965 instance=ExtResource("40_cv4lv")]
+transform = Transform3D(31.921572, 0, 0, 0, 23.578524, 0, 0, 0, 25.67903, 33.958084, -0.06748772, 62.27114)
 
 [node name="Environment" type="Node" parent="." unique_id=369110703]
 
@@ -414,18 +620,6 @@ script = ExtResource("28_vneqc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.0669656, 0.084218025)
 environment = SubResource("Environment_vc5kc")
 
-[node name="building_H_withoutBase2" parent="." unique_id=489801806 instance=ExtResource("30_gj7ui")]
-transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 62.952114)
-
-[node name="car_sedan2" parent="." unique_id=1793649127 instance=ExtResource("31_bmc2w")]
-transform = Transform3D(-0.24169165, 0, 8.061265, 0, 10.892729, 0, -12.113777, 0, -0.16083677, -7.5179634, 0.94280434, 42.692387)
-
-[node name="car_taxi2" parent="." unique_id=777205071 instance=ExtResource("32_7ty4q")]
-transform = Transform3D(-0.12986876, 0, -7.777898, 0, 7.6547174, 0, 10.027649, 0, -0.100732096, 27.065329, 0.60025644, 21.012653)
-
-[node name="car_stationwagon2" parent="." unique_id=1947218835 instance=ExtResource("33_7xrs8")]
-transform = Transform3D(-9.579016, 0, 0.0011196136, 0, 8.655118, 0, -0.0011706352, 0, -9.164713, 47.50369, 1.4566488, 5.3193016)
-
 [node name="ClueBoard1" parent="." unique_id=1421729805 instance=ExtResource("30_fa8t4")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741, 2.2750418, 0.48588872)
 
@@ -433,201 +627,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741,
 
 [node name="Clue_UI" parent="." unique_id=1775691411 instance=ExtResource("31_mjuaj")]
 
-[node name="StreetLamp" type="Node3D" parent="." unique_id=1846110296]
-
-[node name="SignLight" type="MeshInstance3D" parent="StreetLamp" unique_id=121238881]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="StreetLamp/SignLight" unique_id=1383624831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89423, 8.054527, 12.189583)
-size = Vector3(8.854614, 0.36035156, 0.4013672)
-material = SubResource("StandardMaterial3D_cv4lv")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="StreetLamp/SignLight" unique_id=1341920807]
-transform = Transform3D(0.9999471, 0.009639809, -0.0036193219, 0.0060949824, -0.27082077, 0.9626104, 0.008299198, -0.9625815, -0.2708652, 9.900001, 7.8, 12.2)
-light_energy = 15.0
-shadow_enabled = true
-spot_range = 30.0
-spot_angle = 90.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StreetLamp" unique_id=506507414]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119075775, -1.8329525, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="StreetLamp/MeshInstance3D" unique_id=1778194082]
-transform = Transform3D(0.9987947, -0.025741812, -0.041794747, 0.03323515, -0.27195054, 0.9617371, -0.036123008, -0.96196723, -0.27076697, 3.1999998, 7.7397833, 12.584957)
-light_energy = 30.0
-light_size = 0.5
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 25.0
-
-[node name="Bulb" type="MeshInstance3D" parent="StreetLamp/MeshInstance3D/SpotLight3D" unique_id=449337877]
-transform = Transform3D(0.9995769, 0.0014543496, 0.02906057, 0.005891923, 0.96794313, -0.25110173, -0.028494138, 0.25116652, 0.96752506, -0.025823355, 0.6677828, -0.91719913)
-mesh = SubResource("SphereMesh_vc5kc")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight2" parent="StreetLamp" unique_id=1020225387 instance=ExtResource("38_216wm")]
-transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, -48.54716, 0, 16.24086)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight2" unique_id=1644293248]
-transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb2" type="MeshInstance3D" parent="StreetLamp/streetlight2/SpotLight3D2" unique_id=942928520]
-transform = Transform3D(0.7793052, -0.6218326, -0.07750899, 0.62505865, 0.7801588, 0.025586937, 0.044558484, -0.06838766, 0.9966638, 0.16424942, -0.10645676, -0.25933838)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight6" parent="StreetLamp" unique_id=1879369655 instance=ExtResource("38_216wm")]
-transform = Transform3D(1.7259176, -0.24765402, 32.25512, 0.17555347, 11.517223, 0.68564516, -31.198973, 0.051106274, 1.788201, -14.311365, 0, 16.117332)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight6" unique_id=197993375]
-transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb3" type="MeshInstance3D" parent="StreetLamp/streetlight6/SpotLight3D2" unique_id=1010521195]
-transform = Transform3D(0.78027475, -0.6216799, -0.068443984, 0.62294924, 0.7822534, -0.003513841, 0.055725064, -0.03989535, 0.9976474, 0.12662792, -0.14712524, -0.2263956)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight9" parent="StreetLamp" unique_id=1821286560 instance=ExtResource("38_216wm")]
-transform = Transform3D(-0.012245297, -0.29181007, 32.301556, 0.5915179, 11.514238, 0.8185785, -31.241566, 0.21812154, 0.0028378963, 20.158531, 0, 16.117332)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight9" unique_id=1334064496]
-transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb4" type="MeshInstance3D" parent="StreetLamp/streetlight9/SpotLight3D2" unique_id=1438877082]
-transform = Transform3D(0.80740243, -0.5899637, -0.0065043797, 0.58959645, 0.8063927, 0.04589377, -0.021830583, -0.04088974, 0.9989245, 0.102176666, -0.25013542, -0.22999191)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight3" parent="StreetLamp" unique_id=2032313876 instance=ExtResource("38_216wm")]
-transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, 54.181465, 0, 16.24086)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight3" unique_id=1466853988]
-transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb5" type="MeshInstance3D" parent="StreetLamp/streetlight3/SpotLight3D2" unique_id=959664379]
-transform = Transform3D(0.77930474, -0.62183285, -0.077509, 0.62505853, 0.7801582, 0.025586931, 0.04455846, -0.06838767, 0.9966636, 0.10482788, -0.16158104, -0.12249851)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight4" parent="StreetLamp" unique_id=31711256 instance=ExtResource("38_216wm")]
-transform = Transform3D(0.13979077, 0.1486671, -32.30892, -0.24766286, 11.518686, 0.4158346, 31.245874, 0.09063509, 0.14784294, -14.250266, 0, 47.363125)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight4" unique_id=440553434]
-transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb6" type="MeshInstance3D" parent="StreetLamp/streetlight4/SpotLight3D2" unique_id=1920368774]
-transform = Transform3D(-0.8099088, 0.5857437, 0.030820362, -0.5863247, -0.8099451, -0.014583046, 0.016420867, -0.029881667, 0.99941844, 0.10244846, -0.15096283, -0.16216755)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight8" parent="StreetLamp" unique_id=705091080 instance=ExtResource("38_216wm")]
-transform = Transform3D(-0.8809912, 0.14592612, -32.296494, -0.24768874, 11.518683, 0.41667473, 31.233765, 0.09546116, -0.9076625, 19.807484, 0, 48.283787)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight8" unique_id=21901464]
-transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb7" type="MeshInstance3D" parent="StreetLamp/streetlight8/SpotLight3D2" unique_id=661122559]
-transform = Transform3D(-0.79032505, 0.61188453, 0.031348087, -0.6124736, -0.7903655, -0.014045257, 0.016182382, -0.030300163, 0.9994092, 0.07834625, -0.13298798, -0.13430595)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight7" parent="StreetLamp" unique_id=1821918430 instance=ExtResource("38_216wm")]
-transform = Transform3D(-1.1402047, -0.85247123, -32.20176, -0.050417036, 11.488412, -2.3907495, 31.226318, -0.012578364, -1.179682, 54.989372, 0, 48.283787)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight7" unique_id=1123492942]
-transform = Transform3D(-0.02104088, 0.025503013, 1.1552042e-09, -8.765702e-10, -1.14341e-09, 0.08552278, 0.027922183, 0.019217903, 3.5553531e-09, -0.1871618, 0.9124923, 7.763505e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb8" type="MeshInstance3D" parent="StreetLamp/streetlight7/SpotLight3D2" unique_id=1687510064]
-transform = Transform3D(-0.7833224, 0.620165, -0.042449508, -0.617607, -0.7841978, -0.059970483, -0.070480414, -0.02075913, 0.99729705, -0.001335144, -0.118370056, -0.118524075)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="streetlight5" parent="StreetLamp" unique_id=1276039718 instance=ExtResource("38_216wm")]
-transform = Transform3D(-0.3333569, -0.36232138, -32.2941, -0.6296239, 11.512044, -1.0091668, 31.239046, 0.22815919, -0.36495507, -47.00532, 0, 46.6983)
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="StreetLamp/streetlight5" unique_id=777065443]
-transform = Transform3D(-0.019410433, 0.024898328, 1.1757807e-09, -8.0864526e-10, -1.1162994e-09, 0.08704611, 0.02575851, 0.018762238, 3.618681e-09, -0.18716204, 0.91249204, 7.748604e-06)
-light_energy = 15.0
-light_size = 1.0
-light_specular = 8.132
-spot_range = 25.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.57434916
-
-[node name="Bulb9" type="MeshInstance3D" parent="StreetLamp/streetlight5/SpotLight3D2" unique_id=376060120]
-transform = Transform3D(-0.80070436, 0.59905255, 0.0026310142, -0.5984061, -0.79962015, -0.050174154, -0.027953139, -0.041749112, 0.9987359, 0.05339241, -0.12270355, -0.13196373)
-mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="building_F_withoutBase2" parent="." unique_id=1861490783 instance=ExtResource("39_vc5kc")]
-transform = Transform3D(-11.472189, 0, -0.27438435, 0, 15.172017, 0, 0.18162009, 0, -17.331718, 2.332748, -1.0499029, 62.7546)
-
-[node name="building-a2" parent="." unique_id=1005441965 instance=ExtResource("40_cv4lv")]
-transform = Transform3D(31.921572, 0, 0, 0, 23.578524, 0, 0, 0, 25.67903, 33.958084, -0.06748772, 62.27114)
-
 [node name="File" parent="." unique_id=627271888 instance=ExtResource("41_cv4lv")]
-
-[node name="lampWall" parent="." unique_id=1005000374 instance=ExtResource("41_fyltn")]
-transform = Transform3D(0.05665448, 0.1317735, 8.846394, 0.025017552, -7.46588, 0.15583175, 6.2825155, 0.028541686, -0.080396734, -13.7142515, 5.730563, 2.2260733)
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="lampWall" unique_id=1977005082]
-transform = Transform3D(0.0019365, -0.1591506, 0.00027266736, -0.00909569, -0.00034636047, -0.13359977, 0.11281707, 0.0018554982, -0.006746954, -0.0018788874, -0.0138129, 0.011613131)
-light_energy = 30.0
-light_size = 0.5
-light_specular = 8.132
-spot_range = 5.9561496
-spot_attenuation = 1.58
-spot_angle = 38.51
-
-[node name="Bulb" type="MeshInstance3D" parent="lampWall/SpotLight3D3" unique_id=811800168]
-transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
-mesh = SubResource("SphereMesh_2km5d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
-
-[node name="ceilingFan" parent="." unique_id=1634650089 instance=ExtResource("44_abiby")]
-transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.213538, 8.834871, 5.311745)
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
