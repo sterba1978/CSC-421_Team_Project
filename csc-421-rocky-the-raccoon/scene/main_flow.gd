@@ -20,6 +20,9 @@ var _journal_entry_label: Label
 @onready var clueUI = $Clue_UI
 @onready var file = $File
 
+#Dialogue
+@export var dialogue_resource : DialogueResource
+@export var dialogue_start : String = "start"
 
 func _ready() -> void:
 	if _building_door != null and _building_door.has_signal("door_opened"):
@@ -43,6 +46,9 @@ func _ready() -> void:
 
 	if clueboardUI != null and clueboardUI.has_signal("clue_selected"):
 		clueboardUI.clue_selected.connect(_on_clue_selected)
+
+	#DialogueStart
+	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
 
 
 func _on_building_door_opened() -> void:
