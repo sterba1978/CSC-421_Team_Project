@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://e2hxy44legq1"]
 
+[ext_resource type="Resource" uid="uid://crsidt03vjr64" path="res://dialogue/testing/testdialogue.dialogue" id="2_abiby"]
 [ext_resource type="Script" uid="uid://4kv8f8ejgwqn" path="res://addons/TileMapLayer3D/nodes/tilemap_layer_3d.gd" id="2_brvut"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_0ha60"]
 [ext_resource type="PackedScene" uid="uid://cqmdand3an5x1" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-center.glb" id="3_oldxj"]
@@ -190,6 +191,7 @@ tonemap_exposure = 0.1
 
 [node name="main" type="Node3D" unique_id=1500498533]
 script = ExtResource("29_k8u6l")
+dialogue_resource = ExtResource("2_abiby")
 
 [node name="Office" parent="." unique_id=1893820020 instance=ExtResource("13_tv8i1")]
 transform = Transform3D(0.8206144, 0, 0, 0, 2.0044506, 0, 0, 0, 0.84536386, 0.011706352, 0.49168897, 0.011011124)

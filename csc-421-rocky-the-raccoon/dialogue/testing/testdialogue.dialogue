@@ -1,11 +1,5 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Rocky: I can't believe I finally got my own office. Let's head inside to see how it looks.
+Rocky: You can interact with objects that have a yellow highlight when you hover over them with your mouse.
+Rocky: Move your mouse over the door and click your left mouse button to interact with it.
 => END
