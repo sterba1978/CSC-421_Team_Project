@@ -5,6 +5,15 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f0tm"]
 albedo_texture = ExtResource("1_etrb8")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_laptop_screen"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+albedo_color = Color(0.78431374, 0.8784314, 0.9411765, 0.92)
+emission_enabled = true
+emission = Color(0.78431374, 0.8784314, 0.9411765, 1)
+emission_energy_multiplier = 2.8
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_homih"]
 resource_name = "brass"
 cull_mode = 2
@@ -246,7 +255,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bvssy")
 
+[sub_resource type="QuadMesh" id="QuadMesh_laptop_screen"]
+size = Vector2(0.95, 0.62)
+
 [node name="Laptop" type="MeshInstance3D" unique_id=2067945285]
 transform = Transform3D(0.17477202, -0.20964406, 1.4447758e-07, 1.6118555e-07, -5.2380425e-08, -0.27590847, 0.21088353, 0.17374484, 9.114899e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_2f0tm")
 mesh = SubResource("ArrayMesh_n140y")
+
+[node name="ScreenGlow" type="MeshInstance3D" parent="." unique_id=1948605117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.63, 0.86)
+mesh = SubResource("QuadMesh_laptop_screen")
+surface_material_override/0 = SubResource("StandardMaterial3D_laptop_screen")
