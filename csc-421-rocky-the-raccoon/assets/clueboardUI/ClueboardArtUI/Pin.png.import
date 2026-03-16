@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dii5tjdx1m4gf"
-path="res://.godot/imported/clueboard_background.png-dfc0f0bb8470d9dd31341cbfd029d424.ctex"
+uid="uid://cus15b3otpo0s"
+path="res://.godot/imported/Pin.png-d75f7286758c5ad2dc909848d7984d45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/clueboardUI/clueboard_background.png"
-dest_files=["res://.godot/imported/clueboard_background.png-dfc0f0bb8470d9dd31341cbfd029d424.ctex"]
+source_file="res://assets/clueboardUI/ClueboardArtUI/Pin.png"
+dest_files=["res://.godot/imported/Pin.png-d75f7286758c5ad2dc909848d7984d45.ctex"]
 
 [params]
 
