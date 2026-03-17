@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk0s2iqruf8u7"
-path.s3tc="res://.godot/imported/digital-art-sky_panorama_4096x2048.png-01bbd49db7213aa295742689bf2187e0.s3tc.ctex"
+uid="uid://dm181gocem2hb"
+path.s3tc="res://.godot/imported/Detective_Desk_Col_Desk_01.png-9ec6cb6558c63b5518966de8ee10142d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "da3f42c05abe6c6b6d86e171fb3679e8"
+}
 
 [deps]
 
-source_file="res://digital-art-sky_panorama_4096x2048.png"
-dest_files=["res://.godot/imported/digital-art-sky_panorama_4096x2048.png-01bbd49db7213aa295742689bf2187e0.s3tc.ctex"]
+source_file="res://addons/detective_assets/Detective_Desk_Col_Desk_01.png"
+dest_files=["res://.godot/imported/Detective_Desk_Col_Desk_01.png-9ec6cb6558c63b5518966de8ee10142d.s3tc.ctex"]
 
 [params]
 
