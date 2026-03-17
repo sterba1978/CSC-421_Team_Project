@@ -242,7 +242,7 @@ size = Vector3(0.6111069, 1.5600281, 3.67025)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=51706358]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 material_override = SubResource("StandardMaterial3D_rhsrv")
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
@@ -601,7 +601,7 @@ transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559
 transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
 
 [node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("20_4jm02")]
-transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 0.76695645, 10.212935)
+transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 0.76695645, 8.505874)
 
 [node name="Office_door" parent="." unique_id=1006173713 instance=ExtResource("21_fdqew")]
 transform = Transform3D(-0.004874313, 5.9745126e-08, 1.62852, -4.359838e-08, 1.3668255, -7.153359e-08, -0.9974145, -6.003781e-08, -0.007958493, -6.31313, 1.0241319, -3.5551302)
