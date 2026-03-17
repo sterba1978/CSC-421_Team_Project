@@ -1,5 +1,8 @@
 extends Node3D
 
+const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
+const CURSOR_HOTSPOT := Vector2(42, 48)
+
 @export var exterior_player_path: NodePath = ^"ExteriorPlayer"
 @export var interior_player_path: NodePath = ^"InteriorPlayer"
 @export var building_door_path: NodePath = ^"Building_door"
@@ -29,6 +32,8 @@ var _journal_entry_label: Label
 @export var dialogue_start : String = "start"
 
 func _ready() -> void:
+	_apply_custom_cursor()
+
 	if _building_door != null and _building_door.has_signal("door_opened"):
 		_building_door.door_opened.connect(_on_building_door_opened)
 	elif _building_door != null and _building_door.has_signal("door_state_changed"):
@@ -175,3 +180,7 @@ func _has_property(node: Object, property_name: String) -> bool:
 		if prop.get("name", "") == property_name:
 			return true
 	return false
+
+
+func _apply_custom_cursor() -> void:
+	Input.set_custom_mouse_cursor(MAGNIFYING_CURSOR, Input.CURSOR_ARROW, CURSOR_HOTSPOT)
