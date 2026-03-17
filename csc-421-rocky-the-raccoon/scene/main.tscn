@@ -42,9 +42,12 @@
 [ext_resource type="PackedScene" uid="uid://b1o2ipjwihbch" path="res://addons/kaykit_city_builder_bits/Assets/gltf/streetlight.gltf" id="38_216wm"]
 [ext_resource type="PackedScene" uid="uid://ba5rorl2gdmdt" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_F_withoutBase.gltf" id="39_vc5kc"]
 [ext_resource type="PackedScene" uid="uid://bvkqqrivbdhw0" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-a.glb" id="40_cv4lv"]
-[ext_resource type="PackedScene" path="res://scene/file.tscn" id="41_cv4lv"]
+[ext_resource type="PackedScene" uid="uid://bm5kt0kkhckw8" path="res://scene/file.tscn" id="41_cv4lv"]
 [ext_resource type="PackedScene" uid="uid://c4f1qo7jet4pa" path="res://addons/Furniture Kit/Models/GLTF format/lampWall.glb" id="41_fyltn"]
 [ext_resource type="PackedScene" uid="uid://2o70amaqgn3d" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/ceilingFan.glb" id="44_abiby"]
+[ext_resource type="PackedScene" uid="uid://d7xyurl0y5kn" path="res://scene/tab_2.tscn" id="46_mbros"]
+[ext_resource type="PackedScene" uid="uid://c1vmuvx2ql3jp" path="res://scene/tab_3.tscn" id="47_76meg"]
+[ext_resource type="PackedScene" uid="uid://bs20j6lul17wr" path="res://scene/folder.tscn" id="48_ntge4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -236,7 +239,7 @@ size = Vector3(0.6111069, 1.5600281, 3.67025)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=51706358]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 material_override = SubResource("StandardMaterial3D_rhsrv")
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
@@ -629,7 +632,13 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741,
 
 [node name="Clue_UI" parent="." unique_id=1775691411 instance=ExtResource("31_mjuaj")]
 
-[node name="File" parent="." unique_id=627271888 instance=ExtResource("41_cv4lv")]
+[node name="tab1" parent="." unique_id=627271888 instance=ExtResource("41_cv4lv")]
+
+[node name="tab2" parent="." unique_id=1532131812 instance=ExtResource("46_mbros")]
+
+[node name="tab3" parent="." unique_id=763787858 instance=ExtResource("47_76meg")]
+
+[node name="folder" parent="." unique_id=883362783 instance=ExtResource("48_ntge4")]
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]

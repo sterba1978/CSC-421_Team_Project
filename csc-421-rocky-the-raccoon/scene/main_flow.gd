@@ -18,7 +18,11 @@ var _journal_entry_label: Label
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
 @onready var clueUI = $Clue_UI
-@onready var file = $File
+@onready var tab1UI = $tab1
+@onready var tab2UI = $tab2
+@onready var tab3UI = $tab3
+@onready var folder = $folder
+
 
 #Dialogue
 @export var dialogue_resource : DialogueResource
@@ -39,7 +43,10 @@ func _ready() -> void:
 	## Hiding UI's
 	clueboardUI.hide()
 	clueUI.hide()
-	file.hide()
+	tab1UI.hide()
+	tab2UI.hide()
+	tab3UI.hide()
+	folder.hide()
 
 	_ensure_journal_ui()
 	_set_journal_entry(journal_default_text)

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bsb28ak8wex66"]
+
+[ext_resource type="Texture2D" uid="uid://dfy85nokdnyeu" path="res://assets/tab-03.png" id="1_b4off"]
+[ext_resource type="Script" uid="uid://dxrm5h2bq4s42" path="res://scene/tab1_ui.gd" id="2_njiie"]
+
+[node name="tab2" type="Control" unique_id=1532131812]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_njiie")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=897072068]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 339.0
+offset_right = 2814.0
+offset_bottom = 1667.0
+texture = ExtResource("1_b4off")
+expand_mode = 1
+
+[node name="tab1" type="Button" parent="." unique_id=517384917]
+layout_mode = 0
+offset_left = 1071.9999
+offset_top = 491.0
+offset_right = 1222.8124
+offset_bottom = 557.01306
+rotation = -0.07012371
+theme_override_font_sizes/font_size = 28
+text = "Tab 1"
+
+[node name="tab2" type="Button" parent="." unique_id=1209802795]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1345.0001
+offset_top = 468.00003
+offset_right = 1500.7058
+offset_bottom = 539.8585
+rotation = -0.053526856
+theme_override_font_sizes/font_size = 28
+text = "Tab 2"
+
+[node name="tab3" type="Button" parent="." unique_id=1302074304]
+layout_mode = 0
+offset_left = 1652.0001
+offset_top = 459.00006
+offset_right = 1807.3624
+offset_bottom = 524.232
+rotation = 0.089801796
+theme_override_font_sizes/font_size = 28
+text = "Tab 3"

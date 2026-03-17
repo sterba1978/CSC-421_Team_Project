@@ -10,7 +10,7 @@ var _is_highlighted := false
 
 @onready var _click_target: CollisionObject3D = _resolve_click_target()
 
-@onready var tab1UI = $"../folder"
+@onready var cabinetui = $"../File2"
 
 
 func _ready() -> void:
@@ -40,7 +40,7 @@ func _on_click_area_input_event(
 
 
 func interact() -> void:
-	tab1UI.show()
+	cabinetui.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 

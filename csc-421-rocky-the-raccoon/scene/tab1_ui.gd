@@ -2,8 +2,8 @@ extends Control
 
 signal tab_selected(clue_text: String)
 
+#even though this is "tab1_ui" its the ui for all three tabs!
 
-#THIS IS THE SPYWARE FILE
 @onready var tab1UI = $"../tab1"
 @onready var tab2UI = $"../tab2"
 @onready var tab3UI = $"../tab3"
