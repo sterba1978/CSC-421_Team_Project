@@ -55,8 +55,12 @@ func set_highlighted(enabled: bool) -> void:
 	_is_highlighted = enabled
 
 	for mesh in _highlight_targets:
-		if mesh:
-			mesh.material_overlay = _highlight_material if enabled else null
+		if mesh == null or mesh.mesh == null:
+			continue
+		if enabled:
+			mesh.material_overlay = _highlight_material
+		elif mesh.material_overlay == _highlight_material:
+			mesh.material_overlay = null
 
 
 func _cache_highlight_targets() -> void:
@@ -66,7 +70,7 @@ func _cache_highlight_targets() -> void:
 
 func _collect_mesh_instances(node: Node) -> void:
 	for child in node.get_children():
-		if child is MeshInstance3D:
+		if child is MeshInstance3D and child.mesh != null:
 			_highlight_targets.append(child)
 		_collect_mesh_instances(child)
 

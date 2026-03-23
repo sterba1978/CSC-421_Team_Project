@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cncur7mc021rd"]
 
-[ext_resource type="Script" uid="uid://d3xdijqw0alg2" path="res://scene/menu_background_3d.gd" id="1_bg"]
+[ext_resource type="Script" path="res://scene/menu_background_3d.gd" id="1_bg"]
 [ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="3_6fqc7"]
 [ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="3_city"]
 [ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="4_loo8k"]
@@ -416,7 +416,6 @@ transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.43
 
 [node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
-material_override = SubResource("StandardMaterial3D_qppp6")
 surface_material_override/0 = SubResource("StandardMaterial3D_4mkus")
 
 [node name="roof-flat-corner2" parent="Office/roof-flat-center2" unique_id=239718374 instance=ExtResource("25_ks41q")]

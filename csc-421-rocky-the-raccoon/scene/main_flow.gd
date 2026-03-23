@@ -10,13 +10,22 @@ const CURSOR_HOTSPOT := Vector2(42, 48)
 @export var look_mouse_sensitivity: float = 0.0015
 @export var journal_title: String = "Journal"
 @export var journal_default_text: String = "No item selected yet."
+@export var exterior_sign_light_path: NodePath = ^"Environment/Exterior/StreetLamp/SignLight/SpotLight3D"
+@export var exterior_door_light_path: NodePath = ^"Environment/Exterior/StreetLamp/MeshInstance3D/SpotLight3D"
+@export var sign_light_on_energy: float = 15.0
+@export var door_light_on_energy: float = 48.0
+@export var door_light_dim_energy: float = 6.0
+@export var door_light_flicker_speed: float = 4.0
 
 @onready var _exterior_player: Node = get_node_or_null(exterior_player_path)
 @onready var _interior_player: Node = get_node_or_null(interior_player_path)
 @onready var _building_door: Node = get_node_or_null(building_door_path)
+@onready var _sign_light_spot: SpotLight3D = get_node_or_null(exterior_sign_light_path)
+@onready var _door_light_spot: SpotLight3D = get_node_or_null(exterior_door_light_path)
 
 var _transition_queued: bool = false
 var _journal_entry_label: Label
+var _time := 0.0
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
@@ -44,6 +53,7 @@ func _ready() -> void:
 
 	_set_active_player(_exterior_player)
 	_apply_mouse_sensitivity()
+	_apply_sign_light_state()
 	
 	## Hiding UI's
 	clueboardUI.hide()
@@ -61,6 +71,11 @@ func _ready() -> void:
 
 	#DialogueStart
 	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
+
+
+func _process(delta: float) -> void:
+	_time += delta
+	_apply_door_light_flicker()
 
 
 func _on_building_door_opened() -> void:
@@ -184,3 +199,23 @@ func _has_property(node: Object, property_name: String) -> bool:
 
 func _apply_custom_cursor() -> void:
 	Input.set_custom_mouse_cursor(MAGNIFYING_CURSOR, Input.CURSOR_ARROW, CURSOR_HOTSPOT)
+
+
+func _apply_sign_light_state() -> void:
+	if _sign_light_spot != null:
+		_sign_light_spot.light_energy = sign_light_on_energy
+
+
+func _apply_door_light_flicker() -> void:
+	var flicker_pattern := 0.92
+	flicker_pattern += sin(_time * door_light_flicker_speed) * 0.06
+	flicker_pattern += sin((_time * door_light_flicker_speed * 1.73) + 0.8) * 0.04
+
+	var short_dip := pow(max(0.0, sin((_time * door_light_flicker_speed * 2.2) + 0.35)), 18.0) * 0.75
+	var deep_dip := pow(max(0.0, sin((_time * door_light_flicker_speed * 0.9) + 1.4)), 30.0) * 0.9
+	flicker_pattern -= short_dip
+	flicker_pattern -= deep_dip
+	flicker_pattern = clamp(flicker_pattern, 0.0, 1.0)
+
+	if _door_light_spot != null:
+		_door_light_spot.light_energy = lerp(door_light_dim_energy, door_light_on_energy, flicker_pattern)

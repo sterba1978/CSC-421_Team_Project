@@ -2,13 +2,18 @@ extends Control
 
 const GAME_SCENE_PATH := "res://scene/main.tscn"
 const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
-const CURSOR_HOTSPOT := Vector2(42, 48)
+const CURSOR_HOTSPOT := Vector2.ZERO
 
 @onready var _start_button: BaseButton = $Layout/Card/Content/VBox/Buttons/Start
 @onready var _quit_button: BaseButton = $Layout/Card/Content/VBox/Buttons/Quit
+@onready var _start_label: Label = $Layout/Card/Content/VBox/Buttons/Start/Label
+@onready var _menu_viewport: SubViewport = $SubViewportContainer/SubViewport
+
+var _load_requested := false
+var _start_requested := false
 
 func _ready() -> void:
-	_apply_custom_cursor()
+	Input.set_custom_mouse_cursor(MAGNIFYING_CURSOR, Input.CURSOR_ARROW, CURSOR_HOTSPOT)
 
 	if not _start_button.pressed.is_connected(_on_start_pressed):
 		_start_button.pressed.connect(_on_start_pressed)
@@ -18,11 +23,57 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		_quit_button.hide()
 
+	_request_game_scene_load()
+
+
+func _process(_delta: float) -> void:
+	if not _start_requested:
+		return
+
+	var load_status := ResourceLoader.load_threaded_get_status(GAME_SCENE_PATH)
+	if load_status == ResourceLoader.THREAD_LOAD_LOADED:
+		var packed_scene := ResourceLoader.load_threaded_get(GAME_SCENE_PATH) as PackedScene
+		if packed_scene != null:
+			_start_requested = false
+			get_tree().change_scene_to_packed(packed_scene)
+			return
+
+		_finish_start_request(false)
+	elif load_status == ResourceLoader.THREAD_LOAD_FAILED:
+		_finish_start_request(false)
+
+
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(GAME_SCENE_PATH)
+	if _start_requested:
+		return
+
+	_request_game_scene_load()
+	_start_requested = true
+	_start_button.disabled = true
+	_quit_button.disabled = true
+	_start_label.text = "Loading..."
+	if _menu_viewport != null:
+		_menu_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func _apply_custom_cursor() -> void:
-	Input.set_custom_mouse_cursor(MAGNIFYING_CURSOR, Input.CURSOR_ARROW, CURSOR_HOTSPOT)
+
+func _request_game_scene_load() -> void:
+	if _load_requested:
+		return
+
+	var error := ResourceLoader.load_threaded_request(GAME_SCENE_PATH)
+	if error == OK:
+		_load_requested = true
+
+
+func _finish_start_request(keep_loading: bool) -> void:
+	_start_requested = false
+	_start_button.disabled = false
+	_quit_button.disabled = false
+	_start_label.text = "Start"
+	if _menu_viewport != null:
+		_menu_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	if not keep_loading:
+		_load_requested = false

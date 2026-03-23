@@ -1,53 +1,90 @@
 [gd_scene format=3 uid="uid://d7xyurl0y5kn"]
 
-[ext_resource type="Script" uid="uid://dxrm5h2bq4s42" path="res://scene/tab1_ui.gd" id="1_h0i5f"]
-[ext_resource type="Texture2D" uid="uid://b0xyakkfgf4g3" path="res://assets/tab-02.png" id="2_h0i5f"]
+[ext_resource type="Texture2D" uid="uid://b051ai8sgucof" path="res://assets/tab-04.png" id="1_tab1"]
+[ext_resource type="Texture2D" uid="uid://b0xyakkfgf4g3" path="res://assets/tab-02.png" id="2_tab2"]
+[ext_resource type="Texture2D" uid="uid://dfy85nokdnyeu" path="res://assets/tab-03.png" id="3_tab3"]
+[ext_resource type="Script" uid="uid://dxrm5h2bq4s42" path="res://scene/tab1_ui.gd" id="4_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tab1"]
+atlas = ExtResource("1_tab1")
+region = Rect2(149, 7, 9230, 6401)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tab2"]
+atlas = ExtResource("2_tab2")
+region = Rect2(199, 0, 9230, 6401)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tab3"]
+atlas = ExtResource("3_tab3")
+region = Rect2(139, 21, 9230, 6401)
 
 [node name="tab2" type="Control" unique_id=1532131812]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_script")
+tab_1_texture = SubResource("AtlasTexture_tab1")
+tab_2_texture = SubResource("AtlasTexture_tab2")
+tab_3_texture = SubResource("AtlasTexture_tab3")
+
+[node name="FileFrame" type="Control" parent="." unique_id=2082045947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -192.5
+offset_right = 319.0
+offset_bottom = 192.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileCanvas" type="Control" parent="FileFrame" unique_id=1127676681]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_h0i5f")
+offset_right = 638.0
+offset_bottom = 385.0
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=897072068]
+[node name="TextureRect" type="TextureRect" parent="FileFrame/FileCanvas" unique_id=897072068]
 layout_mode = 0
-offset_left = 585.0
-offset_top = 288.0
-offset_right = 2864.0
-offset_bottom = 1663.0
-texture = ExtResource("2_h0i5f")
+offset_right = 638.0
+offset_bottom = 385.0
+texture = SubResource("AtlasTexture_tab2")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="tab1" type="Button" parent="TextureRect" unique_id=544541972]
+[node name="tab1" type="Button" parent="FileFrame/FileCanvas" unique_id=544541972]
 layout_mode = 0
-offset_left = 462.00003
-offset_top = 156.99998
-offset_right = 630.2079
-offset_bottom = 221.79118
+offset_left = 145.0
+offset_top = 43.500004
+offset_right = 188.14
+offset_bottom = 63.500004
 rotation = -0.07012371
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 8
 text = "Tab 1"
 
-[node name="tab2" type="Button" parent="TextureRect" unique_id=1607499165]
+[node name="tab2" type="Button" parent="FileFrame/FileCanvas" unique_id=1607499165]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 763.0
-offset_top = 132.0
-offset_right = 918.7057
-offset_bottom = 203.85849
+offset_left = 220.0
+offset_top = 39.5
+offset_right = 263.5976
+offset_bottom = 59.620377
 rotation = -0.053526856
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 8
 text = "Tab 2"
 
-[node name="tab3" type="Button" parent="TextureRect" unique_id=1484054974]
+[node name="tab3" type="Button" parent="FileFrame/FileCanvas" unique_id=1484054974]
 layout_mode = 0
-offset_left = 1081.801
-offset_top = 116.10394
-offset_right = 1237.1633
-offset_bottom = 190.26793
+offset_left = 301.0
+offset_top = 33.5
+offset_right = 344.34567
+offset_bottom = 53.5
 rotation = 0.089801796
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 8
 text = "Tab 3"
 
 [node name="ReturnButton" type="Button" parent="." unique_id=649973068]
@@ -59,7 +96,7 @@ offset_bottom = 108.0
 theme_override_font_sizes/font_size = 28
 text = "Return"
 
-[connection signal="pressed" from="TextureRect/tab1" to="." method="_on_tab_1_pressed"]
-[connection signal="pressed" from="TextureRect/tab2" to="." method="_on_tab_2_pressed"]
-[connection signal="pressed" from="TextureRect/tab3" to="." method="_on_tab_3_pressed"]
+[connection signal="pressed" from="FileFrame/FileCanvas/tab1" to="." method="_on_tab_1_pressed"]
+[connection signal="pressed" from="FileFrame/FileCanvas/tab2" to="." method="_on_tab_2_pressed"]
+[connection signal="pressed" from="FileFrame/FileCanvas/tab3" to="." method="_on_tab_3_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

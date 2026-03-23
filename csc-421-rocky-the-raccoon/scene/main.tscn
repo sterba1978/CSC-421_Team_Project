@@ -48,13 +48,12 @@
 [ext_resource type="PackedScene" uid="uid://d7xyurl0y5kn" path="res://scene/tab_2.tscn" id="46_mbros"]
 [ext_resource type="PackedScene" uid="uid://c1vmuvx2ql3jp" path="res://scene/tab_3.tscn" id="47_76meg"]
 [ext_resource type="PackedScene" uid="uid://bs20j6lul17wr" path="res://scene/folder.tscn" id="48_ntge4"]
+[ext_resource type="PackedScene" path="res://scene/desk_folder_3d.tscn" id="49_deskfolder"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
 albedo_color = Color(0.35546875, 0.2513275, 0.2513275, 1)
 albedo_texture = ExtResource("8_wscrc")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkhga"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhsrv"]
 albedo_texture = ExtResource("5_2km5d")
@@ -67,6 +66,7 @@ albedo_texture = ExtResource("6_tqoya")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abiby"]
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_vc5kc"]
 material = SubResource("StandardMaterial3D_abiby")
@@ -82,6 +82,7 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jey2d"]
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_2km5d"]
 material = SubResource("StandardMaterial3D_jey2d")
@@ -90,9 +91,11 @@ height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv4lv"]
 shading_mode = 0
+albedo_color = Color(0.8, 0.8, 0.8, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbros"]
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_jey2d"]
 material = SubResource("StandardMaterial3D_mbros")
@@ -219,13 +222,11 @@ material = SubResource("StandardMaterial3D_sxnrf")
 transform = Transform3D(0.7388776, 1.8023949e-08, 0.00041779666, -1.2215452e-07, 1.5082048, -3.2623483e-08, 0.0058511505, 1.9839822e-08, 0.23739105, 0.14814658, -1.1763439, -0.14736557)
 operation = 2
 size = Vector3(0.5357176, 1.6853758, 10.813855)
-material = SubResource("StandardMaterial3D_nkhga")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Office/Wall_4a" parent_id_path=PackedInt32Array(1893820020, 2053911992) index="0" unique_id=289942054]
 transform = Transform3D(-0.67805225, 1.5100918e-05, -0.0036225016, 1.6970293e-05, 0.6731282, -0.00012922051, 0.0032650335, -0.00036319988, -0.23959693, -0.028258324, 0.15650201, 6.049114)
 operation = 2
 size = Vector3(0.5357176, 3.7522154, 24.608738)
-material = SubResource("StandardMaterial3D_nkhga")
 
 [node name="Wall4a_hole1" parent="Office/Wall_4a" parent_id_path=PackedInt32Array(1893820020, 2053911992) index="1" unique_id=1922502055]
 transform = Transform3D(2.0000005, 1.9495658e-08, -1.7476268e-05, -8.742313e-08, 0.445982, -2.1852868e-08, 6.990787e-05, 1.9494442e-08, 0.5, 0.09716272, -1.1797128, 1.5943271)
@@ -244,7 +245,6 @@ transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.43
 
 [node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=51706358]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
-material_override = SubResource("StandardMaterial3D_rhsrv")
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
 [node name="laptop" parent="Office/roof-flat-center2" unique_id=1838807121 instance=ExtResource("7_rhsrv")]
@@ -286,6 +286,7 @@ size = Vector3(0.001, 4.417225, 2.2823694)
 
 [node name="DeskMat" parent="Decoration/Interior" unique_id=619487795 instance=ExtResource("12_smf0o")]
 transform = Transform3D(-0.0007306106, -0.003709298, -0.60557616, 0.20226097, 0.0014358185, -0.0022003052, 0.00058235996, -0.5033315, 0.0044565136, -6.234865, 2.647524, 8.792976)
+
 
 [node name="D_Mat" parent="Decoration/Interior/DeskMat" index="0" unique_id=1784910813]
 transform = Transform3D(0.57707024, 4.656613e-10, -3.45608e-11, 0, 0.67333287, 0, 3.410605e-11, 0, 0.4067283, -0.39617157, 1.2442513, 1.6921558)
@@ -342,7 +343,6 @@ spot_angle = 32.325443
 [node name="Bulb" type="MeshInstance3D" parent="Decoration/Interior/lamp_standing2/OfficeLight/SpotLight3D" unique_id=189981949]
 transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
 mesh = SubResource("SphereMesh_vc5kc")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Decoration/Interior/lamp_standing2/OfficeLight" unique_id=1858819117]
 transform = Transform3D(-0.9999967, 0.0025321129, -0.00041282334, 0.004762751, -0.09304568, -12.107692, -0.0025352102, -0.99996734, 0.007683592, 4.09276, -440.1759, 0.2066381)
@@ -367,7 +367,6 @@ spot_angle = 38.51
 [node name="Bulb" type="MeshInstance3D" parent="Decoration/Interior/lampWall/SpotLight3D3" unique_id=811800168]
 transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
 mesh = SubResource("SphereMesh_2km5d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="ceilingFan" parent="Decoration/Interior" unique_id=1634650089 instance=ExtResource("44_abiby")]
 transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.213538, 8.834871, 5.311745)
@@ -415,7 +414,6 @@ spot_angle = 25.0
 [node name="Bulb" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/MeshInstance3D/SpotLight3D" unique_id=449337877]
 transform = Transform3D(0.9995769, 0.0014543496, 0.02906057, 0.005891923, 0.96794313, -0.25110173, -0.028494138, 0.25116652, 0.96752506, -0.025823355, 0.6677828, -0.91719913)
 mesh = SubResource("SphereMesh_vc5kc")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight2" parent="Environment/Exterior/StreetLamp" unique_id=1020225387 instance=ExtResource("38_216wm")]
 transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, -48.54716, 0, 16.24086)
@@ -432,7 +430,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb2" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight2/SpotLight3D2" unique_id=942928520]
 transform = Transform3D(0.7793052, -0.6218326, -0.07750899, 0.62505865, 0.7801588, 0.025586937, 0.044558484, -0.06838766, 0.9966638, 0.16424942, -0.10645676, -0.25933838)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight6" parent="Environment/Exterior/StreetLamp" unique_id=1879369655 instance=ExtResource("38_216wm")]
 transform = Transform3D(1.7259176, -0.24765402, 32.25512, 0.17555347, 11.517223, 0.68564516, -31.198973, 0.051106274, 1.788201, -14.311365, 0, 16.117332)
@@ -449,7 +446,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb3" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight6/SpotLight3D2" unique_id=1010521195]
 transform = Transform3D(0.78027475, -0.6216799, -0.068443984, 0.62294924, 0.7822534, -0.003513841, 0.055725064, -0.03989535, 0.9976474, 0.12662792, -0.14712524, -0.2263956)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight9" parent="Environment/Exterior/StreetLamp" unique_id=1821286560 instance=ExtResource("38_216wm")]
 transform = Transform3D(-0.012245297, -0.29181007, 32.301556, 0.5915179, 11.514238, 0.8185785, -31.241566, 0.21812154, 0.0028378963, 20.158531, 0, 16.117332)
@@ -466,7 +462,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb4" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight9/SpotLight3D2" unique_id=1438877082]
 transform = Transform3D(0.80740243, -0.5899637, -0.0065043797, 0.58959645, 0.8063927, 0.04589377, -0.021830583, -0.04088974, 0.9989245, 0.102176666, -0.25013542, -0.22999191)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight3" parent="Environment/Exterior/StreetLamp" unique_id=2032313876 instance=ExtResource("38_216wm")]
 transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, 54.181465, 0, 16.24086)
@@ -483,7 +478,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb5" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight3/SpotLight3D2" unique_id=959664379]
 transform = Transform3D(0.77930474, -0.62183285, -0.077509, 0.62505853, 0.7801582, 0.025586931, 0.04455846, -0.06838767, 0.9966636, 0.10482788, -0.16158104, -0.12249851)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight4" parent="Environment/Exterior/StreetLamp" unique_id=31711256 instance=ExtResource("38_216wm")]
 transform = Transform3D(0.13979077, 0.1486671, -32.30892, -0.24766286, 11.518686, 0.4158346, 31.245874, 0.09063509, 0.14784294, -14.250266, 0, 47.363125)
@@ -500,7 +494,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb6" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight4/SpotLight3D2" unique_id=1920368774]
 transform = Transform3D(-0.8099088, 0.5857437, 0.030820362, -0.5863247, -0.8099451, -0.014583046, 0.016420867, -0.029881667, 0.99941844, 0.10244846, -0.15096283, -0.16216755)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight8" parent="Environment/Exterior/StreetLamp" unique_id=705091080 instance=ExtResource("38_216wm")]
 transform = Transform3D(-0.8809912, 0.14592612, -32.296494, -0.24768874, 11.518683, 0.41667473, 31.233765, 0.09546116, -0.9076625, 19.807484, 0, 48.283787)
@@ -517,7 +510,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb7" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight8/SpotLight3D2" unique_id=661122559]
 transform = Transform3D(-0.79032505, 0.61188453, 0.031348087, -0.6124736, -0.7903655, -0.014045257, 0.016182382, -0.030300163, 0.9994092, 0.07834625, -0.13298798, -0.13430595)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight7" parent="Environment/Exterior/StreetLamp" unique_id=1821918430 instance=ExtResource("38_216wm")]
 transform = Transform3D(-1.1402047, -0.85247123, -32.20176, -0.050417036, 11.488412, -2.3907495, 31.226318, -0.012578364, -1.179682, 54.989372, 0, 48.283787)
@@ -534,7 +526,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb8" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight7/SpotLight3D2" unique_id=1687510064]
 transform = Transform3D(-0.7833224, 0.620165, -0.042449508, -0.617607, -0.7841978, -0.059970483, -0.070480414, -0.02075913, 0.99729705, -0.001335144, -0.118370056, -0.118524075)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="streetlight5" parent="Environment/Exterior/StreetLamp" unique_id=1276039718 instance=ExtResource("38_216wm")]
 transform = Transform3D(-0.3333569, -0.36232138, -32.2941, -0.6296239, 11.512044, -1.0091668, 31.239046, 0.22815919, -0.36495507, -47.00532, 0, 46.6983)
@@ -551,7 +542,6 @@ spot_angle_attenuation = 0.57434916
 [node name="Bulb9" type="MeshInstance3D" parent="Environment/Exterior/StreetLamp/streetlight5/SpotLight3D2" unique_id=376060120]
 transform = Transform3D(-0.80070436, 0.59905255, 0.0026310142, -0.5984061, -0.79962015, -0.050174154, -0.027953139, -0.041749112, 0.9987359, 0.05339241, -0.12270355, -0.13196373)
 mesh = SubResource("SphereMesh_jey2d")
-surface_material_override/0 = SubResource("StandardMaterial3D_vc5kc")
 
 [node name="building_H_withoutBase2" parent="Environment/Exterior" unique_id=489801806 instance=ExtResource("30_gj7ui")]
 transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 62.952114)
