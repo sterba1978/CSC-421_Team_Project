@@ -246,7 +246,7 @@ size = Vector3(1.2230766, 1.0204539, 2.5687847)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 

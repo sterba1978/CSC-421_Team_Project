@@ -3,3 +3,13 @@ Rocky: [speed=0.5]I can't believe I finally got my own office. Let's head inside
 Rocky: [speed=0.5]You can interact with objects that have a yellow highlight when you hover over them with your mouse.
 Rocky: [speed=0.5]Move your mouse over the door and click your left mouse button to interact with it.
 => END
+
+~ tutorial1
+Rocky: [speed=0.5]The office looks good. I should check and make sure everything is all set for when I get a client.
+Rocky: [speed=0.5]Let's start by checking out my filing cabinet. It holds all our files on common cyber threats our clients will most likely face.
+Rocky: [speed=0.5]Try interacting with the filing cabinet. Simply direct your mouse to it and left click when highlighted.
+=> END
+
+~ tutorial2
+Rocky: [speed=0.5]Try clicking on the different tabs to see descriptions of each cyber threat.
+=> END
