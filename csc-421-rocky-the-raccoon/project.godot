@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
+MusicManager="*res://scene/music_manager.gd"
+SceneTransitionState="*res://scene/scene_transition_state.gd"
 
 [dialogue_manager]
 

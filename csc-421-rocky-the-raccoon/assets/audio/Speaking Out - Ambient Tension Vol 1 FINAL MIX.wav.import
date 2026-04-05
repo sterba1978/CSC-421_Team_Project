@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cw4p6eyyabxat"
+path="res://.godot/imported/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav-9d2148dc648d2a5d8ad255d4ca8074e4.sample"
+
+[deps]
+
+source_file="res://assets/audio/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav"
+dest_files=["res://.godot/imported/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav-9d2148dc648d2a5d8ad255d4ca8074e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

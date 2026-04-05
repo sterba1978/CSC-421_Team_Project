@@ -2,11 +2,15 @@ extends Node3D
 
 const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
 const CURSOR_HOTSPOT := Vector2(42, 48)
+const EXTERIOR_BACKGROUND_MUSIC := preload("res://assets/audio/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav")
+const OFFICE_BACKGROUND_MUSIC := preload("res://assets/audio/Race Against Fate - Ambient Tension Vol 1 FINAL MIX.wav")
 
 @export var exterior_player_path: NodePath = ^"ExteriorPlayer"
 @export var interior_player_path: NodePath = ^"InteriorPlayer"
 @export var building_door_path: NodePath = ^"Building_door"
 @export var interior_transition_delay_sec: float = 0.4
+@export_file("*.tscn") var door_cinematic_scene_path: String = "res://scene/door_cinematic_scene.tscn"
+@export var scene_transition_fade_duration: float = 0.4
 @export var look_mouse_sensitivity: float = 0.0015
 @export var journal_title: String = "Journal"
 @export var journal_default_text: String = "No item selected yet."
@@ -16,6 +20,8 @@ const CURSOR_HOTSPOT := Vector2(42, 48)
 @export var door_light_on_energy: float = 48.0
 @export var door_light_dim_energy: float = 6.0
 @export var door_light_flicker_speed: float = 4.0
+@export var background_music_volume_db: float = -8.0
+@export var background_music_start_position_sec: float = 0.0
 
 @onready var _exterior_player: Node = get_node_or_null(exterior_player_path)
 @onready var _interior_player: Node = get_node_or_null(interior_player_path)
@@ -26,6 +32,8 @@ const CURSOR_HOTSPOT := Vector2(42, 48)
 var _transition_queued: bool = false
 var _journal_entry_label: Label
 var _time := 0.0
+var _scene_fade_layer: CanvasLayer
+var _scene_fade_rect: ColorRect
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
@@ -42,6 +50,14 @@ var _time := 0.0
 
 func _ready() -> void:
 	_apply_custom_cursor()
+	_ensure_scene_fader()
+
+	var start_in_office := SceneTransitionState.consume_start_in_office()
+	var fade_in_from_black := SceneTransitionState.consume_fade_in_from_black()
+	var background_music: AudioStream = OFFICE_BACKGROUND_MUSIC if start_in_office else EXTERIOR_BACKGROUND_MUSIC
+	MusicManager.play_music(background_music, background_music_volume_db, background_music_start_position_sec)
+	if fade_in_from_black:
+		_set_scene_fade_alpha(1.0)
 
 	if _building_door != null and _building_door.has_signal("door_opened"):
 		_building_door.door_opened.connect(_on_building_door_opened)
@@ -51,7 +67,11 @@ func _ready() -> void:
 	else:
 		push_warning("main_flow.gd: Building_door missing or has no door_opened/door_state_changed signal.")
 
-	_set_active_player(_exterior_player)
+	if start_in_office:
+		_set_active_player(_interior_player)
+	else:
+		_set_active_player(_exterior_player)
+
 	_apply_mouse_sensitivity()
 	_apply_sign_light_state()
 	
@@ -69,8 +89,13 @@ func _ready() -> void:
 	if clueboardUI != null and clueboardUI.has_signal("clue_selected"):
 		clueboardUI.clue_selected.connect(_on_clue_selected)
 
-	#DialogueStart
-	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
+	if not start_in_office:
+		# DialogueStart
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
+
+	if fade_in_from_black:
+		await get_tree().process_frame
+		await _fade_from_black(scene_transition_fade_duration)
 
 
 func _process(delta: float) -> void:
@@ -82,15 +107,17 @@ func _on_building_door_opened() -> void:
 	if _transition_queued:
 		return
 	_transition_queued = true
-	if interior_transition_delay_sec > 0.0:
-		await get_tree().create_timer(interior_transition_delay_sec).timeout
-	_set_active_player(_interior_player)
+	await _transition_to_cinematic_scene()
 	_transition_queued = false
 
 
 func _on_building_door_state_changed(is_open: bool) -> void:
-	if is_open:
-		_set_active_player(_interior_player)
+	if not is_open or _transition_queued:
+		return
+
+	_transition_queued = true
+	await _transition_to_cinematic_scene()
+	_transition_queued = false
 
 
 func _set_active_player(active: Node) -> void:
@@ -137,6 +164,76 @@ func _apply_mouse_sensitivity() -> void:
 			continue
 		if _has_property(player, "mouse_sensitivity"):
 			player.mouse_sensitivity = look_mouse_sensitivity
+
+
+func _transition_to_cinematic_scene() -> void:
+	if interior_transition_delay_sec > 0.0:
+		await get_tree().create_timer(interior_transition_delay_sec).timeout
+
+	_set_player_enabled(_exterior_player, false)
+	_set_player_enabled(_interior_player, false)
+	await _fade_to_black(scene_transition_fade_duration)
+
+	var error := get_tree().change_scene_to_file(door_cinematic_scene_path)
+	if error != OK:
+		push_warning("main_flow.gd: Failed to load cinematic scene '%s' (error %d)." % [door_cinematic_scene_path, error])
+		await _fade_from_black(scene_transition_fade_duration)
+		_set_active_player(_exterior_player)
+
+
+func _ensure_scene_fader() -> void:
+	if _scene_fade_layer != null:
+		return
+
+	_scene_fade_layer = CanvasLayer.new()
+	_scene_fade_layer.name = "SceneFadeLayer"
+	_scene_fade_layer.layer = 200
+	add_child(_scene_fade_layer)
+
+	_scene_fade_rect = ColorRect.new()
+	_scene_fade_rect.name = "SceneFadeRect"
+	_scene_fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_scene_fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_scene_fade_rect.color = Color(0.0, 0.0, 0.0, 0.0)
+	_scene_fade_layer.add_child(_scene_fade_rect)
+
+
+func _set_scene_fade_alpha(alpha: float) -> void:
+	if _scene_fade_rect == null:
+		return
+
+	_scene_fade_rect.color = Color(0.0, 0.0, 0.0, clamp(alpha, 0.0, 1.0))
+	_scene_fade_rect.visible = alpha > 0.001
+
+
+func _fade_to_black(duration: float) -> void:
+	if _scene_fade_rect == null:
+		return
+
+	_scene_fade_rect.visible = true
+	if duration <= 0.0:
+		_set_scene_fade_alpha(1.0)
+		return
+
+	var tween := create_tween()
+	tween.tween_property(_scene_fade_rect, "color", Color.BLACK, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+
+
+func _fade_from_black(duration: float) -> void:
+	if _scene_fade_rect == null:
+		return
+
+	_scene_fade_rect.visible = true
+	_scene_fade_rect.color = Color.BLACK
+	if duration <= 0.0:
+		_set_scene_fade_alpha(0.0)
+		return
+
+	var tween := create_tween()
+	tween.tween_property(_scene_fade_rect, "color", Color(0.0, 0.0, 0.0, 0.0), duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	_scene_fade_rect.visible = false
 
 
 func _ensure_journal_ui() -> void:

@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _on_return_button_pressed() -> void:
 	self.hide()
+	MusicManager.pop_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player._update_crosshair_visibility()
@@ -41,8 +42,8 @@ func _on_tab_3_pressed() -> void:
 
 func _show_tab(
 	tab_texture: Texture2D,
-	title_text: String,
-	body_text: String
+	_title_text: String,
+	_body_text: String
 ) -> void:
 	if folder_texture != null and tab_texture != null:
 		folder_texture.texture = tab_texture

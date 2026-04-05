@@ -1,8 +1,14 @@
 extends Node3D
 
+const FILING_CABINET_MUSIC := preload("res://assets/audio/Reconstructing the Crime.mp3")
+const INTERACT_SFX := preload("res://assets/audio/Interact.mp3")
+
 @export var hover_highlight_enabled: bool = true
 @export var hover_highlight_color: Color = Color(1.0, 0.92, 0.35, 0.35)
 @export var click_area_path: NodePath = ^"StaticBody3D"
+@export var filing_cabinet_music_volume_db: float = -8.0
+@export var filing_cabinet_music_start_position_sec: float = 10.0
+@export var interact_sfx_volume_db: float = -4.0
 
 var _highlight_targets: Array[MeshInstance3D] = []
 var _highlight_material: StandardMaterial3D
@@ -40,6 +46,11 @@ func _on_click_area_input_event(
 
 
 func interact() -> void:
+	if tab1UI == null or tab1UI.visible:
+		return
+
+	MusicManager.play_sfx(INTERACT_SFX, interact_sfx_volume_db)
+	MusicManager.push_music(FILING_CABINET_MUSIC, filing_cabinet_music_volume_db, filing_cabinet_music_start_position_sec)
 	if tab1UI != null:
 		tab1UI.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 
 func _on_return_button_pressed() -> void:
 	self.hide()
+	MusicManager.pop_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player._update_crosshair_visibility()
