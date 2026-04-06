@@ -16,6 +16,7 @@ signal tab_selected(clue_text: String)
 @export_multiline var tab_3_text: String = "Hidden malware secretly monitors activity, captures data, and can expose sensitive information."
 
 signal tab_opened # dialog signal
+signal folder_closed # dialog signal
 
 func _ready() -> void:
 	_show_tab(tab_1_texture, tab_1_title, tab_1_text)
@@ -27,6 +28,7 @@ func _on_return_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player._update_crosshair_visibility()
+	folder_closed.emit() # dialog signal
 
 
 func _on_tab_1_pressed() -> void:

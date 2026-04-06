@@ -106,8 +106,6 @@ func _ready() -> void:
 	# Dialogue Activation
 	if part1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part1)
-	if part2:
-		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part2)
 
 
 func _process(delta: float) -> void:
