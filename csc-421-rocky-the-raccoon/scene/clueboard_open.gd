@@ -19,6 +19,7 @@ var _is_highlighted := false
 @onready var clueboardui = $"../ClueBoardUI"
 @onready var player = $"../InteriorPlayer"
 
+signal clueboard_opened # dialog signal
 
 func _ready() -> void:
 	add_to_group("interactable")
@@ -55,6 +56,7 @@ func interact() -> void:
 	clueboardui.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	player._update_crosshair_visibility()
+	clueboard_opened.emit() # dialog signal
 
 
 func set_highlighted(enabled: bool) -> void:

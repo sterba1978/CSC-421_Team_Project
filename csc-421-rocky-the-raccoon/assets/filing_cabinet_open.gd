@@ -18,6 +18,7 @@ var _is_highlighted := false
 
 @onready var tab1UI = $"../folder"
 
+signal filing_opened # dialog signal
 
 func _ready() -> void:
 	add_to_group("interactable")
@@ -51,6 +52,7 @@ func interact() -> void:
 
 	MusicManager.play_sfx(INTERACT_SFX, interact_sfx_volume_db)
 	MusicManager.push_music(FILING_CABINET_MUSIC, filing_cabinet_music_volume_db, filing_cabinet_music_start_position_sec)
+	filing_opened.emit() #dialog signal 
 	if tab1UI != null:
 		tab1UI.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
