@@ -3,6 +3,9 @@ extends Node3D
 signal door_state_changed(is_open: bool)
 signal door_opened
 
+const DOOR_OPEN_SFX := preload("res://assets/audio/soundreality-opening-door-411632.mp3")
+const DOOR_CLOSE_SFX := preload("res://assets/audio/fletchpike-door-closing-353875.mp3")
+
 enum HingeAxis {
 	X,
 	Y,
@@ -18,6 +21,8 @@ enum HingeAxis {
 @export var start_open: bool = false
 @export var hover_highlight_enabled: bool = true
 @export var hover_highlight_color: Color = Color(1.0, 0.92, 0.35, 0.35)
+@export var opening_sfx_volume_db: float = -4.0
+@export var closing_sfx_volume_db: float = -4.0
 
 var _is_open := false
 var _closed_angle := 0.0
@@ -92,6 +97,7 @@ func set_highlighted(enabled: bool) -> void:
 
 
 func _set_door_state(open_state: bool, animate: bool) -> void:
+	var was_open := _is_open
 	_is_open = open_state
 
 	if disable_solid_collision_when_open and _solid_shape != null:
@@ -120,6 +126,9 @@ func _set_door_state(open_state: bool, animate: bool) -> void:
 	var t := create_tween()
 	t.tween_property(self, tween_property, target_angle, anim_time)
 	t.finished.connect(_on_tween_finished.bind(_is_open))
+
+	if was_open != open_state:
+		_play_door_sfx(open_state)
 
 
 func _get_axis_angle() -> float:
@@ -172,3 +181,9 @@ func _build_highlight_material() -> void:
 	_highlight_material.albedo_color = hover_highlight_color
 	_highlight_material.emission_enabled = true
 	_highlight_material.emission = hover_highlight_color
+
+
+func _play_door_sfx(open_state: bool) -> void:
+	var stream: AudioStream = DOOR_OPEN_SFX if open_state else DOOR_CLOSE_SFX
+	var volume_db: float = opening_sfx_volume_db if open_state else closing_sfx_volume_db
+	MusicManager.play_sfx(stream, volume_db)

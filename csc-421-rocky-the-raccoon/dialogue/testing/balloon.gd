@@ -1,6 +1,8 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+const FINAL_TEXTBOX_CLOSE_SFX := preload("res://assets/audio/freesound_community-knocking-on-door-6022.mp3")
+const FINAL_TUTORIAL_TITLE: String = "tutorial8"
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -19,6 +21,7 @@ extends CanvasLayer
 
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
+@export var final_textbox_close_sfx_volume_db: float = -4.0
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
@@ -205,6 +208,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		if _should_play_final_close_sfx_on_click():
+			MusicManager.play_sfx(FINAL_TEXTBOX_CLOSE_SFX, final_textbox_close_sfx_volume_db)
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
@@ -212,6 +217,40 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
+
+
+func _should_play_final_close_sfx_on_click() -> bool:
+	if dialogue_resource == null or dialogue_line == null:
+		return false
+	if start_from_title != FINAL_TUTORIAL_TITLE:
+		return false
+	return _path_ends_dialogue(dialogue_line.next_id)
+
+
+func _path_ends_dialogue(line_id: String) -> bool:
+	var current_id := line_id
+	var visited: Dictionary = {}
+
+	while not current_id.is_empty():
+		if current_id == "end":
+			return true
+		if visited.has(current_id):
+			return false
+		visited[current_id] = true
+		if not dialogue_resource.lines.has(current_id):
+			return false
+
+		var line_data_variant: Variant = dialogue_resource.lines[current_id]
+		if typeof(line_data_variant) != TYPE_DICTIONARY:
+			return false
+
+		var line_data := line_data_variant as Dictionary
+		if String(line_data.get(&"type", "")) == "dialogue":
+			return false
+
+		current_id = String(line_data.get(&"next_id", ""))
+
+	return false
 
 
 #endregion
