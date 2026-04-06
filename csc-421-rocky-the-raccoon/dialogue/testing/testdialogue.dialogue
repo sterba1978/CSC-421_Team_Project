@@ -22,3 +22,21 @@ Rocky: [speed=0.5]Good job. Now try going back by hitting the return button in t
 Rocky: [speed=0.5]The filing cabinet seems to be in order. Lets check out our clue board hanging on the left wall.
 Rocky: [speed=0.5]Move your mouse over the clue board and click when highlighted.
 => END
+
+~ tutorial5
+Rocky: [speed=0.5]This is where the details of your client's case will be displayed.
+Rocky: [speed=0.5]You can click on a clue to get further details about it.
+=> END
+
+~ tutorial6
+Rocky: [speed=0.5]Good job. This will show the detailsof each clue that you will investigate.
+Rocky: [speed=0.5]Now try clicking return to go back to the clueboard overview.
+=> END
+
+~ tutorial7
+Rocky: [speed=0.5]Good job. Now click return once more to return to the office.
+=> END
+
+~ tutorial8
+Rocky: [speed=0.5]The clue board is ready to go. Everything seems to be in order.
+=> END
