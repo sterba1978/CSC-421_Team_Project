@@ -3,7 +3,7 @@ extends Node
 @export var dialogue_resource : DialogueResource
 @export var dialogue_part2 : String = "tutorial2"
 
-@onready var filingcabinet = $FilingCabinet
+@onready var filingcabinet = $"../FilingCabinet"
 var filingopencount = 0
 
 
