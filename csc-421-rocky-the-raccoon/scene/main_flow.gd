@@ -47,6 +47,11 @@ var _scene_fade_rect: ColorRect
 #Dialogue
 @export var dialogue_resource : DialogueResource
 @export var dialogue_start : String = "start"
+@export var dialogue_part1 : String = "tutorial1"
+@export var dialogue_part2 : String = "tutorial2"
+
+@onready var part1 = false
+@onready var part2 = false
 
 func _ready() -> void:
 	_apply_custom_cursor()
@@ -69,6 +74,7 @@ func _ready() -> void:
 
 	if start_in_office:
 		_set_active_player(_interior_player)
+		part1 = true
 	else:
 		_set_active_player(_exterior_player)
 
@@ -96,6 +102,10 @@ func _ready() -> void:
 	if fade_in_from_black:
 		await get_tree().process_frame
 		await _fade_from_black(scene_transition_fade_duration)
+	
+	# Dialogue Activation
+	if part1:
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part1)
 
 
 func _process(delta: float) -> void:

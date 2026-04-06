@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dddmbuyx15y10"]
 
 [ext_resource type="Script" uid="uid://dpi6rka1ntoel" path="res://scene/clue_ui.gd" id="1_invuc"]
-[ext_resource type="Texture2D" uid="uid://dcp5gsw5qutaj" path="res://assets/clueboardUI/ClueboardArtUI/ClueboardBackground.png" id="2_c0lnr"]
-[ext_resource type="Texture2D" uid="uid://b0fskq0sd1fom" path="res://assets/clueboardUI/ClueboardArtUI/clueplaceholder.png" id="2_invuc"]
+[ext_resource type="Texture2D" uid="uid://lreyq03oqw4q" path="res://assets/clueboardUI/clueUIs/tutorialclue.png" id="2_a3spt"]
 
 [node name="clue_ui" type="Control" unique_id=1775691411]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,17 +17,8 @@ script = ExtResource("1_invuc")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 647.0
-texture = ExtResource("2_c0lnr")
+texture = ExtResource("2_a3spt")
 expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=397354397]
-layout_mode = 0
-offset_left = 348.0
-offset_top = 143.0
-offset_right = 734.70374
-offset_bottom = 586.0
-texture = ExtResource("2_invuc")
-expand_mode = 3
 
 [node name="ReturnButton" type="Button" parent="." unique_id=1606305034]
 layout_mode = 0
