@@ -15,6 +15,8 @@ signal tab_selected(clue_text: String)
 @export var tab_3_title: String = "Spyware"
 @export_multiline var tab_3_text: String = "Hidden malware secretly monitors activity, captures data, and can expose sensitive information."
 
+signal tab_opened # dialog signal
+
 func _ready() -> void:
 	_show_tab(tab_1_texture, tab_1_title, tab_1_text)
 
@@ -30,14 +32,17 @@ func _on_return_button_pressed() -> void:
 func _on_tab_1_pressed() -> void:
 	_show_tab(tab_1_texture, tab_1_title, tab_1_text)
 	tab_selected.emit(tab_1_text)
+	tab_opened.emit() #dialog signal 
 
 func _on_tab_2_pressed() -> void:
 	_show_tab(tab_2_texture, tab_2_title, tab_2_text)
 	tab_selected.emit(tab_2_text)
+	tab_opened.emit() #dialog signal 
 
 func _on_tab_3_pressed() -> void:
 	_show_tab(tab_3_texture, tab_3_title, tab_3_text)
 	tab_selected.emit(tab_3_text)
+	tab_opened.emit() #dialog signal 
 
 
 func _show_tab(

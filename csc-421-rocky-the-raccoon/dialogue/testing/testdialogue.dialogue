@@ -11,5 +11,9 @@ Rocky: [speed=0.5]Try interacting with the filing cabinet. Simply direct your mo
 => END
 
 ~ tutorial2
-Rocky: [speed=0.5]Try clicking on the different tabs to see descriptions of each cyber threat.
+Rocky: [speed=0.5]Try clicking on the one of the file tabs to see descriptions of each cyber threat.
+=> END
+
+~ tutorial3
+Rocky: [speed=0.5]Good job. Now try going back by hitting the return button in the top left corner of the screen.
 => END
