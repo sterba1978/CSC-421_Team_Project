@@ -1,0 +1,108 @@
+extends Node3D
+
+enum HingeAxis {
+	X,
+	Y,
+	Z,
+}
+
+@export var click_area_path: NodePath = ^"ClickArea"
+@export var solid_collision_shape_path: NodePath = ^"Solid/CollisionShape3D"
+@export var hinge_axis: HingeAxis = HingeAxis.Y
+@export var open_angle_degrees: float = 90.0
+@export var anim_time: float = 0.25
+@export var disable_solid_collision_when_open: bool = true
+@export var start_open: bool = false
+
+var _is_open := false
+var _closed_angle := 0.0
+
+@onready var _click_area: Area3D = get_node_or_null(click_area_path) as Area3D
+@onready var _solid_shape: CollisionShape3D = get_node_or_null(solid_collision_shape_path) as CollisionShape3D
+
+
+func _ready() -> void:
+	_closed_angle = _get_axis_angle()
+	if _click_area != null:
+		_click_area.input_event.connect(_on_click_area_input_event)
+	else:
+		push_warning("office_door_open.gd: ClickArea not found at path '%s'." % click_area_path)
+
+	_is_open = start_open
+	if _is_open:
+		_set_door_state(true, false)
+
+
+func _on_click_area_input_event(
+	_camera: Camera3D,
+	event: InputEvent,
+	_event_position: Vector3,
+	_normal: Vector3,
+	_shape_idx: int
+) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		toggle()
+
+
+func toggle() -> void:
+	_set_door_state(not _is_open, true)
+
+
+func open() -> void:
+	_set_door_state(true, true)
+
+
+func close() -> void:
+	_set_door_state(false, true)
+
+
+func _set_door_state(open_state: bool, animate: bool) -> void:
+	_is_open = open_state
+
+	if disable_solid_collision_when_open and _solid_shape != null:
+		_solid_shape.disabled = _is_open
+
+	var target_angle := _closed_angle
+	if _is_open:
+		target_angle += open_angle_degrees
+
+	if not animate:
+		_set_axis_angle(target_angle)
+		return
+
+	var tween_property := "rotation_degrees:y"
+	match hinge_axis:
+		HingeAxis.X:
+			tween_property = "rotation_degrees:x"
+		HingeAxis.Y:
+			tween_property = "rotation_degrees:y"
+		HingeAxis.Z:
+			tween_property = "rotation_degrees:z"
+
+	var t := create_tween()
+	t.tween_property(self, tween_property, target_angle, anim_time)
+
+
+func _get_axis_angle() -> float:
+	match hinge_axis:
+		HingeAxis.X:
+			return rotation_degrees.x
+		HingeAxis.Y:
+			return rotation_degrees.y
+		HingeAxis.Z:
+			return rotation_degrees.z
+	return rotation_degrees.y
+
+
+func _set_axis_angle(value: float) -> void:
+	var r := rotation_degrees
+	match hinge_axis:
+		HingeAxis.X:
+			r.x = value
+		HingeAxis.Y:
+			r.y = value
+		HingeAxis.Z:
+			r.z = value
+	rotation_degrees = r

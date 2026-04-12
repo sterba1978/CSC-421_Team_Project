@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cup1d16j06kha"]
+
+[ext_resource type="Script" uid="uid://bgaxqtk16n4od" path="res://scene/door_open.gd" id="1_p2m78"]
+[ext_resource type="PackedScene" uid="uid://hwfokdver5q3" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/door-rotate-square-d.glb" id="2_nkbrf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_solid"]
+size = Vector3(0.12, 2.1, 1.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_click"]
+size = Vector3(0.3, 2.3, 1.2)
+
+[node name="Building_door" type="Node3D"]
+script = ExtResource("1_p2m78")
+
+[node name="door-rotate-square-d" parent="." instance=ExtResource("2_nkbrf")]
+
+[node name="Solid" type="StaticBody3D" parent="."]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Solid"]
+shape = SubResource("BoxShape3D_solid")
+position = Vector3(0.0, 1.05, 0.0)
+
+[node name="ClickArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickArea"]
+shape = SubResource("BoxShape3D_click")
+position = Vector3(0.0, 1.05, 0.0)

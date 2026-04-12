@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bm5kt0kkhckw8"]
+
+[ext_resource type="Script" uid="uid://dxrm5h2bq4s42" path="res://scene/tab1_ui.gd" id="1_kxheq"]
+[ext_resource type="Texture2D" uid="uid://b051ai8sgucof" path="res://assets/tab-04.png" id="2_kxheq"]
+
+[node name="Tab1" type="Control" unique_id=627271888]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxheq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=833029233]
+layout_mode = 1
+offset_left = 600.0
+offset_top = 338.0
+offset_right = 2872.0
+offset_bottom = 1680.0
+texture = ExtResource("2_kxheq")
+expand_mode = 1
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1131895248]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 220.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 28
+text = "Return"
+
+[node name="tab1" type="Button" parent="." unique_id=997241977]
+layout_mode = 1
+offset_left = 1054.4489
+offset_top = 487.1545
+offset_right = 1205.2614
+offset_bottom = 553.1676
+rotation = -0.07012371
+theme_override_font_sizes/font_size = 28
+text = "Tab 1"
+
+[node name="tab2" type="Button" parent="." unique_id=1079945232]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1345.0001
+offset_top = 468.00003
+offset_right = 1500.7058
+offset_bottom = 539.8585
+rotation = -0.053526856
+theme_override_font_sizes/font_size = 28
+text = "Tab 2"
+
+[node name="tab3" type="Button" parent="." unique_id=1814005654]
+layout_mode = 1
+offset_left = 1660.0
+offset_top = 461.0
+offset_right = 1815.3623
+offset_bottom = 526.23193
+rotation = 0.089801796
+theme_override_font_sizes/font_size = 28
+text = "Tab 3"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="tab1" to="." method="_on_tab_1_pressed"]
+[connection signal="pressed" from="tab2" to="." method="_on_tab_2_pressed"]
+[connection signal="pressed" from="tab3" to="." method="_on_tab_3_pressed"]

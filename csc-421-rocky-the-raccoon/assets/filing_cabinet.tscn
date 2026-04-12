@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dk5tdqmwscjmi"]
+
+[ext_resource type="Texture2D" uid="uid://c0ye7u6x24k3q" path="res://addons/material/Metal/Metal_18-512x512.png" id="1_13kxi"]
+[ext_resource type="Script" uid="uid://c4gi6vsrdowha" path="res://assets/filing_cabinet_open.gd" id="1_gxah5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahw5s"]
+no_depth_test = true
+specular_mode = 1
+albedo_color = Color(0.37254903, 0.37254903, 0.37254903, 1)
+albedo_texture = ExtResource("1_13kxi")
+albedo_texture_msdf = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jpvt"]
+no_depth_test = true
+specular_mode = 1
+albedo_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+albedo_texture = ExtResource("1_13kxi")
+albedo_texture_msdf = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_13kxi"]
+size = Vector3(1.1989441, 2.3145752, 1.2461548)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gxah5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffx1q"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="FilingCabinet" type="Node3D" unique_id=469106259]
+transform = Transform3D(1.1136127, -1.048452e-08, 0.009010045, 1.1781353e-08, 0.9994084, -1.2192496e-08, -0.008979715, 1.0989831e-08, 1.117374, 0, 0, 0)
+script = ExtResource("1_gxah5")
+
+[node name="Filing_Cabinet" type="CSGBox3D" parent="." unique_id=755270678]
+transform = Transform3D(0.011483966, 4.6064002e-08, 1.0033116, -5.719688e-08, 1.0000001, -5.6734727e-08, -0.99656796, -4.5384738e-08, 0.011483971, 0.55309796, 0.99021494, 0.5578749)
+use_collision = true
+size = Vector3(1.1069336, 1.9825134, 1.1057129)
+material = SubResource("StandardMaterial3D_ahw5s")
+
+[node name="Drawer1" type="CSGBox3D" parent="Filing_Cabinet" unique_id=2045088831]
+transform = Transform3D(0.99999833, -2.7885505e-09, -1.3969839e-09, 3.4647727e-09, 0.99934316, 3.2264609e-09, -1.3969839e-09, -2.747413e-09, 0.93880665, -0.08002394, 0.6297013, -0.017573312)
+layers = 2
+calculate_tangents = false
+size = Vector3(1, 0.55566406, 0.9647217)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Filing_Cabinet/Drawer1" unique_id=448321610]
+transform = Transform3D(4.718698, 0, 0, 0, 0.00023968656, 0, 0, 0, 0.0016856837, -0.5225804, -0.009087443, -0.01054287)
+size = Vector3(0.0055599213, 145.682, 160.57806)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Filing_Cabinet/Drawer1/CSGBox3D13" unique_id=436306547]
+transform = Transform3D(0.20000105, 0, 0, 0, 68.98457, 0, 0, 0, 194.1143, 0.0058952644, -4.519043, 2.182129)
+extra_cull_margin = 16384.0
+size = Vector3(0.036605835, 0.8085375, 0.30859375)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="Drawer2" type="CSGBox3D" parent="Filing_Cabinet" unique_id=2091606862]
+transform = Transform3D(0.99999833, -2.788589e-09, 1.8626451e-09, 3.4647942e-09, 0.99934363, 3.2264893e-09, -9.313226e-10, -2.7474698e-09, 0.9388063, -0.082487755, 0.023715913, -0.010103218)
+size = Vector3(1, 0.55566406, 0.9647217)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Filing_Cabinet/Drawer2" unique_id=1591249675]
+transform = Transform3D(1.0000002, 6.661338e-16, 0, -7.1054274e-15, 0.09142573, -7.979728e-16, -9.313226e-10, 5.7939764e-16, 0.29585308, -0.53165436, 0.018190384, -0.012508392)
+size = Vector3(0.018554688, 0.37109375, 0.71777344)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Filing_Cabinet/Drawer2/CSGBox3D12" unique_id=2036424153]
+transform = Transform3D(0.9999987, 0, 0, 0, 0.079136945, 0, 0, 0, 0.20186801, 0.019625332, -0.0018348694, 0.0001373291)
+size = Vector3(0.026855469, 3.0563812, 2.036621)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="Drawer3" type="CSGBox3D" parent="Filing_Cabinet" unique_id=1066102751]
+transform = Transform3D(0.9999978, -2.7885503e-09, 1.8626451e-09, 3.4647645e-09, 0.9993427, 3.2264609e-09, -1.3969839e-09, -2.747413e-09, 0.9388063, -0.089207545, -0.5920238, -0.0002379342)
+size = Vector3(1, 0.55566406, 0.9647217)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Filing_Cabinet/Drawer3" unique_id=2122442251]
+transform = Transform3D(0.99999666, 2.7755576e-17, 2.1827873e-11, -3.5527137e-15, 0.009981969, -3.8597597e-16, 0, 1.02999206e-16, 0.02908518, -0.52602196, -0.0048656464, 0.0023241043)
+size = Vector3(0.018577576, 4.618416, 7.703182)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Filing_Cabinet/Drawer3/CSGBox3D13" unique_id=204470988]
+transform = Transform3D(0.20000105, 0, 0, 0, 30.371902, 0, 0, 0, 13.843254, 0.01994046, 0.013687134, -0.0015258789)
+size = Vector3(0.13989258, 0.07550049, 0.2861023)
+material = SubResource("StandardMaterial3D_1jpvt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1377081109]
+transform = Transform3D(1.0000001, -4.0245585e-16, -9.313226e-10, -5.620504e-16, 1.0000001, 0, 0, 8.881784e-16, 1.0000001, -8.8833135e-10, -0.09356932, 9.131537e-10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1381264005]
+transform = Transform3D(1.0000004, -2.1024849e-15, 2.7939677e-09, 9.781759e-14, 1.0000339, -2.4868996e-13, -8.8475645e-08, -9.769963e-15, 1.0000005, 0.5480572, 1.063667, 0.57865375)
+shape = SubResource("BoxShape3D_13kxi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1267038922]
+transform = Transform3D(1.0263716, -4.083539e-15, -2.4447218e-09, -1.3627988e-14, 0.41757217, 2.220446e-15, -8.381903e-09, 3.996803e-15, 0.1841905, 0.54818386, 1.6099312, 1.0959171)
+mesh = SubResource("BoxMesh_gxah5")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffx1q")

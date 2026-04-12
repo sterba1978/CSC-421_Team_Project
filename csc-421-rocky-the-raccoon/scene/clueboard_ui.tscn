@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://ds2e63tairfv5"]
+
+[ext_resource type="Script" uid="uid://di6gg2yuksnt" path="res://scene/clueboard_ui.gd" id="1_c5akl"]
+[ext_resource type="Texture2D" uid="uid://dcp5gsw5qutaj" path="res://assets/clueboardUI/ClueboardArtUI/ClueboardBackground.png" id="2_8olb3"]
+[ext_resource type="Theme" uid="uid://cmw3ch7e2nwcl" path="res://assets/clueboardUI/ClueboardArtUI/clue1.tres" id="3_8olb3"]
+[ext_resource type="Theme" uid="uid://b03fmal2fgpom" path="res://assets/clueboardUI/ClueboardArtUI/clue2.tres" id="4_dgk62"]
+[ext_resource type="Theme" uid="uid://cgnckk6xysog8" path="res://assets/clueboardUI/ClueboardArtUI/clue3.tres" id="5_dgk62"]
+[ext_resource type="Texture2D" uid="uid://cus15b3otpo0s" path="res://assets/clueboardUI/ClueboardArtUI/Pin.png" id="6_vnsii"]
+[ext_resource type="Texture2D" uid="uid://bbenxft8nqdx1" path="res://assets/clueboardUI/ClueboardArtUI/profile.jpg" id="7_yuc5c"]
+
+[node name="ClueBoardUI" type="Control" unique_id=653688468]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c5akl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1460694312]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("2_8olb3")
+expand_mode = 2
+
+[node name="ClueButton1" type="Button" parent="." unique_id=1162009523]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 318.0
+offset_right = 331.0
+offset_bottom = 584.0
+rotation = -0.30194196
+theme = ExtResource("3_8olb3")
+
+[node name="ClueButton2" type="Button" parent="." unique_id=587724454]
+layout_mode = 0
+offset_left = 494.99997
+offset_top = 85.99997
+offset_right = 707.0
+offset_bottom = 351.99997
+rotation = 0.13264503
+theme = ExtResource("4_dgk62")
+
+[node name="ClueButton3" type="Button" parent="." unique_id=369989746]
+layout_mode = 0
+offset_left = 807.00006
+offset_top = 230.00003
+offset_right = 1008.40234
+offset_bottom = 490.0797
+rotation = -0.1308997
+theme = ExtResource("5_dgk62")
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1945668516]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 92.0
+offset_right = 216.0
+offset_bottom = 150.0
+text = "Return"
+
+[node name="Pin1" type="TextureRect" parent="." unique_id=1885605085]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 280.0
+offset_right = 263.0
+offset_bottom = 332.0
+texture = ExtResource("6_vnsii")
+expand_mode = 1
+
+[node name="Pin2" type="TextureRect" parent="." unique_id=1835609276]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 97.0
+offset_right = 644.0
+offset_bottom = 149.0
+texture = ExtResource("6_vnsii")
+expand_mode = 1
+
+[node name="Pin3" type="TextureRect" parent="." unique_id=138570544]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 211.0
+offset_right = 947.0
+offset_bottom = 263.0
+texture = ExtResource("6_vnsii")
+expand_mode = 1
+
+[node name="Pin4" type="TextureRect" parent="." unique_id=338041550]
+z_index = 1
+layout_mode = 0
+offset_left = 618.0
+offset_top = 372.0
+offset_right = 675.0
+offset_bottom = 424.0
+texture = ExtResource("6_vnsii")
+expand_mode = 1
+
+[node name="PlaceholderPic" type="TextureRect" parent="." unique_id=1007304248]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 395.0
+offset_right = 731.0
+offset_bottom = 579.0
+texture = ExtResource("7_yuc5c")
+expand_mode = 1
+
+[connection signal="pressed" from="ClueButton1" to="." method="_on_clue_button_1_pressed"]
+[connection signal="pressed" from="ClueButton2" to="." method="_on_clue_button_2_pressed"]
+[connection signal="pressed" from="ClueButton3" to="." method="_on_clue_button_3_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

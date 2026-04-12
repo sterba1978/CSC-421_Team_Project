@@ -10,9 +10,28 @@ config_version=5
 
 [application]
 
-config/name="CSC-421 Rocky the Raccoon"
+config/name="Rocky_The_Raccoon"
+run/main_scene="uid://b3fi2qd3p0qls"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*uid://c3rodes2l3gxb"
+MusicManager="*res://scene/music_manager.gd"
+SceneTransitionState="*res://scene/scene_transition_state.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://dialogue/testing/balloon.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/TileMapLayer3D/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript-templates/plugin.cfg", "res://addons/grid_map_layer/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogue/testing/testdialogue.dialogue")
 
 [physics]
 

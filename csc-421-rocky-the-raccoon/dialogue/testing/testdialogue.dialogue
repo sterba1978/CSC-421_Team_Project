@@ -1,0 +1,42 @@
+~ start
+Rocky: [speed=0.5]I can't believe I finally got my own office. Let's head inside to see how it looks.
+Rocky: [speed=0.5]You can interact with objects that have a yellow highlight when you hover over them with your mouse.
+Rocky: [speed=0.5]Move your mouse over the door and click your left mouse button to interact with it.
+=> END
+
+~ tutorial1
+Rocky: [speed=0.5]The office looks good. I should check and make sure everything is all set for when I get a client.
+Rocky: [speed=0.5]Let's start by checking out my filing cabinet. It holds all our files on common cyber threats our clients will most likely face.
+Rocky: [speed=0.5]Try interacting with the filing cabinet. Simply direct your mouse to it and left click when highlighted.
+=> END
+
+~ tutorial2
+Rocky: [speed=0.5]Try clicking on the one of the file tabs to see descriptions of each cyber threat.
+=> END
+
+~ tutorial3
+Rocky: [speed=0.5]Good job. Now try going back by hitting the return button in the top left corner of the screen to return to the office.
+=> END
+
+~ tutorial4
+Rocky: [speed=0.5]The filing cabinet seems to be in order. Lets check out our clue board hanging on the left wall.
+Rocky: [speed=0.5]Move your mouse over the clue board and click when highlighted.
+=> END
+
+~ tutorial5
+Rocky: [speed=0.5]This is where the details of your client's case will be displayed.
+Rocky: [speed=0.5]You can click on a clue to get further details about it.
+=> END
+
+~ tutorial6
+Rocky: [speed=0.5]Good job. This will show the detailsof each clue that you will investigate.
+Rocky: [speed=0.5]Now try clicking return to go back to the clueboard overview.
+=> END
+
+~ tutorial7
+Rocky: [speed=0.5]Good job. Now click return once more to return to the office.
+=> END
+
+~ tutorial8
+Rocky: [speed=0.5]The clue board is ready to go. Everything seems to be in order.
+=> END
