@@ -79,12 +79,13 @@ func _on_clueboard_closed():
 	clueboardclosed += 1
 	if clueboardclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part8)
-		update_checklist("")
+		update_checklist("Open journal")
 
 func _on_journal_opened():
 	journalopened += 1
 	if journalopened == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part9)
+		update_checklist("")
 
 func update_checklist(newtext):
 	checklist.text = newtext
