@@ -694,7 +694,7 @@ script = ExtResource("49_ie7le")
 dialogue_resource = ExtResource("2_abiby")
 
 [node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("50_667b8")]
-transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -7.1667123, 1.3406003, 10.111857)
+transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -3.603084, 1.3406003, 0.8058772)
 apply_textures = true
 
 [node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]

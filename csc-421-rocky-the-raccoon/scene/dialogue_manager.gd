@@ -55,7 +55,7 @@ func _on_folder_closed():
 	folderclosed += 1
 	if folderclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part4)
-		update_checklist("OIpen clueboard")
+		update_checklist("Open clueboard")
 
 func _on_clueboard_opened():
 	clueboardopened += 1
