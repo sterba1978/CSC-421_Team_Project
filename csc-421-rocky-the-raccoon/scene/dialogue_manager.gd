@@ -30,7 +30,7 @@ var clueclosed = 0
 
 @onready var checklist = $"../Checklist2"
 
-@onready var journalui = $"../JournalUI"
+#@onready var journalui = $".."._journal_ui
 var journalopened = 0
 
 func _ready() -> void:
@@ -42,7 +42,7 @@ func _ready() -> void:
 	clueboard.clue_opened.connect(_on_clue_opened)
 	clue.clue_closed.connect(_on_clue_closed)
 	clueboard.clueboard_closed.connect(_on_clueboard_closed)
-	journalui.journal_opened.connect(_on_journal_opened)
+	#journalui.journal_opened.connect(_on_journal_opened)
 
 func _on_filing_opened():
 	filingopencount += 1
