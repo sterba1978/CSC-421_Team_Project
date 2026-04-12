@@ -38,5 +38,12 @@ Rocky: [speed=0.5]Good job. Now click return once more to return to the office.
 => END
 
 ~ tutorial8
-Rocky: [speed=0.5]The clue board is ready to go. Everything seems to be in order.
+Rocky: [speed=0.5]The clue board is ready to go.
+Rocky: [speed=0.5]Now lets check our journal by pressing the space button.
+=> END
+
+~ tutorial9
+Rocky: [speed=0.5]This is your jounral. It will be updated every time you look at a clue on the clue board.
+Rocky: [speed=0.5]You will use this journal to try and figure out the cause of the clients problem.
+Rocky: [speed=0.5]Now click the close button to return to the office.
 => END

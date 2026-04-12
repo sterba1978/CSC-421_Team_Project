@@ -23,6 +23,7 @@ signal folder_closed # dialog signal
 
 @onready var checklist1 = $"../Checklist"
 @onready var checklist2 = $"../Checklist2"
+@onready var clbackground = $"../ChecklistBackground"
 
 func _ready() -> void:
 	_show_tab(tab_1_texture, tab_1_title, tab_1_text)
@@ -37,6 +38,7 @@ func _on_return_button_pressed() -> void:
 	folder_closed.emit() # dialog signal
 	checklist1.show()
 	checklist2.show()
+	clbackground.show()
 
 
 func _on_tab_1_pressed() -> void:

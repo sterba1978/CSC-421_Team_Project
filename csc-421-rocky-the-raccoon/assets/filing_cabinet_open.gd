@@ -22,6 +22,7 @@ signal filing_opened # dialog signal
 
 @onready var checklist1 = $"../Checklist"
 @onready var checklist2 = $"../Checklist2"
+@onready var clbackground = $"../ChecklistBackground"
 
 func _ready() -> void:
 	add_to_group("interactable")
@@ -61,6 +62,7 @@ func interact() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		checklist1.hide()
 		checklist2.hide()
+		clbackground.hide()
 
 
 func set_highlighted(enabled: bool) -> void:

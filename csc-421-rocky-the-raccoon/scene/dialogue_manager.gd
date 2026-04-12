@@ -8,6 +8,7 @@ extends Node
 @export var dialogue_part6 : String = "tutorial6"
 @export var dialogue_part7 : String = "tutorial7"
 @export var dialogue_part8 : String = "tutorial8"
+@export var dialogue_part9 : String = "tutorial9"
 
 @onready var tab1 = $"../tab1"
 @onready var tab2 = $"../tab2"
@@ -28,8 +29,9 @@ var clueboardclosed = 0
 var clueclosed = 0
 
 @onready var checklist = $"../Checklist2"
-var newtext = ""
 
+@onready var journalui = $"../JournalUI"
+var journalopened = 0
 
 func _ready() -> void:
 	update_checklist("Enter the office")
@@ -40,6 +42,7 @@ func _ready() -> void:
 	clueboard.clue_opened.connect(_on_clue_opened)
 	clue.clue_closed.connect(_on_clue_closed)
 	clueboard.clueboard_closed.connect(_on_clueboard_closed)
+	journalui.journal_opened.connect(_on_journal_opened)
 
 func _on_filing_opened():
 	filingopencount += 1
@@ -77,6 +80,11 @@ func _on_clueboard_closed():
 	if clueboardclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part8)
 		update_checklist("")
+
+func _on_journal_opened():
+	journalopened += 1
+	if journalopened == 1:
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part9)
 
 func update_checklist(newtext):
 	checklist.text = newtext

@@ -17,6 +17,7 @@ signal clueboard_closed # dialog signal
 
 @onready var checklist1 = $"../Checklist"
 @onready var checklist2 = $"../Checklist2"
+@onready var clbackground = $"../ChecklistBackground"
 @onready var dialogue_manager = $"../DialogueManager"
 
 var cluedesc = "This is a clue description."
@@ -40,7 +41,7 @@ func _on_return_button_pressed() -> void:
 	clueboard_closed.emit() # dialog signal
 	checklist1.show()
 	checklist2.show()
-	
+	clbackground.show()
 
 
 func _on_clue_button_1_pressed() -> void:

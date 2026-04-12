@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="52_fhhrp"]
 [ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="53_f460h"]
 [ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="54_ycj0v"]
+[ext_resource type="PackedScene" path="res://scene/journal_ui.tscn" id="55_fhhrp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -194,7 +195,7 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ron3d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhhrp"]
 resource_local_to_scene = true
 cull_mode = 2
 albedo_texture = ExtResource("51_vhvp1")
@@ -659,23 +660,34 @@ offset_bottom = -3.0
 [node name="tab3" parent="." unique_id=763787858 instance=ExtResource("47_76meg")]
 
 [node name="folder" parent="." unique_id=883362783 instance=ExtResource("48_ntge4")]
-
-[node name="Checklist" type="Label" parent="." unique_id=580305808]
-z_index = 5
-offset_left = 57.0
-offset_top = 20.0
-offset_right = 220.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 20
-text = "Checklist:"
+offset_top = 1.0
+offset_bottom = 1.0
 
 [node name="Checklist2" type="Label" parent="." unique_id=516168632]
 z_index = 5
-offset_left = 58.0
-offset_top = 49.0
-offset_right = 241.0
-offset_bottom = 143.0
+offset_left = 51.0
+offset_top = 54.0
+offset_right = 207.0
+offset_bottom = 150.0
 theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Checklist" type="Label" parent="." unique_id=580305808]
+z_index = 5
+offset_left = 48.0
+offset_top = 28.0
+offset_right = 211.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 20
+text = "Checklist:"
+
+[node name="ChecklistBackground" type="ColorRect" parent="." unique_id=1803795764]
+z_index = 4
+offset_left = 41.0
+offset_top = 26.0
+offset_right = 222.0
+offset_bottom = 155.0
+color = Color(0, 0, 0, 0.4392157)
 
 [node name="chairDesk" parent="." unique_id=90216326 instance=ExtResource("46_ie7le")]
 transform = Transform3D(-5.3220983, 0, -0.12570405, 0, 3.8821878, 0, 0.12904692, 0, -5.184238, -6.2746677, 0.99016976, 9.434728)
@@ -694,17 +706,17 @@ script = ExtResource("49_ie7le")
 dialogue_resource = ExtResource("2_abiby")
 
 [node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("50_667b8")]
-
-
 transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
 apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1548786429]
-material_override = SubResource("StandardMaterial3D_ron3d")
+[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
+material_override = SubResource("StandardMaterial3D_fhhrp")
 
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1778561681]
+[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
+material_override = SubResource("StandardMaterial3D_fhhrp")
 
-material_override = SubResource("StandardMaterial3D_ron3d")
+[node name="JournalUI" parent="." unique_id=1738941996 instance=ExtResource("55_fhhrp")]
+layer = 0
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
