@@ -1,13 +1,16 @@
 extends Control
 
-signal clue_selected(clue_text: String)
+signal clue_selected(clue_id: String, clue_title: String, clue_text: String)
 
 @onready var clueUI = $"../Clue_UI"
 @onready var player = $"../InteriorPlayer"
 
-@export var clue_1_text: String = "Clue 1 selected"
-@export var clue_2_text: String = "Clue 2 selected"
-@export var clue_3_text: String = "Clue 3 selected"
+@export var clue_1_title: String = "Client Intake"
+@export_multiline var clue_1_text: String = "The first note from the client points to suspicious account activity and an unfamiliar login that happened after business hours."
+@export var clue_2_title: String = "Workstation Snapshot"
+@export_multiline var clue_2_text: String = "The office workstation shows new software and pop-up behavior that the client says they never approved or installed."
+@export var clue_3_title: String = "Network Activity"
+@export_multiline var clue_3_text: String = "Traffic logs show repeated outbound connections that line up with the client's report, suggesting the compromise is active and communicating outward."
 
 signal clue_opened # dialog signal
 signal clueboard_closed # dialog signal
@@ -41,18 +44,18 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_clue_button_1_pressed() -> void:
-	clueUI.show()
-	clue_selected.emit(clue_1_text)
-	clue_opened.emit() # dialog signal
+	_open_clue("clue_1", clue_1_title, clue_1_text)
 
 
 func _on_clue_button_2_pressed() -> void:
-	clueUI.show()
-	clue_selected.emit(clue_2_text)
-	clue_opened.emit() # dialog signal
+	_open_clue("clue_2", clue_2_title, clue_2_text)
 
 
 func _on_clue_button_3_pressed() -> void:
+	_open_clue("clue_3", clue_3_title, clue_3_text)
+
+
+func _open_clue(clue_id: String, clue_title: String, clue_text: String) -> void:
 	clueUI.show()
-	clue_selected.emit(clue_3_text)
+	clue_selected.emit(clue_id, clue_title, clue_text)
 	clue_opened.emit() # dialog signal

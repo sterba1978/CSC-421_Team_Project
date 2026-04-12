@@ -694,13 +694,16 @@ script = ExtResource("49_ie7le")
 dialogue_resource = ExtResource("2_abiby")
 
 [node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("50_667b8")]
-transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -3.603084, 1.3406003, 0.8058772)
+
+
+transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
 apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
+[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1548786429]
 material_override = SubResource("StandardMaterial3D_ron3d")
 
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
+[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1778561681]
+
 material_override = SubResource("StandardMaterial3D_ron3d")
 
 [editable path="Office"]

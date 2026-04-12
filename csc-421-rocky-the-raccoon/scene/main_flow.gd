@@ -4,6 +4,7 @@ const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
 const CURSOR_HOTSPOT := Vector2(42, 48)
 const EXTERIOR_BACKGROUND_MUSIC := preload("res://assets/audio/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav")
 const OFFICE_BACKGROUND_MUSIC := preload("res://assets/audio/Race Against Fate - Ambient Tension Vol 1 FINAL MIX.wav")
+const JOURNAL_UI_SCENE := preload("res://scene/journal_ui.tscn")
 
 @export var exterior_player_path: NodePath = ^"ExteriorPlayer"
 @export var interior_player_path: NodePath = ^"InteriorPlayer"
@@ -12,8 +13,6 @@ const OFFICE_BACKGROUND_MUSIC := preload("res://assets/audio/Race Against Fate -
 @export_file("*.tscn") var door_cinematic_scene_path: String = "res://scene/door_cinematic_scene.tscn"
 @export var scene_transition_fade_duration: float = 0.4
 @export var look_mouse_sensitivity: float = 0.0015
-@export var journal_title: String = "Journal"
-@export var journal_default_text: String = "No item selected yet."
 @export var exterior_sign_light_path: NodePath = ^"Environment/Exterior/StreetLamp/SignLight/SpotLight3D"
 @export var exterior_door_light_path: NodePath = ^"Environment/Exterior/StreetLamp/MeshInstance3D/SpotLight3D"
 @export var sign_light_on_energy: float = 15.0
@@ -30,7 +29,8 @@ const OFFICE_BACKGROUND_MUSIC := preload("res://assets/audio/Race Against Fate -
 @onready var _door_light_spot: SpotLight3D = get_node_or_null(exterior_door_light_path)
 
 var _transition_queued: bool = false
-var _journal_entry_label: Label
+var _active_player: Node
+var _journal_ui
 var _time := 0.0
 var _scene_fade_layer: CanvasLayer
 var _scene_fade_rect: ColorRect
@@ -91,7 +91,7 @@ func _ready() -> void:
 	folder.hide()
 
 	_ensure_journal_ui()
-	_set_journal_entry(journal_default_text)
+	_update_journal_shortcut_state()
 
 	if clueboardUI != null and clueboardUI.has_signal("clue_selected"):
 		clueboardUI.clue_selected.connect(_on_clue_selected)
@@ -113,6 +113,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_time += delta
 	_apply_door_light_flicker()
+	_update_journal_shortcut_state()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _journal_ui == null or _journal_ui.is_open():
+		return
+
+	if event is InputEventKey:
+		var key_event := event as InputEventKey
+		if key_event.pressed and not key_event.echo and key_event.keycode == KEY_SPACE and _can_open_journal():
+			_journal_ui.open_journal()
+			get_viewport().set_input_as_handled()
 
 
 func _on_building_door_opened() -> void:
@@ -133,6 +145,7 @@ func _on_building_door_state_changed(is_open: bool) -> void:
 
 
 func _set_active_player(active: Node) -> void:
+	_active_player = active
 	_set_player_enabled(_exterior_player, false)
 	_set_player_enabled(_interior_player, false)
 	_set_player_enabled(active, true)
@@ -249,54 +262,47 @@ func _fade_from_black(duration: float) -> void:
 
 
 func _ensure_journal_ui() -> void:
-	var layer := CanvasLayer.new()
-	layer.name = "JournalHUD"
-	add_child(layer)
+	if _journal_ui != null:
+		return
 
-	var root := Control.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(root)
-
-	var panel := PanelContainer.new()
-	panel.name = "JournalPanel"
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	panel.anchor_left = 1.0
-	panel.anchor_top = 0.0
-	panel.anchor_right = 1.0
-	panel.anchor_bottom = 0.0
-	panel.offset_left = -260.0
-	panel.offset_top = 16.0
-	panel.offset_right = -16.0
-	panel.offset_bottom = 112.0
-	root.add_child(panel)
-
-	var content := VBoxContainer.new()
-	content.add_theme_constant_override("separation", 8)
-	content.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	panel.add_child(content)
-
-	var title := Label.new()
-	title.text = journal_title
-	title.add_theme_font_size_override("font_size", 20)
-	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	content.add_child(title)
-
-	_journal_entry_label = Label.new()
-	_journal_entry_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_journal_entry_label.add_theme_font_size_override("font_size", 14)
-	_journal_entry_label.custom_minimum_size = Vector2(220.0, 0.0)
-	_journal_entry_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	content.add_child(_journal_entry_label)
+	_journal_ui = JOURNAL_UI_SCENE.instantiate()
+	add_child(_journal_ui)
+	_journal_ui.journal_opened.connect(_on_journal_opened)
+	_journal_ui.journal_closed.connect(_on_journal_closed)
 
 
-func _set_journal_entry(entry_text: String) -> void:
-	if _journal_entry_label != null:
-		_journal_entry_label.text = entry_text
+func _on_clue_selected(clue_id: String, clue_title: String, clue_text: String) -> void:
+	if _journal_ui != null:
+		_journal_ui.add_clue(clue_id, clue_title, clue_text)
 
 
-func _on_clue_selected(clue_text: String) -> void:
-	_set_journal_entry(clue_text)
+func _on_journal_opened() -> void:
+	if _active_player != null:
+		_set_player_enabled(_active_player, false)
+
+
+func _on_journal_closed() -> void:
+	if _active_player != null:
+		_set_player_enabled(_active_player, true)
+
+
+func _can_open_journal() -> bool:
+	if _transition_queued or _journal_ui == null:
+		return false
+
+	return not _has_blocking_ui_open()
+
+
+func _has_blocking_ui_open() -> bool:
+	for ui in [clueboardUI, clueUI, tab1UI, tab2UI, tab3UI, folder]:
+		if ui != null and ui.visible:
+			return true
+	return false
+
+
+func _update_journal_shortcut_state() -> void:
+	if _journal_ui != null:
+		_journal_ui.set_shortcut_enabled(not _has_blocking_ui_open())
 
 
 func _has_property(node: Object, property_name: String) -> bool:
