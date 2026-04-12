@@ -1,0 +1,245 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scene/journal_ui.gd" id="1_6u24r"]
+[ext_resource type="Texture2D" path="res://assets/journal.png" id="2_bfg2q"]
+
+[node name="JournalUI" type="CanvasLayer"]
+layer = 60
+script = ExtResource("1_6u24r")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="JournalShortcut" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = 162.0
+grow_horizontal = 0
+
+[node name="JournalButton" type="Button" parent="Root/JournalShortcut"]
+custom_minimum_size = Vector2(170, 140)
+layout_mode = 2
+focus_mode = 0
+
+[node name="ShortcutContent" type="VBoxContainer" parent="Root/JournalShortcut/JournalButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="ShortcutImage" type="TextureRect" parent="Root/JournalShortcut/JournalButton/ShortcutContent"]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_bfg2q")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ShortcutTitle" type="Label" parent="Root/JournalShortcut/JournalButton/ShortcutContent"]
+layout_mode = 2
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+text = "Journal"
+
+[node name="ShortcutHint" type="Label" parent="Root/JournalShortcut/JournalButton/ShortcutContent"]
+layout_mode = 2
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+text = "Press Space"
+
+[node name="Overlay" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Scrim" type="ColorRect" parent="Root/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0509804, 0.0431373, 0.82)
+
+[node name="PanelCenter" type="MarginContainer" parent="Root/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 64.0
+offset_right = -84.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JournalPanel" type="PanelContainer" parent="Root/Overlay/PanelCenter"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Header" type="HBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="HeaderText" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CaseTitleLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/HeaderText"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Case Journal"
+
+[node name="CaseSummaryLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/HeaderText"]
+layout_mode = 2
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 15
+text = "Review your collected evidence and write down your best theory before you close the case."
+
+[node name="CloseButton" type="Button" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header"]
+custom_minimum_size = Vector2(104, 40)
+layout_mode = 2
+focus_mode = 0
+text = "Close"
+
+[node name="Body" type="HBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="ClueColumn" type="PanelContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClueColumnMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ClueColumnContent" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CollectedCluesLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Collected Clues"
+
+[node name="ClueCountLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "0 clues collected"
+
+[node name="ClueList" type="ItemList" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+size_flags_vertical = 3
+allow_reselect = true
+same_column_width = true
+
+[node name="ClueHelpLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+layout_mode = 2
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 13
+text = "Clues are added here after you inspect them on the clue board."
+
+[node name="DetailColumn" type="PanelContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DetailColumnMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="DetailColumnContent" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="SelectedClueTitle" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "No clues collected yet"
+
+[node name="ClueBodyScroll" type="ScrollContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedClueBody" type="RichTextLabel" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/ClueBodyScroll"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+bbcode_enabled = false
+scroll_active = false
+autowrap_mode = 3
+text = "Inspect the clue board and click into a clue to add it to this journal."
+
+[node name="QuestionsLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Case Questions"
+
+[node name="QuestionsScroll" type="ScrollContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionsContainer" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/QuestionsScroll"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="FooterLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout"]
+layout_mode = 2
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 13
+text = "Answers save automatically while this journal is open. Press Esc or Close to return to the office."
+
+[connection signal="pressed" from="Root/JournalShortcut/JournalButton" to="." method="_on_journal_button_pressed"]
+[connection signal="pressed" from="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="item_selected" from="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent/ClueList" to="." method="_on_clue_list_item_selected"]
