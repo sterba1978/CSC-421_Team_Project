@@ -30,7 +30,7 @@ var clueclosed = 0
 
 @onready var checklist = $"../Checklist2"
 
-#@onready var journalui = $".."._journal_ui
+#@onready var journalui = 
 var journalopened = 0
 
 func _ready() -> void:
