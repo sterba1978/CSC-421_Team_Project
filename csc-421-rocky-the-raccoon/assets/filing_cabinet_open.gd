@@ -20,6 +20,9 @@ var _is_highlighted := false
 
 signal filing_opened # dialog signal
 
+@onready var checklist1 = $"../Checklist"
+@onready var checklist2 = $"../Checklist2"
+
 func _ready() -> void:
 	add_to_group("interactable")
 
@@ -56,6 +59,8 @@ func interact() -> void:
 	if tab1UI != null:
 		tab1UI.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		checklist1.hide()
+		checklist2.hide()
 
 
 func set_highlighted(enabled: bool) -> void:

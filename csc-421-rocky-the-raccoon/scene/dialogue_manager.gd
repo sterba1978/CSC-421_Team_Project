@@ -27,8 +27,12 @@ var clueboardclosed = 0
 @onready var clue = $"../Clue_UI"
 var clueclosed = 0
 
+@onready var checklist = $"../Checklist2"
+var newtext = ""
+
 
 func _ready() -> void:
+	update_checklist("Enter the office")
 	filingcabinet.filing_opened.connect(_on_filing_opened)
 	folder.tab_opened.connect(_on_filetab_opened)
 	folder.folder_closed.connect(_on_folder_closed)
@@ -51,6 +55,7 @@ func _on_folder_closed():
 	folderclosed += 1
 	if folderclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part4)
+		update_checklist("OIpen clueboard")
 
 func _on_clueboard_opened():
 	clueboardopened += 1
@@ -71,3 +76,7 @@ func _on_clueboard_closed():
 	clueboardclosed += 1
 	if clueboardclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part8)
+		update_checklist("")
+
+func update_checklist(newtext):
+	checklist.text = newtext

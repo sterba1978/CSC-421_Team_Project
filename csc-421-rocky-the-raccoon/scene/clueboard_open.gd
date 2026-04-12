@@ -21,6 +21,9 @@ var _is_highlighted := false
 
 signal clueboard_opened # dialog signal
 
+@onready var checklist1 = $"../Checklist"
+@onready var checklist2 = $"../Checklist2"
+
 func _ready() -> void:
 	add_to_group("interactable")
 
@@ -57,6 +60,8 @@ func interact() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	player._update_crosshair_visibility()
 	clueboard_opened.emit() # dialog signal
+	checklist1.hide()
+	checklist2.hide()
 
 
 func set_highlighted(enabled: bool) -> void:

@@ -12,6 +12,9 @@ signal clue_selected(clue_text: String)
 signal clue_opened # dialog signal
 signal clueboard_closed # dialog signal
 
+@onready var checklist1 = $"../Checklist"
+@onready var checklist2 = $"../Checklist2"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,6 +32,9 @@ func _on_return_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player._update_crosshair_visibility()
 	clueboard_closed.emit() # dialog signal
+	checklist1.show()
+	checklist2.show()
+	
 
 
 func _on_clue_button_1_pressed() -> void:
