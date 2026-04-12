@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="52_fhhrp"]
 [ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="53_f460h"]
 [ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="54_ycj0v"]
+[ext_resource type="ArrayMesh" uid="uid://begefj3dwk7xn" path="res://addons/blinds/storeCalifornien.obj" id="55_fhhrp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -194,7 +195,7 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhvp1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f460h"]
 resource_local_to_scene = true
 cull_mode = 2
 albedo_texture = ExtResource("51_vhvp1")
@@ -246,7 +247,7 @@ transform = Transform3D(-1.0000001, -5.888623e-13, 3.017485e-07, -1.8758328e-12,
 size = Vector3(0.29765105, 17.76384, 1.1222296)
 
 [node name="Wall4_Window" parent="Office/Wall_4a/Wall_4b" parent_id_path=PackedInt32Array(1893820020, 1489335664) index="1" unique_id=260762076]
-transform = Transform3D(-0.7220699, -2.145839e-12, 1.7695129e-07, -2.278e-11, 5.3693476, -6.402212e-12, -2.7939677e-08, 4.1542325e-12, -2.2417073, 0.025844574, -2.681697, 11.277356)
+transform = Transform3D(-0.40120876, -2.1529445e-12, 1.7601997e-07, -1.26618716e-11, 5.3693485, -6.44107e-12, -1.5832484e-08, 4.1540105e-12, -2.234982, 0.025844574, -2.681697, 11.277356)
 size = Vector3(0.7381706, 1.025527, 2.602583)
 
 [node name="Wall4_Window2" type="CSGBox3D" parent="Office/Wall_4a/Wall_4b" parent_id_path=PackedInt32Array(1893820020, 1489335664) index="2" unique_id=455784265]
@@ -393,6 +394,16 @@ transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.2134
 
 [node name="loungeDesignSofaCorner" parent="Decoration/Interior" unique_id=1688153319 instance=ExtResource("19_ntge4")]
 transform = Transform3D(-0.008520954, 0, 3.6317985, 0, 3.1974037, 0, -3.8142092, 0, -0.008113508, -8.61771, 1.0457978, 1.8126719)
+
+[node name="Blinds" type="Node" parent="Decoration/Interior" unique_id=1433211203]
+
+[node name="StoreCalifornien" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=491779690]
+transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -9.527277, 2.7387753, 11.588473)
+mesh = ExtResource("55_fhhrp")
+
+[node name="StoreCalifornien2" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=469758882]
+transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -7.2742915, 2.7387753, 11.588473)
+mesh = ExtResource("55_fhhrp")
 
 [node name="Environment" type="Node" parent="." unique_id=369110703]
 
@@ -709,10 +720,10 @@ transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455,
 apply_textures = true
 
 [node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
-material_override = SubResource("StandardMaterial3D_vhvp1")
+material_override = SubResource("StandardMaterial3D_f460h")
 
 [node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
-material_override = SubResource("StandardMaterial3D_vhvp1")
+material_override = SubResource("StandardMaterial3D_f460h")
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
