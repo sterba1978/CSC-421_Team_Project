@@ -50,6 +50,10 @@
 [ext_resource type="PackedScene" uid="uid://0hwl21f02ft4" path="res://addons/Furniture Kit/Models/GLTF format/coatRackStanding.glb" id="48_ouh5b"]
 [ext_resource type="Script" uid="uid://b7iecdu8b8p5t" path="res://scene/dialogue_manager.gd" id="49_ie7le"]
 [ext_resource type="PackedScene" path="res://scene/rocky_character.tscn" id="50_667b8"]
+[ext_resource type="Texture2D" uid="uid://duxfgof81nxvg" path="res://assets/models/textures/tripo_image_fcdea367_0.jpg" id="51_vhvp1"]
+[ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="52_fhhrp"]
+[ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="53_f460h"]
+[ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="54_ycj0v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -189,6 +193,16 @@ ambient_light_source = 2
 ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ron3d"]
+resource_local_to_scene = true
+cull_mode = 2
+albedo_texture = ExtResource("51_vhvp1")
+metallic = 1.0
+metallic_texture = ExtResource("52_fhhrp")
+roughness_texture = ExtResource("54_ycj0v")
+normal_enabled = true
+normal_texture = ExtResource("53_f460h")
 
 [node name="main" type="Node3D" unique_id=1500498533]
 script = ExtResource("29_k8u6l")
@@ -659,7 +673,14 @@ script = ExtResource("49_ie7le")
 dialogue_resource = ExtResource("2_abiby")
 
 [node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("50_667b8")]
-transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -7.1667123, 1.3406003, 10.111857)
+transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
+apply_textures = true
+
+[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1548786429]
+material_override = SubResource("StandardMaterial3D_ron3d")
+
+[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1778561681]
+material_override = SubResource("StandardMaterial3D_ron3d")
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
