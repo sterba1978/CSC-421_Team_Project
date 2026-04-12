@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds2e63tairfv5"]
 
 [ext_resource type="Script" uid="uid://di6gg2yuksnt" path="res://scene/clueboard_ui.gd" id="1_c5akl"]
-[ext_resource type="Texture2D" uid="uid://dcp5gsw5qutaj" path="res://assets/clueboardUI/ClueboardArtUI/ClueboardBackground.png" id="2_8olb3"]
+[ext_resource type="Texture2D" uid="uid://bam0lnm8wr10q" path="res://assets/clueboardUI/ClueboardArtUI/ClueboardBG.png" id="2_yuc5c"]
 [ext_resource type="Theme" uid="uid://cmw3ch7e2nwcl" path="res://assets/clueboardUI/ClueboardArtUI/clue1.tres" id="3_8olb3"]
 [ext_resource type="Theme" uid="uid://b03fmal2fgpom" path="res://assets/clueboardUI/ClueboardArtUI/clue2.tres" id="4_dgk62"]
 [ext_resource type="Theme" uid="uid://cgnckk6xysog8" path="res://assets/clueboardUI/ClueboardArtUI/clue3.tres" id="5_dgk62"]
@@ -22,7 +22,7 @@ script = ExtResource("1_c5akl")
 layout_mode = 0
 offset_right = 1149.0
 offset_bottom = 647.0
-texture = ExtResource("2_8olb3")
+texture = ExtResource("2_yuc5c")
 expand_mode = 2
 
 [node name="ClueButton1" type="Button" parent="." unique_id=1162009523]

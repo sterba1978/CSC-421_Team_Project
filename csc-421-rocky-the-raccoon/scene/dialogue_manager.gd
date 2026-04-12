@@ -8,6 +8,7 @@ extends Node
 @export var dialogue_part6 : String = "tutorial6"
 @export var dialogue_part7 : String = "tutorial7"
 @export var dialogue_part8 : String = "tutorial8"
+@export var dialogue_part9 : String = "tutorial9"
 
 @onready var tab1 = $"../tab1"
 @onready var tab2 = $"../tab2"
@@ -27,8 +28,13 @@ var clueboardclosed = 0
 @onready var clue = $"../Clue_UI"
 var clueclosed = 0
 
+@onready var checklist = $"../Checklist2"
+
+#@onready var journalui = 
+var journalopened = 0
 
 func _ready() -> void:
+	update_checklist("Enter the office")
 	filingcabinet.filing_opened.connect(_on_filing_opened)
 	folder.tab_opened.connect(_on_filetab_opened)
 	folder.folder_closed.connect(_on_folder_closed)
@@ -36,6 +42,7 @@ func _ready() -> void:
 	clueboard.clue_opened.connect(_on_clue_opened)
 	clue.clue_closed.connect(_on_clue_closed)
 	clueboard.clueboard_closed.connect(_on_clueboard_closed)
+	#journalui.journal_opened.connect(_on_journal_opened)
 
 func _on_filing_opened():
 	filingopencount += 1
@@ -51,6 +58,7 @@ func _on_folder_closed():
 	folderclosed += 1
 	if folderclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part4)
+		update_checklist("Open clueboard")
 
 func _on_clueboard_opened():
 	clueboardopened += 1
@@ -71,3 +79,13 @@ func _on_clueboard_closed():
 	clueboardclosed += 1
 	if clueboardclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part8)
+		update_checklist("Open journal")
+
+func _on_journal_opened():
+	journalopened += 1
+	if journalopened == 1:
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part9)
+		update_checklist("")
+
+func update_checklist(newtext):
+	checklist.text = newtext

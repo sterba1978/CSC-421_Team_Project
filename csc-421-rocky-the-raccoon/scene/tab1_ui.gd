@@ -21,6 +21,10 @@ const PAGE_FLIP_SFX := preload("res://assets/audio/freesound_community-page-flip
 signal tab_opened # dialog signal
 signal folder_closed # dialog signal
 
+@onready var checklist1 = $"../Checklist"
+@onready var checklist2 = $"../Checklist2"
+@onready var clbackground = $"../ChecklistBackground"
+
 func _ready() -> void:
 	_show_tab(tab_1_texture, tab_1_title, tab_1_text)
 
@@ -32,6 +36,9 @@ func _on_return_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player._update_crosshair_visibility()
 	folder_closed.emit() # dialog signal
+	checklist1.show()
+	checklist2.show()
+	clbackground.show()
 
 
 func _on_tab_1_pressed() -> void:

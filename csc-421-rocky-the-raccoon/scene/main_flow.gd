@@ -49,6 +49,7 @@ var _scene_fade_rect: ColorRect
 @export var dialogue_start : String = "start"
 @export var dialogue_part1 : String = "tutorial1"
 @export var dialogue_part2 : String = "tutorial2"
+@onready var dialogue_manager = $DialogueManager
 
 @onready var part1 = false
 @onready var part2 = false
@@ -106,6 +107,7 @@ func _ready() -> void:
 	# Dialogue Activation
 	if part1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part1)
+		dialogue_manager.update_checklist("Open the filing cabinet")
 
 
 func _process(delta: float) -> void:

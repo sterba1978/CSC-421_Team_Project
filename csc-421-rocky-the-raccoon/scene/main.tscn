@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="52_fhhrp"]
 [ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="53_f460h"]
 [ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="54_ycj0v"]
+[ext_resource type="ArrayMesh" uid="uid://begefj3dwk7xn" path="res://addons/blinds/storeCalifornien.obj" id="55_fhhrp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
@@ -194,7 +195,7 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ron3d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhhrp"]
 resource_local_to_scene = true
 cull_mode = 2
 albedo_texture = ExtResource("51_vhvp1")
@@ -214,6 +215,10 @@ transform = Transform3D(0.8206144, 0, 0, 0, 2.0044506, 0, 0, 0, 0.84536386, 0.01
 [node name="Wall1_hole" parent="Office/Wall_1" parent_id_path=PackedInt32Array(1893820020, 1093115715) index="0" unique_id=492500122]
 transform = Transform3D(0.9999878, 1.1457502e-13, 2.3283064e-10, -3.3395509e-13, 0.4464389, -7.8795304e-13, -2.0954758e-08, 2.2968433e-13, 0.50000006, 0.02410543, -0.55204177, -0.055354357)
 size = Vector3(0.29467773, 1.427185, 1.0054932)
+
+[node name="Wall_2a" parent="Office" index="1" unique_id=214514401]
+transform = Transform3D(-1.7747377, 4.3710568e-08, -0.012343586, 7.805023e-08, 0.9999999, -8.857861e-08, 0.01081039, -4.3977636e-08, -2.0264428, -17.047634, 2.2137184, -1.2170029)
+size = Vector3(0.22076721, 3.936914, 15.406417)
 
 [node name="Wall2_hole" parent="Office/Wall_2a/Wall_2b" parent_id_path=PackedInt32Array(1893820020, 1445706215) index="0" unique_id=206027873]
 transform = Transform3D(1.5971962, 4.355651e-08, -0.0035430708, -6.9810746e-08, 1, -4.3557165e-08, 0.0056588547, 4.371111e-08, 0.9999944, -0.015301704, -0.7101126, -2.0723953)
@@ -246,7 +251,7 @@ transform = Transform3D(-1.0000001, -5.888623e-13, 3.017485e-07, -1.8758328e-12,
 size = Vector3(0.29765105, 17.76384, 1.1222296)
 
 [node name="Wall4_Window" parent="Office/Wall_4a/Wall_4b" parent_id_path=PackedInt32Array(1893820020, 1489335664) index="1" unique_id=260762076]
-transform = Transform3D(-0.7220699, -2.145839e-12, 1.7695129e-07, -2.278e-11, 5.3693476, -6.402212e-12, -2.7939677e-08, 4.1542325e-12, -2.2417073, 0.025844574, -2.681697, 11.277356)
+transform = Transform3D(-0.40120876, -2.1529445e-12, 1.7601997e-07, -1.26618716e-11, 5.3693485, -6.44107e-12, -1.5832484e-08, 4.1540105e-12, -2.234982, 0.025844574, -2.681697, 11.277356)
 size = Vector3(0.7381706, 1.025527, 2.602583)
 
 [node name="Wall4_Window2" type="CSGBox3D" parent="Office/Wall_4a/Wall_4b" parent_id_path=PackedInt32Array(1893820020, 1489335664) index="2" unique_id=455784265]
@@ -262,7 +267,7 @@ size = Vector3(1.2230766, 1.0204539, 2.5687847)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
@@ -393,6 +398,28 @@ transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.2134
 
 [node name="loungeDesignSofaCorner" parent="Decoration/Interior" unique_id=1688153319 instance=ExtResource("19_ntge4")]
 transform = Transform3D(-0.008520954, 0, 3.6317985, 0, 3.1974037, 0, -3.8142092, 0, -0.008113508, -8.61771, 1.0457978, 1.8126719)
+
+[node name="Blinds" type="Node" parent="Decoration/Interior" unique_id=1433211203]
+
+[node name="StoreCalifornien" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=491779690]
+transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -9.527277, 2.7387753, 11.588473)
+mesh = ExtResource("55_fhhrp")
+
+[node name="StoreCalifornien2" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=469758882]
+transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -7.2742915, 2.7387753, 11.588473)
+mesh = ExtResource("55_fhhrp")
+
+[node name="chairDesk" parent="Decoration/Interior" unique_id=90216326 instance=ExtResource("46_ie7le")]
+transform = Transform3D(-5.3220983, 0, -0.12570405, 0, 3.8821878, 0, 0.12904692, 0, -5.184238, -6.2746677, 0.99016976, 9.434728)
+
+[node name="chairModernCushion" parent="Decoration/Interior" unique_id=1032307393 instance=ExtResource("47_667b8")]
+transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -8.851959, 0.9901707, 6.086622)
+
+[node name="chairModernCushion2" parent="Decoration/Interior" unique_id=1924805500 instance=ExtResource("47_667b8")]
+transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -6.706975, 0.9901707, 6.086622)
+
+[node name="coatRackStanding" parent="Decoration/Interior" unique_id=1807631150 instance=ExtResource("48_ouh5b")]
+transform = Transform3D(3.6057413, 0, 0, 0, 3.433595, 0, 0, 0, 3.0975811, -4.140473, 1.0611788, -2.603734)
 
 [node name="Environment" type="Node" parent="." unique_id=369110703]
 
@@ -614,7 +641,7 @@ transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559
 transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
 
 [node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("20_4jm02")]
-transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 0.76695645, 8.505874)
+transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 0.76695645, 7.0113487)
 
 [node name="Office_door" parent="." unique_id=1006173713 instance=ExtResource("21_fdqew")]
 transform = Transform3D(-0.004874313, 5.9745126e-08, 1.62852, -4.359838e-08, 1.3668255, -7.153359e-08, -0.9974145, -6.003781e-08, -0.007958493, -6.3343763, 0.9303982, -3.5551302)
@@ -649,24 +676,44 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741,
 [node name="Clue_UI" parent="." unique_id=1775691411 instance=ExtResource("31_mjuaj")]
 
 [node name="tab1" parent="." unique_id=627271888 instance=ExtResource("41_cv4lv")]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = -3.0
+offset_bottom = -3.0
 
 [node name="tab2" parent="." unique_id=1532131812 instance=ExtResource("46_mbros")]
 
 [node name="tab3" parent="." unique_id=763787858 instance=ExtResource("47_76meg")]
 
 [node name="folder" parent="." unique_id=883362783 instance=ExtResource("48_ntge4")]
+offset_top = 1.0
+offset_bottom = 1.0
 
-[node name="chairDesk" parent="." unique_id=90216326 instance=ExtResource("46_ie7le")]
-transform = Transform3D(-5.3220983, 0, -0.12570405, 0, 3.8821878, 0, 0.12904692, 0, -5.184238, -6.2746677, 0.99016976, 9.434728)
+[node name="Checklist2" type="Label" parent="." unique_id=516168632]
+z_index = 5
+offset_left = 51.0
+offset_top = 54.0
+offset_right = 207.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
 
-[node name="chairModernCushion" parent="." unique_id=1032307393 instance=ExtResource("47_667b8")]
-transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -8.851959, 0.9901707, 6.086622)
+[node name="Checklist" type="Label" parent="." unique_id=580305808]
+z_index = 5
+offset_left = 48.0
+offset_top = 28.0
+offset_right = 211.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 20
+text = "Checklist:"
 
-[node name="chairModernCushion2" parent="." unique_id=1924805500 instance=ExtResource("47_667b8")]
-transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -6.706975, 0.9901707, 6.086622)
-
-[node name="coatRackStanding" parent="." unique_id=1807631150 instance=ExtResource("48_ouh5b")]
-transform = Transform3D(3.6057413, 0, 0, 0, 3.433595, 0, 0, 0, 3.0975811, -4.140473, 1.0611788, -2.603734)
+[node name="ChecklistBackground" type="ColorRect" parent="." unique_id=1803795764]
+z_index = 4
+offset_left = 41.0
+offset_top = 26.0
+offset_right = 222.0
+offset_bottom = 155.0
+color = Color(0, 0, 0, 0.4392157)
 
 [node name="DialogueManager" type="Node" parent="." unique_id=1244541036]
 script = ExtResource("49_ie7le")
@@ -676,11 +723,11 @@ dialogue_resource = ExtResource("2_abiby")
 transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
 apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1548786429]
-material_override = SubResource("StandardMaterial3D_ron3d")
+[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
+material_override = SubResource("StandardMaterial3D_fhhrp")
 
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1778561681]
-material_override = SubResource("StandardMaterial3D_ron3d")
+[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
+material_override = SubResource("StandardMaterial3D_fhhrp")
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
