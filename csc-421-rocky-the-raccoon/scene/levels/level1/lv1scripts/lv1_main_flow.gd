@@ -37,7 +37,9 @@ var _scene_fade_rect: ColorRect
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
-@onready var clueUI = $Clue_UI
+@onready var clueUI1 = $clue_ui
+@onready var clueUI2 = $clue_ui2
+@onready var clueUI3 = $clue_ui3
 @onready var tab1UI = $tab1
 @onready var tab2UI = $tab2
 @onready var tab3UI = $tab3
@@ -46,13 +48,7 @@ var _scene_fade_rect: ColorRect
 
 #Dialogue
 @export var dialogue_resource : DialogueResource
-@export var dialogue_start : String = "start"
-@export var dialogue_part1 : String = "tutorial1"
-@export var dialogue_part2 : String = "tutorial2"
 @onready var dialogue_manager = $DialogueManager
-@onready var part1 = false
-@onready var part2 = false
-@export var dialogue_part9 : String = "tutorial9"
 var journalopened = 0
 
 func _ready() -> void:
@@ -76,7 +72,6 @@ func _ready() -> void:
 
 	if start_in_office:
 		_set_active_player(_interior_player)
-		part1 = true
 	else:
 		_set_active_player(_exterior_player)
 
@@ -85,7 +80,9 @@ func _ready() -> void:
 	
 	## Hiding UI's
 	clueboardUI.hide()
-	clueUI.hide()
+	clueUI1.hide()
+	clueUI2.hide()
+	clueUI3.hide()
 	tab1UI.hide()
 	tab2UI.hide()
 	tab3UI.hide()
@@ -99,18 +96,9 @@ func _ready() -> void:
 	if clueboardUI != null and clueboardUI.has_signal("clue_selected"):
 		clueboardUI.clue_selected.connect(_on_clue_selected)
 
-	if not start_in_office:
-		# DialogueStart
-		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
-
 	if fade_in_from_black:
 		await get_tree().process_frame
 		await _fade_from_black(scene_transition_fade_duration)
-	
-	# Dialogue Activation
-	if part1:
-		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part1)
-		dialogue_manager.update_checklist("Open the filing cabinet")
 
 
 func _process(delta: float) -> void:
@@ -284,9 +272,6 @@ func _on_journal_opened() -> void:
 		_set_player_enabled(_active_player, false)
 	
 	journalopened += 1
-	if journalopened == 1:
-		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part9)
-		dialogue_manager.update_checklist("")
 
 
 func _on_journal_closed() -> void:
@@ -302,7 +287,7 @@ func _can_open_journal() -> bool:
 
 
 func _has_blocking_ui_open() -> bool:
-	for ui in [clueboardUI, clueUI, tab1UI, tab2UI, tab3UI, folder]:
+	for ui in [clueboardUI, clueUI1, clueUI2, clueUI3, tab1UI, tab2UI, tab3UI, folder]:
 		if ui != null and ui.visible:
 			return true
 	return false
