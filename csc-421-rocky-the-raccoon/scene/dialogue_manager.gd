@@ -10,6 +10,7 @@ extends Node
 @export var dialogue_part8 : String = "tutorial8"
 @export var dialogue_part9 : String = "tutorial9"
 
+
 @onready var tab1 = $"../tab1"
 @onready var tab2 = $"../tab2"
 @onready var tab3 = $"../tab3"
