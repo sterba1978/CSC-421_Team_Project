@@ -37,7 +37,9 @@ var _scene_fade_rect: ColorRect
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
-@onready var clueUI = $Clue_UI
+@onready var clueUI1 = $clue_ui
+@onready var clueUI2 = $clue_ui2
+@onready var clueUI3 = $clue_ui3
 @onready var tab1UI = $tab1
 @onready var tab2UI = $tab2
 @onready var tab3UI = $tab3
@@ -78,7 +80,9 @@ func _ready() -> void:
 	
 	## Hiding UI's
 	clueboardUI.hide()
-	clueUI.hide()
+	clueUI1.hide()
+	clueUI2.hide()
+	clueUI3.hide()
 	tab1UI.hide()
 	tab2UI.hide()
 	tab3UI.hide()
@@ -283,7 +287,7 @@ func _can_open_journal() -> bool:
 
 
 func _has_blocking_ui_open() -> bool:
-	for ui in [clueboardUI, clueUI, tab1UI, tab2UI, tab3UI, folder]:
+	for ui in [clueboardUI, clueUI1, clueUI2, clueUI3, tab1UI, tab2UI, tab3UI, folder]:
 		if ui != null and ui.visible:
 			return true
 	return false
