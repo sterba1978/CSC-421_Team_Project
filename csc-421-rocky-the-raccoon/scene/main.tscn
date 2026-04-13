@@ -50,10 +50,6 @@
 [ext_resource type="PackedScene" uid="uid://0hwl21f02ft4" path="res://addons/Furniture Kit/Models/GLTF format/coatRackStanding.glb" id="48_ouh5b"]
 [ext_resource type="Script" uid="uid://b7iecdu8b8p5t" path="res://scene/dialogue_manager.gd" id="49_ie7le"]
 [ext_resource type="PackedScene" path="res://scene/rocky_character.tscn" id="50_667b8"]
-[ext_resource type="Texture2D" uid="uid://duxfgof81nxvg" path="res://assets/models/textures/tripo_image_fcdea367_0.jpg" id="51_vhvp1"]
-[ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="52_fhhrp"]
-[ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="53_f460h"]
-[ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="54_ycj0v"]
 [ext_resource type="ArrayMesh" uid="uid://begefj3dwk7xn" path="res://addons/blinds/storeCalifornien.obj" id="55_fhhrp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
@@ -195,16 +191,6 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhhrp"]
-resource_local_to_scene = true
-cull_mode = 2
-albedo_texture = ExtResource("51_vhvp1")
-metallic = 1.0
-metallic_texture = ExtResource("52_fhhrp")
-roughness_texture = ExtResource("54_ycj0v")
-normal_enabled = true
-normal_texture = ExtResource("53_f460h")
-
 [node name="main" type="Node3D" unique_id=1500498533]
 script = ExtResource("29_k8u6l")
 dialogue_resource = ExtResource("2_abiby")
@@ -267,7 +253,7 @@ size = Vector3(1.2230766, 1.0204539, 2.5687847)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=51706358]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
@@ -668,6 +654,11 @@ script = ExtResource("28_vneqc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.0669656, 0.084218025)
 environment = SubResource("Environment_vc5kc")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1330093406]
+
+[node name="DialogueCam" type="Camera3D" parent="CharacterBody3D" unique_id=1914777938]
+transform = Transform3D(-0.77907544, 0, 0.62693024, 0, 1, 0, -0.62693024, 0, -0.77907544, -4.357373, 3.2780974, 4.656534)
+
 [node name="ClueBoard1" parent="." unique_id=1421729805 instance=ExtResource("30_fa8t4")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741, 2.2750418, 0.48588872)
 
@@ -723,14 +714,7 @@ dialogue_resource = ExtResource("2_abiby")
 transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
 apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
-material_override = SubResource("StandardMaterial3D_fhhrp")
-
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
-material_override = SubResource("StandardMaterial3D_fhhrp")
-
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
 [editable path="Decoration/Interior/DeskMat"]
 [editable path="RockyCharacter"]
-[editable path="RockyCharacter/RockyModel"]
