@@ -9,6 +9,7 @@ extends Node
 @export var dialogue_part7 : String = "tutorial7"
 @export var dialogue_part8 : String = "tutorial8"
 @export var dialogue_part9 : String = "tutorial9"
+@export var dialogue_part10 : String = "tutorial10"
 
 
 @onready var tab1 = $"../tab1"
@@ -33,6 +34,7 @@ var clueclosed = 0
 
 #@onready var journalui = 
 var journalopened = 0
+var journalclosed = 0
 
 func _ready() -> void:
 	update_checklist("Enter the office")
@@ -87,6 +89,13 @@ func _on_journal_opened():
 	if journalopened == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part9)
 		update_checklist("")
+		
+#help lol
+func _on_journal_closed():
+	journalclosed += 1
+	if journalclosed == 1:
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part10)
+		update_checklist("Open the door")
 
 func update_checklist(newtext):
 	checklist.text = newtext
