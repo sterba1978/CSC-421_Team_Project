@@ -50,9 +50,10 @@ var _scene_fade_rect: ColorRect
 @export var dialogue_part1 : String = "tutorial1"
 @export var dialogue_part2 : String = "tutorial2"
 @onready var dialogue_manager = $DialogueManager
-
 @onready var part1 = false
 @onready var part2 = false
+@export var dialogue_part9 : String = "tutorial9"
+var journalopened = 0
 
 func _ready() -> void:
 	_apply_custom_cursor()
@@ -89,6 +90,8 @@ func _ready() -> void:
 	tab2UI.hide()
 	tab3UI.hide()
 	folder.hide()
+	
+	
 
 	_ensure_journal_ui()
 	_update_journal_shortcut_state()
@@ -279,6 +282,11 @@ func _on_clue_selected(clue_id: String, clue_title: String, clue_text: String) -
 func _on_journal_opened() -> void:
 	if _active_player != null:
 		_set_player_enabled(_active_player, false)
+	
+	journalopened += 1
+	if journalopened == 1:
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part9)
+		dialogue_manager.update_checklist("")
 
 
 func _on_journal_closed() -> void:
