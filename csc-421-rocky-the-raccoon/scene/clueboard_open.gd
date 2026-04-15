@@ -26,7 +26,7 @@ signal clueboard_opened # dialog signal
 @onready var clbackground = $"../ChecklistBackground"
 
 func _ready() -> void:
-	add_to_group("interactable")
+	#add_to_group("interactable")
 
 	if _click_target:
 		_click_target.input_event.connect(_on_click_area_input_event)

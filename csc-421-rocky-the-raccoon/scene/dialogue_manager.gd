@@ -62,6 +62,7 @@ func _on_folder_closed():
 	if folderclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part4)
 		update_checklist("Open clueboard")
+		clueboardobj.add_to_group("interactable")
 
 func _on_clueboard_opened():
 	clueboardopened += 1
