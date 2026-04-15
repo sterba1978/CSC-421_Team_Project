@@ -76,6 +76,7 @@ var _office_door_video_playing: bool = false
 @export var dialogue_part9 : String = "tutorial9"
 var journalopened = 0
 var journalclosed = 0
+@onready var officedoor = $Office_door
 
 func _ready() -> void:
 	_apply_custom_cursor()
@@ -140,6 +141,7 @@ func _ready() -> void:
 	
 	# Dialogue Activation
 	if part1:
+		#officedoor.remove_from_group("interactable")
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part1)
 		dialogue_manager.update_checklist("Open the filing cabinet")
 

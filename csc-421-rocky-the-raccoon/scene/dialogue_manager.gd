@@ -11,6 +11,7 @@ extends Node
 @export var dialogue_part9 : String = "tutorial9"
 @export var dialogue_part10 : String = "tutorial10"
 
+@onready var officedoor = $"../Office_door"
 
 @onready var tab1 = $"../tab1"
 @onready var tab2 = $"../tab2"
@@ -63,6 +64,7 @@ func _on_folder_closed():
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part4)
 		update_checklist("Open clueboard")
 		clueboardobj.add_to_group("interactable")
+		filingcabinet.remove_from_group("interactable")
 
 func _on_clueboard_opened():
 	clueboardopened += 1
@@ -84,6 +86,7 @@ func _on_clueboard_closed():
 	if clueboardclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part8)
 		update_checklist("Open journal")
+		clueboardobj.remove_from_group("interactable")
 
 func _on_journal_opened():
 	journalopened += 1
@@ -97,6 +100,7 @@ func _on_journal_closed():
 	if journalclosed == 1:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part10)
 		update_checklist("Open the door")
+		#officedoor.add_to_group("interactable")
 
 func update_checklist(newtext):
 	checklist.text = newtext
