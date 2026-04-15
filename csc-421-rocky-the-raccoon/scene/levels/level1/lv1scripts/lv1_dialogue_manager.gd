@@ -28,7 +28,7 @@ var clue3closed = 0
 
 
 func _ready() -> void:
-	update_checklist("Enter the office")
+	update_checklist("Enter the office please")
 
 func update_checklist(newtext):
 	checklist.text = newtext
