@@ -34,7 +34,6 @@ var _is_highlighted: bool = false
 @onready var _click_area: Area3D = get_node_or_null(click_area_path) as Area3D
 @onready var _solid_shape: CollisionShape3D = get_node_or_null(solid_collision_shape_path) as CollisionShape3D
 
-
 func _ready() -> void:
 	_closed_angle = _get_axis_angle()
 	add_to_group("interactable")
@@ -50,7 +49,6 @@ func _ready() -> void:
 	_cache_highlight_targets()
 	_build_highlight_material()
 	set_highlighted(false)
-
 
 func _on_click_area_input_event(
 	_camera: Camera3D,
