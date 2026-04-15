@@ -29,7 +29,7 @@ Rocky: [speed=0.5]You can click on a clue to get further details about it.
 => END
 
 ~ tutorial6
-Rocky: [speed=0.5]Good job. This will show the detailsof each clue that you will investigate.
+Rocky: [speed=0.5]Good job. This will show the details of each clue that you will investigate.
 Rocky: [speed=0.5]Now try clicking return to go back to the clueboard overview.
 => END
 
@@ -38,5 +38,73 @@ Rocky: [speed=0.5]Good job. Now click return once more to return to the office.
 => END
 
 ~ tutorial8
-Rocky: [speed=0.5]The clue board is ready to go. Everything seems to be in order.
+Rocky: [speed=0.5]The clue board is ready to go.
+Rocky: [speed=0.5]Now lets check our journal by pressing the space button.
+=> END
+
+~ tutorial9
+Rocky: [speed=0.5]This is your journal. It will be updated every time you look at a clue on the clue board.
+Rocky: [speed=0.5]You will use this journal to try and figure out which clue is the cause of the clients problem.
+Rocky: [speed=0.5]You can type your thoughts for the case questions to help you solve the case.
+Rocky: [speed=0.5]Now click the close button to return to the office.
+=> END
+
+~ tutorial10
+Rocky: [speed=0.5] *knock at the door* Sounds like we have our first client...
+=> END
+
+
+~ level1a
+Carla: [speed=0.5] Hello dear, I've come to you with an inquiry. I woke up yesterday morning with my bank account empty!
+Rocky: [speed=0.5] Do you mind if I take a look?
+Carla: [speed=0.5] Not at all!
+=> END
+
+~ level1b
+Rocky: [speed=0.5] Of course, it's Phineas! Listen Carla, you never give out your bank information to someone online!
+Carla: [speed=0.5] But I thought it was going to a good cause, what should I look out for?
+Rocky: [speed=0.5] Look at the email address, it's made up of random letters and numbers.
+Rocky: [speed=0.5] Strangers online, especially ones from email addresses you don't know, should never ask you for money or bank information. Plus, the situation will never be urgent.
+Rocky: [speed=0.5] Lastly, random links attached to the email should never be clicked. You are one click away from information being stolen from you.
+Carla: [speed=0.5] Wow, thanks Rocky! I've learned so much.
+Rocky: [speed=0.5] Of course, I've contacted the authorities who can hopefully help you recover your belongings.
+=> END
+
+~ level2a
+Patty: [speed=0.5] Dude, you've gotta help me. My PictoSnap has been hacked!
+Rocky: [speed=0.5] I'm on it.
+=> END
+
+~ level2b
+Rocky: [speed=0.5] I hate to break it to you, but this isn't Paul, Patty. This is an AI account!
+Patty: [speed=0.5] I totally thought that was my guy Paul, no idea it was fake!
+Rocky: [speed=0.5] Of course, it's Phineas! Patty, there are people out there that will pretend to be your friends. You need to make sure they're the real deal!
+Patty: [speed=0.5] Dude, that's brutal. Okay, but like, what should I look for?
+Rocky: [speed=0.5] Look at the username, does he already have an account?
+Patty: [speed=0.5] Yeah, this fake one totally has an underscore at the end that my buddy's doesn't.
+Rocky: [speed=0.5] Take a better look at this picture. Does anything look off to you? Last time I checked, possums didn't have 6 toes. Plus, none of his pictures have any likes.
+Patty: [speed=0.5] Gnarly, and he doesn't have any fang either. 
+Rocky: [speed=0.5] Lastly, friends in person OR over direct message should never be asking for your login information.
+Patty: [speed=0.5] Wow, thanks Rocky! I'm going to report this account to PictoSnap and change my password.
+=> END
+
+~ level3a
+Peter: [speed=0.5] Rocky, you’ve gotta help me! My laptop is totally messed up!
+Rocky: [speed=0.5] Alright, what happened?
+Peter: [speed=0.5] I was trying to download a movie, and now everything’s glitching, and I keep getting weird pop-ups!
+Rocky: [speed=0.5] Let me take a look.
+=> END
+
+~ level3b
+Rocky: [speed=0.5] I hate to tell you this, Peter… but you’ve got malware on your laptop.
+Peter: [speed=0.5] Wait, seriously?! All I wanted was to watch a movie!
+Rocky: [speed=0.5] Yeah… that’s how they get you sometimes
+Rocky: [speed=0.5] You said you were downloading a movie, right? Was it from an official or trusted site?
+Peter: [speed=0.5] Uh… not really. It was just some random free movie site…
+Rocky: [speed=0.5] And this ad on the side—did you click it?
+Peter: [speed=0.5] Yeah, it said ‘Start Download Now’ so I figured that was it…
+Rocky: [speed=0.5] That’s a common trick. Ads like that can lead to malware instead of what you actually want.
+Rocky: [speed=0.5] Now look at this website address. See how it’s spelled weird and has all these extra symbols?
+Rocky: [speed=0.5] Next time, stick to trusted sites, avoid clicking random ads, and always double-check the website address.
+Peter: [speed=0.5] Got it. No more shady downloads.
 => END

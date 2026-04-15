@@ -6,8 +6,8 @@ signal journal_closed
 @export var case_title: String = "Case Journal"
 @export_multiline var case_summary: String = "Open the clue board, collect evidence, and keep your working theory here while you investigate each case."
 @export var question_prompts: PackedStringArray = PackedStringArray([
-	"Who is the strongest suspect right now?",
-	"Which clue feels the most important?",
+	"Which clue are you currently suspicious of?",
+	"Why is this clue suspicious?",
 	"What's your current theory for this case?"
 ])
 

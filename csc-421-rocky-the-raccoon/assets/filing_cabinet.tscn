@@ -4,14 +4,12 @@
 [ext_resource type="Script" uid="uid://c4gi6vsrdowha" path="res://assets/filing_cabinet_open.gd" id="1_gxah5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahw5s"]
-no_depth_test = true
 specular_mode = 1
 albedo_color = Color(0.37254903, 0.37254903, 0.37254903, 1)
 albedo_texture = ExtResource("1_13kxi")
 albedo_texture_msdf = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jpvt"]
-no_depth_test = true
 specular_mode = 1
 albedo_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 albedo_texture = ExtResource("1_13kxi")

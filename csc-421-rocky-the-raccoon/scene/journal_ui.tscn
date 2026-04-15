@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://bda6adsbl0sl4"]
 
-[ext_resource type="Script" path="res://scene/journal_ui.gd" id="1_6u24r"]
-[ext_resource type="Texture2D" path="res://assets/journal.png" id="2_bfg2q"]
+[ext_resource type="Script" uid="uid://dhusaiopj1xdf" path="res://scene/journal_ui.gd" id="1_6u24r"]
+[ext_resource type="Texture2D" uid="uid://bj1vuop3t05d3" path="res://assets/journal.png" id="2_bfg2q"]
 
-[node name="JournalUI" type="CanvasLayer"]
+[node name="JournalUI" type="CanvasLayer" unique_id=250468610]
 layer = 60
 script = ExtResource("1_6u24r")
 
-[node name="Root" type="Control" parent="."]
+[node name="Root" type="Control" parent="." unique_id=254642778]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,9 +16,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="JournalShortcut" type="MarginContainer" parent="Root"]
+[node name="JournalShortcut" type="MarginContainer" parent="Root" unique_id=1410431023]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -184.0
@@ -27,12 +27,12 @@ offset_right = -14.0
 offset_bottom = 162.0
 grow_horizontal = 0
 
-[node name="JournalButton" type="Button" parent="Root/JournalShortcut"]
+[node name="JournalButton" type="Button" parent="Root/JournalShortcut" unique_id=96234346]
 custom_minimum_size = Vector2(170, 140)
 layout_mode = 2
 focus_mode = 0
 
-[node name="ShortcutContent" type="VBoxContainer" parent="Root/JournalShortcut/JournalButton"]
+[node name="ShortcutContent" type="VBoxContainer" parent="Root/JournalShortcut/JournalButton" unique_id=2081732989]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="ShortcutImage" type="TextureRect" parent="Root/JournalShortcut/JournalButton/ShortcutContent"]
+[node name="ShortcutImage" type="TextureRect" parent="Root/JournalShortcut/JournalButton/ShortcutContent" unique_id=1397612486]
 custom_minimum_size = Vector2(0, 86)
 layout_mode = 2
 size_flags_vertical = 3
@@ -53,20 +53,19 @@ texture = ExtResource("2_bfg2q")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ShortcutTitle" type="Label" parent="Root/JournalShortcut/JournalButton/ShortcutContent"]
+[node name="ShortcutTitle" type="Label" parent="Root/JournalShortcut/JournalButton/ShortcutContent" unique_id=814252871]
 layout_mode = 2
-horizontal_alignment = 1
 theme_override_font_sizes/font_size = 18
 text = "Journal"
-
-[node name="ShortcutHint" type="Label" parent="Root/JournalShortcut/JournalButton/ShortcutContent"]
-layout_mode = 2
 horizontal_alignment = 1
+
+[node name="ShortcutHint" type="Label" parent="Root/JournalShortcut/JournalButton/ShortcutContent" unique_id=540482480]
+layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "Press Space"
+horizontal_alignment = 1
 
-[node name="Overlay" type="Control" parent="Root"]
-visible = false
+[node name="Overlay" type="Control" parent="Root" unique_id=1265595796]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Scrim" type="ColorRect" parent="Root/Overlay"]
+[node name="Scrim" type="ColorRect" parent="Root/Overlay" unique_id=355212906]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0588235, 0.0509804, 0.0431373, 0.82)
 
-[node name="PanelCenter" type="MarginContainer" parent="Root/Overlay"]
+[node name="PanelCenter" type="MarginContainer" parent="Root/Overlay" unique_id=830605083]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,149 +95,148 @@ offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JournalPanel" type="PanelContainer" parent="Root/Overlay/PanelCenter"]
+[node name="JournalPanel" type="PanelContainer" parent="Root/Overlay/PanelCenter" unique_id=1512287603]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel"]
+[node name="PanelMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel" unique_id=1970626569]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="Layout" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin"]
+[node name="Layout" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin" unique_id=664399455]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Header" type="HBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout"]
+[node name="Header" type="HBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout" unique_id=691629435]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="HeaderText" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header"]
+[node name="HeaderText" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header" unique_id=1488591378]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="CaseTitleLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/HeaderText"]
+[node name="CaseTitleLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/HeaderText" unique_id=1914993211]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Case Journal"
 
-[node name="CaseSummaryLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/HeaderText"]
+[node name="CaseSummaryLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/HeaderText" unique_id=552278247]
 layout_mode = 2
-autowrap_mode = 3
 theme_override_font_sizes/font_size = 15
 text = "Review your collected evidence and write down your best theory before you close the case."
+autowrap_mode = 3
 
-[node name="CloseButton" type="Button" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header"]
+[node name="CloseButton" type="Button" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header" unique_id=900025865]
 custom_minimum_size = Vector2(104, 40)
 layout_mode = 2
 focus_mode = 0
 text = "Close"
 
-[node name="Body" type="HBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout"]
+[node name="Body" type="HBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout" unique_id=1364925386]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 18
 
-[node name="ClueColumn" type="PanelContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body"]
+[node name="ClueColumn" type="PanelContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body" unique_id=1592574637]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ClueColumnMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn"]
+[node name="ClueColumnMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn" unique_id=176860804]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ClueColumnContent" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin"]
+[node name="ClueColumnContent" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin" unique_id=646367028]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="CollectedCluesLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+[node name="CollectedCluesLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent" unique_id=795846464]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Collected Clues"
 
-[node name="ClueCountLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+[node name="ClueCountLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent" unique_id=195634078]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "0 clues collected"
 
-[node name="ClueList" type="ItemList" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+[node name="ClueList" type="ItemList" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent" unique_id=1526695837]
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 size_flags_vertical = 3
 allow_reselect = true
 same_column_width = true
 
-[node name="ClueHelpLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent"]
+[node name="ClueHelpLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/ClueColumn/ClueColumnMargin/ClueColumnContent" unique_id=957098231]
 layout_mode = 2
-autowrap_mode = 3
 theme_override_font_sizes/font_size = 13
 text = "Clues are added here after you inspect them on the clue board."
+autowrap_mode = 3
 
-[node name="DetailColumn" type="PanelContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body"]
+[node name="DetailColumn" type="PanelContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body" unique_id=1008977083]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="DetailColumnMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn"]
+[node name="DetailColumnMargin" type="MarginContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn" unique_id=58182993]
 layout_mode = 2
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 18
 
-[node name="DetailColumnContent" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin"]
+[node name="DetailColumnContent" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin" unique_id=550804417]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="SelectedClueTitle" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+[node name="SelectedClueTitle" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent" unique_id=1922067189]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "No clues collected yet"
 
-[node name="ClueBodyScroll" type="ScrollContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+[node name="ClueBodyScroll" type="ScrollContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent" unique_id=1728457347]
 custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SelectedClueBody" type="RichTextLabel" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/ClueBodyScroll"]
+[node name="SelectedClueBody" type="RichTextLabel" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/ClueBodyScroll" unique_id=1390515748]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
-bbcode_enabled = false
-scroll_active = false
-autowrap_mode = 3
+size_flags_horizontal = 3
 text = "Inspect the clue board and click into a clue to add it to this journal."
+scroll_active = false
 
-[node name="QuestionsLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+[node name="QuestionsLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent" unique_id=841245899]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Case Questions"
 
-[node name="QuestionsScroll" type="ScrollContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent"]
+[node name="QuestionsScroll" type="ScrollContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent" unique_id=1561726857]
 custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="QuestionsContainer" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/QuestionsScroll"]
+[node name="QuestionsContainer" type="VBoxContainer" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/QuestionsScroll" unique_id=346444674]
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="FooterLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout"]
+[node name="FooterLabel" type="Label" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout" unique_id=1221470079]
 layout_mode = 2
-autowrap_mode = 3
 theme_override_font_sizes/font_size = 13
 text = "Answers save automatically while this journal is open. Press Esc or Close to return to the office."
+autowrap_mode = 3
 
 [connection signal="pressed" from="Root/JournalShortcut/JournalButton" to="." method="_on_journal_button_pressed"]
 [connection signal="pressed" from="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Header/CloseButton" to="." method="_on_close_button_pressed"]
