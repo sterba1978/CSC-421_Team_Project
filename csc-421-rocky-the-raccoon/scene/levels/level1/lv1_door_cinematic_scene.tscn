@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://bqnnhd7ysxi0l"]
+
+[ext_resource type="Script" uid="uid://bh80ni85jndk1" path="res://scene/levels/level1/lv1scripts/lv1_door_cinematic_scene.gd" id="1_r2hj0"]
+[ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="2_bfuxu"]
+[ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="3_ji8v2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.0431373, 0.0745098, 0.133333, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.623529, 0.772549, 0.941176, 0.95)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 18
+
+[sub_resource type="SystemFont" id="SystemFont_title"]
+font_names = PackedStringArray("Georgia", "Cambria", "Palatino Linotype", "Times New Roman", "Noto Serif")
+
+[node name="DoorCinematicScene" type="Control" unique_id=1035795259]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_r2hj0")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1414059262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bfuxu")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Shade" type="ColorRect" parent="." unique_id=1440528225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0196078, 0.0313726, 0.0745098, 0.58)
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1053425681]
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Layout" type="MarginContainer" parent="." unique_id=680979103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 56
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 56
+theme_override_constants/margin_bottom = 44
+
+[node name="Center" type="CenterContainer" parent="Layout" unique_id=1767382600]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Layout/Center" unique_id=2018880577]
+custom_minimum_size = Vector2(840, 360)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Layout/Center/Panel" unique_id=472014500]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 24
+
+[node name="HBox" type="HBoxContainer" parent="Layout/Center/Panel/Margin" unique_id=1482263992]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="RockyCard" type="TextureRect" parent="Layout/Center/Panel/Margin/HBox" unique_id=1536589306]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_ji8v2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Content" type="VBoxContainer" parent="Layout/Center/Panel/Margin/HBox" unique_id=1323931415]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Kicker" type="Label" parent="Layout/Center/Panel/Margin/HBox/Content" unique_id=1679913828]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.686275, 0.807843, 0.972549, 1)
+theme_override_font_sizes/font_size = 16
+text = "Case File Opening"
+
+[node name="Title" type="Label" parent="Layout/Center/Panel/Margin/HBox/Content" unique_id=1618455790]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.976471, 0.968627, 0.929412, 1)
+theme_override_colors/font_outline_color = Color(0.0156863, 0.027451, 0.0588235, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("SystemFont_title")
+theme_override_font_sizes/font_size = 36
+text = "Rocky Steps Into The Office"
+autowrap_mode = 3
+
+[node name="Body" type="Label" parent="Layout/Center/Panel/Margin/HBox/Content" unique_id=155264525]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.901961, 0.956863, 1)
+theme_override_font_sizes/font_size = 17
+text = "Rain still hangs over the city, but the room is finally his. A desk, a dim lamp, and the kind of silence that means a real mystery is about to begin."
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="Layout/Center/Panel/Margin/HBox/Content" unique_id=1270353469]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ContinueButton" type="Button" parent="Layout/Center/Panel/Margin/HBox/Content" unique_id=822310975]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Continue To Office"
+
+[connection signal="pressed" from="Layout/Center/Panel/Margin/HBox/Content/ContinueButton" to="." method="_on_continue_button_pressed"]
