@@ -137,8 +137,8 @@ func _set_bone_rotation_degrees(skeleton: Skeleton3D, bone_key: String, degrees:
 		deg_to_rad(degrees.y),
 		deg_to_rad(degrees.z)
 	)
-	var rotation := Basis.from_euler(radians).get_rotation_quaternion()
-	skeleton.set_bone_pose_rotation(bone_idx, rotation)
+	var bone_rotation := Basis.from_euler(radians).get_rotation_quaternion()
+	skeleton.set_bone_pose_rotation(bone_idx, bone_rotation)
 
 
 func _bone_aliases_for(bone_key: String) -> Array[String]:

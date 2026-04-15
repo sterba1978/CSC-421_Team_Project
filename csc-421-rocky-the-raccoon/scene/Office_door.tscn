@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://hvcjd7eeigkd" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/door-rotate-square-c.glb" id="1_y5pye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_solid"]
-size = Vector3(0.12, 2.1, 1.0)
+size = Vector3(0.12, 2.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_click"]
 size = Vector3(0.3, 2.3, 1.2)
@@ -15,18 +15,20 @@ script = ExtResource("1_i7qj5")
 [node name="door-rotate-square-c2" parent="." unique_id=428773836 instance=ExtResource("1_y5pye")]
 transform = Transform3D(-1, -1.5281548e-12, -3.4960107e-05, 1.5281548e-12, 1, -8.742278e-08, 3.4960107e-05, -8.742278e-08, -1, 0, 0, 0)
 
-[node name="Solid" type="StaticBody3D" parent="."]
+[node name="PromptAnchor" type="Marker3D" parent="." unique_id=1419407761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57766956, 2.8181424, -0.49726313)
+
+[node name="Solid" type="StaticBody3D" parent="." unique_id=833796964]
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Solid"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Solid" unique_id=1442597117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 shape = SubResource("BoxShape3D_solid")
-position = Vector3(0.0, 1.05, 0.0)
 
-[node name="ClickArea" type="Area3D" parent="."]
+[node name="ClickArea" type="Area3D" parent="." unique_id=86317217]
 collision_layer = 2
 collision_mask = 0
-input_ray_pickable = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickArea" unique_id=1307675701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 shape = SubResource("BoxShape3D_click")
-position = Vector3(0.0, 1.05, 0.0)

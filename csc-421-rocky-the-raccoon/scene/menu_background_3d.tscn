@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cncur7mc021rd"]
 
 [ext_resource type="Script" path="res://scene/menu_background_3d.gd" id="1_bg"]
-[ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="3_6fqc7"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="3_6fqc7"]
 [ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="3_city"]
 [ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="4_loo8k"]
 [ext_resource type="PackedScene" uid="uid://b1o2ipjwihbch" path="res://addons/kaykit_city_builder_bits/Assets/gltf/streetlight.gltf" id="5_6lrf0"]

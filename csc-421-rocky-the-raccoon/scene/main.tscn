@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="5_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://d32sgvphnfnx0" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-side.glb" id="5_vneqc"]
 [ext_resource type="Texture2D" uid="uid://c2ro1tesc4fb5" path="res://addons/material/Plaster/Plaster_01-512x512.png" id="6_rhsrv"]
-[ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="6_tqoya"]
 [ext_resource type="PackedScene" uid="uid://bm176r27ixm7h" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/laptop.glb" id="7_rhsrv"]
 [ext_resource type="Texture2D" uid="uid://c3lr2byhh8t7m" path="res://addons/material/Plaster/Plaster_08-512x512.png" id="8_wscrc"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="10_fhhrp"]
 [ext_resource type="PackedScene" uid="uid://luh60yk5bsm4" path="res://assets/office_desk.tscn" id="11_wscrc"]
 [ext_resource type="PackedScene" uid="uid://cup1d16j06kha" path="res://scene/building_door.tscn" id="12_mswub"]
 [ext_resource type="PackedScene" uid="uid://deck1o0l6wukw" path="res://assets/desk_mat.tscn" id="12_smf0o"]
@@ -69,7 +69,7 @@ albedo_color = Color(0.7421875, 0.7305908, 0.7305908, 1)
 albedo_texture = ExtResource("6_rhsrv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mswub"]
-albedo_texture = ExtResource("6_tqoya")
+albedo_texture = ExtResource("10_fhhrp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abiby"]
 shading_mode = 0
@@ -235,7 +235,7 @@ operation = 2
 size = Vector3(0.5357176, 1.6853758, 10.813855)
 
 [node name="Wall_4a" parent="Office" index="4" unique_id=2053911992]
-transform = Transform3D(-0.012298646, 2.6783087e-10, 1.7973515, 1.6457236e-12, 1.0002389, -4.8129317e-10, -2.0075583, -8.1196145e-13, -0.011010885, 1.2796172, 2.2477686, 14.136395)
+transform = Transform3D(-0.012298646, 2.6783087e-10, 1.7973515, 1.6457236e-12, 1.0002389, -4.8129317e-10, -2.0075583, -8.1196145e-13, -0.011010885, 1.2796172, 2.2176273, 14.136395)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Office/Wall_4a" index="0" unique_id=289942054]
 transform = Transform3D(-0.67805225, 1.5100918e-05, -0.0036225016, 1.6970293e-05, 0.6731282, -0.00012922051, 0.0032650335, -0.00036319988, -0.23959693, -0.028258324, 0.15650201, 6.049114)
@@ -267,7 +267,7 @@ size = Vector3(1.2230766, 1.0204539, 2.5687847)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
@@ -728,10 +728,10 @@ dialogue_resource = ExtResource("2_abiby")
 transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
 apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
+[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1548786429]
 material_override = SubResource("StandardMaterial3D_fhhrp")
 
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
+[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1778561681]
 material_override = SubResource("StandardMaterial3D_fhhrp")
 
 [editable path="Office"]

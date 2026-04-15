@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bm176r27ixm7h" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/laptop.glb" id="7_b77qa"]
 [ext_resource type="PackedScene" uid="uid://bppcp5xvmoy10" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-corner.glb" id="8_w60yt"]
 [ext_resource type="PackedScene" uid="uid://d32sgvphnfnx0" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-side.glb" id="9_d061p"]
-[ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="10_7qs80"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="10_7qs80"]
 [ext_resource type="PackedScene" uid="uid://deck1o0l6wukw" path="res://assets/desk_mat.tscn" id="11_vj4et"]
 [ext_resource type="PackedScene" uid="uid://luh60yk5bsm4" path="res://assets/office_desk.tscn" id="12_3bijh"]
 [ext_resource type="PackedScene" uid="uid://cjm7rvuakb1tc" path="res://addons/kaykit_furniture_bits/Assets/gltf/shelf_B_large_decorated.gltf" id="13_a2ly5"]

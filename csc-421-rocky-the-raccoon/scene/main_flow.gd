@@ -5,10 +5,15 @@ const CURSOR_HOTSPOT := Vector2(42, 48)
 const EXTERIOR_BACKGROUND_MUSIC := preload("res://assets/audio/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav")
 const OFFICE_BACKGROUND_MUSIC := preload("res://assets/audio/Race Against Fate - Ambient Tension Vol 1 FINAL MIX.wav")
 const JOURNAL_UI_SCENE := preload("res://scene/journal_ui.tscn")
+const TUTORIAL_KNOCK_SFX := preload("res://assets/audio/freesound_community-knocking-on-door-6022.mp3")
+const DOOR_PROMPT_TEXTURE := preload("res://assets/exclamation_point.png")
+const DEFAULT_DOOR_PROMPT_OFFSET := Vector3(0.18, 2.35, 0.0)
 
 @export var exterior_player_path: NodePath = ^"ExteriorPlayer"
 @export var interior_player_path: NodePath = ^"InteriorPlayer"
 @export var building_door_path: NodePath = ^"Building_door"
+@export var door_prompt_target_path: NodePath = ^"Office_door"
+@export var door_prompt_anchor_path: NodePath = ^"Office_door/PromptAnchor"
 @export var interior_transition_delay_sec: float = 0.4
 @export_file("*.tscn") var door_cinematic_scene_path: String = "res://scene/door_cinematic_scene.tscn"
 @export var scene_transition_fade_duration: float = 0.4
@@ -21,10 +26,16 @@ const JOURNAL_UI_SCENE := preload("res://scene/journal_ui.tscn")
 @export var door_light_flicker_speed: float = 4.0
 @export var background_music_volume_db: float = -8.0
 @export var background_music_start_position_sec: float = 0.0
+@export var tutorial_knock_sfx_volume_db: float = -4.0
+@export var door_prompt_offset: Vector3 = Vector3.ZERO
+@export var door_prompt_pixel_size: float = 0.0006
+@export var door_prompt_blink_duration_sec: float = 0.35
 
 @onready var _exterior_player: Node = get_node_or_null(exterior_player_path)
 @onready var _interior_player: Node = get_node_or_null(interior_player_path)
 @onready var _building_door: Node = get_node_or_null(building_door_path)
+@onready var _door_prompt_target: Node3D = get_node_or_null(door_prompt_target_path) as Node3D
+@onready var _door_prompt_anchor: Node3D = get_node_or_null(door_prompt_anchor_path) as Node3D
 @onready var _sign_light_spot: SpotLight3D = get_node_or_null(exterior_sign_light_path)
 @onready var _door_light_spot: SpotLight3D = get_node_or_null(exterior_door_light_path)
 
@@ -34,6 +45,8 @@ var _journal_ui
 var _time := 0.0
 var _scene_fade_layer: CanvasLayer
 var _scene_fade_rect: ColorRect
+var _door_prompt: Sprite3D
+var _door_prompt_tween: Tween
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
@@ -49,11 +62,13 @@ var _scene_fade_rect: ColorRect
 @export var dialogue_start : String = "start"
 @export var dialogue_part1 : String = "tutorial1"
 @export var dialogue_part2 : String = "tutorial2"
+@export var dialogue_part10 : String = "tutorial10"
 @onready var dialogue_manager = $DialogueManager
 @onready var part1 = false
 @onready var part2 = false
 @export var dialogue_part9 : String = "tutorial9"
 var journalopened = 0
+var journalclosed = 0
 
 func _ready() -> void:
 	_apply_custom_cursor()
@@ -74,6 +89,13 @@ func _ready() -> void:
 	else:
 		push_warning("main_flow.gd: Building_door missing or has no door_opened/door_state_changed signal.")
 
+	if _door_prompt_target != null and _door_prompt_target.has_signal("door_opened"):
+		_door_prompt_target.door_opened.connect(_on_door_prompt_target_opened)
+	elif _door_prompt_target != null and _door_prompt_target.has_signal("door_state_changed"):
+		_door_prompt_target.door_state_changed.connect(_on_door_prompt_target_state_changed)
+	if _door_prompt_target != null and _door_prompt_target.has_signal("door_interaction_started"):
+		_door_prompt_target.door_interaction_started.connect(_on_door_prompt_target_interaction_started)
+
 	if start_in_office:
 		_set_active_player(_interior_player)
 		part1 = true
@@ -82,6 +104,7 @@ func _ready() -> void:
 
 	_apply_mouse_sensitivity()
 	_apply_sign_light_state()
+	_ensure_door_prompt()
 	
 	## Hiding UI's
 	clueboardUI.hide()
@@ -117,6 +140,7 @@ func _process(delta: float) -> void:
 	_time += delta
 	_apply_door_light_flicker()
 	_update_journal_shortcut_state()
+	_update_door_prompt_position()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -133,6 +157,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_building_door_opened() -> void:
 	if _transition_queued:
 		return
+	_hide_door_prompt()
 	_transition_queued = true
 	await _transition_to_cinematic_scene()
 	_transition_queued = false
@@ -142,9 +167,23 @@ func _on_building_door_state_changed(is_open: bool) -> void:
 	if not is_open or _transition_queued:
 		return
 
+	_hide_door_prompt()
 	_transition_queued = true
 	await _transition_to_cinematic_scene()
 	_transition_queued = false
+
+
+func _on_door_prompt_target_opened() -> void:
+	_hide_door_prompt()
+
+
+func _on_door_prompt_target_state_changed(is_open: bool) -> void:
+	if is_open:
+		_hide_door_prompt()
+
+
+func _on_door_prompt_target_interaction_started(_next_is_open: bool) -> void:
+	_hide_door_prompt()
 
 
 func _set_active_player(active: Node) -> void:
@@ -293,6 +332,14 @@ func _on_journal_closed() -> void:
 	if _active_player != null:
 		_set_player_enabled(_active_player, true)
 
+	journalclosed += 1
+	if journalclosed == 1:
+		MusicManager.play_sfx(TUTORIAL_KNOCK_SFX, tutorial_knock_sfx_volume_db)
+		_show_door_prompt()
+		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part10)
+		if dialogue_manager != null:
+			dialogue_manager.update_checklist("Open the door")
+
 
 func _can_open_journal() -> bool:
 	if _transition_queued or _journal_ui == null:
@@ -342,3 +389,58 @@ func _apply_door_light_flicker() -> void:
 
 	if _door_light_spot != null:
 		_door_light_spot.light_energy = lerp(door_light_dim_energy, door_light_on_energy, flicker_pattern)
+
+
+func _ensure_door_prompt() -> void:
+	if _door_prompt != null or _door_prompt_target == null:
+		return
+
+	_door_prompt = Sprite3D.new()
+	_door_prompt.name = "DoorPrompt"
+	_door_prompt.texture = DOOR_PROMPT_TEXTURE
+	_door_prompt.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	_door_prompt.shaded = false
+	_door_prompt.pixel_size = door_prompt_pixel_size
+	_door_prompt.visible = false
+	add_child(_door_prompt)
+	_update_door_prompt_position()
+
+
+func _update_door_prompt_position() -> void:
+	if _door_prompt == null or _door_prompt_target == null:
+		return
+
+	if _door_prompt_anchor != null:
+		_door_prompt.global_position = _door_prompt_anchor.global_position + door_prompt_offset
+		return
+
+	# Fall back to the original offset if the scene does not expose a prompt anchor.
+	_door_prompt.global_position = _door_prompt_target.to_global(DEFAULT_DOOR_PROMPT_OFFSET + door_prompt_offset)
+
+
+func _show_door_prompt() -> void:
+	_ensure_door_prompt()
+	_update_door_prompt_position()
+	if _door_prompt == null:
+		return
+
+	_door_prompt.visible = true
+	_door_prompt.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+	if _door_prompt_tween != null:
+		_door_prompt_tween.kill()
+
+	_door_prompt_tween = create_tween()
+	_door_prompt_tween.set_loops()
+	_door_prompt_tween.tween_property(_door_prompt, "modulate", Color(1.0, 1.0, 1.0, 0.2), door_prompt_blink_duration_sec).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_door_prompt_tween.tween_property(_door_prompt, "modulate", Color(1.0, 1.0, 1.0, 1.0), door_prompt_blink_duration_sec).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _hide_door_prompt() -> void:
+	if _door_prompt_tween != null:
+		_door_prompt_tween.kill()
+		_door_prompt_tween = null
+
+	if _door_prompt != null:
+		_door_prompt.visible = false
+		_door_prompt.modulate = Color(1.0, 1.0, 1.0, 1.0)

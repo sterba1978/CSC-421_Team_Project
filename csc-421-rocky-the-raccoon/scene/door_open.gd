@@ -2,6 +2,7 @@ extends Node3D
 
 signal door_state_changed(is_open: bool)
 signal door_opened
+signal door_interaction_started(next_is_open: bool)
 
 const DOOR_OPEN_SFX := preload("res://assets/audio/soundreality-opening-door-411632.mp3")
 const DOOR_CLOSE_SFX := preload("res://assets/audio/fletchpike-door-closing-353875.mp3")
@@ -65,19 +66,27 @@ func _on_click_area_input_event(
 
 
 func toggle() -> void:
-	_set_door_state(not _is_open, true)
+	_request_door_state(not _is_open)
 
 
 func open() -> void:
-	_set_door_state(true, true)
+	_request_door_state(true)
 
 
 func close() -> void:
-	_set_door_state(false, true)
+	_request_door_state(false)
 
 
 func interact() -> void:
 	toggle()
+
+
+func _request_door_state(open_state: bool) -> void:
+	if open_state == _is_open:
+		return
+
+	door_interaction_started.emit(open_state)
+	_set_door_state(open_state, true)
 
 
 func set_highlighted(enabled: bool) -> void:
