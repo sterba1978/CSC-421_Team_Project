@@ -119,10 +119,11 @@ func type_out() -> void:
 
 ## Stop typing out the text and jump right to the end
 func skip_typing() -> void:
-	_mutate_remaining_mutations()
-	visible_characters = get_total_character_count()
-	is_typing = false
-	skipped_typing.emit()
+	#_mutate_remaining_mutations()
+	#visible_characters = get_total_character_count()
+	#is_typing = false
+	#skipped_typing.emit()
+	return
 
 
 # Type out the next character(s)
