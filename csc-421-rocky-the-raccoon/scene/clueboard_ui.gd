@@ -2,6 +2,8 @@ extends Control
 
 signal clue_selected(clue_id: String, clue_title: String, clue_text: String)
 
+const CLUE_SELECT_SFX := preload("res://assets/audio/Interact.mp3")
+
 @onready var clueUI = $"../Clue_UI"
 @onready var player = $"../InteriorPlayer"
 
@@ -11,6 +13,7 @@ signal clue_selected(clue_id: String, clue_title: String, clue_text: String)
 @export_multiline var clue_2_text: String = "Here is where important details of each clue will be displayed for you to analyze and determine if this clue is suspicious."
 @export var clue_3_title: String = "Clue 3"
 @export_multiline var clue_3_text: String = "Here is where important details of each clue will be displayed for you to analyze and determine if this clue is suspicious."
+@export var clue_select_sfx_volume_db: float = -4.0
 
 signal clue_opened # dialog signal
 signal clueboard_closed # dialog signal
@@ -55,6 +58,7 @@ func _on_clue_button_3_pressed() -> void:
 
 
 func _open_clue(clue_id: String, clue_title: String, clue_text: String) -> void:
+	MusicManager.play_sfx(CLUE_SELECT_SFX, clue_select_sfx_volume_db)
 	clueUI.show()
 	clue_selected.emit(clue_id, clue_title, clue_text)
 	clue_opened.emit() # dialog signal

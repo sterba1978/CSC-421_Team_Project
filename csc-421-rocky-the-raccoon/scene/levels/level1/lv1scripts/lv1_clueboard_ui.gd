@@ -2,6 +2,8 @@ extends Control
 
 signal clue_selected(clue_id: String, clue_title: String, clue_text: String)
 
+const CLUE_SELECT_SFX := preload("res://assets/audio/Interact.mp3")
+
 @onready var clue1UI = $"../clue_ui"
 @onready var clue2UI = $"../clue_ui2"
 @onready var clue3UI = $"../clue_ui3"
@@ -13,6 +15,7 @@ signal clue_selected(clue_id: String, clue_title: String, clue_text: String)
 @export_multiline var clue_2_text: String = "The office workstation shows new software and pop-up behavior that the client says they never approved or installed."
 @export var clue_3_title: String = "Network Activity"
 @export_multiline var clue_3_text: String = "Traffic logs show repeated outbound connections that line up with the client's report, suggesting the compromise is active and communicating outward."
+@export var clue_select_sfx_volume_db: float = -4.0
 
 signal clue_opened # dialog signal
 signal clueboard_closed # dialog signal
@@ -62,5 +65,6 @@ func _on_clue_button_3_pressed() -> void:
 
 
 func _open_clue(clue_id: String, clue_title: String, clue_text: String) -> void:
+	MusicManager.play_sfx(CLUE_SELECT_SFX, clue_select_sfx_volume_db)
 	clue_selected.emit(clue_id, clue_title, clue_text)
 	clue_opened.emit() # dialog signal
