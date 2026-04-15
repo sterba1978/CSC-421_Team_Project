@@ -66,7 +66,6 @@ text = "Press Space"
 horizontal_alignment = 1
 
 [node name="Overlay" type="Control" parent="Root" unique_id=1265595796]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -213,6 +212,7 @@ size_flags_vertical = 3
 [node name="SelectedClueBody" type="RichTextLabel" parent="Root/Overlay/PanelCenter/JournalPanel/PanelMargin/Layout/Body/DetailColumn/DetailColumnMargin/DetailColumnContent/ClueBodyScroll" unique_id=1390515748]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Inspect the clue board and click into a clue to add it to this journal."
 scroll_active = false
 

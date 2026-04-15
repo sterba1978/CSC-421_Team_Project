@@ -125,7 +125,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventKey:
 		var key_event := event as InputEventKey
-		if key_event.pressed and not key_event.echo and key_event.keycode == KEY_SPACE and _can_open_journal():
+		if key_event.pressed and not key_event.echo and key_event.keycode == KEY_SPACE and _can_open_journal() and dialogue_manager.clueboardclosed > 0:
 			_journal_ui.open_journal()
 			get_viewport().set_input_as_handled()
 
