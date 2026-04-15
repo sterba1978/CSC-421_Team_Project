@@ -44,7 +44,8 @@ Rocky: [speed=0.5]Now lets check our journal by pressing the space button.
 
 ~ tutorial9
 Rocky: [speed=0.5]This is your journal. It will be updated every time you look at a clue on the clue board.
-Rocky: [speed=0.5]You will use this journal to try and figure out the cause of the clients problem.
+Rocky: [speed=0.5]You will use this journal to try and figure out which clue is the cause of the clients problem.
+Rocky: [speed=0.5]You can type your thoughts for the case questions to help you solve the case.
 Rocky: [speed=0.5]Now click the close button to return to the office.
 => END
 

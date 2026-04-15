@@ -5,12 +5,12 @@ signal clue_selected(clue_id: String, clue_title: String, clue_text: String)
 @onready var clueUI = $"../Clue_UI"
 @onready var player = $"../InteriorPlayer"
 
-@export var clue_1_title: String = "Client Intake"
-@export_multiline var clue_1_text: String = "The first note from the client points to suspicious account activity and an unfamiliar login that happened after business hours."
-@export var clue_2_title: String = "Workstation Snapshot"
-@export_multiline var clue_2_text: String = "The office workstation shows new software and pop-up behavior that the client says they never approved or installed."
-@export var clue_3_title: String = "Network Activity"
-@export_multiline var clue_3_text: String = "Traffic logs show repeated outbound connections that line up with the client's report, suggesting the compromise is active and communicating outward."
+@export var clue_1_title: String = "Clue 1"
+@export_multiline var clue_1_text: String = "Here is where important details of each clue will be displayed for you to analyze and determine if this clue is suspicious."
+@export var clue_2_title: String = "Clue 2"
+@export_multiline var clue_2_text: String = "Here is where important details of each clue will be displayed for you to analyze and determine if this clue is suspicious."
+@export var clue_3_title: String = "Clue 3"
+@export_multiline var clue_3_text: String = "Here is where important details of each clue will be displayed for you to analyze and determine if this clue is suspicious."
 
 signal clue_opened # dialog signal
 signal clueboard_closed # dialog signal
@@ -19,8 +19,6 @@ signal clueboard_closed # dialog signal
 @onready var checklist2 = $"../Checklist2"
 @onready var clbackground = $"../ChecklistBackground"
 @onready var dialogue_manager = $"../DialogueManager"
-
-var cluedesc = "This is a clue description."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
