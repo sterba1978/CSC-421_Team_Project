@@ -16,6 +16,7 @@ const DEFAULT_DOOR_PROMPT_OFFSET := Vector3(0.18, 2.35, 0.0)
 @export var door_prompt_anchor_path: NodePath = ^"Office_door/PromptAnchor"
 @export var interior_transition_delay_sec: float = 0.4
 @export_file("*.tscn") var door_cinematic_scene_path: String = "res://scene/door_cinematic_scene.tscn"
+@export_file("*.ogv") var office_door_video_path: String = "res://assets/video/carla.ogv"
 @export var scene_transition_fade_duration: float = 0.4
 @export var look_mouse_sensitivity: float = 0.0015
 @export var exterior_sign_light_path: NodePath = ^"Environment/Exterior/StreetLamp/SignLight/SpotLight3D"
@@ -47,6 +48,12 @@ var _scene_fade_layer: CanvasLayer
 var _scene_fade_rect: ColorRect
 var _door_prompt: Sprite3D
 var _door_prompt_tween: Tween
+var _office_door_video_layer: CanvasLayer
+var _office_door_video_backdrop: ColorRect
+var _office_door_video_player: VideoStreamPlayer
+var _office_door_video_stream: VideoStream
+var _office_door_video_armed: bool = false
+var _office_door_video_playing: bool = false
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
@@ -105,6 +112,7 @@ func _ready() -> void:
 	_apply_mouse_sensitivity()
 	_apply_sign_light_state()
 	_ensure_door_prompt()
+	_ensure_office_door_video_overlay()
 	
 	## Hiding UI's
 	clueboardUI.hide()
@@ -144,6 +152,11 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _office_door_video_playing:
+		if event.is_action_pressed("ui_accept"):
+			await _finish_office_door_video()
+		return
+
 	if _journal_ui == null or _journal_ui.is_open():
 		return
 
@@ -155,8 +168,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_building_door_opened() -> void:
-	if _transition_queued:
+	if _transition_queued or _office_door_video_playing:
 		return
+
 	_hide_door_prompt()
 	_transition_queued = true
 	await _transition_to_cinematic_scene()
@@ -164,7 +178,7 @@ func _on_building_door_opened() -> void:
 
 
 func _on_building_door_state_changed(is_open: bool) -> void:
-	if not is_open or _transition_queued:
+	if not is_open or _transition_queued or _office_door_video_playing:
 		return
 
 	_hide_door_prompt()
@@ -182,8 +196,27 @@ func _on_door_prompt_target_state_changed(is_open: bool) -> void:
 		_hide_door_prompt()
 
 
-func _on_door_prompt_target_interaction_started(_next_is_open: bool) -> void:
+func _on_door_prompt_target_interaction_started(next_is_open: bool) -> void:
 	_hide_door_prompt()
+	if next_is_open:
+		await _queue_office_door_video()
+
+
+func _queue_office_door_video() -> void:
+	if not _office_door_video_armed or _transition_queued or _office_door_video_playing:
+		return
+
+	var stream := _get_office_door_video_stream()
+	if stream == null:
+		return
+
+	_office_door_video_armed = false
+	_transition_queued = true
+	if _active_player != null:
+		_set_player_enabled(_active_player, false)
+
+	await _fade_to_black(scene_transition_fade_duration)
+	await _play_office_door_video(stream)
 
 
 func _set_active_player(active: Node) -> void:
@@ -265,6 +298,35 @@ func _ensure_scene_fader() -> void:
 	_scene_fade_layer.add_child(_scene_fade_rect)
 
 
+func _ensure_office_door_video_overlay() -> void:
+	if _office_door_video_layer != null:
+		return
+
+	_office_door_video_layer = CanvasLayer.new()
+	_office_door_video_layer.name = "OfficeDoorVideoLayer"
+	_office_door_video_layer.layer = 150
+	add_child(_office_door_video_layer)
+
+	_office_door_video_backdrop = ColorRect.new()
+	_office_door_video_backdrop.name = "OfficeDoorVideoBackdrop"
+	_office_door_video_backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_office_door_video_backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
+	_office_door_video_backdrop.color = Color.BLACK
+	_office_door_video_backdrop.visible = false
+	_office_door_video_layer.add_child(_office_door_video_backdrop)
+
+	_office_door_video_player = VideoStreamPlayer.new()
+	_office_door_video_player.name = "OfficeDoorVideoPlayer"
+	_office_door_video_player.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_office_door_video_player.mouse_filter = Control.MOUSE_FILTER_STOP
+	_office_door_video_player.expand = true
+	_office_door_video_player.visible = false
+	_office_door_video_layer.add_child(_office_door_video_player)
+
+	if not _office_door_video_player.finished.is_connected(_on_office_door_video_finished):
+		_office_door_video_player.finished.connect(_on_office_door_video_finished)
+
+
 func _set_scene_fade_alpha(alpha: float) -> void:
 	if _scene_fade_rect == null:
 		return
@@ -303,6 +365,61 @@ func _fade_from_black(duration: float) -> void:
 	_scene_fade_rect.visible = false
 
 
+func _get_office_door_video_stream() -> VideoStream:
+	if _office_door_video_stream != null:
+		return _office_door_video_stream
+
+	if office_door_video_path.is_empty():
+		return null
+
+	if not ResourceLoader.exists(office_door_video_path):
+		push_warning("main_flow.gd: Office door video '%s' was not found." % office_door_video_path)
+		return null
+
+	_office_door_video_stream = load(office_door_video_path) as VideoStream
+	if _office_door_video_stream == null:
+		push_warning("main_flow.gd: Office door video '%s' is not a valid VideoStream resource." % office_door_video_path)
+		return null
+
+	return _office_door_video_stream
+
+
+func _play_office_door_video(stream: VideoStream) -> void:
+	if _office_door_video_backdrop == null or _office_door_video_player == null:
+		_transition_queued = false
+		return
+
+	MusicManager.stop_music()
+	_office_door_video_playing = true
+	_office_door_video_backdrop.visible = true
+	_office_door_video_player.stream = stream
+	_office_door_video_player.visible = true
+	_office_door_video_player.play()
+	await _fade_from_black(scene_transition_fade_duration)
+
+
+func _finish_office_door_video() -> void:
+	if not _office_door_video_playing:
+		return
+
+	await _fade_to_black(scene_transition_fade_duration)
+	_office_door_video_playing = false
+	_transition_queued = false
+
+	if _office_door_video_player != null:
+		_office_door_video_player.stop()
+		_office_door_video_player.visible = false
+
+	if _office_door_video_backdrop != null:
+		_office_door_video_backdrop.visible = false
+
+	MusicManager.play_music(OFFICE_BACKGROUND_MUSIC, background_music_volume_db, background_music_start_position_sec, true)
+	if _active_player != null:
+		_set_player_enabled(_active_player, true)
+
+	await _fade_from_black(scene_transition_fade_duration)
+
+
 func _ensure_journal_ui() -> void:
 	if _journal_ui != null:
 		return
@@ -335,6 +452,7 @@ func _on_journal_closed() -> void:
 	journalclosed += 1
 	if journalclosed == 1:
 		MusicManager.play_sfx(TUTORIAL_KNOCK_SFX, tutorial_knock_sfx_volume_db)
+		_office_door_video_armed = true
 		_show_door_prompt()
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part10)
 		if dialogue_manager != null:
@@ -444,3 +562,7 @@ func _hide_door_prompt() -> void:
 	if _door_prompt != null:
 		_door_prompt.visible = false
 		_door_prompt.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+func _on_office_door_video_finished() -> void:
+	await _finish_office_door_video()
