@@ -89,10 +89,10 @@ text = "Tab 3"
 
 [node name="ReturnButton" type="Button" parent="." unique_id=649973068]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 220.0
-offset_bottom = 108.0
+offset_left = 486.0
+offset_top = 27.0
+offset_right = 674.0
+offset_bottom = 103.0
 theme_override_font_sizes/font_size = 28
 text = "Return"
 

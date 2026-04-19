@@ -25,6 +25,10 @@ SceneTransitionState="*res://scene/scene_transition_state.gd"
 
 runtime/balloon_path="res://dialogue/testing/balloon.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/TileMapLayer3D/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript-templates/plugin.cfg", "res://addons/grid_map_layer/plugin.cfg")
