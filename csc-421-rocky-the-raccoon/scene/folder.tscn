@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://bs20j6lul17wr"]
 
 [ext_resource type="Script" uid="uid://dxrm5h2bq4s42" path="res://scene/tab1_ui.gd" id="1_7pe7h"]
-[ext_resource type="Texture2D" uid="uid://b051ai8sgucof" path="res://assets/tab-04.png" id="2_7pe7h"]
-[ext_resource type="Texture2D" uid="uid://b0xyakkfgf4g3" path="res://assets/tab-02.png" id="3_tab2"]
-[ext_resource type="Texture2D" uid="uid://dfy85nokdnyeu" path="res://assets/tab-03.png" id="4_tab3"]
+[ext_resource type="Texture2D" uid="uid://cmc2aoqpdbwtg" path="res://assets/game files-04.png" id="2_001oi"]
+[ext_resource type="Texture2D" uid="uid://boqi5vksv6fb1" path="res://assets/tab-2.png" id="3_001oi"]
+[ext_resource type="Texture2D" uid="uid://d1fn8mr3rhhtw" path="res://assets/game files-03.png" id="4_bjn60"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tab1"]
-atlas = ExtResource("2_7pe7h")
+atlas = ExtResource("2_001oi")
 region = Rect2(149, 7, 9230, 6401)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tab2"]
-atlas = ExtResource("3_tab2")
+atlas = ExtResource("3_001oi")
 region = Rect2(199, 0, 9230, 6401)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tab3"]
-atlas = ExtResource("4_tab3")
+atlas = ExtResource("4_bjn60")
 region = Rect2(139, 21, 9230, 6401)
 
 [node name="folder" type="Control" unique_id=1532131812]
@@ -58,10 +58,10 @@ stretch_mode = 5
 
 [node name="tab1" type="Button" parent="FileFrame/FileCanvas" unique_id=544541972]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 43.500004
-offset_right = 187.14
-offset_bottom = 63.500004
+offset_left = 147.40405
+offset_top = 43.78778
+offset_right = 187.10004
+offset_bottom = 65.089325
 rotation = -0.07012371
 theme_override_font_sizes/font_size = 8
 text = "Tab 1"
@@ -69,20 +69,20 @@ text = "Tab 1"
 [node name="tab2" type="Button" parent="FileFrame/FileCanvas" unique_id=1607499165]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 221.0
-offset_top = 38.5
-offset_right = 264.5976
-offset_bottom = 58.620377
+offset_left = 221.00002
+offset_top = 38.499996
+offset_right = 258.81372
+offset_bottom = 59.639507
 rotation = -0.053526856
 theme_override_font_sizes/font_size = 8
 text = "Tab 2"
 
 [node name="tab3" type="Button" parent="FileFrame/FileCanvas" unique_id=1484054974]
 layout_mode = 0
-offset_left = 303.0
-offset_top = 36.5
-offset_right = 346.34567
-offset_bottom = 56.5
+offset_left = 300.99997
+offset_top = 31.499996
+offset_right = 342.97626
+offset_bottom = 57.35965
 rotation = 0.089801796
 theme_override_font_sizes/font_size = 8
 text = "Tab 3"
