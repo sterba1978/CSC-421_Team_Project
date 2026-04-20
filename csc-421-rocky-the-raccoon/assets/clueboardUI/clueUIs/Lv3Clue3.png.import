@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b85ixgo033om6"
-path="res://.godot/imported/Lv1C2.png-a70aae213b0c7ba9592586703007af76.ctex"
+uid="uid://c84ksixy5y0vv"
+path="res://.godot/imported/Lv3Clue3.png-94cf15e1a5937579c5de5745bf4add37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/clueboardUI/clueUIs/Lv1C2.png"
-dest_files=["res://.godot/imported/Lv1C2.png-a70aae213b0c7ba9592586703007af76.ctex"]
+source_file="res://assets/clueboardUI/clueUIs/Lv3Clue3.png"
+dest_files=["res://.godot/imported/Lv3Clue3.png-94cf15e1a5937579c5de5745bf4add37.ctex"]
 
 [params]
 
