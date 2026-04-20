@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btoatvdo8rfsh"]
 
 [ext_resource type="Script" uid="uid://dpi6rka1ntoel" path="res://scene/clue_ui.gd" id="1_c8bc0"]
-[ext_resource type="Texture2D" uid="uid://b85ixgo033om6" path="res://assets/clueboardUI/clueUIs/Lv1C2.png" id="2_c8bc0"]
+[ext_resource type="Texture2D" uid="uid://by5bljcwdbsdd" path="res://assets/clueboardUI/clueUIs/Lv1Clue2.png" id="2_c8bc0"]
 
 [node name="clue_ui" type="Control" unique_id=1775691411]
 z_index = 1
