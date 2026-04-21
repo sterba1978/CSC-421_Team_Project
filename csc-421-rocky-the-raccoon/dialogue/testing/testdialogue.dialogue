@@ -7,7 +7,7 @@ Rocky: [speed=0.5]Move your mouse over the door and click your left mouse button
 ~ tutorial1
 Rocky: [speed=0.5]The office looks good. I should check and make sure everything is all set for when I get a client.
 Rocky: [speed=0.5]Let's start by checking out my filing cabinet. It holds all our files on common cyber threats our clients will most likely face.
-Rocky: [speed=0.5]Try interacting with the filing cabinet. Simply direct your mouse to it and left click when highlighted.
+Rocky: [speed=0.5]Try interacting with the filing cabinet. Direct your mouse to the left and click when it's highlighted.
 => END
 
 ~ tutorial2
@@ -15,7 +15,7 @@ Rocky: [speed=0.5]Try clicking on the one of the file tabs to see descriptions o
 => END
 
 ~ tutorial3
-Rocky: [speed=0.5]Good job. Now try going back by hitting the return button in the top left corner of the screen to return to the office.
+Rocky: [speed=0.5]Good job. Now try going back by hitting the return button at the top center of the screen to return to the office.
 => END
 
 ~ tutorial4
