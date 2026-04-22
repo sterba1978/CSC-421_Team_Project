@@ -645,7 +645,7 @@ transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559
 transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
 
 [node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("20_4jm02")]
-transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 0.76695645, 7.0113487)
+transform = Transform3D(-0.049005605, -1.1451661e-08, -1.2210121, 1.28958675e-08, 1.093, -1.3333717e-08, 1.2180145, -1.2033008e-08, -0.04912621, -0.19121361, 1.1014327, 7.0113487)
 
 [node name="Office_door" parent="." unique_id=1006173713 instance=ExtResource("21_fdqew")]
 transform = Transform3D(-0.004874313, 5.9745126e-08, 1.62852, -4.359838e-08, 1.3668255, -7.153359e-08, -0.9974145, -6.003781e-08, -0.007958493, -6.3343763, 0.9303982, -3.5551302)
@@ -731,7 +731,7 @@ script = ExtResource("49_ie7le")
 dialogue_resource = ExtResource("2_abiby")
 
 [node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("50_667b8")]
-transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
+transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.1302981, 1.3406003, 11.017557)
 apply_textures = true
 
 [node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]

@@ -204,7 +204,7 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8leo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvbb1"]
 resource_local_to_scene = true
 cull_mode = 2
 albedo_texture = ExtResource("52_qpui5")
@@ -649,7 +649,7 @@ transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559
 transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
 
 [node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("39_1avk1")]
-transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 0.76695645, 7.0113487)
+transform = Transform3D(-0.051055882, -1.1933616e-08, -1.2729701, 1.34353995e-08, 1.139, -1.39011105e-08, 1.2689732, -1.253943e-08, -0.051216688, -0.39442825, 1.1181563, 7.0113487)
 
 [node name="Office_door" parent="." unique_id=1006173713 instance=ExtResource("40_r4242")]
 transform = Transform3D(-0.004874313, 5.9745126e-08, 1.62852, -4.359838e-08, 1.3668255, -7.153359e-08, -0.9974145, -6.003781e-08, -0.007958493, -6.3343763, 0.9303982, -3.5551302)
@@ -759,10 +759,10 @@ transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455,
 apply_textures = true
 
 [node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
-material_override = SubResource("StandardMaterial3D_j8leo")
+material_override = SubResource("StandardMaterial3D_qvbb1")
 
 [node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
-material_override = SubResource("StandardMaterial3D_j8leo")
+material_override = SubResource("StandardMaterial3D_qvbb1")
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
