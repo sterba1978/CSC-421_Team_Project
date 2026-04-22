@@ -567,4 +567,5 @@ func _hide_door_prompt() -> void:
 
 
 func _on_office_door_video_finished() -> void:
-	await _finish_office_door_video()
+	#await _finish_office_door_video()
+	get_tree().change_scene_to_file("res://scene/levels/level1/mainlv1.tscn")
