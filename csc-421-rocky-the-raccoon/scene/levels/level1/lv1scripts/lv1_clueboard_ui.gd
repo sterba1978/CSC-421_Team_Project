@@ -9,12 +9,12 @@ const CLUE_SELECT_SFX := preload("res://assets/audio/Interact.mp3")
 @onready var clue3UI = $"../clue_ui3"
 @onready var player = $"../InteriorPlayer"
 
-@export var clue_1_title: String = "Client Intake"
-@export_multiline var clue_1_text: String = "The first note from the client points to suspicious account activity and an unfamiliar login that happened after business hours."
-@export var clue_2_title: String = "Workstation Snapshot"
-@export_multiline var clue_2_text: String = "The office workstation shows new software and pop-up behavior that the client says they never approved or installed."
-@export var clue_3_title: String = "Network Activity"
-@export_multiline var clue_3_text: String = "Traffic logs show repeated outbound connections that line up with the client's report, suggesting the compromise is active and communicating outward."
+@export var clue_1_title: String = "Email 1: Rajah"
+@export_multiline var clue_1_text: String = "This email is a bit weird. The senders email address doesn't make sense. It seems like the prince is in urgent need of help. I should cross reference my files and make sure im not missing anything."
+@export var clue_2_title: String = "Email 2: Alice"
+@export_multiline var clue_2_text: String = "I don't notice anything odd about this email right off the bat. Seems like Alice are Carla are friends. I should cross reference my files just to be sure and make sure im not missing anything."
+@export var clue_3_title: String = "Email 3: Tony"
+@export_multiline var clue_3_text: String = "Looks like Tony's Pizza is offering a discount tomorrow. Guess he's urgently trying to get as many customers as possible. I should cross reference my files and make sure im not missing anything."
 @export var clue_select_sfx_volume_db: float = -4.0
 
 signal clue_opened # dialog signal

@@ -70,10 +70,11 @@ func _ready() -> void:
 	else:
 		push_warning("main_flow.gd: Building_door missing or has no door_opened/door_state_changed signal.")
 
-	if start_in_office:
-		_set_active_player(_interior_player)
-	else:
-		_set_active_player(_exterior_player)
+	_set_active_player(_interior_player)
+	#if start_in_office:
+	#	_set_active_player(_interior_player)
+	#else:
+	#	_set_active_player(_exterior_player)
 
 	_apply_mouse_sensitivity()
 	_apply_sign_light_state()
