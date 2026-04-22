@@ -93,6 +93,8 @@ offset_left = 486.0
 offset_top = 27.0
 offset_right = 674.0
 offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.8, 0.69803923, 0.5294118, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 text = "Return"
 
