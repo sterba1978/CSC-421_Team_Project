@@ -2,7 +2,7 @@ extends Control
 
 const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
 const CURSOR_HOTSPOT := Vector2(42, 48)
-const FALLBACK_OFFICE_SCENE := preload("res://scene/levels/level1/lv1main.tscn")
+const FALLBACK_OFFICE_SCENE := preload("res://scene/levels/level1/mainlv1.tscn")
 const CUTSCENE_AUDIO := preload("res://assets/audio/By The Paddy Wagon.mp3")
 
 @export_file("*.tscn") var office_scene_path: String = "res://scene/levels/level1/lv1main.tscn"

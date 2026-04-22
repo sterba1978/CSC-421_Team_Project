@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dreetx8glqxg5"]
+
+[ext_resource type="PackedScene" uid="uid://qi8u1dccbr0e" path="res://NPCS/carlaChameleon.blend" id="1_466hm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_467db"]
+size = Vector3(0.62750244, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrn4e"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_glx6x"]
+material = SubResource("StandardMaterial3D_vrn4e")
+
+[node name="Carla" type="Node3D" unique_id=690826194]
+
+[node name="carlaChameleon" parent="." unique_id=1561627548 instance=ExtResource("1_466hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03091991, 0.29062486, -0.20811129)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=83118868]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=833087925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019378662, 0.49864125, 0)
+shape = SubResource("BoxShape3D_467db")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2021681455]
+transform = Transform3D(0.6725699, 0, 0, 0, 1, 0, 0, 0, 1, 0.016804636, 0.5247972, -0.2814752)
+mesh = SubResource("BoxMesh_glx6x")
