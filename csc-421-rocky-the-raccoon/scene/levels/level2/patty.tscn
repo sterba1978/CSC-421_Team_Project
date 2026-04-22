@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c1mvqgmerc5sy"]
+
+[ext_resource type="PackedScene" uid="uid://bhngcurj5n6qn" path="res://assets/models/pattyPossum.blend" id="1_tx1ei"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfl32"]
+size = Vector3(3.1769104, 6.6193237, 3.845459)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6nso"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_spfbr"]
+material = SubResource("StandardMaterial3D_i6nso")
+
+[node name="Patty" type="Node3D" unique_id=1952176834]
+
+[node name="pattyPossum" parent="." unique_id=604363813 instance=ExtResource("1_tx1ei")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, -0.29102004, 1.1920929e-07, -0.09733558)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=153370246]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1468954772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37486267, 3.4048786, -0.65197754)
+shape = SubResource("BoxShape3D_bfl32")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1263966482]
+transform = Transform3D(5.8653154, 0, 0, 0, 7.271863, 0, 0, 0, 2.8428855, -0.38863218, 3.3757474, -0.17246711)
+mesh = SubResource("BoxMesh_spfbr")
