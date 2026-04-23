@@ -9,12 +9,12 @@ const CLUE_SELECT_SFX := preload("res://assets/audio/Interact.mp3")
 @onready var clue3UI = $"../clue_ui3"
 @onready var player = $"../InteriorPlayer"
 
-@export var clue_1_title: String = "Email 1: Rajah"
-@export_multiline var clue_1_text: String = "This email is a bit weird. The senders email address doesn't make sense. It seems like the prince is in urgent need of help. I should cross reference my files and make sure im not missing anything."
-@export var clue_2_title: String = "Email 2: Alice"
-@export_multiline var clue_2_text: String = "I don't notice anything odd about this email right off the bat. Seems like Alice are Carla are friends. I should cross reference my files just to be sure and make sure im not missing anything."
-@export var clue_3_title: String = "Email 3: Tony"
-@export_multiline var clue_3_text: String = "Looks like Tony's Pizza is offering a discount tomorrow. Guess he's urgently trying to get as many customers as possible. I should cross reference my files and make sure im not missing anything."
+@export var clue_1_title: String = "Message 1"
+@export_multiline var clue_1_text: String = "These messages claim to be from a friend of Patty named Rodney. The messages seem a bit weird, askig for Patty's login. I feel like there is something offabout that photo, but I can't quite put my finger on it."
+@export var clue_2_title: String = "Message 2"
+@export_multiline var clue_2_text: String = "These messages claim to be from a PictoSnap company account. The messages seem to be asking people to fill out some feedback form. One should never openly trust a link from online messages. I should check if its a safe link."
+@export var clue_3_title: String = "Message 3"
+@export_multiline var clue_3_text: String = "These messages seem to be from another one of Patty's friends. The tone of the messages sound child like and don't seem to be asking Patty to do anything through the account."
 @export var clue_select_sfx_volume_db: float = -4.0
 
 signal clue_opened # dialog signal

@@ -1,84 +1,84 @@
-[gd_scene format=3 uid="uid://curnttq14ltxk"]
+[gd_scene format=3 uid="uid://d2u1r51rcc0ay"]
 
-[ext_resource type="Script" uid="uid://c6gv6pat3t0t1" path="res://scene/levels/level1/lv1scripts/lv1_main_flow.gd" id="1_6nnp6"]
-[ext_resource type="Resource" uid="uid://crsidt03vjr64" path="res://dialogue/testing/testdialogue.dialogue" id="2_kxy3q"]
-[ext_resource type="PackedScene" uid="uid://67cacspodmxr" path="res://assets/office.tscn" id="3_318gm"]
-[ext_resource type="Texture2D" uid="uid://c3lr2byhh8t7m" path="res://addons/material/Plaster/Plaster_08-512x512.png" id="4_mwiwr"]
-[ext_resource type="PackedScene" uid="uid://cqmdand3an5x1" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-center.glb" id="5_mxa3u"]
-[ext_resource type="Texture2D" uid="uid://c2ro1tesc4fb5" path="res://addons/material/Plaster/Plaster_01-512x512.png" id="6_7kdcw"]
-[ext_resource type="PackedScene" uid="uid://bm176r27ixm7h" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/laptop.glb" id="7_3n6nf"]
-[ext_resource type="PackedScene" uid="uid://bppcp5xvmoy10" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-corner.glb" id="8_8fup2"]
-[ext_resource type="PackedScene" uid="uid://d32sgvphnfnx0" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-side.glb" id="9_px76v"]
-[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="10_bkig8"]
-[ext_resource type="PackedScene" uid="uid://deck1o0l6wukw" path="res://assets/desk_mat.tscn" id="11_1t6wh"]
-[ext_resource type="PackedScene" uid="uid://luh60yk5bsm4" path="res://assets/office_desk.tscn" id="12_m4xcd"]
-[ext_resource type="PackedScene" uid="uid://cjm7rvuakb1tc" path="res://addons/kaykit_furniture_bits/Assets/gltf/shelf_B_large_decorated.gltf" id="13_5mo6e"]
-[ext_resource type="PackedScene" uid="uid://cd1iijpoo4mj8" path="res://addons/kaykit_furniture_bits/Assets/gltf/rug_rectangle_A.gltf" id="14_lc7je"]
-[ext_resource type="PackedScene" uid="uid://dfffug3k5wm5t" path="res://addons/kaykit_furniture_bits/Assets/gltf/pictureframe_large_B.gltf" id="15_tmvxx"]
-[ext_resource type="PackedScene" uid="uid://e6igiolmds3q" path="res://addons/kaykit_furniture_bits/Assets/gltf/lamp_standing.gltf" id="16_a4bii"]
-[ext_resource type="PackedScene" uid="uid://c4f1qo7jet4pa" path="res://addons/Furniture Kit/Models/GLTF format/lampWall.glb" id="17_ss3aq"]
-[ext_resource type="PackedScene" uid="uid://2o70amaqgn3d" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/ceilingFan.glb" id="18_1d7l8"]
-[ext_resource type="PackedScene" uid="uid://b3ksc10a56apj" path="res://addons/Furniture Kit/Models/GLTF format/loungeDesignSofaCorner.glb" id="19_bto8u"]
-[ext_resource type="ArrayMesh" uid="uid://begefj3dwk7xn" path="res://addons/blinds/storeCalifornien.obj" id="20_qp5lb"]
-[ext_resource type="PackedScene" uid="uid://dx55t40bn2l20" path="res://addons/Furniture Kit/Models/GLTF format/chairDesk.glb" id="21_w0751"]
-[ext_resource type="PackedScene" uid="uid://d3v4o1rmbr04g" path="res://addons/Furniture Kit/Models/GLTF format/chairModernCushion.glb" id="22_8jxyt"]
-[ext_resource type="PackedScene" uid="uid://0hwl21f02ft4" path="res://addons/Furniture Kit/Models/GLTF format/coatRackStanding.glb" id="23_1mwpu"]
-[ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="24_uxpcb"]
-[ext_resource type="PackedScene" uid="uid://b1o2ipjwihbch" path="res://addons/kaykit_city_builder_bits/Assets/gltf/streetlight.gltf" id="25_wu4nc"]
-[ext_resource type="PackedScene" uid="uid://mbypbub7gg8p" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_H_withoutBase.gltf" id="26_6c3se"]
-[ext_resource type="PackedScene" uid="uid://dp4bb6e5ona40" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_sedan.gltf" id="27_cllc8"]
-[ext_resource type="PackedScene" uid="uid://botcrxvj0c6rg" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_taxi.gltf" id="28_o75ea"]
-[ext_resource type="PackedScene" uid="uid://dtgh7mpsukxt2" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_stationwagon.gltf" id="29_36xv7"]
-[ext_resource type="PackedScene" uid="uid://ba5rorl2gdmdt" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_F_withoutBase.gltf" id="30_3prmx"]
-[ext_resource type="PackedScene" uid="uid://bvkqqrivbdhw0" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-a.glb" id="31_1u20q"]
-[ext_resource type="Script" uid="uid://4kv8f8ejgwqn" path="res://addons/TileMapLayer3D/nodes/tilemap_layer_3d.gd" id="32_hrx1i"]
-[ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="33_cr5kv"]
-[ext_resource type="Texture2D" uid="uid://dhg7flrolnpvt" path="res://addons/material/Stone/Stone_08-512x512.png" id="34_5ryn3"]
-[ext_resource type="Texture2D" uid="uid://ckcanld7b0mri" path="res://digital-art-sky.png" id="35_irqlk"]
-[ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="36_1nlr4"]
-[ext_resource type="PackedScene" uid="uid://54xrqvr5c88h" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-n.glb" id="37_o10gx"]
-[ext_resource type="PackedScene" uid="uid://c5j2f77nw3fal" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-d.glb" id="38_v1clc"]
-[ext_resource type="PackedScene" uid="uid://dk5tdqmwscjmi" path="res://assets/filing_cabinet.tscn" id="39_1avk1"]
-[ext_resource type="PackedScene" uid="uid://guxpl27v6wmf" path="res://scene/Office_door.tscn" id="40_r4242"]
-[ext_resource type="PackedScene" uid="uid://cup1d16j06kha" path="res://scene/building_door.tscn" id="41_hg20q"]
-[ext_resource type="Script" uid="uid://c0g72fn513uwq" path="res://scene/player_FPS.gd" id="42_at8ct"]
-[ext_resource type="Script" uid="uid://dhn27m3xr13rn" path="res://scene/levels/level1/lv1scripts/lv1_clueboard_open.gd" id="43_j8leo"]
-[ext_resource type="PackedScene" uid="uid://cce3oci0d6152" path="res://scene/clueboard1.tscn" id="43_xbo1g"]
-[ext_resource type="PackedScene" uid="uid://ds2e63tairfv5" path="res://scene/clueboard_ui.tscn" id="44_fsydg"]
-[ext_resource type="Script" uid="uid://b7w6udguthfw" path="res://scene/levels/level1/lv1scripts/lv1_clueboard_ui.gd" id="44_t8d8h"]
-[ext_resource type="PackedScene" uid="uid://d0rp1tyfirca" path="res://scene/levels/level1/lv1clues/lv1_clue1.tscn" id="45_x2vst"]
-[ext_resource type="PackedScene" uid="uid://btoatvdo8rfsh" path="res://scene/levels/level1/lv1clues/lv1_clue2.tscn" id="46_3bx2c"]
-[ext_resource type="PackedScene" uid="uid://bm5kt0kkhckw8" path="res://scene/file.tscn" id="46_snfa6"]
-[ext_resource type="PackedScene" uid="uid://d7xyurl0y5kn" path="res://scene/tab_2.tscn" id="47_cc7ni"]
-[ext_resource type="PackedScene" uid="uid://sfaeo1i6jptn" path="res://scene/levels/level1/lv1clues/lv1_clue3.tscn" id="47_j8leo"]
-[ext_resource type="Script" uid="uid://cm33dnlm5be2j" path="res://scene/levels/level1/lv1scripts/lv1clue1_ui.gd" id="47_qvbb1"]
-[ext_resource type="PackedScene" uid="uid://c1vmuvx2ql3jp" path="res://scene/tab_3.tscn" id="48_pn7ft"]
-[ext_resource type="PackedScene" uid="uid://bs20j6lul17wr" path="res://scene/folder.tscn" id="49_av3wx"]
-[ext_resource type="Script" uid="uid://bxvle6a6jsr0y" path="res://scene/levels/level1/lv1scripts/lv1clue2_ui.gd" id="49_qegld"]
-[ext_resource type="PackedScene" path="res://scene/rocky_character.tscn" id="51_dlx5p"]
-[ext_resource type="Script" uid="uid://cvhexhpo7kgs3" path="res://scene/levels/level1/lv1scripts/lv1clue3_ui.gd" id="51_ulqwy"]
-[ext_resource type="Script" uid="uid://dgtv36tj56kt8" path="res://scene/levels/level1/lv1scripts/lv1_dialogue_manager.gd" id="52_6yp6n"]
-[ext_resource type="Texture2D" uid="uid://duxfgof81nxvg" path="res://assets/models/textures/tripo_image_fcdea367_0.jpg" id="52_qpui5"]
-[ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="53_vxlfn"]
-[ext_resource type="PackedScene" uid="uid://dreetx8glqxg5" path="res://scene/levels/level1/carla.tscn" id="53_x2vst"]
-[ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="54_03yam"]
-[ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="55_ccxiq"]
-[ext_resource type="Script" uid="uid://bhn88afp1fkq8" path="res://scene/levels/level1/lv1scripts/carla_interact.gd" id="59_3bx2c"]
+[ext_resource type="Script" uid="uid://bdqel33jbtgg7" path="res://scene/levels/level2/scripts/lv2_main_flow.gd" id="1_34xk6"]
+[ext_resource type="Resource" uid="uid://crsidt03vjr64" path="res://dialogue/testing/testdialogue.dialogue" id="2_frhax"]
+[ext_resource type="PackedScene" uid="uid://67cacspodmxr" path="res://assets/office.tscn" id="3_15nhj"]
+[ext_resource type="Texture2D" uid="uid://c3lr2byhh8t7m" path="res://addons/material/Plaster/Plaster_08-512x512.png" id="4_eej3x"]
+[ext_resource type="PackedScene" uid="uid://cqmdand3an5x1" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-center.glb" id="5_2nu14"]
+[ext_resource type="Texture2D" uid="uid://c2ro1tesc4fb5" path="res://addons/material/Plaster/Plaster_01-512x512.png" id="6_25i1r"]
+[ext_resource type="PackedScene" uid="uid://bm176r27ixm7h" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/laptop.glb" id="7_v1lch"]
+[ext_resource type="PackedScene" uid="uid://bppcp5xvmoy10" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-corner.glb" id="8_7g324"]
+[ext_resource type="PackedScene" uid="uid://d32sgvphnfnx0" path="res://addons/Kenny_3D_Building_kit/Building_Kit/Models/GLB format/roof-flat-side.glb" id="9_8j32k"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="10_0fxm6"]
+[ext_resource type="PackedScene" uid="uid://deck1o0l6wukw" path="res://assets/desk_mat.tscn" id="11_y377p"]
+[ext_resource type="PackedScene" uid="uid://luh60yk5bsm4" path="res://assets/office_desk.tscn" id="12_whqfd"]
+[ext_resource type="PackedScene" uid="uid://cjm7rvuakb1tc" path="res://addons/kaykit_furniture_bits/Assets/gltf/shelf_B_large_decorated.gltf" id="13_vlca1"]
+[ext_resource type="PackedScene" uid="uid://cd1iijpoo4mj8" path="res://addons/kaykit_furniture_bits/Assets/gltf/rug_rectangle_A.gltf" id="14_6kc8w"]
+[ext_resource type="PackedScene" uid="uid://dfffug3k5wm5t" path="res://addons/kaykit_furniture_bits/Assets/gltf/pictureframe_large_B.gltf" id="15_2i8uq"]
+[ext_resource type="PackedScene" uid="uid://e6igiolmds3q" path="res://addons/kaykit_furniture_bits/Assets/gltf/lamp_standing.gltf" id="16_e1kyf"]
+[ext_resource type="PackedScene" uid="uid://c4f1qo7jet4pa" path="res://addons/Furniture Kit/Models/GLTF format/lampWall.glb" id="17_rbk8k"]
+[ext_resource type="PackedScene" uid="uid://2o70amaqgn3d" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/ceilingFan.glb" id="18_3eghp"]
+[ext_resource type="PackedScene" uid="uid://b3ksc10a56apj" path="res://addons/Furniture Kit/Models/GLTF format/loungeDesignSofaCorner.glb" id="19_0c44b"]
+[ext_resource type="ArrayMesh" uid="uid://begefj3dwk7xn" path="res://addons/blinds/storeCalifornien.obj" id="20_dthrr"]
+[ext_resource type="PackedScene" uid="uid://dx55t40bn2l20" path="res://addons/Furniture Kit/Models/GLTF format/chairDesk.glb" id="21_w5st4"]
+[ext_resource type="PackedScene" uid="uid://d3v4o1rmbr04g" path="res://addons/Furniture Kit/Models/GLTF format/chairModernCushion.glb" id="22_uhj7t"]
+[ext_resource type="PackedScene" uid="uid://0hwl21f02ft4" path="res://addons/Furniture Kit/Models/GLTF format/coatRackStanding.glb" id="23_fa2um"]
+[ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="24_6nxwa"]
+[ext_resource type="PackedScene" uid="uid://b1o2ipjwihbch" path="res://addons/kaykit_city_builder_bits/Assets/gltf/streetlight.gltf" id="25_sbwr8"]
+[ext_resource type="PackedScene" uid="uid://mbypbub7gg8p" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_H_withoutBase.gltf" id="26_5ncj6"]
+[ext_resource type="PackedScene" uid="uid://dp4bb6e5ona40" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_sedan.gltf" id="27_sbvbj"]
+[ext_resource type="PackedScene" uid="uid://botcrxvj0c6rg" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_taxi.gltf" id="28_v1u60"]
+[ext_resource type="PackedScene" uid="uid://dtgh7mpsukxt2" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_stationwagon.gltf" id="29_1ndtf"]
+[ext_resource type="PackedScene" uid="uid://ba5rorl2gdmdt" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_F_withoutBase.gltf" id="30_v8hve"]
+[ext_resource type="PackedScene" uid="uid://bvkqqrivbdhw0" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-a.glb" id="31_a5dhn"]
+[ext_resource type="Script" uid="uid://4kv8f8ejgwqn" path="res://addons/TileMapLayer3D/nodes/tilemap_layer_3d.gd" id="32_4jf64"]
+[ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="33_41slr"]
+[ext_resource type="Texture2D" uid="uid://dhg7flrolnpvt" path="res://addons/material/Stone/Stone_08-512x512.png" id="34_4jj15"]
+[ext_resource type="Texture2D" uid="uid://ckcanld7b0mri" path="res://digital-art-sky.png" id="35_vx8ok"]
+[ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="36_iga76"]
+[ext_resource type="PackedScene" uid="uid://54xrqvr5c88h" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-n.glb" id="37_n6y5y"]
+[ext_resource type="PackedScene" uid="uid://c5j2f77nw3fal" path="res://addons/Kenny_3D_Building_kit/City_Kit_Commercial/Models/GLB format/building-d.glb" id="38_kj08n"]
+[ext_resource type="PackedScene" uid="uid://dk5tdqmwscjmi" path="res://assets/filing_cabinet.tscn" id="39_y13q8"]
+[ext_resource type="PackedScene" uid="uid://guxpl27v6wmf" path="res://scene/Office_door.tscn" id="40_20ryf"]
+[ext_resource type="PackedScene" uid="uid://cup1d16j06kha" path="res://scene/building_door.tscn" id="41_itdo5"]
+[ext_resource type="Script" uid="uid://c0g72fn513uwq" path="res://scene/player_FPS.gd" id="42_xnioj"]
+[ext_resource type="Script" uid="uid://cy1tmboo0ih1k" path="res://scene/levels/level2/scripts/lv2_clueboard_open.gd" id="43_fvpai"]
+[ext_resource type="PackedScene" uid="uid://cce3oci0d6152" path="res://scene/clueboard1.tscn" id="43_q63ur"]
+[ext_resource type="PackedScene" uid="uid://ds2e63tairfv5" path="res://scene/clueboard_ui.tscn" id="44_dlp1h"]
+[ext_resource type="Script" uid="uid://h1p0c3xtkny" path="res://scene/levels/level2/scripts/lv2_clueboard_ui.gd" id="45_2yjw1"]
+[ext_resource type="PackedScene" uid="uid://bcistw4jo4i1" path="res://scene/levels/level2/lv2clues/lv2_clue1.tscn" id="45_ywbme"]
+[ext_resource type="PackedScene" uid="uid://bc7mqmorgrxi2" path="res://scene/levels/level2/lv2clues/lv2_clue2.tscn" id="46_hb7mh"]
+[ext_resource type="PackedScene" uid="uid://bm5kt0kkhckw8" path="res://scene/file.tscn" id="46_okm4o"]
+[ext_resource type="PackedScene" uid="uid://kvd7ful2xx3i" path="res://scene/levels/level2/lv2clues/lv2_clue3.tscn" id="47_dir6o"]
+[ext_resource type="Script" uid="uid://7ndttpx1f1rs" path="res://scene/levels/level2/scripts/lv2clue1_ui.gd" id="47_oqj3w"]
+[ext_resource type="PackedScene" uid="uid://d7xyurl0y5kn" path="res://scene/tab_2.tscn" id="47_tk38n"]
+[ext_resource type="PackedScene" uid="uid://c1vmuvx2ql3jp" path="res://scene/tab_3.tscn" id="48_hlwpw"]
+[ext_resource type="Script" uid="uid://bhfihmyjo1l3h" path="res://scene/levels/level2/scripts/lv2clue2_ui.gd" id="49_sn22d"]
+[ext_resource type="PackedScene" uid="uid://bs20j6lul17wr" path="res://scene/folder.tscn" id="49_y20wb"]
+[ext_resource type="PackedScene" path="res://scene/rocky_character.tscn" id="51_egv5m"]
+[ext_resource type="Script" uid="uid://ys0u7550k8kj" path="res://scene/levels/level2/scripts/lv2clue3_ui.gd" id="51_xn78b"]
+[ext_resource type="Texture2D" uid="uid://duxfgof81nxvg" path="res://assets/models/textures/tripo_image_fcdea367_0.jpg" id="52_q34e0"]
+[ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="53_jvn1u"]
+[ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="54_ln0at"]
+[ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="55_xc5rj"]
+[ext_resource type="Script" uid="uid://doo4ibgvj71c6" path="res://scene/levels/level2/scripts/lv2_dialogue_manager.gd" id="56_sr48e"]
+[ext_resource type="PackedScene" uid="uid://c1mvqgmerc5sy" path="res://scene/levels/level2/patty.tscn" id="58_hb7mh"]
+[ext_resource type="Script" uid="uid://bdweyug33anvn" path="res://scene/levels/level2/scripts/patty_interact.gd" id="63_0p65s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
 albedo_color = Color(0.35546875, 0.2513275, 0.2513275, 1)
-albedo_texture = ExtResource("4_mwiwr")
+albedo_texture = ExtResource("4_eej3x")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76meg"]
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.7421875, 0.7305908, 0.7305908, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roof_flat_center2"]
-albedo_texture = ExtResource("6_7kdcw")
+albedo_texture = ExtResource("6_25i1r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mswub"]
-albedo_texture = ExtResource("10_bkig8")
+albedo_texture = ExtResource("10_0fxm6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abiby"]
 shading_mode = 0
@@ -109,8 +109,8 @@ radius = 0.6
 height = 1.5
 
 [sub_resource type="Resource" id="Resource_p1hux"]
-script = ExtResource("33_cr5kv")
-tileset_texture = ExtResource("34_5ryn3")
+script = ExtResource("33_41slr")
+tileset_texture = ExtResource("34_4jj15")
 selected_tile_uv = Rect2(320, 0, 32, 32)
 autotile_mesh_mode = 2
 smart_select_mode = 1
@@ -120,7 +120,7 @@ texture_repeat_mode = 1
 metadata/_custom_type_script = "uid://bli432i5uj51v"
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kpobt"]
-panorama = ExtResource("35_irqlk")
+panorama = ExtResource("35_vx8ok")
 energy_multiplier = 0.5
 
 [sub_resource type="Sky" id="Sky_76meg"]
@@ -149,7 +149,7 @@ exposure_multiplier = 0.7
 cull_mode = 1
 shading_mode = 0
 albedo_color = Color(0.39453125, 0.38990784, 0.38990784, 1)
-albedo_texture = ExtResource("36_1nlr4")
+albedo_texture = ExtResource("36_iga76")
 heightmap_enabled = true
 heightmap_scale = -16.0
 
@@ -161,10 +161,10 @@ cap_bottom = false
 cull_mode = 1
 shading_mode = 0
 albedo_color = Color(0.375, 0.36328125, 0.36328125, 1)
-albedo_texture = ExtResource("36_1nlr4")
+albedo_texture = ExtResource("36_iga76")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7xrs8"]
-panorama = ExtResource("35_irqlk")
+panorama = ExtResource("35_vx8ok")
 energy_multiplier = 0.05
 
 [sub_resource type="Sky" id="Sky_kpobt"]
@@ -204,20 +204,20 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvbb1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvpai"]
 resource_local_to_scene = true
 cull_mode = 2
-albedo_texture = ExtResource("52_qpui5")
+albedo_texture = ExtResource("52_q34e0")
 metallic = 1.0
-metallic_texture = ExtResource("53_vxlfn")
-roughness_texture = ExtResource("55_ccxiq")
+metallic_texture = ExtResource("53_jvn1u")
+roughness_texture = ExtResource("55_xc5rj")
 normal_enabled = true
-normal_texture = ExtResource("54_03yam")
+normal_texture = ExtResource("54_ln0at")
 
 [node name="main" type="Node3D" unique_id=1500498533]
-script = ExtResource("1_6nnp6")
+script = ExtResource("1_34xk6")
 
-[node name="Office" parent="." unique_id=1893820020 instance=ExtResource("3_318gm")]
+[node name="Office" parent="." unique_id=1893820020 instance=ExtResource("3_15nhj")]
 transform = Transform3D(0.8206144, 0, 0, 0, 2.0044506, 0, 0, 0, 0.84536386, 0.011706352, 0.49168897, 0.011011124)
 
 [node name="Wall1_hole" parent="Office/Wall_1" parent_id_path=PackedInt32Array(1893820020, 1093115715) index="0" unique_id=492500122]
@@ -272,38 +272,38 @@ transform = Transform3D(1, -9.947598e-14, -6.519258e-09, -3.5527137e-15, 1.00000
 operation = 2
 size = Vector3(1.2230766, 1.0204539, 2.5687847)
 
-[node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("5_mxa3u")]
+[node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("5_2nu14")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
 [node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
-[node name="laptop" parent="Office/roof-flat-center2" unique_id=1838807121 instance=ExtResource("7_3n6nf")]
+[node name="laptop" parent="Office/roof-flat-center2" unique_id=1838807121 instance=ExtResource("7_v1lch")]
 transform = Transform3D(0.20600957, 0, -0.18247284, 0, 3.3748407, 0, 0.15423827, 0, 0.24372129, -0.48925114, -6.3575745, 0.7124019)
 
-[node name="roof-flat-corner2" parent="Office" unique_id=474952056 instance=ExtResource("8_8fup2")]
+[node name="roof-flat-corner2" parent="Office" unique_id=474952056 instance=ExtResource("8_7g324")]
 transform = Transform3D(1.580029, 0, 0, 0, 0.8348803, 0, 0, 0, 1.57444, 18.18663, 4.167302, 12.773447)
 
-[node name="roof-flat-corner3" parent="Office" unique_id=1834011601 instance=ExtResource("8_8fup2")]
+[node name="roof-flat-corner3" parent="Office" unique_id=1834011601 instance=ExtResource("8_7g324")]
 transform = Transform3D(-1.5799441, -9.225789e-10, -0.016786456, 2.926388e-10, 0.8348802, -5.8048016e-08, 0.015874093, -1.7305688e-07, -1.5743556, -15.917984, 4.167302, -16.571543)
 
-[node name="roof-flat-corner4" parent="Office" unique_id=501139348 instance=ExtResource("8_8fup2")]
+[node name="roof-flat-corner4" parent="Office" unique_id=501139348 instance=ExtResource("8_7g324")]
 transform = Transform3D(-0.0015994451, -9.12796e-08, -1.6219236, 2.8272249e-08, 0.8348802, -2.97507e-08, 1.5337701, -8.661193e-08, -0.0015937953, -15.570865, 4.167302, 13.198906)
 
-[node name="roof-flat-corner5" parent="Office" unique_id=1393275805 instance=ExtResource("8_8fup2")]
+[node name="roof-flat-corner5" parent="Office" unique_id=1393275805 instance=ExtResource("8_7g324")]
 transform = Transform3D(-0.0021510653, 8.914041e-08, 1.6219232, -2.827503e-08, 0.8348802, -2.9064305e-08, -1.53377, -8.664856e-08, -0.0021434445, 18.155087, 4.167302, -16.607779)
 
-[node name="roof-flat-side2" parent="Office" unique_id=540831656 instance=ExtResource("9_px76v")]
+[node name="roof-flat-side2" parent="Office" unique_id=540831656 instance=ExtResource("9_8j32k")]
 transform = Transform3D(1.6097254, 0, 0, 0, 0.82584137, 0, 0, 0, 13.240043, 18.179188, 4.1636696, -1.9955834)
 
-[node name="roof-flat-side3" parent="Office" unique_id=1505193771 instance=ExtResource("9_px76v")]
+[node name="roof-flat-side3" parent="Office" unique_id=1505193771 instance=ExtResource("9_8j32k")]
 transform = Transform3D(-1.6092662, -8.233321e-10, -0.1306529, 2.6891397e-10, 0.8258414, -5.007836e-07, 0.014587132, -1.7118407e-07, -13.582124, -15.685099, 4.1636696, -1.3232847)
 
-[node name="roof-flat-side4" parent="Office" unique_id=1239587336 instance=ExtResource("9_px76v")]
+[node name="roof-flat-side4" parent="Office" unique_id=1239587336 instance=ExtResource("9_8j32k")]
 transform = Transform3D(0.0034332604, 8.81752e-08, 15.699757, -2.8853886e-08, 0.8258414, -2.8035387e-07, -1.5651698, -8.541168e-08, 0.032451056, 0.9457026, 4.1636696, -16.546286)
 
-[node name="roof-flat-side5" parent="Office" unique_id=1849510818 instance=ExtResource("9_px76v")]
+[node name="roof-flat-side5" parent="Office" unique_id=1849510818 instance=ExtResource("9_8j32k")]
 transform = Transform3D(0.022139952, -8.81671e-08, -15.551479, 2.8842553e-08, 0.8258414, -2.7450122e-07, 1.5645552, -8.4418254e-08, 0.2073712, 1.4842484, 4.1636696, 12.990773)
 
 [node name="Decoration" type="Node" parent="." unique_id=2001246509]
@@ -316,7 +316,7 @@ material_override = SubResource("StandardMaterial3D_mswub")
 flip_faces = true
 size = Vector3(0.001, 4.417225, 2.2823694)
 
-[node name="DeskMat" parent="Decoration/Interior" unique_id=619487795 instance=ExtResource("11_1t6wh")]
+[node name="DeskMat" parent="Decoration/Interior" unique_id=619487795 instance=ExtResource("11_y377p")]
 transform = Transform3D(-0.0007306106, -0.003709298, -0.60557616, 0.20226097, 0.0014358185, -0.0022003052, 0.00058235996, -0.5033315, 0.0044565136, -6.234865, 2.647524, 8.792976)
 
 [node name="D_Mat" parent="Decoration/Interior/DeskMat" index="0" unique_id=1784910813]
@@ -333,19 +333,19 @@ size = Vector3(0.001, 0.8385191, 7.6980095)
 transform = Transform3D(1.7329806, 3.6507845e-07, -2.6978887e-07, 1.4319085e-08, 0.999987, -3.678724e-08, -6.686241e-08, -3.1664968e-08, 0.9999646, 0.22563744, -0.02301979, 0.009090424)
 size = Vector3(0.001, 3.3203735, 7.7023315)
 
-[node name="OfficeDesk" parent="Decoration/Interior" unique_id=540058272 instance=ExtResource("12_m4xcd")]
+[node name="OfficeDesk" parent="Decoration/Interior" unique_id=540058272 instance=ExtResource("12_whqfd")]
 transform = Transform3D(-0.01061815, 0.0024075394, 2.1205583, -7.619613e-08, 1.3794079, -0.0037012382, -1.7431904, -1.4725141e-05, -0.012916778, -7.123657, 2.4914382, 8.116175)
 
-[node name="shelf_B_large_decorated2" parent="Decoration/Interior" unique_id=1247195354 instance=ExtResource("13_5mo6e")]
+[node name="shelf_B_large_decorated2" parent="Decoration/Interior" unique_id=1247195354 instance=ExtResource("13_vlca1")]
 transform = Transform3D(1.2669444, 0, 0, 0, 1.1552538, 0, 0, 0, 1, -10.619793, 3.1873326, -3.4256434)
 
-[node name="rug_rectangle_A2" parent="Decoration/Interior" unique_id=1931666222 instance=ExtResource("14_lc7je")]
+[node name="rug_rectangle_A2" parent="Decoration/Interior" unique_id=1931666222 instance=ExtResource("14_6kc8w")]
 transform = Transform3D(4.1094165, 1.2152165e-10, 0.066049606, -1.6114874e-09, 0.30990198, -1.2948339e-11, -0.03686653, -5.4500794e-13, 7.362378, -6.942215, 1.0001676, 4.202157)
 
-[node name="pictureframe_large_B2" parent="Decoration/Interior" unique_id=8427970 instance=ExtResource("15_tmvxx")]
+[node name="pictureframe_large_B2" parent="Decoration/Interior" unique_id=8427970 instance=ExtResource("15_2i8uq")]
 transform = Transform3D(0.007690544, 5.7130144e-08, 0.9979658, -5.9263453e-08, 1.3070066, -4.3375728e-08, -1.3557901, -5.6807014e-08, 0.0056608315, -13.615503, 3.596345, 7.4013715)
 
-[node name="lamp_standing2" parent="Decoration/Interior" unique_id=1920959468 instance=ExtResource("16_a4bii")]
+[node name="lamp_standing2" parent="Decoration/Interior" unique_id=1920959468 instance=ExtResource("16_e1kyf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90376806, 1.0430962, -2.7649088)
 
 [node name="OfficeLight" type="MeshInstance3D" parent="Decoration/Interior/lamp_standing2" unique_id=1985874005]
@@ -385,7 +385,7 @@ spot_angle = 58.0
 transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
 mesh = SubResource("SphereMesh_2km5d")
 
-[node name="lampWall" parent="Decoration/Interior" unique_id=1005000374 instance=ExtResource("17_ss3aq")]
+[node name="lampWall" parent="Decoration/Interior" unique_id=1005000374 instance=ExtResource("17_rbk8k")]
 transform = Transform3D(0.05665448, 0.1317735, 8.846394, 0.025017552, -7.46588, 0.15583175, 6.2825155, 0.028541686, -0.080396734, -13.7142515, 5.730563, 2.2260733)
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Decoration/Interior/lampWall" unique_id=1977005082]
@@ -401,32 +401,32 @@ spot_angle = 38.51
 transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256447, -0.028459713, -0.008823097, 0.037738048, 0.9460388, -0.0443964, 0.0916059, -0.29829288)
 mesh = SubResource("SphereMesh_2km5d")
 
-[node name="ceilingFan" parent="Decoration/Interior" unique_id=1634650089 instance=ExtResource("18_1d7l8")]
+[node name="ceilingFan" parent="Decoration/Interior" unique_id=1634650089 instance=ExtResource("18_3eghp")]
 transform = Transform3D(8.735082, 0, 0, 0, 10.600423, 0, 0, 0, 8.991514, -7.213416, 8.794306, 5.311068)
 
-[node name="loungeDesignSofaCorner" parent="Decoration/Interior" unique_id=1688153319 instance=ExtResource("19_bto8u")]
+[node name="loungeDesignSofaCorner" parent="Decoration/Interior" unique_id=1688153319 instance=ExtResource("19_0c44b")]
 transform = Transform3D(-0.008520954, 0, 3.6317985, 0, 3.1974037, 0, -3.8142092, 0, -0.008113508, -8.61771, 1.0457978, 1.8126719)
 
 [node name="Blinds" type="Node" parent="Decoration/Interior" unique_id=1433211203]
 
 [node name="StoreCalifornien" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=491779690]
 transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -9.527277, 2.7387753, 11.588473)
-mesh = ExtResource("20_qp5lb")
+mesh = ExtResource("20_dthrr")
 
 [node name="StoreCalifornien2" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=469758882]
 transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -7.2742915, 2.7387753, 11.588473)
-mesh = ExtResource("20_qp5lb")
+mesh = ExtResource("20_dthrr")
 
-[node name="chairDesk" parent="Decoration/Interior" unique_id=90216326 instance=ExtResource("21_w0751")]
+[node name="chairDesk" parent="Decoration/Interior" unique_id=90216326 instance=ExtResource("21_w5st4")]
 transform = Transform3D(-5.3220983, 0, -0.12570405, 0, 3.8821878, 0, 0.12904692, 0, -5.184238, -6.2746677, 0.99016976, 9.434728)
 
-[node name="chairModernCushion" parent="Decoration/Interior" unique_id=1032307393 instance=ExtResource("22_8jxyt")]
+[node name="chairModernCushion" parent="Decoration/Interior" unique_id=1032307393 instance=ExtResource("22_uhj7t")]
 transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -8.851959, 0.9901707, 6.086622)
 
-[node name="chairModernCushion2" parent="Decoration/Interior" unique_id=1924805500 instance=ExtResource("22_8jxyt")]
+[node name="chairModernCushion2" parent="Decoration/Interior" unique_id=1924805500 instance=ExtResource("22_uhj7t")]
 transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -6.706975, 0.9901707, 6.086622)
 
-[node name="coatRackStanding" parent="Decoration/Interior" unique_id=1807631150 instance=ExtResource("23_1mwpu")]
+[node name="coatRackStanding" parent="Decoration/Interior" unique_id=1807631150 instance=ExtResource("23_fa2um")]
 transform = Transform3D(3.6057413, 0, 0, 0, 3.433595, 0, 0, 0, 3.0975811, -4.140473, 1.0611788, -2.603734)
 
 [node name="Environment" type="Node" parent="." unique_id=369110703]
@@ -439,7 +439,7 @@ material_override = SubResource("StandardMaterial3D_mswub")
 flip_faces = true
 size = Vector3(0.001, 8.74487, 5.207311)
 
-[node name="dumpster2" parent="Environment/Exterior" unique_id=1198916792 instance=ExtResource("24_uxpcb")]
+[node name="dumpster2" parent="Environment/Exterior" unique_id=1198916792 instance=ExtResource("24_6nxwa")]
 transform = Transform3D(0.06834391, 0, -10.222415, 0, 8.818269, 0, 6.440243, 0, 0.10848034, -15.909776, 0.37629747, 8.674659)
 
 [node name="StreetLamp" type="Node3D" parent="Environment/Exterior" unique_id=1846110296]
@@ -473,7 +473,7 @@ spot_angle = 25.0
 transform = Transform3D(0.9995769, 0.0014543496, 0.02906057, 0.005891923, 0.96794313, -0.25110173, -0.028494138, 0.25116652, 0.96752506, -0.025823355, 0.6677828, -0.91719913)
 mesh = SubResource("SphereMesh_vc5kc")
 
-[node name="streetlight2" parent="Environment/Exterior/StreetLamp" unique_id=1020225387 instance=ExtResource("25_wu4nc")]
+[node name="streetlight2" parent="Environment/Exterior/StreetLamp" unique_id=1020225387 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, -48.54716, 0, 16.24086)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight2" unique_id=1644293248]
@@ -489,7 +489,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(0.7793052, -0.6218326, -0.07750899, 0.62505865, 0.7801588, 0.025586937, 0.044558484, -0.06838766, 0.9966638, 0.16424942, -0.10645676, -0.25933838)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight6" parent="Environment/Exterior/StreetLamp" unique_id=1879369655 instance=ExtResource("25_wu4nc")]
+[node name="streetlight6" parent="Environment/Exterior/StreetLamp" unique_id=1879369655 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(1.7259176, -0.24765402, 32.25512, 0.17555347, 11.517223, 0.68564516, -31.198973, 0.051106274, 1.788201, -14.311365, 0, 16.117332)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight6" unique_id=197993375]
@@ -505,7 +505,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(0.78027475, -0.6216799, -0.068443984, 0.62294924, 0.7822534, -0.003513841, 0.055725064, -0.03989535, 0.9976474, 0.12662792, -0.14712524, -0.2263956)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight9" parent="Environment/Exterior/StreetLamp" unique_id=1821286560 instance=ExtResource("25_wu4nc")]
+[node name="streetlight9" parent="Environment/Exterior/StreetLamp" unique_id=1821286560 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(-0.012245297, -0.29181007, 32.301556, 0.5915179, 11.514238, 0.8185785, -31.241566, 0.21812154, 0.0028378963, 20.158531, 0, 16.117332)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight9" unique_id=1334064496]
@@ -521,7 +521,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(0.80740243, -0.5899637, -0.0065043797, 0.58959645, 0.8063927, 0.04589377, -0.021830583, -0.04088974, 0.9989245, 0.102176666, -0.25013542, -0.22999191)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight3" parent="Environment/Exterior/StreetLamp" unique_id=2032313876 instance=ExtResource("25_wu4nc")]
+[node name="streetlight3" parent="Environment/Exterior/StreetLamp" unique_id=2032313876 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(1.3976483, 0.47347096, 32.25226, 1.3918331, 11.497855, -1.3924114, -31.184853, 0.5343892, 1.3833416, 54.181465, 0, 16.24086)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight3" unique_id=1466853988]
@@ -537,7 +537,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(0.77930474, -0.62183285, -0.077509, 0.62505853, 0.7801582, 0.025586931, 0.04455846, -0.06838767, 0.9966636, 0.10482788, -0.16158104, -0.12249851)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight4" parent="Environment/Exterior/StreetLamp" unique_id=31711256 instance=ExtResource("25_wu4nc")]
+[node name="streetlight4" parent="Environment/Exterior/StreetLamp" unique_id=31711256 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(0.13979077, 0.1486671, -32.30892, -0.24766286, 11.518686, 0.4158346, 31.245874, 0.09063509, 0.14784294, -14.250266, 0, 47.363125)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight4" unique_id=440553434]
@@ -553,7 +553,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(-0.8099088, 0.5857437, 0.030820362, -0.5863247, -0.8099451, -0.014583046, 0.016420867, -0.029881667, 0.99941844, 0.10244846, -0.15096283, -0.16216755)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight8" parent="Environment/Exterior/StreetLamp" unique_id=705091080 instance=ExtResource("25_wu4nc")]
+[node name="streetlight8" parent="Environment/Exterior/StreetLamp" unique_id=705091080 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(-0.8809912, 0.14592612, -32.296494, -0.24768874, 11.518683, 0.41667473, 31.233765, 0.09546116, -0.9076625, 19.807484, 0, 48.283787)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight8" unique_id=21901464]
@@ -569,7 +569,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(-0.79032505, 0.61188453, 0.031348087, -0.6124736, -0.7903655, -0.014045257, 0.016182382, -0.030300163, 0.9994092, 0.07834625, -0.13298798, -0.13430595)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight7" parent="Environment/Exterior/StreetLamp" unique_id=1821918430 instance=ExtResource("25_wu4nc")]
+[node name="streetlight7" parent="Environment/Exterior/StreetLamp" unique_id=1821918430 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(-1.1402047, -0.85247123, -32.20176, -0.050417036, 11.488412, -2.3907495, 31.226318, -0.012578364, -1.179682, 54.989372, 0, 48.283787)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight7" unique_id=1123492942]
@@ -585,7 +585,7 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(-0.7833224, 0.620165, -0.042449508, -0.617607, -0.7841978, -0.059970483, -0.070480414, -0.02075913, 0.99729705, -0.001335144, -0.118370056, -0.118524075)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="streetlight5" parent="Environment/Exterior/StreetLamp" unique_id=1276039718 instance=ExtResource("25_wu4nc")]
+[node name="streetlight5" parent="Environment/Exterior/StreetLamp" unique_id=1276039718 instance=ExtResource("25_sbwr8")]
 transform = Transform3D(-0.3333569, -0.36232138, -32.2941, -0.6296239, 11.512044, -1.0091668, 31.239046, 0.22815919, -0.36495507, -47.00532, 0, 46.6983)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Exterior/StreetLamp/streetlight5" unique_id=777065443]
@@ -601,27 +601,27 @@ spot_angle_attenuation = 0.57434916
 transform = Transform3D(-0.80070436, 0.59905255, 0.0026310142, -0.5984061, -0.79962015, -0.050174154, -0.027953139, -0.041749112, 0.9987359, 0.05339241, -0.12270355, -0.13196373)
 mesh = SubResource("SphereMesh_jey2d")
 
-[node name="building_H_withoutBase2" parent="Environment/Exterior" unique_id=489801806 instance=ExtResource("26_6c3se")]
+[node name="building_H_withoutBase2" parent="Environment/Exterior" unique_id=489801806 instance=ExtResource("26_5ncj6")]
 transform = Transform3D(-16.96044, -0.015131803, 0.020892324, -0.021792071, 11.787413, -0.016081112, -0.020712163, -0.011109373, -17.091051, -31.00639, -0.97482586, 62.952114)
 
-[node name="car_sedan2" parent="Environment/Exterior" unique_id=1793649127 instance=ExtResource("27_cllc8")]
+[node name="car_sedan2" parent="Environment/Exterior" unique_id=1793649127 instance=ExtResource("27_sbvbj")]
 transform = Transform3D(-0.24169165, 0, 8.061265, 0, 10.892729, 0, -12.113777, 0, -0.16083677, -7.5179634, 0.94280434, 42.692387)
 
-[node name="car_taxi2" parent="Environment/Exterior" unique_id=777205071 instance=ExtResource("28_o75ea")]
+[node name="car_taxi2" parent="Environment/Exterior" unique_id=777205071 instance=ExtResource("28_v1u60")]
 transform = Transform3D(-0.12986876, 0, -7.777898, 0, 7.6547174, 0, 10.027649, 0, -0.100732096, 27.065329, 0.60025644, 21.012653)
 
-[node name="car_stationwagon2" parent="Environment/Exterior" unique_id=1947218835 instance=ExtResource("29_36xv7")]
+[node name="car_stationwagon2" parent="Environment/Exterior" unique_id=1947218835 instance=ExtResource("29_1ndtf")]
 transform = Transform3D(-9.579016, 0, 0.0011196136, 0, 8.655118, 0, -0.0011706352, 0, -9.164713, 47.50369, 1.4566488, 5.3193016)
 
-[node name="building_F_withoutBase2" parent="Environment/Exterior" unique_id=1861490783 instance=ExtResource("30_3prmx")]
+[node name="building_F_withoutBase2" parent="Environment/Exterior" unique_id=1861490783 instance=ExtResource("30_v8hve")]
 transform = Transform3D(-11.472189, 0, -0.27438435, 0, 15.172017, 0, 0.18162009, 0, -17.331718, 2.332748, -1.0499029, 62.7546)
 
-[node name="building-a2" parent="Environment/Exterior" unique_id=1005441965 instance=ExtResource("31_1u20q")]
+[node name="building-a2" parent="Environment/Exterior" unique_id=1005441965 instance=ExtResource("31_a5dhn")]
 transform = Transform3D(31.921572, 0, 0, 0, 23.578524, 0, 0, 0, 25.67903, 33.958084, -0.06748772, 62.27114)
 
 [node name="TileMapLayer3D" type="Node3D" parent="Environment" unique_id=981883110 node_paths=PackedStringArray("_box_repeat_chunks")]
 transform = Transform3D(4.528081, 0, 0, 0, 1, 0, 0, 0, 4.353721, 0, 0, 19.056824)
-script = ExtResource("32_hrx1i")
+script = ExtResource("32_4jf64")
 settings = SubResource("Resource_p1hux")
 _tile_positions = PackedVector3Array(-20, -0.5, -20, -19, -0.5, -20, -20, -0.5, -19, -19, -0.5, -19, -18, -0.5, -20, -17, -0.5, -20, -18, -0.5, -19, -17, -0.5, -19, -9, -0.5, -11, -8, -0.5, -11, -5, -0.5, -12, -8, -0.5, -12, -10, -0.5, -12, -9, -0.5, -12, -11, -0.5, -13, -12, -0.5, -13, -11, -0.5, -12, -11, -0.5, -11, -10, -0.5, -11, -11, -0.5, -10, -10, -0.5, -10, -10, -0.5, -9, -9, -0.5, -10, -9, -0.5, -9, -8, -0.5, -10, -6, -0.5, -9, 3, -0.5, -7, 1, -0.5, -5, -1, -0.5, -5, 0, -0.5, -5, -2, -0.5, -6, -2, -0.5, -5, -3, -0.5, -5, -4, -0.5, -5, -5, -0.5, -5, -10, -0.5, -5, -11, -0.5, -6, -17, -0.5, -13, -18, -0.5, -7, -18, -0.5, -8, -17, -0.5, -12, -17, -0.5, -11, -17, -0.5, -10, -16, -0.5, -10, -17, -0.5, -9, -16, -0.5, -9, -17, -0.5, -8, -17, -0.5, -7, -17, -0.5, -6, -16, -0.5, -6, -13, -0.5, -9, -15, -0.5, -15, -14, -0.5, -14, -12, -0.5, -12, -13, -0.5, -11, -12, -0.5, -11, -13, -0.5, -10, -12, -0.5, -10, -12, -0.5, -9, -11, -0.5, -9, -10, -0.5, -6, -5, -0.5, -6, -6, -0.5, -5, -7, -0.5, -5, -8, -0.5, -9, -7, -0.5, -9, -7, -0.5, -10, -6, -0.5, -10, -7, -0.5, -11, -6, -0.5, -11, -14, -0.5, -20, -13, -0.5, -20, -12, -0.5, -20, -11, -0.5, -20, -10, -0.5, -20, -9, -0.5, -20, -7, -0.5, -20, -6, -0.5, -20, -5, -0.5, -20, -4, -0.5, -20, -3, -0.5, -20, -2, -0.5, -20, -1, -0.5, -20, 0, -0.5, -20, 1, -0.5, -20, 5, -0.5, -18, 6, -0.5, -18, 7, -0.5, -18, 8, -0.5, -18, 8, -0.5, -17, 12, -0.5, -14, 13, -0.5, -13, 19, -0.5, -17, 18, -0.5, -18, 19, -0.5, -18, 19, -0.5, -20, 19, -0.5, -19, 18, -0.5, -20, 18, -0.5, -19, 17, -0.5, -20, 16, -0.5, -20, 14, -0.5, -20, 15, -0.5, -20, 13, -0.5, -20, 12, -0.5, -20, 11, -0.5, -20, 11, -0.5, -19, 10, -0.5, -20, 10, -0.5, -19, 9, -0.5, -20, 9, -0.5, -19, 8, -0.5, -20, 8, -0.5, -19, 7, -0.5, -20, 7, -0.5, -19, 6, -0.5, -20, 6, -0.5, -19, 5, -0.5, -20, 5, -0.5, -19, 4, -0.5, -20, 4, -0.5, -19, 2, -0.5, -20, 3, -0.5, -20, 3, -0.5, -19, 3, -0.5, -18, 4, -0.5, -18, 3, -0.5, -17, 4, -0.5, -17, 4, -0.5, -16, 5, -0.5, -17, 6, -0.5, -17, 7, -0.5, -17, 11, -0.5, -18, 9, -0.5, -18, 10, -0.5, -18, 12, -0.5, -15, 17, -0.5, -19, 17, -0.5, -18, 15, -0.5, -19, 16, -0.5, -19, 15, -0.5, -18, 16, -0.5, -18, 14, -0.5, -19, 14, -0.5, -18, 12, -0.5, -19, 13, -0.5, -19, 12, -0.5, -18, 13, -0.5, -18, 13, -0.5, -15, 13, -0.5, -14, 14, -0.5, -14, 14, -0.5, -17, 14, -0.5, -16, 14, -0.5, -15, 15, -0.5, -15, 15, -0.5, -14, 14, -0.5, -13, 15, -0.5, -13, 12, -0.5, -13, 8, -0.5, -14, 2, -0.5, -17, 3, -0.5, -16, -5, -0.5, -13, -5, -0.5, -14, -10, -0.5, -13, -4, -0.5, -13, -2, -0.5, -10, -2, -0.5, -12, -2, -0.5, -11, 2, -0.5, -13, 2, -0.5, -12, 1, -0.5, -8, 8, -0.5, -13, 2, -0.5, -8, 3, -0.5, -8, 5, -0.5, -14, 5, -0.5, -13, 6, -0.5, -14, 7, -0.5, -14, 6, -0.5, -13, 7, -0.5, -13, 4, -0.5, -11, 8, -0.5, -12, 9, -0.5, -12, 9, -0.5, -13, 9, -0.5, -15, 9, -0.5, -14, 10, -0.5, -15, 11, -0.5, -15, 10, -0.5, -14, 11, -0.5, -14, 10, -0.5, -13, 11, -0.5, -13, 10, -0.5, -12, 8, -0.5, -9, 4, -0.5, -8, 5, -0.5, -8, 6, -0.5, -9, 7, -0.5, -9, 6, -0.5, -8, 9, -0.5, -9, 11, -0.5, -12, 11, -0.5, -11, 12, -0.5, -12, 12, -0.5, -11, 13, -0.5, -12, 14, -0.5, -12, 13, -0.5, -11, 12, -0.5, -10, 10, -0.5, -11, 10, -0.5, -10, 11, -0.5, -10, 10, -0.5, -9, 11, -0.5, -9, 12, -0.5, -9, 13, -0.5, -10, 14, -0.5, -11, 14, -0.5, -10, 15, -0.5, -12, 15, -0.5, -11, 19, -0.5, -16, 18, -0.5, -15, 19, -0.5, -15, 18, -0.5, -14, 19, -0.5, -14, 18, -0.5, -13, 19, -0.5, -13, 18, -0.5, -12, 19, -0.5, -12, 18, -0.5, -11, 19, -0.5, -11, 18, -0.5, -10, 19, -0.5, -10, 18, -0.5, -9, 19, -0.5, -9, 18, -0.5, -8, 19, -0.5, -8, 18, -0.5, -7, 19, -0.5, -7, 18, -0.5, -6, 19, -0.5, -6, 18, -0.5, -5, 19, -0.5, -5, 18, -0.5, -4, 19, -0.5, -4, 18, -0.5, -3, 19, -0.5, -3, 19, -0.5, -2, 19, -0.5, -1, 18, -0.5, -2, 18, -0.5, -1, 17, -0.5, -2, 17, -0.5, -1, 16, -0.5, -2, 16, -0.5, -1, 15, -0.5, -2, 15, -0.5, -1, 14, -0.5, -1, 13, -0.5, -1, 12, -0.5, -1, 7, -0.5, -8, 8, -0.5, -8, 9, -0.5, -8, 11, -0.5, -6, 10, -0.5, -8, 11, -0.5, -8, 11, -0.5, -7, 10, -0.5, -7, 10, -0.5, -6, 8, -0.5, -7, 9, -0.5, -7, 8, -0.5, -6, 9, -0.5, -6, 6, -0.5, -7, 7, -0.5, -7, 4, -0.5, -7, 5, -0.5, -7, 1, -0.5, -7, 2, -0.5, -7, 1, -0.5, -6, 2, -0.5, -6, -1, -0.5, -7, 0, -0.5, -7, -1, -0.5, -6, 0, -0.5, -6, -4, -0.5, -6, -3, -0.5, -6, -6, -0.5, -6, -8, -0.5, -8, -7, -0.5, -8, -9, -0.5, -8, -11, -0.5, -8, -10, -0.5, -8, -11, -0.5, -7, -10, -0.5, -7, -13, -0.5, -8, -12, -0.5, -8, -12, -0.5, -7, -16, -0.5, -11, -16, -0.5, -12, -15, -0.5, -14, -16, -0.5, -13, -15, -0.5, -13, -17, -0.5, -14, -16, -0.5, -14, -17, -0.5, -15, -16, -0.5, -15, -17, -0.5, -16, -17, -0.5, -18, -17, -0.5, -17, -20, -0.5, -18, -20, -0.5, -17, -19, -0.5, -18, -18, -0.5, -18, -19, -0.5, -17, -18, -0.5, -17, -18, -0.5, -16, -20, -0.5, -16, -19, -0.5, -16, -20, -0.5, -15, -20, -0.5, -14, -19, -0.5, -15, -18, -0.5, -15, -19, -0.5, -14, -18, -0.5, -14, -18, -0.5, -13, -20, -0.5, -11, -20, -0.5, -13, -19, -0.5, -13, -20, -0.5, -12, -19, -0.5, -12, -18, -0.5, -12, -19, -0.5, -11, -18, -0.5, -11, -18, -0.5, -10, -18, -0.5, -9, -20, -0.5, -10, -19, -0.5, -10, -20, -0.5, -9, -19, -0.5, -9, -20, -0.5, -8, -19, -0.5, -8, -20, -0.5, -7, -19, -0.5, -7, -20, -0.5, -6, -20, -0.5, -5, -19, -0.5, -6, -18, -0.5, -6, -19, -0.5, -5, -18, -0.5, -5, -18, -0.5, -4, -18, -0.5, -3, -20, -0.5, -4, -19, -0.5, -4, -20, -0.5, -3, -19, -0.5, -3, -20, -0.5, -2, -20, -0.5, -1, -19, -0.5, -2, -19, -0.5, -1, -18, -0.5, -2, -18, -0.5, -1, -17, -0.5, -2, -17, -0.5, -1, -16, -0.5, -2, -16, -0.5, -1, -15, -0.5, -1, -14, -0.5, -1, -13, -0.5, -1, -11, -0.5, -5, -13, -0.5, -7, -17, -0.5, -5, -12, -0.5, -4, -3, -0.5, -4, -3, -0.5, -3, 8, -0.5, -3, 9, -0.5, -3, 6, -0.5, -6, 7, -0.5, -6, 6, -0.5, -5, 7, -0.5, -5, 5, -0.5, -6, 3, -0.5, -6, 4, -0.5, -6, 2, -0.5, -5, 3, -0.5, -5, 4, -0.5, -5, 5, -0.5, -5, 15, -0.5, -7, 15, -0.5, -8, 15, -0.5, -10, 15, -0.5, -9, 17, -0.5, -3, 13, -0.5, -4, 14, -0.5, -3, 14, -0.5, -2, 13, -0.5, -3, 13, -0.5, -2, 12, -0.5, -3, 12, -0.5, -2, 10, -0.5, -3, 11, -0.5, -3, 11, -0.5, -2, 11, -0.5, -1, 10, -0.5, -2, 10, -0.5, -1, 9, -0.5, -2, 9, -0.5, -1, 8, -0.5, -2, 8, -0.5, -1, 5, -0.5, -2, 5, -0.5, -1, 4, -0.5, -2, 4, -0.5, -1, 3, -0.5, -1, 3, -0.5, -2, 2, -0.5, -2, 1, -0.5, -2, 0, -0.5, -2, -1, -0.5, -2, -2, -0.5, -2, -3, -0.5, -2, -4, -0.5, -2, -5, -0.5, -2, -6, -0.5, -2, -7, -0.5, -2, -8, -0.5, -2, -10, -0.5, -2, -9, -0.5, -2, -9, -0.5, -5, -8, -0.5, -5, -9, -0.5, -7, -9, -0.5, -6, -8, -0.5, -7, -7, -0.5, -7, -8, -0.5, -6, -7, -0.5, -6, -6, -0.5, -8, -5, -0.5, -8, -6, -0.5, -7, -5, -0.5, -7, -4, -0.5, -7, -3, -0.5, -7, -2, -0.5, -7, -1, -0.5, -8, 0, -0.5, -8, -3, -0.5, -13, -4, -0.5, -12, -3, -0.5, -12, -3, -0.5, -11, -3, -0.5, -10, -5, -0.5, -11, -4, -0.5, -11, -5, -0.5, -10, -4, -0.5, -10, -5, -0.5, -9, -4, -0.5, -9, -4, -0.5, -8, -3, -0.5, -9, -2, -0.5, -9, -3, -0.5, -8, -2, -0.5, -8, -1, -0.5, -9, -1, -0.5, -12, -1, -0.5, -11, 0, -0.5, -11, -1, -0.5, -10, 0, -0.5, -10, 0, -0.5, -9, 3, -0.5, -9, 4, -0.5, -10, 4, -0.5, -9, 5, -0.5, -9, 7, -0.5, -12, 5, -0.5, -12, 6, -0.5, -12, 1, -0.5, -9, 2, -0.5, -9, 1, -0.5, -11, 1, -0.5, -10, -3, -0.5, -15, -4, -0.5, -14, -3, -0.5, -14, -9, -0.5, -15, -11, -0.5, -16, -10, -0.5, -16, -14, -0.5, -16, -14, -0.5, -15, -16, -0.5, -17, -16, -0.5, -16, -15, -0.5, -16, -15, -0.5, -17, -14, -0.5, -17, -7, -0.5, -17, 2, -0.5, -19, 2, -0.5, -18, 1, -0.5, -19, 1, -0.5, -18, 0, -0.5, -19, 0, -0.5, -18, -1, -0.5, -19, -1, -0.5, -18, -2, -0.5, -19, -2, -0.5, -18, -3, -0.5, -19, -3, -0.5, -18, -4, -0.5, -19, -4, -0.5, -18, -5, -0.5, -19, -5, -0.5, -18, -6, -0.5, -19, -6, -0.5, -18, -7, -0.5, -19, -7, -0.5, -18, -8, -0.5, -19, -10, -0.5, -19, -9, -0.5, -19, -11, -0.5, -19, -12, -0.5, -19, -13, -0.5, -19, -16, -0.5, -19, -16, -0.5, -18, -15, -0.5, -19, -14, -0.5, -19, -15, -0.5, -18, -14, -0.5, -18, -13, -0.5, -18, -13, -0.5, -17, -12, -0.5, -18, -11, -0.5, -18, -12, -0.5, -17, -11, -0.5, -17, -10, -0.5, -18, -10, -0.5, -17, -9, -0.5, -18, -8, -0.5, -18, -9, -0.5, -17, -8, -0.5, -17, -9, -0.5, -16, -8, -0.5, -16, -5, -0.5, -15, -4, -0.5, -15, -2, -0.5, -15, -1, -0.5, -15, 0, -0.5, -15, -2, -0.5, -14, -1, -0.5, -14, -2, -0.5, -13, -1, -0.5, -13, -6, -0.5, -14, -9, -0.5, -14, -9, -0.5, -13, -10, -0.5, -15, -10, -0.5, -14, -11, -0.5, -15, -11, -0.5, -14, -13, -0.5, -16, -12, -0.5, -16, -13, -0.5, -15, -12, -0.5, -15, -13, -0.5, -14, -12, -0.5, -14, -14, -0.5, -13, -13, -0.5, -13, -13, -0.5, -12, -15, -0.5, -12, -14, -0.5, -12, -15, -0.5, -11, -14, -0.5, -11, -15, -0.5, -10, -14, -0.5, -10, -15, -0.5, -9, -14, -0.5, -9, -16, -0.5, -8, -16, -0.5, -7, -15, -0.5, -8, -14, -0.5, -8, -15, -0.5, -7, -14, -0.5, -7, -15, -0.5, -6, -14, -0.5, -6, -13, -0.5, -6, -12, -0.5, -6, -12, -0.5, -5, -13, -0.5, -5, -13, -0.5, -4, -14, -0.5, -5, -14, -0.5, -4, -16, -0.5, -5, -15, -0.5, -5, -17, -0.5, -4, -17, -0.5, -3, -16, -0.5, -4, -15, -0.5, -4, -16, -0.5, -3, -15, -0.5, -3, -14, -0.5, -3, -15, -0.5, -2, -14, -0.5, -2, -13, -0.5, -3, -12, -0.5, -3, -13, -0.5, -2, -11, -0.5, -4, -10, -0.5, -4, -11, -0.5, -3, -10, -0.5, -3, -9, -0.5, -4, -8, -0.5, -4, -9, -0.5, -3, -8, -0.5, -3, -7, -0.5, -4, -6, -0.5, -4, -7, -0.5, -3, -6, -0.5, -3, -5, -0.5, -4, -4, -0.5, -4, -5, -0.5, -3, -4, -0.5, -3, -2, -0.5, -4, -1, -0.5, -4, -2, -0.5, -3, -1, -0.5, -3, 0, -0.5, -4, 1, -0.5, -4, 0, -0.5, -3, 1, -0.5, -3, 2, -0.5, -4, 3, -0.5, -4, 2, -0.5, -3, 3, -0.5, -3, 4, -0.5, -4, 5, -0.5, -4, 4, -0.5, -3, 5, -0.5, -3, 6, -0.5, -4, 7, -0.5, -4, 6, -0.5, -3, 7, -0.5, -3, 8, -0.5, -5, 9, -0.5, -5, 8, -0.5, -4, 9, -0.5, -4, 10, -0.5, -5, 10, -0.5, -4, 11, -0.5, -5, 11, -0.5, -4, 12, -0.5, -4, 12, -0.5, -6, 12, -0.5, -5, 13, -0.5, -5, 12, -0.5, -8, 12, -0.5, -7, 13, -0.5, -9, 14, -0.5, -9, 13, -0.5, -8, 14, -0.5, -8, 13, -0.5, -7, 14, -0.5, -7, 13, -0.5, -6, 14, -0.5, -6, 15, -0.5, -6, 14, -0.5, -5, 15, -0.5, -5, 14, -0.5, -4, 15, -0.5, -4, 15, -0.5, -3, 16, -0.5, -3, 16, -0.5, -4, 17, -0.5, -4, 16, -0.5, -5, 17, -0.5, -5, 16, -0.5, -7, 17, -0.5, -7, 16, -0.5, -6, 17, -0.5, -6, 16, -0.5, -8, 17, -0.5, -8, 16, -0.5, -9, 17, -0.5, -9, 16, -0.5, -10, 17, -0.5, -10, 16, -0.5, -11, 17, -0.5, -11, 16, -0.5, -12, 17, -0.5, -12, 16, -0.5, -13, 17, -0.5, -13, 16, -0.5, -14, 17, -0.5, -14, 16, -0.5, -15, 17, -0.5, -15, 17, -0.5, -17, 18, -0.5, -17, 17, -0.5, -16, 18, -0.5, -16, 15, -0.5, -17, 16, -0.5, -17, 15, -0.5, -16, 16, -0.5, -16, 12, -0.5, -17, 13, -0.5, -17, 12, -0.5, -16, 13, -0.5, -16, 11, -0.5, -17, 11, -0.5, -16, 9, -0.5, -17, 10, -0.5, -17, 9, -0.5, -16, 10, -0.5, -16, 7, -0.5, -16, 8, -0.5, -16, 7, -0.5, -15, 8, -0.5, -15, 5, -0.5, -16, 6, -0.5, -16, 5, -0.5, -15, 6, -0.5, -15, 4, -0.5, -15, 4, -0.5, -14, 0, -0.5, -14, 1, -0.5, -14, 0, -0.5, -13, 1, -0.5, -13, 0, -0.5, -12, 1, -0.5, -12, 2, -0.5, -11, 3, -0.5, -11, 2, -0.5, -10, 3, -0.5, -10, 5, -0.5, -11, 5, -0.5, -10, 8, -0.5, -11, 9, -0.5, -11, 8, -0.5, -10, 9, -0.5, -10, 6, -0.5, -11, 7, -0.5, -11, 6, -0.5, -10, 7, -0.5, -10, 3, -0.5, -13, 4, -0.5, -13, 3, -0.5, -12, 4, -0.5, -12, 3, -0.5, -15, 2, -0.5, -14, 3, -0.5, -14, 2, -0.5, -16, 1, -0.5, -15, 2, -0.5, -15, 0, -0.5, -17, 1, -0.5, -17, 0, -0.5, -16, 1, -0.5, -16, -2, -0.5, -17, -1, -0.5, -17, -2, -0.5, -16, -1, -0.5, -16, -4, -0.5, -17, -3, -0.5, -17, -4, -0.5, -16, -3, -0.5, -16, -6, -0.5, -17, -5, -0.5, -17, -5, -0.5, -16, -7, -0.5, -16, -6, -0.5, -16, -6, -0.5, -15, -8, -0.5, -15, -7, -0.5, -15, -8, -0.5, -14, -7, -0.5, -14, -8, -0.5, -13, -7, -0.5, -13, -6, -0.5, -13, -7, -0.5, -12, -6, -0.5, -12, -10, -0.5, -1, -9, -0.5, -1, -8, -0.5, -1, -7, -0.5, -1, -6, -0.5, -1, -5, -0.5, -1, -4, -0.5, -1, -3, -0.5, -1, -2, -0.5, -1, -1, -0.5, -1, 0, -0.5, -1, 1, -0.5, -1, 2, -0.5, -1, 20, -0.5, -2, 20, -0.5, -3, 20, -0.5, -4, 20, -0.5, -5, 20, -0.5, -6, 20, -0.5, -7, 20, -0.5, -8, 20, -0.5, -9, 20, -0.5, -10, 20, -0.5, -11, 20, -0.5, -12, 20, -0.5, -13, 20, -0.5, -14, 20, -0.5, -15, 20, -0.5, -16, 20, -0.5, -17, 20, -0.5, -18, 20, -0.5, -19, 20, -0.5, -20, -12, -0.5, 1, -15, -0.5, 0, -14, -0.5, 0, -13, -0.5, 0, -13, -0.5, 1, -14, -0.5, 1, -15, -0.5, 1, -17, -0.5, 0, -16, -0.5, 0, -16, -0.5, 1, -17, -0.5, 1, -18, -0.5, 1, -19, -0.5, 1, -18, -0.5, 0, -19, -0.5, 0, -20, -0.5, 0, -20, -0.5, 1, -11, -0.5, 1, -10, -0.5, 1, -9, -0.5, 1, -8, -0.5, 1, -7, -0.5, 1, -11, -0.5, -2, -12, -0.5, -2, -12, -0.5, -1, -11, -0.5, -1, 20, -0.5, -1, 20, -0.5, 0, 19, -0.5, 0, 18, -0.5, 0, 17, -0.5, 0, 16, -0.5, 0, 15, -0.5, 0, 14, -0.5, 0, 13, -0.5, 0, 12, -0.5, 0, 11, -0.5, 0, 10, -0.5, 0, 5, -0.5, 0, 6, -0.5, 0, 7, -0.5, -2, 6, -0.5, -2, 6, -0.5, -1, 7, -0.5, -1, 9, -0.5, 0, 8, -0.5, 0, 7, -0.5, 0, -4, -0.5, 0, -3, -0.5, 0, -2, -0.5, 0, -1, -0.5, 0, 0, -0.5, 0, 1, -0.5, 0, 2, -0.5, 0, 3, -0.5, 0, 4, -0.5, 0, -7, -0.5, 0, -6, -0.5, 0, -5, -0.5, 0, -12, -0.5, 0, -11, -0.5, 0, -10, -0.5, 0, -9, -0.5, 0, -8, -0.5, 0, -20, -0.5, 2, -20, -0.5, 3, -20, -0.5, 4, -20, -0.5, 5, -19, -0.5, 2, -19, -0.5, 3, -19, -0.5, 4, -19, -0.5, 5, -18, -0.5, 2, -18, -0.5, 3, -18, -0.5, 4, -18, -0.5, 5, -17, -0.5, 2, -17, -0.5, 3, -17, -0.5, 4, -17, -0.5, 5, -16, -0.5, 2, -16, -0.5, 3, -16, -0.5, 4, -16, -0.5, 5, -15, -0.5, 2, -15, -0.5, 3, -15, -0.5, 4, -15, -0.5, 5, -14, -0.5, 2, -14, -0.5, 3, -14, -0.5, 4, -14, -0.5, 5, -13, -0.5, 2, -13, -0.5, 3, -13, -0.5, 4, -13, -0.5, 5, -12, -0.5, 2, -12, -0.5, 3, -12, -0.5, 4, -12, -0.5, 5, -11, -0.5, 2, -11, -0.5, 3, -11, -0.5, 4, -11, -0.5, 5, -10, -0.5, 2, -10, -0.5, 3, -10, -0.5, 4, -10, -0.5, 5, -9, -0.5, 2, -9, -0.5, 3, -9, -0.5, 4, -9, -0.5, 5, -8, -0.5, 2, -8, -0.5, 3, -8, -0.5, 4, -8, -0.5, 5, -7, -0.5, 2, -7, -0.5, 3, -7, -0.5, 4, -7, -0.5, 5, -6, -0.5, 2, -6, -0.5, 3, -6, -0.5, 4, -6, -0.5, 5, -5, -0.5, 2, -5, -0.5, 3, -5, -0.5, 4, -5, -0.5, 5, -4, -0.5, 3, -4, -0.5, 4, -4, -0.5, 5, -3, -0.5, 3, -3, -0.5, 4, -3, -0.5, 5, -2, -0.5, 3, -2, -0.5, 4, -2, -0.5, 5, -1, -0.5, 3, -1, -0.5, 4, -1, -0.5, 5, 0, -0.5, 3, 0, -0.5, 4, 0, -0.5, 5, 1, -0.5, 3, 1, -0.5, 4, 1, -0.5, 5, 2, -0.5, 3, 2, -0.5, 4, 2, -0.5, 5, 3, -0.5, 3, 3, -0.5, 4, 3, -0.5, 5, 4, -0.5, 3, 4, -0.5, 4, 4, -0.5, 5, 5, -0.5, 3, 5, -0.5, 4, 5, -0.5, 5, 6, -0.5, 3, 6, -0.5, 4, 6, -0.5, 5, 7, -0.5, 2, 7, -0.5, 3, 7, -0.5, 4, 7, -0.5, 5, 8, -0.5, 3, 8, -0.5, 4, 8, -0.5, 5, 9, -0.5, 3, 9, -0.5, 4, 9, -0.5, 5, 10, -0.5, 5, 10, -0.5, 1, 10, -0.5, 2, 10, -0.5, 3, 10, -0.5, 4, 11, -0.5, 1, 11, -0.5, 2, 11, -0.5, 3, 12, -0.5, 1, 12, -0.5, 2, 12, -0.5, 3, 13, -0.5, 1, 13, -0.5, 2, 13, -0.5, 3, 14, -0.5, 1, 14, -0.5, 2, 14, -0.5, 3, 15, -0.5, 1, 15, -0.5, 2, 15, -0.5, 3, 15, -0.5, 4, 16, -0.5, 1, 16, -0.5, 2, 16, -0.5, 3, 17, -0.5, 1, 17, -0.5, 2, 17, -0.5, 3, 18, -0.5, 1, 18, -0.5, 2, 18, -0.5, 3, 18, -0.5, 4, 19, -0.5, 1, 19, -0.5, 2, 19, -0.5, 3, 19, -0.5, 4, -6, -0.5, 1, -5, -0.5, 1, -4, -0.5, 1, -4, -0.5, 2, -3, -0.5, 2, -3, -0.5, 1, -2, -0.5, 1, -2, -0.5, 2, -1, -0.5, 1, -1, -0.5, 2, 0, -0.5, 2, 1, -0.5, 1, 0, -0.5, 1, 1, -0.5, 2, 2, -0.5, 2, 3, -0.5, 2, 5, -0.5, 1, 4, -0.5, 1, 2, -0.5, 1, 3, -0.5, 1, 4, -0.5, 2, 5, -0.5, 2, 6, -0.5, 2, 6, -0.5, 1, 7, -0.5, 1, 9, -0.5, 1, 9, -0.5, 2, 8, -0.5, 2, 8, -0.5, 1, 11, -0.5, 5, 14, -0.5, 5, 15, -0.5, 5, 14, -0.5, 4, 13, -0.5, 4, 12, -0.5, 4, 11, -0.5, 4, 12, -0.5, 5, 13, -0.5, 5, 16, -0.5, 5, 16, -0.5, 4, 17, -0.5, 4, 17, -0.5, 5, 18, -0.5, 5, 19, -0.5, 5, 20, -0.5, 1, 20, -0.5, 3, 20, -0.5, 2, 20, -0.5, 5, 20, -0.5, 4, -8, -0.5, -20, -20, -0.5, 6, -20, -0.5, 7, -20, -0.5, 8, -20, -0.5, 9, -20, -0.5, 10, -20, -0.5, 11, -20, -0.5, 12, -20, -0.5, 13, -20, -0.5, 14, -20, -0.5, 15, -20, -0.5, 16, -20, -0.5, 17, -20, -0.5, 18, -20, -0.5, 19, -20, -0.5, 20, -19, -0.5, 6, -19, -0.5, 7, -19, -0.5, 8, -19, -0.5, 9, -19, -0.5, 10, -19, -0.5, 11, -19, -0.5, 12, -19, -0.5, 13, -19, -0.5, 14, -19, -0.5, 15, -19, -0.5, 16, -19, -0.5, 17, -19, -0.5, 18, -19, -0.5, 19, -19, -0.5, 20, -18, -0.5, 6, -18, -0.5, 7, -18, -0.5, 8, -18, -0.5, 9, -18, -0.5, 10, -18, -0.5, 11, -18, -0.5, 12, -18, -0.5, 13, -18, -0.5, 14, -18, -0.5, 15, -18, -0.5, 16, -18, -0.5, 17, -18, -0.5, 18, -18, -0.5, 19, -18, -0.5, 20, -17, -0.5, 6, -17, -0.5, 7, -17, -0.5, 8, -17, -0.5, 9, -17, -0.5, 10, -17, -0.5, 11, -17, -0.5, 12, -17, -0.5, 13, -17, -0.5, 14, -17, -0.5, 15, -17, -0.5, 16, -17, -0.5, 17, -17, -0.5, 18, -17, -0.5, 19, -17, -0.5, 20, -16, -0.5, 6, -16, -0.5, 7, -16, -0.5, 8, -16, -0.5, 9, -16, -0.5, 10, -16, -0.5, 11, -16, -0.5, 12, -16, -0.5, 13, -16, -0.5, 14, -16, -0.5, 15, -16, -0.5, 16, -16, -0.5, 17, -16, -0.5, 18, -16, -0.5, 19, -16, -0.5, 20, -15, -0.5, 6, -15, -0.5, 7, -15, -0.5, 8, -15, -0.5, 9, -15, -0.5, 10, -15, -0.5, 11, -15, -0.5, 12, -15, -0.5, 13, -15, -0.5, 14, -15, -0.5, 15, -15, -0.5, 16, -15, -0.5, 17, -15, -0.5, 18, -15, -0.5, 19, -15, -0.5, 20, -14, -0.5, 6, -14, -0.5, 7, -14, -0.5, 8, -14, -0.5, 9, -14, -0.5, 10, -14, -0.5, 11, -14, -0.5, 12, -14, -0.5, 13, -14, -0.5, 14, -14, -0.5, 15, -14, -0.5, 16, -14, -0.5, 17, -14, -0.5, 18, -14, -0.5, 19, -14, -0.5, 20, -13, -0.5, 6, -13, -0.5, 7, -13, -0.5, 8, -13, -0.5, 9, -13, -0.5, 10, -13, -0.5, 11, -13, -0.5, 12, -13, -0.5, 13, -13, -0.5, 14, -13, -0.5, 15, -13, -0.5, 16, -13, -0.5, 17, -13, -0.5, 18, -13, -0.5, 19, -13, -0.5, 20, -12, -0.5, 6, -12, -0.5, 7, -12, -0.5, 8, -12, -0.5, 9, -12, -0.5, 10, -12, -0.5, 11, -12, -0.5, 12, -12, -0.5, 13, -12, -0.5, 14, -12, -0.5, 15, -12, -0.5, 16, -12, -0.5, 17, -12, -0.5, 18, -12, -0.5, 19, -12, -0.5, 20, -11, -0.5, 6, -11, -0.5, 7, -11, -0.5, 8, -11, -0.5, 9, -11, -0.5, 10, -11, -0.5, 11, -11, -0.5, 12, -11, -0.5, 13, -11, -0.5, 14, -11, -0.5, 15, -11, -0.5, 16, -11, -0.5, 17, -11, -0.5, 18, -11, -0.5, 19, -11, -0.5, 20, -10, -0.5, 6, -10, -0.5, 7, -10, -0.5, 8, -10, -0.5, 9, -10, -0.5, 10, -10, -0.5, 11, -10, -0.5, 12, -10, -0.5, 13, -10, -0.5, 14, -10, -0.5, 15, -10, -0.5, 16, -10, -0.5, 17, -10, -0.5, 18, -10, -0.5, 19, -10, -0.5, 20, -9, -0.5, 6, -9, -0.5, 7, -9, -0.5, 8, -9, -0.5, 9, -9, -0.5, 10, -9, -0.5, 11, -9, -0.5, 12, -9, -0.5, 13, -9, -0.5, 14, -9, -0.5, 15, -9, -0.5, 16, -9, -0.5, 17, -9, -0.5, 18, -9, -0.5, 19, -9, -0.5, 20, -8, -0.5, 6, -8, -0.5, 7, -8, -0.5, 8, -8, -0.5, 9, -8, -0.5, 10, -8, -0.5, 11, -8, -0.5, 12, -8, -0.5, 13, -8, -0.5, 14, -8, -0.5, 15, -8, -0.5, 16, -8, -0.5, 17, -8, -0.5, 18, -8, -0.5, 19, -8, -0.5, 20, -7, -0.5, 6, -7, -0.5, 7, -7, -0.5, 8, -7, -0.5, 9, -7, -0.5, 10, -7, -0.5, 11, -7, -0.5, 12, -7, -0.5, 13, -7, -0.5, 14, -7, -0.5, 15, -7, -0.5, 16, -7, -0.5, 17, -7, -0.5, 18, -7, -0.5, 19, -7, -0.5, 20, -6, -0.5, 6, -6, -0.5, 7, -6, -0.5, 8, -6, -0.5, 9, -6, -0.5, 10, -6, -0.5, 11, -6, -0.5, 12, -6, -0.5, 13, -6, -0.5, 14, -6, -0.5, 15, -6, -0.5, 16, -6, -0.5, 17, -6, -0.5, 18, -6, -0.5, 19, -6, -0.5, 20, -5, -0.5, 6, -5, -0.5, 7, -5, -0.5, 8, -5, -0.5, 9, -5, -0.5, 10, -5, -0.5, 11, -5, -0.5, 12, -5, -0.5, 13, -5, -0.5, 14, -5, -0.5, 15, -5, -0.5, 16, -5, -0.5, 17, -5, -0.5, 18, -5, -0.5, 19, -5, -0.5, 20, -4, -0.5, 6, -4, -0.5, 7, -4, -0.5, 8, -4, -0.5, 9, -4, -0.5, 10, -4, -0.5, 11, -4, -0.5, 12, -4, -0.5, 13, -4, -0.5, 14, -4, -0.5, 15, -4, -0.5, 16, -4, -0.5, 17, -4, -0.5, 18, -4, -0.5, 19, -4, -0.5, 20, -3, -0.5, 6, -3, -0.5, 7, -3, -0.5, 8, -3, -0.5, 9, -3, -0.5, 10, -3, -0.5, 11, -3, -0.5, 12, -3, -0.5, 13, -3, -0.5, 14, -3, -0.5, 15, -3, -0.5, 16, -3, -0.5, 17, -3, -0.5, 18, -3, -0.5, 19, -3, -0.5, 20, -2, -0.5, 6, -2, -0.5, 7, -2, -0.5, 8, -2, -0.5, 9, -2, -0.5, 10, -2, -0.5, 11, -2, -0.5, 12, -2, -0.5, 13, -2, -0.5, 14, -2, -0.5, 15, -2, -0.5, 16, -2, -0.5, 17, -2, -0.5, 18, -2, -0.5, 19, -2, -0.5, 20, -1, -0.5, 6, -1, -0.5, 7, -1, -0.5, 8, -1, -0.5, 9, -1, -0.5, 10, -1, -0.5, 11, -1, -0.5, 12, -1, -0.5, 13, -1, -0.5, 14, -1, -0.5, 15, -1, -0.5, 16, -1, -0.5, 17, -1, -0.5, 18, -1, -0.5, 19, -1, -0.5, 20, 0, -0.5, 6, 0, -0.5, 7, 0, -0.5, 8, 0, -0.5, 9, 0, -0.5, 10, 0, -0.5, 11, 0, -0.5, 12, 0, -0.5, 13, 0, -0.5, 14, 0, -0.5, 15, 0, -0.5, 16, 0, -0.5, 17, 0, -0.5, 18, 0, -0.5, 19, 0, -0.5, 20, 1, -0.5, 6, 1, -0.5, 7, 1, -0.5, 8, 1, -0.5, 9, 1, -0.5, 10, 1, -0.5, 11, 1, -0.5, 12, 1, -0.5, 13, 1, -0.5, 14, 1, -0.5, 15, 1, -0.5, 16, 1, -0.5, 17, 1, -0.5, 18, 1, -0.5, 19, 1, -0.5, 20, 2, -0.5, 6, 2, -0.5, 7, 2, -0.5, 8, 2, -0.5, 9, 2, -0.5, 10, 2, -0.5, 11, 2, -0.5, 12, 2, -0.5, 13, 2, -0.5, 14, 2, -0.5, 15, 2, -0.5, 16, 2, -0.5, 17, 2, -0.5, 18, 2, -0.5, 19, 2, -0.5, 20, 3, -0.5, 6, 3, -0.5, 7, 3, -0.5, 8, 3, -0.5, 9, 3, -0.5, 10, 3, -0.5, 11, 3, -0.5, 12, 3, -0.5, 13, 3, -0.5, 14, 3, -0.5, 15, 3, -0.5, 16, 3, -0.5, 17, 3, -0.5, 18, 3, -0.5, 19, 3, -0.5, 20, 4, -0.5, 6, 4, -0.5, 7, 4, -0.5, 8, 4, -0.5, 9, 4, -0.5, 10, 4, -0.5, 11, 4, -0.5, 12, 4, -0.5, 13, 4, -0.5, 14, 4, -0.5, 15, 4, -0.5, 16, 4, -0.5, 17, 4, -0.5, 18, 4, -0.5, 19, 4, -0.5, 20, 5, -0.5, 6, 5, -0.5, 7, 5, -0.5, 8, 5, -0.5, 9, 5, -0.5, 10, 5, -0.5, 11, 5, -0.5, 12, 5, -0.5, 13, 5, -0.5, 14, 5, -0.5, 15, 5, -0.5, 16, 5, -0.5, 17, 5, -0.5, 18, 5, -0.5, 19, 5, -0.5, 20, 6, -0.5, 6, 6, -0.5, 7, 6, -0.5, 8, 6, -0.5, 9, 6, -0.5, 10, 6, -0.5, 11, 6, -0.5, 12, 6, -0.5, 13, 6, -0.5, 14, 6, -0.5, 15, 6, -0.5, 16, 6, -0.5, 17, 6, -0.5, 18, 6, -0.5, 19, 6, -0.5, 20, 7, -0.5, 6, 7, -0.5, 7, 7, -0.5, 8, 7, -0.5, 9, 7, -0.5, 10, 7, -0.5, 11, 7, -0.5, 12, 7, -0.5, 13, 7, -0.5, 14, 7, -0.5, 15, 7, -0.5, 16, 7, -0.5, 17, 7, -0.5, 18, 7, -0.5, 19, 7, -0.5, 20, 8, -0.5, 6, 8, -0.5, 7, 8, -0.5, 8, 8, -0.5, 9, 8, -0.5, 10, 8, -0.5, 11, 8, -0.5, 12, 8, -0.5, 13, 8, -0.5, 14, 8, -0.5, 15, 8, -0.5, 16, 8, -0.5, 17, 8, -0.5, 18, 8, -0.5, 19, 8, -0.5, 20, 9, -0.5, 6, 9, -0.5, 7, 9, -0.5, 8, 9, -0.5, 9, 9, -0.5, 10, 9, -0.5, 11, 9, -0.5, 12, 9, -0.5, 13, 9, -0.5, 14, 9, -0.5, 15, 9, -0.5, 16, 9, -0.5, 17, 9, -0.5, 18, 9, -0.5, 19, 9, -0.5, 20, 10, -0.5, 6, 10, -0.5, 7, 10, -0.5, 8, 10, -0.5, 9, 10, -0.5, 10, 10, -0.5, 11, 10, -0.5, 12, 10, -0.5, 13, 10, -0.5, 14, 10, -0.5, 15, 10, -0.5, 16, 10, -0.5, 17, 10, -0.5, 18, 10, -0.5, 19, 10, -0.5, 20, 11, -0.5, 6, 11, -0.5, 7, 11, -0.5, 8, 11, -0.5, 9, 11, -0.5, 10, 11, -0.5, 11, 11, -0.5, 12, 11, -0.5, 13, 11, -0.5, 14, 11, -0.5, 15, 11, -0.5, 16, 11, -0.5, 17, 11, -0.5, 18, 11, -0.5, 19, 11, -0.5, 20, 12, -0.5, 6, 12, -0.5, 7, 12, -0.5, 8, 12, -0.5, 9, 12, -0.5, 10, 12, -0.5, 11, 12, -0.5, 12, 12, -0.5, 13, 12, -0.5, 14, 12, -0.5, 15, 12, -0.5, 16, 12, -0.5, 17, 12, -0.5, 18, 12, -0.5, 19, 12, -0.5, 20, 13, -0.5, 6, 13, -0.5, 7, 13, -0.5, 8, 13, -0.5, 9, 13, -0.5, 10, 13, -0.5, 11, 13, -0.5, 12, 13, -0.5, 13, 13, -0.5, 14, 13, -0.5, 15, 13, -0.5, 16, 13, -0.5, 17, 13, -0.5, 18, 13, -0.5, 19, 13, -0.5, 20, 14, -0.5, 6, 14, -0.5, 7, 14, -0.5, 8, 14, -0.5, 9, 14, -0.5, 10, 14, -0.5, 11, 14, -0.5, 12, 14, -0.5, 13, 14, -0.5, 14, 14, -0.5, 15, 14, -0.5, 16, 14, -0.5, 17, 14, -0.5, 18, 14, -0.5, 19, 14, -0.5, 20, 15, -0.5, 6, 15, -0.5, 7, 15, -0.5, 8, 15, -0.5, 9, 15, -0.5, 10, 15, -0.5, 11, 15, -0.5, 12, 15, -0.5, 13, 15, -0.5, 14, 15, -0.5, 15, 15, -0.5, 16, 15, -0.5, 17, 15, -0.5, 18, 15, -0.5, 19, 15, -0.5, 20, 16, -0.5, 6, 16, -0.5, 7, 16, -0.5, 8, 16, -0.5, 9, 16, -0.5, 10, 16, -0.5, 11, 16, -0.5, 12, 16, -0.5, 13, 16, -0.5, 14, 16, -0.5, 15, 16, -0.5, 16, 16, -0.5, 17, 16, -0.5, 18, 16, -0.5, 19, 16, -0.5, 20, 17, -0.5, 6, 17, -0.5, 7, 17, -0.5, 8, 17, -0.5, 9, 17, -0.5, 10, 17, -0.5, 11, 17, -0.5, 12, 17, -0.5, 13, 17, -0.5, 14, 17, -0.5, 15, 17, -0.5, 16, 17, -0.5, 17, 17, -0.5, 18, 17, -0.5, 19, 17, -0.5, 20, 18, -0.5, 6, 18, -0.5, 7, 18, -0.5, 8, 18, -0.5, 9, 18, -0.5, 10, 18, -0.5, 11, 18, -0.5, 12, 18, -0.5, 13, 18, -0.5, 14, 18, -0.5, 15, 18, -0.5, 16, 18, -0.5, 17, 18, -0.5, 18, 18, -0.5, 19, 18, -0.5, 20, 19, -0.5, 6, 19, -0.5, 7, 19, -0.5, 8, 19, -0.5, 9, 19, -0.5, 10, 19, -0.5, 11, 19, -0.5, 12, 19, -0.5, 13, 19, -0.5, 14, 19, -0.5, 15, 19, -0.5, 16, 19, -0.5, 17, 19, -0.5, 18, 19, -0.5, 19, 19, -0.5, 20, 20, -0.5, 6, 20, -0.5, 7, 20, -0.5, 8, 20, -0.5, 9, 20, -0.5, 10, 20, -0.5, 11, 20, -0.5, 12, 20, -0.5, 13, 20, -0.5, 14, 20, -0.5, 15, 20, -0.5, 16, 20, -0.5, 17, 20, -0.5, 18, 20, -0.5, 19, 20, -0.5, 20, -0.5, 0, 20, -16, -0.5, -20, -15, -0.5, -20)
 _tile_uv_rects = PackedFloat32Array(32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 64, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 32, 32, 32, 32, 64, 32, 32, 32, 32, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 64, 64, 32, 32, 32, 64, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 64, 384, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 352, 64, 32, 32, 320, 0, 32, 32, 64, 32, 32, 32, 32, 32, 32, 32)
@@ -642,23 +642,23 @@ gi_mode = 0
 mesh = SubResource("CylinderMesh_io27d")
 surface_material_override/0 = SubResource("StandardMaterial3D_4jm02")
 
-[node name="building-n2" parent="Environment" unique_id=1866627107 instance=ExtResource("37_o10gx")]
+[node name="building-n2" parent="Environment" unique_id=1866627107 instance=ExtResource("37_n6y5y")]
 transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559, -0.0063499357, -0.46665114, 0.005569944, 19.54739, -40.396683, 0, -5.0830803)
 
-[node name="building-d2" parent="Environment" unique_id=1410098912 instance=ExtResource("38_v1clc")]
+[node name="building-d2" parent="Environment" unique_id=1410098912 instance=ExtResource("38_kj08n")]
 transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
 
-[node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("39_1avk1")]
-transform = Transform3D(-0.051055882, -1.1933616e-08, -1.2729701, 1.34353995e-08, 1.139, -1.39011105e-08, 1.2689732, -1.253943e-08, -0.051216688, -0.39442825, 1.1181563, 7.0113487)
+[node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("39_y13q8")]
+transform = Transform3D(-0.044770364, -1.0471078e-08, -1.116507, 1.1781355e-08, 0.99940854, -1.2192499e-08, 1.1127487, -1.1002644e-08, -0.04492158, -0.39442825, 1.1054932, 7.0113487)
 
-[node name="Office_door" parent="." unique_id=1006173713 instance=ExtResource("40_r4242")]
+[node name="Office_door" parent="." unique_id=1006173713 instance=ExtResource("40_20ryf")]
 transform = Transform3D(-0.004874313, 5.9745126e-08, 1.62852, -4.359838e-08, 1.3668255, -7.153359e-08, -0.9974145, -6.003781e-08, -0.007958493, -6.3343763, 0.9303982, -3.5551302)
 
-[node name="Building_door" parent="." unique_id=174337513 instance=ExtResource("41_hg20q")]
+[node name="Building_door" parent="." unique_id=174337513 instance=ExtResource("41_itdo5")]
 transform = Transform3D(-0.016640253, -3.7922354e-09, 1.8092778, -8.825495e-08, 1.5080359, 1.945639e-09, -1.0098767, -1.317275e-07, -0.029812397, 2.5240936, 1.0207129, 11.944665)
 
 [node name="ExteriorPlayer" type="CharacterBody3D" parent="." unique_id=1884221395]
-script = ExtResource("42_at8ct")
+script = ExtResource("42_xnioj")
 
 [node name="PitchPivot" type="Node3D" parent="ExteriorPlayer" unique_id=894175347]
 
@@ -668,7 +668,7 @@ environment = SubResource("Environment_216wm")
 
 [node name="InteriorPlayer" type="CharacterBody3D" parent="." unique_id=611394538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.150267, 1.3214335, 10.022696)
-script = ExtResource("42_at8ct")
+script = ExtResource("42_xnioj")
 
 [node name="PitchPivot" type="Node3D" parent="InteriorPlayer" unique_id=1424281955]
 
@@ -681,40 +681,40 @@ environment = SubResource("Environment_vc5kc")
 [node name="DialogueCam" type="Camera3D" parent="CharacterBody3D" unique_id=1914777938]
 transform = Transform3D(-0.77907544, 0, 0.62693024, 0, 1, 0, -0.62693024, 0, -0.77907544, -4.357373, 3.2780974, 4.656534)
 
-[node name="ClueBoard1" parent="." unique_id=1421729805 instance=ExtResource("43_xbo1g")]
+[node name="ClueBoard1" parent="." unique_id=1421729805 instance=ExtResource("43_q63ur")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -13.723741, 2.2750418, 0.8704376)
-script = ExtResource("43_j8leo")
+script = ExtResource("43_fvpai")
 hover_highlight_color = Color(1, 0.92, 0.35, 0.35)
 
-[node name="ClueBoardUI" parent="." unique_id=653688468 instance=ExtResource("44_fsydg")]
-script = ExtResource("44_t8d8h")
-clue_1_title = "Email 1: Rajah"
-clue_1_text = "This email is a bit weird. The senders email address doesn't make sense. It seems like the prince is in urgent need of help. I should cross reference my files and make sure im not missing anything."
-clue_2_title = "Email 2: Alice"
-clue_2_text = "I don't notice anything odd about this email right off the bat. Seems like Alice are Carla are friends. I should cross reference my files just to be sure and make sure im not missing anything."
-clue_3_title = "Email 3: Tony"
-clue_3_text = "Looks like Tony's Pizza is offering a discount tomorrow. Guess he's urgently trying to get as many customers as possible. I should cross reference my files and make sure im not missing anything."
+[node name="ClueBoardUI" parent="." unique_id=653688468 instance=ExtResource("44_dlp1h")]
+script = ExtResource("45_2yjw1")
+clue_1_title = "Message 1"
+clue_1_text = "These messages claim to be from a friend of Patty named Rodney. The messages seem a bit weird, askig for Patty's login. I feel like there is something offabout that photo, but I can't quite put my finger on it."
+clue_2_title = "Message 2"
+clue_2_text = "These messages claim to be from a PictoSnap company account. The messages seem to be asking people to fill out some feedback form. One should never openly trust a link from online messages. I should check if its a safe link."
+clue_3_title = "Message 3"
+clue_3_text = "These messages seem to be from another one of Patty's friends. The tone of the messages sound child like and don't seem to be asking Patty to do anything through the account."
 
-[node name="clue_ui" parent="." unique_id=1775691411 instance=ExtResource("45_x2vst")]
-script = ExtResource("47_qvbb1")
+[node name="clue_ui" parent="." unique_id=1775691411 instance=ExtResource("45_ywbme")]
+script = ExtResource("47_oqj3w")
 
-[node name="clue_ui2" parent="." unique_id=856701426 instance=ExtResource("46_3bx2c")]
-script = ExtResource("49_qegld")
+[node name="clue_ui2" parent="." unique_id=672627851 instance=ExtResource("46_hb7mh")]
+script = ExtResource("49_sn22d")
 
-[node name="clue_ui3" parent="." unique_id=1667189464 instance=ExtResource("47_j8leo")]
-script = ExtResource("51_ulqwy")
+[node name="clue_ui3" parent="." unique_id=684209972 instance=ExtResource("47_dir6o")]
+script = ExtResource("51_xn78b")
 
-[node name="tab1" parent="." unique_id=627271888 instance=ExtResource("46_snfa6")]
+[node name="tab1" parent="." unique_id=627271888 instance=ExtResource("46_okm4o")]
 offset_left = -3.0
 offset_top = -3.0
 offset_right = -3.0
 offset_bottom = -3.0
 
-[node name="tab2" parent="." unique_id=1532131812 instance=ExtResource("47_cc7ni")]
+[node name="tab2" parent="." unique_id=1532131812 instance=ExtResource("47_tk38n")]
 
-[node name="tab3" parent="." unique_id=763787858 instance=ExtResource("48_pn7ft")]
+[node name="tab3" parent="." unique_id=763787858 instance=ExtResource("48_hlwpw")]
 
-[node name="folder" parent="." unique_id=883362783 instance=ExtResource("49_av3wx")]
+[node name="folder" parent="." unique_id=883362783 instance=ExtResource("49_y20wb")]
 offset_top = 1.0
 offset_bottom = 1.0
 
@@ -743,26 +743,26 @@ z_index = 4
 offset_left = 405.0
 offset_top = 13.0
 offset_right = 719.0
-offset_bottom = 130.0
+offset_bottom = 120.0
 color = Color(0, 0, 0, 0.4392157)
 
 [node name="DialogueManager" type="Node" parent="." unique_id=1244541036]
-script = ExtResource("52_6yp6n")
-dialogue_resource = ExtResource("2_kxy3q")
+script = ExtResource("56_sr48e")
+dialogue_resource = ExtResource("2_frhax")
 
-[node name="Carla" parent="." unique_id=690826194 instance=ExtResource("53_x2vst")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.280964, 1.0584215, 6.225989)
-script = ExtResource("59_3bx2c")
-
-[node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("51_dlx5p")]
-transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.2263389, 1.5406637, 10.88416)
+[node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("51_egv5m")]
+transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.0259423, 1.3406003, 11.064392)
 apply_textures = true
 
 [node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
-material_override = SubResource("StandardMaterial3D_qvbb1")
+material_override = SubResource("StandardMaterial3D_fvpai")
 
 [node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
-material_override = SubResource("StandardMaterial3D_qvbb1")
+material_override = SubResource("StandardMaterial3D_fvpai")
+
+[node name="Patty" parent="." unique_id=1952176834 instance=ExtResource("58_hb7mh")]
+transform = Transform3D(0.3345397, 0, 0.08430995, 0, 0.345, 0, -0.08430995, 0, 0.3345397, -8.052121, 0.99823797, 5.89674)
+script = ExtResource("63_0p65s")
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]

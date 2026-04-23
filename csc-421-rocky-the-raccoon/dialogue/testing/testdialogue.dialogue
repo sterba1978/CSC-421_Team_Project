@@ -97,22 +97,52 @@ Rocky: [speed=0.5] You can use the arrow keys and enter to select a choice.
 	=> END
 
 ~ level2a
-Patty: [speed=0.5] Dude, you've gotta help me. My PictoSnap has been hacked!
-Rocky: [speed=0.5] I'm on it.
+Patty: [speed=0.5] Hello. Are you detective Rocky?
+Rocky: [speed=0.5] That's me! Who are you and what brings you to my office?
+Patty: [speed=0.5] I'm Patty and you've gotta help me. My PictoSnap account has been hacked!
+Rocky: [speed=0.5] I'm sorry to hear that. Do I have your permission to look through your recent messages on PictoSnap?
+Patty: [speed=0.5] Yeah. I just wanna get my account back so I can post some cool pics I got.
 => END
 
 ~ level2b
-Rocky: [speed=0.5] I hate to break it to you, but this isn't Paul, Patty. This is an AI account!
-Patty: [speed=0.5] I totally thought that was my guy Paul, no idea it was fake!
-Rocky: [speed=0.5] Of course, it's Phineas! Patty, there are people out there that will pretend to be your friends. You need to make sure they're the real deal!
-Patty: [speed=0.5] Dude, that's brutal. Okay, but like, what should I look for?
-Rocky: [speed=0.5] Look at the username, does he already have an account?
-Patty: [speed=0.5] Yeah, this fake one totally has an underscore at the end that my buddy's doesn't.
-Rocky: [speed=0.5] Take a better look at this picture. Does anything look off to you? Last time I checked, possums didn't have 6 toes. Plus, none of his pictures have any likes.
-Patty: [speed=0.5] Gnarly, and he doesn't have any fang either. 
-Rocky: [speed=0.5] Lastly, friends in person OR over direct message should never be asking for your login information.
-Patty: [speed=0.5] Wow, thanks Rocky! I'm going to report this account to PictoSnap and change my password.
-=> END
+Rocky: [speed=0.5] Am I confident I know the type of cyber threat and the clue that caused it?
+Rocky: [speed=0.5] You can use the arrow keys and enter to select a choice.
+ - Yes
+	Rocky: [speed=0.5] Patty I think I know what happened.
+	Rocky: [speed=0.5] The cyber threat that allowed someone to hack your PictoSnap account was...
+	 - Phishing
+		Rocky: [speed=0.5] A PHISHING ATTACK!! No wait! This can't be right. I should reinvestigate my clues.
+		=> END
+	 - Spyware
+		Rocky: [speed=0.5] THROUGH SPYWARE!! No wait! This can't be right. I should reinvestigate my clues.
+		=> END
+	 - Social Media Impersonation
+		Rocky: [speed=0.5] THROUGH SOCIAL MEDIA IMPERSONATION!! And the clue that suggests this is...
+		 - Clue 1
+			Rocky: [speed=0.5] CLUE 1!! And do you know why Patty?
+			Patty: [speed=0.5] No. Thats why I came to you.
+			Rocky: [speed=0.5] Well let me tell you. 
+			Rocky: [speed=0.5] I hate to break it to you, but this isn't Rodney, Patty. This is an AI account!
+			Patty: [speed=0.5] I totally thought that was my guy Rodney, no idea it was fake!
+			Rocky: [speed=0.5] Patty, there are people out there that will pretend to be your friends to lower your guard. You should always make sure they're the real deal!
+			Patty: [speed=0.5] Dude, that's brutal. Okay, but like, what should I look for?
+			Rocky: [speed=0.5] Do you notice anything weird about the wording of these messages?
+			Patty: [speed=0.5] Yeah, its strange and all formal. Nothing like what my friends usually talk about.
+			Rocky: [speed=0.5] And take a better look at this picture. Does anything look off to you? Last time I checked, possums only had 5 fingers, not 6.
+			Patty: [speed=0.5] Woah. I didn't even notice that until now. Gnarley!
+			Rocky: [speed=0.5] Lastly, friends in person OR over direct message should never be asking for your login information. 
+			Rocky: [speed=0.5] And if you ever do get you account hacked, you should work with the platforms support team to get it back and change your password to something new.
+			Rocky: [speed=0.5] I'll put you in contact with their support team so you can get your account back quickly.
+			Patty: [speed=0.5] Wow, thanks Rocky! I'll get to talking with them and changing that password afterwards.
+			=> END
+		 - Clue 2
+			Rocky: [speed=0.5] CLUE 2!! No wait! This can't be right. I should reinvestigate my clues.
+			=> END
+		 - Clue 3
+			Rocky: [speed=0.5] CLUE 3!! No wait! This can't be right. I should reinvestigate my clues.
+			=> END
+ - No
+	=> END
 
 ~ level3a
 Peter: [speed=0.5] Rocky, you’ve gotta help me! My laptop is totally messed up!
