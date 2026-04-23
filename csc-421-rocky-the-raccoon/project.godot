@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rocky_The_Raccoon"
-run/main_scene="uid://b3fi2qd3p0qls"
+run/main_scene="uid://d2u1r51rcc0ay"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
