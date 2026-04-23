@@ -25,8 +25,6 @@ signal clueboard_closed # dialog signal
 @onready var clbackground = $"../ChecklistBackground"
 @onready var dialogue_manager = $"../DialogueManager"
 
-var cluedesc = "This is a clue description."
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
