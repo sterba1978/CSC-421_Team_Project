@@ -32,9 +32,9 @@ var clue3closed = 0
 func _ready() -> void:
 	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_lv2a)
 	update_checklist("Investigate your clues and journal")
-	clue1.lv2clue1_closed.connect(_on_clue1_closed)
-	clue2.lv2clue2_closed.connect(_on_clue2_closed)
-	clue3.lv2clue3_closed.connect(_on_clue3_closed)
+	clue1.clue1_closed.connect(_on_clue1_closed)
+	clue2.clue2_closed.connect(_on_clue2_closed)
+	clue3.clue3_closed.connect(_on_clue3_closed)
 	patty.patty_talk.connect(_on_patty_talk)
 
 func _on_clue1_closed():

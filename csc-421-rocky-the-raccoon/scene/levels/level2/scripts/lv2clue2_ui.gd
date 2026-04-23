@@ -1,6 +1,6 @@
 extends Control
 
-signal lv2clue2_closed # dialog signal
+signal clue2_closed # dialog signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,4 +14,4 @@ func _process(_delta: float) -> void:
 
 func _on_return_button_pressed() -> void:
 	self.hide()
-	lv2clue2_closed.emit() # dialog signal
+	clue2_closed.emit() # dialog signal
