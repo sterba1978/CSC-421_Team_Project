@@ -168,11 +168,54 @@ Rocky: [speed=0.5] Let me take a look.
 => END
 
 ~ level3b
-Rocky: [speed=0.5] I hate to tell you this, Peter… but you’ve got malware on your laptop.
-Peter: [speed=0.5] Wait, seriously?! All I wanted was to watch a movie!
-Rocky: [speed=0.5] Yeah… that’s how they get you sometimes
-Rocky: [speed=0.5] You said you were downloading a movie, right? Was it from an official or trusted site?
-Peter: [speed=0.5] Uh… not really. It was just some random free movie site…
+Rocky: [speed=0.5] Am I confident I know the type of cyber threat and the clue that caused it?
+do Autoload._show_mouse()
+ - Yes
+	Rocky: [speed=0.5] Peter I think I know what happened.
+	Rocky: [speed=0.5] The cyber threat that allowed the virus to hijack your laptop was...
+	 - Phishing
+		Rocky: [speed=0.5] A PHISHING ATTACK!! No wait! This can't be right. I should reinvestigate my clues.
+		do Autoload._hide_mouse()
+		=> END
+	 - Spyware
+		Rocky: [speed=0.5] THROUGH SPYWARE!! And the clue that suggests this is...
+		 - Bakery Webpage
+			Rocky: [speed=0.5] CLUE 1'S BAKERY WEBPAGE!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._hide_mouse()
+			=> END
+		 - News Webpage
+			Rocky: [speed=0.5] CLUE 2'S NEWS WEBPAGE!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._hide_mouse()
+			=> END
+		 - Movie Webpage
+			Rocky: [speed=0.5] CLUE 3'S MOVIE WEBPAGE!! 
+			Rocky: [speed=0.5] I hate to tell you this, Peter… but you’ve got the virus on your laptop from the movie website.
+			Peter: [speed=0.5] Wait, seriously?! All I wanted was to watch a movie!
+			Rocky: [speed=0.5] Yeah… that’s how they get you sometimes.
+			Rocky: [speed=0.5] This website required you to download a movie player, right? Was it from an official or trusted site?
+			Peter: [speed=0.5] Uh… I don't know. It was just some random free movie site that I found.
+			Rocky: [speed=0.5] Let me give you some advise so you don't make this mistake again.
+			Rocky: [speed=0.5] First, you shouldn't download something from a website unless you know its trustworthy. 
+			Rocky: [speed=0.5] One way to check that is by checking the website URL to see if it starts with https, which means its secure.
+			Rocky: [speed=0.5] Another thing to watch out for is if a website like this movie one have a whole bunch of ads popping up on it.
+			Rocky: [speed=0.5] Attackers use these unsafe websites to get access to your laptop and information.
+			Rocky: [speed=0.5] Usually though get you to download something, get you to enter your personal information, or getting to accidently click an ad.
+			Peter: [speed=0.5] Wow. I didn't even realize that was possible.
+			Rocky: [speed=0.5] Well now yo know. I'll put you in contact with someone who can remove the virus off your laptop.
+			Peter: [speed=0.5] Thank you Rocky.
+			do Autoload._hide_mouse()
+			do Autoload._level3_ended()
+			=> END
+	 - Social Media Impersonation
+		Rocky: [speed=0.5] THROUGH SOCIAL MEDIA IMPERSONATION!! No wait! this can't be it. I should revisit my filing cabinet.
+		do Autoload._hide_mouse()
+		=> END
+ - No
+	do Autoload._hide_mouse()
+	=> END
+
+
+
 Rocky: [speed=0.5] And this ad on the side—did you click it?
 Peter: [speed=0.5] Yeah, it said ‘Start Download Now’ so I figured that was it…
 Rocky: [speed=0.5] That’s a common trick. Ads like that can lead to malware instead of what you actually want.
