@@ -10,11 +10,11 @@ const CLUE_SELECT_SFX := preload("res://assets/audio/Interact.mp3")
 @onready var player = $"../InteriorPlayer"
 
 @export var clue_1_title: String = "Bakery Webpage"
-@export_multiline var clue_1_text: String = "Bakery"
+@export_multiline var clue_1_text: String = "Looks like Peter was checking out Julia's bakery yesterday. It doesn't seem suspicious at first glance. I should cross reference it with my files just to be sure."
 @export var clue_2_title: String = "News Webpage"
-@export_multiline var clue_2_text: String = "news"
+@export_multiline var clue_2_text: String = "Looks like Peter was reading through a news reports yesterday. I don't like that ads scattered around the website. I should cross reference it with my files and see if its suspicious."
 @export var clue_3_title: String = "Movie Webpage"
-@export_multiline var clue_3_text: String = "movie"
+@export_multiline var clue_3_text: String = "Looks like Peter was trying to watch some movies on this website. The site s a retro vibe like back in the day. I don't like that it has a bunch of ads.I should cross reference it with my files and see if its suspicious."
 @export var clue_select_sfx_volume_db: float = -4.0
 
 signal clue_opened # dialog signal

@@ -199,9 +199,9 @@ do Autoload._show_mouse()
 			Rocky: [speed=0.5] One way to check that is by checking the website URL to see if it starts with https, which means its secure.
 			Rocky: [speed=0.5] Another thing to watch out for is if a website like this movie one have a whole bunch of ads popping up on it.
 			Rocky: [speed=0.5] Attackers use these unsafe websites to get access to your laptop and information.
-			Rocky: [speed=0.5] Usually though get you to download something, get you to enter your personal information, or getting to accidently click an ad.
+			Rocky: [speed=0.5] Usually through get you to download something, get you to enter your personal information, or getting you to accidently click an ad.
 			Peter: [speed=0.5] Wow. I didn't even realize that was possible.
-			Rocky: [speed=0.5] Well now yo know. I'll put you in contact with someone who can remove the virus off your laptop.
+			Rocky: [speed=0.5] Well now you know. I'll put you in contact with someone who can remove the virus off your laptop.
 			Peter: [speed=0.5] Thank you Rocky.
 			do Autoload._hide_mouse()
 			do Autoload._level3_ended()
@@ -213,13 +213,3 @@ do Autoload._show_mouse()
  - No
 	do Autoload._hide_mouse()
 	=> END
-
-
-
-Rocky: [speed=0.5] And this ad on the side—did you click it?
-Peter: [speed=0.5] Yeah, it said ‘Start Download Now’ so I figured that was it…
-Rocky: [speed=0.5] That’s a common trick. Ads like that can lead to malware instead of what you actually want.
-Rocky: [speed=0.5] Now look at this website address. See how it’s spelled weird and has all these extra symbols?
-Rocky: [speed=0.5] Next time, stick to trusted sites, avoid clicking random ads, and always double-check the website address.
-Peter: [speed=0.5] Got it. No more shady downloads.
-=> END
