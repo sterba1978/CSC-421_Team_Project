@@ -271,7 +271,7 @@ size = Vector3(1.2230766, 1.0204539, 2.5687847)
 [node name="roof-flat-center2" parent="NonInteractableObjects/Office" unique_id=1895759827 instance=ExtResource("3_oldxj")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="NonInteractableObjects/Office/roof-flat-center2" index="0" unique_id=1960603868]
+[node name="roof-flat-center" parent="NonInteractableObjects/Office/roof-flat-center2" index="0" unique_id=51706358]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
@@ -382,7 +382,7 @@ transform = Transform3D(1.0074902, -0.080691904, 0.010166299, 0.06660093, 1.2256
 mesh = SubResource("SphereMesh_2km5d")
 
 [node name="lampWall" parent="NonInteractableObjects/Decoration/Interior" unique_id=1005000374 instance=ExtResource("41_fyltn")]
-transform = Transform3D(0.05665448, 0.1317735, 8.846394, 0.025017552, -7.46588, 0.15583175, 6.2825155, 0.028541686, -0.080396734, -13.7142515, 5.730563, 2.2260733)
+transform = Transform3D(0.05665448, 0.1317735, 8.846394, 0.025017552, -7.46588, 0.15583175, 6.2825155, 0.028541686, -0.080396734, -13.71424, 5.730563, 2.2310185)
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="NonInteractableObjects/Decoration/Interior/lampWall" unique_id=1977005082]
 transform = Transform3D(0.0019365, -0.1591506, 0.00027266736, -0.00909569, -0.00034636047, -0.13359977, 0.11281707, 0.0018554982, -0.006746954, -0.0018788874, -0.0138129, 0.011613131)
@@ -734,10 +734,10 @@ dialogue_resource = ExtResource("2_abiby")
 transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.1302981, 1.3406003, 11.017557)
 apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
+[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1516217548]
 material_override = SubResource("StandardMaterial3D_fhhrp")
 
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
+[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1998271819]
 material_override = SubResource("StandardMaterial3D_fhhrp")
 
 [editable path="NonInteractableObjects/Office"]

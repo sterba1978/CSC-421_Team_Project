@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cce3oci0d6152"]
 
 [ext_resource type="PackedScene" uid="uid://qm58aq4wdwyw" path="res://assets/clue_board.tscn" id="1_x2022"]
-[ext_resource type="Script" path="res://scene/clueboard_open.gd" id="2_3ji0q"]
+[ext_resource type="Script" uid="uid://bt7cwxtip3jdw" path="res://scene/clueboard_open.gd" id="2_3ji0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2022"]
+albedo_color = Color(1, 0.63529414, 0.30588236, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x2022"]
 
@@ -12,19 +15,87 @@ albedo_color = Color(1, 1, 1, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v81m8"]
 size = Vector3(0.31111145, 2.4188232, 3.4494324)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v81m8"]
+albedo_color = Color(1, 0.30588236, 0.24705882, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_265ut"]
+albedo_color = Color(0.6117647, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pn0fy"]
+albedo_color = Color(0.37254903, 0.59607846, 0.32941177, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hobrp"]
+albedo_color = Color(1, 0.827451, 0.60784316, 1)
+
 [node name="Clue_Board" unique_id=872618527 instance=ExtResource("1_x2022")]
 script = ExtResource("2_3ji0q")
 hover_highlight_color = Color(1, 0.92156863, 0.34901962, 0.38039216)
-click_area_path = NodePath("StaticBody3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=1878392592]
-transform = Transform3D(0.78589886, 0, 0, 0, 2.9590127, 0, 0, 0, 3.806458, 0.08669615, 1.2457786, 1.6757963)
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="0" unique_id=518462420]
+transform = Transform3D(0.033873174, 0, 0, 0, 0.44039446, -0.02912171, 0, 0.031614218, 0.40567312, 0.13573694, 1.2583466, 2.795341)
+material = SubResource("StandardMaterial3D_x2022")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4" unique_id=1878392592]
+transform = Transform3D(0.78578043, -0.0025828197, 0.0028955007, 0.0008902696, 2.2868972, -0.013822865, -0.0006781352, 0.009475332, 3.336975, 0.49537253, 1.3302859, 1.7995255)
 mesh = SubResource("BoxMesh_x2022")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ji0q")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="4" unique_id=1188744886]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="5" unique_id=1188744886]
 transform = Transform3D(1, 0, 0, 0, 0.673324, 1.2190601e-13, 0, 8.5965813e-16, 0.40671676, 0.11227417, 1.2583466, 1.7102847)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1681090518]
 transform = Transform3D(1, 0, 0, 0, 1.4851692, -4.4515653e-13, 0, -3.1391327e-15, 2.4587467, -0.02519989, 0.10091412, -0.12141323)
 shape = SubResource("BoxShape3D_v81m8")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." index="6" unique_id=160988494]
+transform = Transform3D(0.033873174, 0, 0, 0, 0.441384, 0.010376956, 0, -0.011265112, 0.40658462, 0.13573694, 0.7690437, 1.499266)
+material = SubResource("StandardMaterial3D_x2022")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." index="7" unique_id=319586681]
+transform = Transform3D(0.03545749, 0, 0, 0, 0.92157924, 0.051901057, 0, -0.0542354, 0.8819139, 0.14564776, 1.7378876, 0.87473345)
+size = Vector3(1, 0.76904297, 1)
+material = SubResource("StandardMaterial3D_v81m8")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." index="8" unique_id=1597707666]
+transform = Transform3D(0.050969146, 0, 0, 0, 0.039628632, -0.32114196, 0, 0.013438227, 0.9470311, 0.12315035, 1.5454661, 1.997649)
+size = Vector3(1, 1, 2.0097656)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." index="9" unique_id=151707130]
+transform = Transform3D(0.050969146, 0, 0, 0, 0.020173758, -0.87611324, 0, 0.036661066, 0.48210537, 0.12315035, 1.0788751, 1.2561681)
+size = Vector3(1, 1, 0.99316406)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="." index="10" unique_id=649839959]
+transform = Transform3D(0.035457484, 0, 0, 0, 0.09200395, -0.020287015, 0, 0.024032118, 0.07766628, 0.14564776, 2.1144881, 2.553985)
+size = Vector3(1, 0.76904297, 1)
+material = SubResource("StandardMaterial3D_v81m8")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="." index="11" unique_id=428214866]
+transform = Transform3D(0.035457484, 0, 0, 0, 0.088639244, 0.029063636, 0, -0.03442896, 0.07482593, 0.14564776, 1.7599455, 2.8689353)
+size = Vector3(1, 0.76904297, 1)
+material = SubResource("StandardMaterial3D_v81m8")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="." index="12" unique_id=803761346]
+transform = Transform3D(0.039528787, 0, 0, 0, 0.32051024, 0, 0, 0, 0.6782241, 0.14653516, 0.5811968, 2.447481)
+material = SubResource("StandardMaterial3D_265ut")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="." index="13" unique_id=1526595275]
+transform = Transform3D(0.03427869, 0, 0, 0, 0.41763347, 0, 0, 0, 0.62536955, 0.13896179, 1.7815126, 2.0819416)
+material = SubResource("StandardMaterial3D_pn0fy")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="." index="14" unique_id=1904512602]
+transform = Transform3D(0.035457484, 0, 0, 0, 0.09200395, -0.020287015, 0, 0.024032118, 0.07766628, 0.14564776, 1.2232406, 0.5308907)
+size = Vector3(1, 0.76904297, 1)
+material = SubResource("StandardMaterial3D_v81m8")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="." index="15" unique_id=706889250]
+transform = Transform3D(0.057614625, 0, 0, 0, 0.70922047, 0, 0, 0, 0.49925584, 0.12259388, 0.6317874, 0.602142)
+material = SubResource("StandardMaterial3D_hobrp")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="16" unique_id=49473575]
+transform = Transform3D(0.0025237869, 0.025947414, 0, -0.11330599, 0.0005779547, 0, 0, 0, 0.12422092, 0.1439712, 1.9785621, 2.0916026)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." index="17" unique_id=165182407]
+transform = Transform3D(0.0025237869, 0.025947414, 0, -0.11330599, 0.0005779547, 0, 0, 0, 0.12422092, 0.1439712, 2.0910015, 0.8653736)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." index="18" unique_id=647249343]
+transform = Transform3D(0.0025237869, 0.025947414, 0, -0.11330599, 0.0005779547, 0, 0, 0, 0.12422092, 0.1439712, 0.7470311, 2.4381578)
