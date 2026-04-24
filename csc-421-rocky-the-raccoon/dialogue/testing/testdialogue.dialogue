@@ -159,9 +159,11 @@ do Autoload._show_mouse()
 	=> END
 
 ~ level3a
-Peter: [speed=0.5] Rocky, you’ve gotta help me! My laptop is totally messed up!
-Rocky: [speed=0.5] Alright, what happened?
-Peter: [speed=0.5] I was trying to download a movie, and now everything’s glitching, and I keep getting weird pop-ups!
+Peter: [speed=0.5] Your detective Rocky I take it?
+Rocky: [speed=0.5] Yes, thats me. Who are you and what brings you to my office?
+Peter: [speed=0.5] The names Peter and I need your help! My laptop is all messed up from a virus!
+Rocky: [speed=0.5] I'll help, but I'll need your permission to go through your recent browser history.
+Peter: [speed=0.5] Do whatever you need to figure out what happened.
 Rocky: [speed=0.5] Let me take a look.
 => END
 
