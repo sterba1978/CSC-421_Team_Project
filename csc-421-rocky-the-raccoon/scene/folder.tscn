@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bs20j6lul17wr"]
 
 [ext_resource type="Script" uid="uid://dxrm5h2bq4s42" path="res://scene/tab1_ui.gd" id="1_7pe7h"]
-[ext_resource type="Texture2D" uid="uid://cmc2aoqpdbwtg" path="res://assets/game files-04.png" id="2_001oi"]
-[ext_resource type="Texture2D" uid="uid://boqi5vksv6fb1" path="res://assets/tab-2.png" id="3_001oi"]
-[ext_resource type="Texture2D" uid="uid://d1fn8mr3rhhtw" path="res://assets/game files-03.png" id="4_bjn60"]
+[ext_resource type="Texture2D" uid="uid://my61lnrfidrn" path="res://assets/game files [newest]-02.png" id="3_001oi"]
+[ext_resource type="Texture2D" uid="uid://cvosd20mqopeb" path="res://assets/game files [newest]-03.png" id="4_bjn60"]
+[ext_resource type="Texture2D" uid="uid://caljcp5rrnswt" path="res://assets/game files [newest]-04.png" id="5_bjn60"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tab1"]
-atlas = ExtResource("2_001oi")
+atlas = ExtResource("5_bjn60")
 region = Rect2(149, 7, 9230, 6401)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tab2"]
@@ -52,7 +52,7 @@ offset_bottom = 385.0
 layout_mode = 0
 offset_right = 638.0
 offset_bottom = 385.0
-texture = SubResource("AtlasTexture_tab1")
+texture = ExtResource("5_bjn60")
 expand_mode = 1
 stretch_mode = 5
 
@@ -93,7 +93,7 @@ offset_left = 486.0
 offset_top = 27.0
 offset_right = 674.0
 offset_bottom = 103.0
-theme_override_colors/font_color = Color(0.8, 0.69803923, 0.5294118, 1)
+theme_override_colors/font_color = Color(0.8, 0, 0.2627451, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 text = "Return"
