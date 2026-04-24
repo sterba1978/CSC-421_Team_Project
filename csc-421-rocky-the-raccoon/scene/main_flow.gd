@@ -54,6 +54,8 @@ var _office_door_video_player: VideoStreamPlayer
 var _office_door_video_stream: VideoStream
 var _office_door_video_armed: bool = false
 var _office_door_video_playing: bool = false
+var _office_door_video_finishing: bool = false
+var _waiting_for_start_dialogue_end: bool = false
 
 ## Canvas UI's
 @onready var clueboardUI = $ClueBoardUI
@@ -96,6 +98,7 @@ func _ready() -> void:
 		_building_door.door_state_changed.connect(_on_building_door_state_changed)
 	else:
 		push_warning("main_flow.gd: Building_door missing or has no door_opened/door_state_changed signal.")
+	_set_building_door_interaction_enabled(false)
 
 	if _door_prompt_target != null and _door_prompt_target.has_signal("door_opened"):
 		_door_prompt_target.door_opened.connect(_on_door_prompt_target_opened)
@@ -103,6 +106,7 @@ func _ready() -> void:
 		_door_prompt_target.door_state_changed.connect(_on_door_prompt_target_state_changed)
 	if _door_prompt_target != null and _door_prompt_target.has_signal("door_interaction_started"):
 		_door_prompt_target.door_interaction_started.connect(_on_door_prompt_target_interaction_started)
+	_set_office_door_interaction_enabled(false)
 
 	if start_in_office:
 		_set_active_player(_interior_player)
@@ -133,6 +137,9 @@ func _ready() -> void:
 
 	if not start_in_office:
 		# DialogueStart
+		_waiting_for_start_dialogue_end = true
+		if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
 
 	if fade_in_from_black:
@@ -155,8 +162,7 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _office_door_video_playing:
-		if event.is_action_pressed("ui_accept"):
-			await _finish_office_door_video()
+		get_viewport().set_input_as_handled()
 		return
 
 	if _journal_ui == null or _journal_ui.is_open():
@@ -177,6 +183,14 @@ func _on_building_door_opened() -> void:
 	_transition_queued = true
 	await _transition_to_cinematic_scene()
 	_transition_queued = false
+
+
+func _on_dialogue_ended(ended_resource: DialogueResource) -> void:
+	if not _waiting_for_start_dialogue_end or ended_resource != dialogue_resource:
+		return
+
+	_waiting_for_start_dialogue_end = false
+	_set_building_door_interaction_enabled(true)
 
 
 func _on_building_door_state_changed(is_open: bool) -> void:
@@ -200,6 +214,7 @@ func _on_door_prompt_target_state_changed(is_open: bool) -> void:
 
 func _on_door_prompt_target_interaction_started(next_is_open: bool) -> void:
 	_hide_door_prompt()
+	_set_office_door_interaction_enabled(false)
 	if next_is_open:
 		await _queue_office_door_video()
 
@@ -393,6 +408,7 @@ func _play_office_door_video(stream: VideoStream) -> void:
 
 	MusicManager.stop_music()
 	_office_door_video_playing = true
+	_office_door_video_finishing = false
 	_office_door_video_backdrop.visible = true
 	_office_door_video_player.stream = stream
 	_office_door_video_player.visible = true
@@ -401,12 +417,12 @@ func _play_office_door_video(stream: VideoStream) -> void:
 
 
 func _finish_office_door_video() -> void:
-	if not _office_door_video_playing:
+	if not _office_door_video_playing or _office_door_video_finishing:
 		return
 
+	_office_door_video_finishing = true
 	await _fade_to_black(scene_transition_fade_duration)
 	_office_door_video_playing = false
-	_transition_queued = false
 
 	if _office_door_video_player != null:
 		_office_door_video_player.stop()
@@ -415,10 +431,17 @@ func _finish_office_door_video() -> void:
 	if _office_door_video_backdrop != null:
 		_office_door_video_backdrop.visible = false
 
+	SceneTransitionState.request_office_entry(true)
+	var error := get_tree().change_scene_to_file("res://scene/levels/level1/mainlv1.tscn")
+	if error == OK:
+		return
+
+	push_warning("main_flow.gd: Failed to load level 1 scene after office door video (error %d)." % error)
+	_transition_queued = false
+	_office_door_video_finishing = false
 	MusicManager.play_music(OFFICE_BACKGROUND_MUSIC, background_music_volume_db, background_music_start_position_sec, true)
 	if _active_player != null:
 		_set_player_enabled(_active_player, true)
-
 	await _fade_from_black(scene_transition_fade_duration)
 
 
@@ -455,6 +478,7 @@ func _on_journal_closed() -> void:
 	if journalclosed == 1:
 		MusicManager.play_sfx(TUTORIAL_KNOCK_SFX, tutorial_knock_sfx_volume_db)
 		_office_door_video_armed = true
+		_set_office_door_interaction_enabled(true)
 		_show_door_prompt()
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_part10)
 		if dialogue_manager != null:
@@ -556,6 +580,30 @@ func _show_door_prompt() -> void:
 	_door_prompt_tween.tween_property(_door_prompt, "modulate", Color(1.0, 1.0, 1.0, 1.0), door_prompt_blink_duration_sec).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
+func _set_office_door_interaction_enabled(enabled: bool) -> void:
+	if _door_prompt_target == null:
+		return
+	if _door_prompt_target.has_method("set_interaction_enabled"):
+		_door_prompt_target.set_interaction_enabled(enabled)
+	else:
+		if enabled:
+			_door_prompt_target.add_to_group("interactable")
+		else:
+			_door_prompt_target.remove_from_group("interactable")
+
+
+func _set_building_door_interaction_enabled(enabled: bool) -> void:
+	if _building_door == null:
+		return
+	if _building_door.has_method("set_interaction_enabled"):
+		_building_door.set_interaction_enabled(enabled)
+	else:
+		if enabled:
+			_building_door.add_to_group("interactable")
+		else:
+			_building_door.remove_from_group("interactable")
+
+
 func _hide_door_prompt() -> void:
 	if _door_prompt_tween != null:
 		_door_prompt_tween.kill()
@@ -567,5 +615,4 @@ func _hide_door_prompt() -> void:
 
 
 func _on_office_door_video_finished() -> void:
-	#await _finish_office_door_video()
-	get_tree().change_scene_to_file("res://scene/levels/level1/mainlv1.tscn")
+	await _finish_office_door_video()

@@ -58,10 +58,10 @@ stretch_mode = 5
 
 [node name="tab1" type="Button" parent="FileFrame/FileCanvas" unique_id=517384917]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 45.500004
-offset_right = 191.14
-offset_bottom = 65.5
+offset_left = 147.0
+offset_top = 42.500004
+offset_right = 190.14
+offset_bottom = 62.500004
 rotation = -0.07012371
 theme_override_font_sizes/font_size = 8
 text = "Tab 1"
@@ -69,20 +69,20 @@ text = "Tab 1"
 [node name="tab2" type="Button" parent="FileFrame/FileCanvas" unique_id=1209802795]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 221.0
-offset_top = 37.5
-offset_right = 264.5976
-offset_bottom = 57.620377
+offset_left = 219.0
+offset_top = 38.5
+offset_right = 262.5976
+offset_bottom = 58.620377
 rotation = -0.053526856
 theme_override_font_sizes/font_size = 8
 text = "Tab 2"
 
 [node name="tab3" type="Button" parent="FileFrame/FileCanvas" unique_id=1302074304]
 layout_mode = 0
-offset_left = 303.0
-offset_top = 35.5
-offset_right = 346.34567
-offset_bottom = 55.5
+offset_left = 300.0
+offset_top = 33.5
+offset_right = 343.34567
+offset_bottom = 53.5
 rotation = 0.089801796
 theme_override_font_sizes/font_size = 8
 text = "Tab 3"

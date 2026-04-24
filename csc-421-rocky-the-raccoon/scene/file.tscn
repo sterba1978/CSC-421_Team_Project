@@ -16,8 +16,8 @@ script = ExtResource("1_kxheq")
 layout_mode = 1
 offset_left = 600.0
 offset_top = 338.0
-offset_right = 2872.0
-offset_bottom = 1680.0
+offset_right = 4480.0
+offset_bottom = 2750.0
 texture = ExtResource("2_kxheq")
 expand_mode = 1
 
@@ -32,10 +32,10 @@ text = "Return"
 
 [node name="tab1" type="Button" parent="." unique_id=997241977]
 layout_mode = 1
-offset_left = 1054.4489
-offset_top = 487.1545
-offset_right = 1205.2614
-offset_bottom = 553.1676
+offset_left = 1381.5594
+offset_top = 607.9649
+offset_right = 1637.9174
+offset_bottom = 723.63605
 rotation = -0.07012371
 theme_override_font_sizes/font_size = 28
 text = "Tab 1"
@@ -43,20 +43,20 @@ text = "Tab 1"
 [node name="tab2" type="Button" parent="." unique_id=1079945232]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 1345.0001
-offset_top = 468.00003
-offset_right = 1500.7058
-offset_bottom = 539.8585
+offset_left = 1872.0001
+offset_top = 576.0
+offset_right = 2140.8257
+offset_bottom = 703.91675
 rotation = -0.053526856
 theme_override_font_sizes/font_size = 28
 text = "Tab 2"
 
 [node name="tab3" type="Button" parent="." unique_id=1814005654]
 layout_mode = 1
-offset_left = 1660.0
-offset_top = 461.0
-offset_right = 1815.3623
-offset_bottom = 526.23193
+offset_left = 2426.0002
+offset_top = 554.0
+offset_right = 2680.1729
+offset_bottom = 675.0157
 rotation = 0.089801796
 theme_override_font_sizes/font_size = 28
 text = "Tab 3"

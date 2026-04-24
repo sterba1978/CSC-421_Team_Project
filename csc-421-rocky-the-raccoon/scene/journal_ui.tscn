@@ -3,6 +3,42 @@
 [ext_resource type="Script" uid="uid://dhusaiopj1xdf" path="res://scene/journal_ui.gd" id="1_6u24r"]
 [ext_resource type="Texture2D" uid="uid://bj1vuop3t05d3" path="res://assets/journal.png" id="2_bfg2q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_journal_button"]
+bg_color = Color(0, 0, 0, 0.55)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.78, 0.72, 0.56, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_journal_button_hover"]
+bg_color = Color(0.08, 0.07, 0.04, 0.72)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.88, 0.42, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_journal_button_pressed"]
+bg_color = Color(0.02, 0.02, 0.015, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.78, 0.25, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="JournalUI" type="CanvasLayer" unique_id=250468610]
 layer = 60
 script = ExtResource("1_6u24r")
@@ -31,6 +67,10 @@ grow_horizontal = 0
 custom_minimum_size = Vector2(170, 140)
 layout_mode = 2
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_journal_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_journal_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_journal_button_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_journal_button")
 
 [node name="ShortcutContent" type="VBoxContainer" parent="Root/JournalShortcut/JournalButton" unique_id=2081732989]
 layout_mode = 1

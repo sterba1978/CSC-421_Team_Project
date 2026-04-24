@@ -9,8 +9,10 @@ const JOURNAL_UI_SCENE := preload("res://scene/journal_ui.tscn")
 @export var exterior_player_path: NodePath = ^"ExteriorPlayer"
 @export var interior_player_path: NodePath = ^"InteriorPlayer"
 @export var building_door_path: NodePath = ^"Building_door"
+@export var office_door_path: NodePath = ^"Office_door"
 @export var interior_transition_delay_sec: float = 0.4
 @export_file("*.tscn") var door_cinematic_scene_path: String = "res://scene/levels/level1/lv1_door_cinematic_scene.tscn"
+@export_file("*.tscn") var level_complete_cinematic_scene_path: String = "res://scene/levels/level1/lv1_complete_cinematic_scene.tscn"
 @export var scene_transition_fade_duration: float = 0.4
 @export var look_mouse_sensitivity: float = 0.0015
 @export var exterior_sign_light_path: NodePath = ^"Environment/Exterior/StreetLamp/SignLight/SpotLight3D"
@@ -25,6 +27,7 @@ const JOURNAL_UI_SCENE := preload("res://scene/journal_ui.tscn")
 @onready var _exterior_player: Node = get_node_or_null(exterior_player_path)
 @onready var _interior_player: Node = get_node_or_null(interior_player_path)
 @onready var _building_door: Node = get_node_or_null(building_door_path)
+@onready var _office_door: Node = get_node_or_null(office_door_path)
 @onready var _sign_light_spot: SpotLight3D = get_node_or_null(exterior_sign_light_path)
 @onready var _door_light_spot: SpotLight3D = get_node_or_null(exterior_door_light_path)
 
@@ -69,6 +72,10 @@ func _ready() -> void:
 		_building_door.door_state_changed.connect(_on_building_door_state_changed)
 	else:
 		push_warning("main_flow.gd: Building_door missing or has no door_opened/door_state_changed signal.")
+	_set_office_door_interaction_enabled(false)
+
+	if not Autoload.level1_ended.is_connected(_on_level1_ended):
+		Autoload.level1_ended.connect(_on_level1_ended)
 
 	_set_active_player(_interior_player)
 	#if start_in_office:
@@ -136,6 +143,15 @@ func _on_building_door_state_changed(is_open: bool) -> void:
 	_transition_queued = false
 
 
+func _on_level1_ended() -> void:
+	if _transition_queued:
+		return
+
+	_transition_queued = true
+	await _transition_to_level_complete_cinematic_scene()
+	_transition_queued = false
+
+
 func _set_active_player(active: Node) -> void:
 	_active_player = active
 	_set_player_enabled(_exterior_player, false)
@@ -196,6 +212,20 @@ func _transition_to_cinematic_scene() -> void:
 		push_warning("main_flow.gd: Failed to load cinematic scene '%s' (error %d)." % [door_cinematic_scene_path, error])
 		await _fade_from_black(scene_transition_fade_duration)
 		_set_active_player(_exterior_player)
+
+
+func _transition_to_level_complete_cinematic_scene() -> void:
+	_set_player_enabled(_exterior_player, false)
+	_set_player_enabled(_interior_player, false)
+	if _journal_ui != null and _journal_ui.is_open():
+		_journal_ui.close_journal()
+	await _fade_to_black(scene_transition_fade_duration)
+
+	var error := get_tree().change_scene_to_file(level_complete_cinematic_scene_path)
+	if error != OK:
+		push_warning("main_flow.gd: Failed to load level complete cinematic scene '%s' (error %d)." % [level_complete_cinematic_scene_path, error])
+		await _fade_from_black(scene_transition_fade_duration)
+		_set_active_player(_interior_player)
 
 
 func _ensure_scene_fader() -> void:
@@ -328,3 +358,15 @@ func _apply_door_light_flicker() -> void:
 
 	if _door_light_spot != null:
 		_door_light_spot.light_energy = lerp(door_light_dim_energy, door_light_on_energy, flicker_pattern)
+
+
+func _set_office_door_interaction_enabled(enabled: bool) -> void:
+	if _office_door == null:
+		return
+	if _office_door.has_method("set_interaction_enabled"):
+		_office_door.set_interaction_enabled(enabled)
+	else:
+		if enabled:
+			_office_door.add_to_group("interactable")
+		else:
+			_office_door.remove_from_group("interactable")

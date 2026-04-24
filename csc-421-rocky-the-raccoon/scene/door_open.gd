@@ -20,6 +20,7 @@ enum HingeAxis {
 @export var anim_time: float = 0.25
 @export var disable_solid_collision_when_open: bool = true
 @export var start_open: bool = false
+@export var interaction_enabled: bool = true
 @export var hover_highlight_enabled: bool = true
 @export var hover_highlight_color: Color = Color(1.0, 0.92, 0.35, 0.35)
 @export var opening_sfx_volume_db: float = -4.0
@@ -36,7 +37,7 @@ var _is_highlighted: bool = false
 
 func _ready() -> void:
 	_closed_angle = _get_axis_angle()
-	add_to_group("interactable")
+	_sync_interactable_group()
 	if _click_area != null:
 		_click_area.input_event.connect(_on_click_area_input_event)
 	else:
@@ -57,6 +58,9 @@ func _on_click_area_input_event(
 	_normal: Vector3,
 	_shape_idx: int
 ) -> void:
+	if not interaction_enabled:
+		return
+
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
@@ -64,19 +68,38 @@ func _on_click_area_input_event(
 
 
 func toggle() -> void:
+	if not interaction_enabled:
+		return
+
 	_request_door_state(not _is_open)
 
 
 func open() -> void:
+	if not interaction_enabled:
+		return
+
 	_request_door_state(true)
 
 
 func close() -> void:
+	if not interaction_enabled:
+		return
+
 	_request_door_state(false)
 
 
 func interact() -> void:
+	if not interaction_enabled:
+		return
+
 	toggle()
+
+
+func set_interaction_enabled(enabled: bool) -> void:
+	interaction_enabled = enabled
+	if not enabled:
+		set_highlighted(false)
+	_sync_interactable_group()
 
 
 func _request_door_state(open_state: bool) -> void:
@@ -88,7 +111,7 @@ func _request_door_state(open_state: bool) -> void:
 
 
 func set_highlighted(enabled: bool) -> void:
-	if not hover_highlight_enabled:
+	if enabled and (not interaction_enabled or not hover_highlight_enabled):
 		return
 	if _is_highlighted == enabled:
 		return
@@ -101,6 +124,13 @@ func set_highlighted(enabled: bool) -> void:
 			mesh.material_overlay = _highlight_material
 		elif mesh.material_overlay == _highlight_material:
 			mesh.material_overlay = null
+
+
+func _sync_interactable_group() -> void:
+	if interaction_enabled:
+		add_to_group("interactable")
+	else:
+		remove_from_group("interactable")
 
 
 func _set_door_state(open_state: bool, animate: bool) -> void:

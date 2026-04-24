@@ -2,10 +2,12 @@ extends Control
 
 const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
 const CURSOR_HOTSPOT := Vector2(42, 48)
-const FALLBACK_OFFICE_SCENE := preload("res://scene/main.tscn")
+const FALLBACK_LEVEL_2_SCENE := preload("res://scene/levels/level2/mainlv2.tscn")
 const CUTSCENE_AUDIO := preload("res://assets/audio/By The Paddy Wagon.mp3")
+const KNOCK_SFX := preload("res://assets/audio/freesound_community-knocking-on-door-6022.mp3")
 
-@export_file("*.tscn") var office_scene_path: String = "res://scene/office_scene.tscn"
+@export_file("*.tscn") var next_level_scene_path: String = "res://scene/levels/level2/mainlv2.tscn"
+@export_file("*.ogv") var next_client_video_path: String = "res://assets/video/patty.ogv"
 @export var fade_in_duration: float = 0.55
 @export var panel_reveal_duration: float = 0.6
 @export var background_pan_duration: float = 2.6
@@ -13,6 +15,8 @@ const CUTSCENE_AUDIO := preload("res://assets/audio/By The Paddy Wagon.mp3")
 @export var fade_out_duration: float = 0.45
 @export var cutscene_audio_volume_db: float = -8.0
 @export var cutscene_audio_start_position_sec: float = 7.5
+@export var knock_sfx_volume_db: float = -4.0
+@export var knock_start_delay_sec: float = 1.4
 
 @onready var _background: TextureRect = $Background
 @onready var _fade_rect: ColorRect = $FadeRect
@@ -23,6 +27,11 @@ const CUTSCENE_AUDIO := preload("res://assets/audio/By The Paddy Wagon.mp3")
 var _background_base_position := Vector2.ZERO
 var _can_continue := false
 var _is_transitioning := false
+var _client_video_backdrop: ColorRect
+var _client_video_player: VideoStreamPlayer
+var _client_video_stream: VideoStream
+var _knock_player: AudioStreamPlayer
+var _knock_cancelled := false
 
 
 func _ready() -> void:
@@ -47,6 +56,9 @@ func _ready() -> void:
 	if not _continue_button.pressed.is_connected(_on_continue_button_pressed):
 		_continue_button.pressed.connect(_on_continue_button_pressed)
 
+	_ensure_knock_player()
+	_ensure_client_video_overlay()
+	_schedule_knock_sfx()
 	await _play_cinematic_intro()
 
 
@@ -80,7 +92,7 @@ func _on_continue_button_pressed() -> void:
 	if not _can_continue or _is_transitioning:
 		return
 
-	_transition_to_office_now()
+	_transition_to_next_level_now()
 
 
 func _apply_framed_button_style(button: Button) -> void:
@@ -111,16 +123,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event.is_action_pressed("ui_accept"):
-		_transition_to_office_now()
+		_transition_to_next_level_now()
 
 
-func _transition_to_office_now() -> void:
+func _transition_to_next_level_now() -> void:
 	if not _can_continue or _is_transitioning or _continue_button.disabled:
 		return
 
 	_is_transitioning = true
 	_can_continue = false
 	_continue_button.disabled = true
+	_stop_knock_sfx()
 	_fade_rect.visible = true
 	_fade_rect.color = Color(0.0, 0.0, 0.0, 0.0)
 
@@ -131,14 +144,134 @@ func _transition_to_office_now() -> void:
 	else:
 		_fade_rect.color = Color.BLACK
 
+	await _play_next_client_intro()
+	await _fade_to_black()
+	await _load_next_level()
+
+
+func _ensure_knock_player() -> void:
+	if _knock_player != null:
+		return
+
+	_knock_player = AudioStreamPlayer.new()
+	_knock_player.name = "KnockPlayer"
+	_knock_player.bus = &"Master"
+	_knock_player.stream = KNOCK_SFX
+	_knock_player.volume_db = knock_sfx_volume_db
+	add_child(_knock_player)
+
+
+func _schedule_knock_sfx() -> void:
+	if knock_start_delay_sec <= 0.0:
+		_play_knock_sfx()
+		return
+
+	get_tree().create_timer(knock_start_delay_sec).timeout.connect(_play_knock_sfx, CONNECT_ONE_SHOT)
+
+
+func _play_knock_sfx() -> void:
+	if _knock_cancelled or _is_transitioning or _knock_player == null:
+		return
+
+	_knock_player.volume_db = knock_sfx_volume_db
+	_knock_player.play()
+
+
+func _stop_knock_sfx() -> void:
+	_knock_cancelled = true
+	if _knock_player != null:
+		_knock_player.stop()
+
+
+func _ensure_client_video_overlay() -> void:
+	if _client_video_player != null:
+		return
+
+	_client_video_backdrop = ColorRect.new()
+	_client_video_backdrop.name = "ClientVideoBackdrop"
+	_client_video_backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_client_video_backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
+	_client_video_backdrop.color = Color.BLACK
+	_client_video_backdrop.visible = false
+	add_child(_client_video_backdrop)
+
+	_client_video_player = VideoStreamPlayer.new()
+	_client_video_player.name = "ClientVideoPlayer"
+	_client_video_player.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_client_video_player.mouse_filter = Control.MOUSE_FILTER_STOP
+	_client_video_player.expand = true
+	_client_video_player.visible = false
+	add_child(_client_video_player)
+	move_child(_fade_rect, get_child_count() - 1)
+
+
+func _play_next_client_intro() -> void:
+	var stream := _get_next_client_video_stream()
+	if stream == null or _client_video_player == null or _client_video_backdrop == null:
+		return
+
+	MusicManager.stop_music()
+	_client_video_backdrop.visible = true
+	_client_video_player.stream = stream
+	_client_video_player.visible = true
+	_client_video_player.play()
+	await _fade_from_black()
+	await _client_video_player.finished
+
+
+func _get_next_client_video_stream() -> VideoStream:
+	if _client_video_stream != null:
+		return _client_video_stream
+
+	if next_client_video_path.is_empty():
+		return null
+
+	if not ResourceLoader.exists(next_client_video_path):
+		push_warning("lv1_complete_cinematic_scene.gd: Next client video '%s' was not found." % next_client_video_path)
+		return null
+
+	_client_video_stream = load(next_client_video_path) as VideoStream
+	if _client_video_stream == null:
+		push_warning("lv1_complete_cinematic_scene.gd: Next client video '%s' is not a valid VideoStream resource." % next_client_video_path)
+		return null
+
+	return _client_video_stream
+
+
+func _fade_to_black() -> void:
+	_fade_rect.visible = true
+	if fade_out_duration <= 0.0:
+		_fade_rect.color = Color.BLACK
+		return
+
+	var fade_tween := create_tween()
+	fade_tween.tween_property(_fade_rect, "color", Color.BLACK, fade_out_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await fade_tween.finished
+
+
+func _fade_from_black() -> void:
+	_fade_rect.visible = true
+	_fade_rect.color = Color.BLACK
+	if fade_in_duration <= 0.0:
+		_fade_rect.color = Color(0.0, 0.0, 0.0, 0.0)
+		_fade_rect.visible = false
+		return
+
+	var fade_tween := create_tween()
+	fade_tween.tween_property(_fade_rect, "color", Color(0.0, 0.0, 0.0, 0.0), fade_in_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await fade_tween.finished
+	_fade_rect.visible = false
+
+
+func _load_next_level() -> void:
 	SceneTransitionState.request_office_entry(true)
-	var error := get_tree().change_scene_to_file(office_scene_path)
+	var error := get_tree().change_scene_to_file(next_level_scene_path)
 	if error != OK:
-		error = get_tree().change_scene_to_packed(FALLBACK_OFFICE_SCENE)
+		error = get_tree().change_scene_to_packed(FALLBACK_LEVEL_2_SCENE)
 
 	if error != OK:
 		SceneTransitionState.reset()
-		push_warning("door_cinematic_scene.gd: Failed to load office scene '%s' (error %d)." % [office_scene_path, error])
+		push_warning("lv1_complete_cinematic_scene.gd: Failed to load next level scene '%s' (error %d)." % [next_level_scene_path, error])
 		if fade_out_duration > 0.0:
 			var recover_tween := create_tween()
 			recover_tween.tween_property(_fade_rect, "color", Color(0.0, 0.0, 0.0, 0.0), fade_out_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

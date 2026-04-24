@@ -193,7 +193,7 @@ func _notification(what: int) -> void:
 			# Restore tile rendering after save
 			_restore_chunk_buffers_after_save()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint(): return
 	if decal_mode and decal_target_node:
 		_apply_decal_mode()

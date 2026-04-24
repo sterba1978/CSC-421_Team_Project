@@ -46,6 +46,7 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
+border_color = Color(0.78, 0.72, 0.56, 0.95)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -65,6 +66,15 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnesl"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.78, 0.72, 0.56, 0.95)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001

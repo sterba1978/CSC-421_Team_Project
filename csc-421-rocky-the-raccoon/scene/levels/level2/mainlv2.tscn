@@ -214,6 +214,18 @@ roughness_texture = ExtResource("55_xc5rj")
 normal_enabled = true
 normal_texture = ExtResource("54_ln0at")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_checklist_frame"]
+bg_color = Color(0, 0, 0, 0.48)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.78, 0.72, 0.56, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="main" type="Node3D" unique_id=1500498533]
 script = ExtResource("1_34xk6")
 
@@ -738,13 +750,13 @@ offset_bottom = 57.0
 theme_override_font_sizes/font_size = 20
 text = "Checklist:"
 
-[node name="ChecklistBackground" type="ColorRect" parent="." unique_id=1803795764]
+[node name="ChecklistBackground" type="Panel" parent="." unique_id=1803795764]
 z_index = 4
 offset_left = 405.0
 offset_top = 13.0
 offset_right = 719.0
 offset_bottom = 120.0
-color = Color(0, 0, 0, 0.4392157)
+theme_override_styles/panel = SubResource("StyleBoxFlat_checklist_frame")
 
 [node name="DialogueManager" type="Node" parent="." unique_id=1244541036]
 script = ExtResource("56_sr48e")

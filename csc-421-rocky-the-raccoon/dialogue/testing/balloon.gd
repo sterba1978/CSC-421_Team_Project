@@ -19,6 +19,9 @@ extends CanvasLayer
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
 
+## A second action that speeds up the current line while it is typing.
+@export var speed_up_action: StringName = &"ui_accept"
+
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
@@ -92,9 +95,15 @@ func _process(_delta: float) -> void:
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
 
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
 	if will_block_other_input:
+		if dialogue_label.is_typing:
+			var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
+			var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
+			var speed_up_button_was_pressed: bool = event.is_action_pressed(speed_up_action)
+			if mouse_was_clicked or skip_button_was_pressed or speed_up_button_was_pressed:
+				dialogue_label.skip_typing()
 		get_viewport().set_input_as_handled()
 
 
@@ -192,7 +201,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
-		if mouse_was_clicked or skip_button_was_pressed:
+		var speed_up_button_was_pressed: bool = event.is_action_pressed(speed_up_action)
+		if mouse_was_clicked or skip_button_was_pressed or speed_up_button_was_pressed:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
 			return

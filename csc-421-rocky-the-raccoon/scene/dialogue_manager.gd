@@ -32,12 +32,20 @@ var clueboardclosed = 0
 var clueclosed = 0
 
 @onready var checklist = $"../Checklist2"
+@onready var checklist_background = $"../ChecklistBackground"
+
+const CHECKLIST_CHARS_PER_LINE := 22.0
+const CHECKLIST_LINE_HEIGHT := 28.0
+const CHECKLIST_BOTTOM_PADDING := 12.0
+
+var _checklist_background_default_bottom := 0.0
 
 #@onready var journalui = 
 var journalopened = 0
 var journalclosed = 0
 
 func _ready() -> void:
+	_cache_checklist_layout()
 	update_checklist("Enter the office")
 	filingcabinet.filing_opened.connect(_on_filing_opened)
 	folder.tab_opened.connect(_on_filetab_opened)
@@ -104,3 +112,19 @@ func _on_journal_closed():
 
 func update_checklist(newtext):
 	checklist.text = newtext
+	_resize_checklist_panel(newtext)
+
+
+func _cache_checklist_layout() -> void:
+	if checklist_background != null:
+		_checklist_background_default_bottom = checklist_background.offset_bottom
+
+
+func _resize_checklist_panel(text: String) -> void:
+	if checklist == null or checklist_background == null:
+		return
+
+	var wrapped_line_count: int = max(1, int(ceil(float(text.length()) / CHECKLIST_CHARS_PER_LINE)))
+	var required_label_bottom: float = float(checklist.offset_top) + (float(wrapped_line_count) * CHECKLIST_LINE_HEIGHT)
+	checklist.offset_bottom = required_label_bottom
+	checklist_background.offset_bottom = maxf(_checklist_background_default_bottom, required_label_bottom + CHECKLIST_BOTTOM_PADDING)

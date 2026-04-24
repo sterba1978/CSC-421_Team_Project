@@ -26,6 +26,9 @@ signal response_selected(response: Control)
 ## Hide any responses where [code]is_allowed[/code] is false
 @export var hide_failed_responses: bool = false
 
+## Require response options to be selected by mouse click.
+@export var mouse_only_selection: bool = true
+
 ## The list of dialogue responses.
 var responses: Array = []:
 	set(value):
@@ -170,7 +173,7 @@ func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		get_viewport().set_input_as_handled()
 		response_selected.emit(response)
-	elif event.is_action_pressed(&"ui_accept" if next_action.is_empty() else next_action) and item in get_menu_items():
+	elif not mouse_only_selection and event.is_action_pressed(&"ui_accept" if next_action.is_empty() else next_action) and item in get_menu_items():
 		get_viewport().set_input_as_handled()
 		response_selected.emit(response)
 

@@ -42,6 +42,7 @@ func _ready() -> void:
 	_continue_button.visible = false
 	_continue_button.disabled = true
 	_continue_button.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	_apply_framed_button_style(_continue_button)
 
 	if not _continue_button.pressed.is_connected(_on_continue_button_pressed):
 		_continue_button.pressed.connect(_on_continue_button_pressed)
@@ -80,6 +81,29 @@ func _on_continue_button_pressed() -> void:
 		return
 
 	_transition_to_office_now()
+
+
+func _apply_framed_button_style(button: Button) -> void:
+	var normal := _make_button_style(Color(0.05, 0.045, 0.035, 0.9), Color(0.78, 0.72, 0.56, 0.95))
+	var hover := _make_button_style(Color(0.1, 0.085, 0.045, 0.95), Color(1.0, 0.88, 0.42, 1.0))
+	var pressed := _make_button_style(Color(0.02, 0.018, 0.012, 1.0), Color(1.0, 0.78, 0.25, 1.0))
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("disabled", normal)
+
+
+func _make_button_style(bg_color: Color, border_color: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = bg_color
+	style.border_color = border_color
+	style.set_border_width_all(3)
+	style.set_corner_radius_all(4)
+	style.content_margin_left = 18.0
+	style.content_margin_right = 18.0
+	style.content_margin_top = 8.0
+	style.content_margin_bottom = 8.0
+	return style
 
 
 func _unhandled_input(event: InputEvent) -> void:
