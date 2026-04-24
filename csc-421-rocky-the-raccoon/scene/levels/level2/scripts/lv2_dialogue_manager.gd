@@ -29,6 +29,8 @@ var clue3closed = 0
 
 @onready var patty = $"../Patty"
 
+var autoload = Autoload
+
 func _ready() -> void:
 	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_lv2a)
 	update_checklist("Investigate your clues and journal")
@@ -36,6 +38,8 @@ func _ready() -> void:
 	clue2.clue2_closed.connect(_on_clue2_closed)
 	clue3.clue3_closed.connect(_on_clue3_closed)
 	patty.patty_talk.connect(_on_patty_talk)
+	autoload.dialogue_show_mouse.connect(_showmouse)
+	autoload.dialogue_hide_mouse.connect(_hidemouse)
 
 func _on_clue1_closed():
 	clue1closed += 1
@@ -60,3 +64,10 @@ func _on_patty_talk():
 
 func update_checklist(newtext):
 	checklist.text = newtext
+
+func _showmouse():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _hidemouse():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

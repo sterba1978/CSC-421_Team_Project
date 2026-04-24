@@ -64,7 +64,7 @@ Carla: [speed=0.5] Not at all!
 
 ~ level1b
 Rocky: [speed=0.5] Am I confident I know the type of cyber threat and the clue that caused it?
-Rocky: [speed=0.5] You can use the arrow keys and enter to select a choice.
+do Autoload._show_mouse()
  - Yes
 	Rocky: [speed=0.5] Carla I think I know what happened.
 	Rocky: [speed=0.5] The cyber threat that allowed someone to steal your money was...
@@ -80,20 +80,27 @@ Rocky: [speed=0.5] You can use the arrow keys and enter to select a choice.
 			Rocky: [speed=0.5] Random links attached to the email should never be clicked. Especially if its doesn't start with https, which is more secure than links that start with http.
 			Carla: [speed=0.5] Wow, thanks Rocky! I've learned so much.
 			Rocky: [speed=0.5] Of course, I've contacted the authorities who can hopefully help you recover your money.
+			do Autoload._hide_mouse()
+			do Autoload._level1_ended()
 			=> END
 		 - Email 2: Alice 
 			Rocky: [speed=0.5] FROM ALICE!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._hide_mouse()
 			=> END
 		 - Email 3: Tony 
 			Rocky: [speed=0.5] FROM TONY!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._hide_mouse()
 			=> END
 	 - Spyware
 		Rocky: [speed=0.5] THROUGH SPYWARE!! No wait! this can't be it. I should revisit my filing cabinet.
+		do Autoload._hide_mouse()
 		=> END
 	 - Social Media Impersonation
 		Rocky: [speed=0.5] THROUGH SOCIAL MEDIA IMPERSONATION!! No wait! this can't be it. I should revisit my filing cabinet.
+		do Autoload._hide_mouse()
 		=> END
  - No
+	do Autoload._hide_mouse()
 	=> END
 
 ~ level2a
@@ -101,20 +108,22 @@ Patty: [speed=0.5] Hello. Are you detective Rocky?
 Rocky: [speed=0.5] That's me! Who are you and what brings you to my office?
 Patty: [speed=0.5] I'm Patty and you've gotta help me. My PictoSnap account has been hacked!
 Rocky: [speed=0.5] I'm sorry to hear that. Do I have your permission to look through your recent messages on PictoSnap?
-Patty: [speed=0.5] Yeah. I just wanna get my account back so I can post some cool pics I got.
+Patty: [speed=0.5] Yeah. I just wanna get my account back so I can post some cool pics.
 => END
 
 ~ level2b
 Rocky: [speed=0.5] Am I confident I know the type of cyber threat and the clue that caused it?
-Rocky: [speed=0.5] You can use the arrow keys and enter to select a choice.
+do Autoload._show_mouse()
  - Yes
 	Rocky: [speed=0.5] Patty I think I know what happened.
 	Rocky: [speed=0.5] The cyber threat that allowed someone to hack your PictoSnap account was...
 	 - Phishing
 		Rocky: [speed=0.5] A PHISHING ATTACK!! No wait! This can't be right. I should reinvestigate my clues.
+		do Autoload._hide_mouse()
 		=> END
 	 - Spyware
 		Rocky: [speed=0.5] THROUGH SPYWARE!! No wait! This can't be right. I should reinvestigate my clues.
+		do Autoload._hide_mouse()
 		=> END
 	 - Social Media Impersonation
 		Rocky: [speed=0.5] THROUGH SOCIAL MEDIA IMPERSONATION!! And the clue that suggests this is...
@@ -134,14 +143,19 @@ Rocky: [speed=0.5] You can use the arrow keys and enter to select a choice.
 			Rocky: [speed=0.5] And if you ever do get you account hacked, you should work with the platforms support team to get it back and change your password to something new.
 			Rocky: [speed=0.5] I'll put you in contact with their support team so you can get your account back quickly.
 			Patty: [speed=0.5] Wow, thanks Rocky! I'll get to talking with them and changing that password afterwards.
+			do Autoload._hide_mouse()
+			do Autoload._level2_ended()
 			=> END
 		 - Clue 2
 			Rocky: [speed=0.5] CLUE 2!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._hide_mouse()
 			=> END
 		 - Clue 3
 			Rocky: [speed=0.5] CLUE 3!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._hide_mouse()
 			=> END
  - No
+	do Autoload._hide_mouse()
 	=> END
 
 ~ level3a
