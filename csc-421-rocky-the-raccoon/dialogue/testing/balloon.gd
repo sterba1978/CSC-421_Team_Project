@@ -22,6 +22,9 @@ extends CanvasLayer
 ## A second action that speeds up the current line while it is typing.
 @export var speed_up_action: StringName = &"ui_accept"
 
+## How long to wait after a line finishes before showing the continue button.
+@export var continue_button_delay: float = 0.8
+
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
@@ -72,9 +75,17 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
 
+## Button shown once the full line is ready to advance.
+@onready var continue_button: Button = %ContinueButton
+
+var _line_sequence := 0
+
 
 func _ready() -> void:
 	balloon.hide()
+	continue_button.hide()
+	continue_button.disabled = true
+	continue_button.pressed.connect(_on_continue_button_pressed)
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 	# If the responses menu doesn't have a next action set, use this one
@@ -92,7 +103,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
-		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
+		progress.hide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -103,7 +114,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
 			var speed_up_button_was_pressed: bool = event.is_action_pressed(speed_up_action)
 			if mouse_was_clicked or skip_button_was_pressed or speed_up_button_was_pressed:
-				dialogue_label.skip_typing()
+				_finish_current_line()
+		elif is_waiting_for_input and not continue_button.disabled and event.is_action_pressed(next_action):
+			next(dialogue_line.next_id)
 		get_viewport().set_input_as_handled()
 
 
@@ -114,7 +127,7 @@ func _notification(what: int) -> void:
 		var visible_ratio: float = dialogue_label.visible_ratio
 		dialogue_line = await dialogue_resource.get_next_dialogue_line(dialogue_line.id)
 		if visible_ratio < 1:
-			dialogue_label.skip_typing()
+			_finish_current_line()
 
 
 ## Start some dialogue
@@ -131,9 +144,12 @@ func start(with_dialogue_resource: DialogueResource = null, title: String = "", 
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
+	_line_sequence += 1
+	var line_sequence := _line_sequence
 	mutation_cooldown.stop()
 
 	progress.hide()
+	_hide_continue_button()
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
@@ -173,11 +189,47 @@ func apply_dialogue_line() -> void:
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
+		await _show_continue_button_after_delay(line_sequence)
 
 
 ## Go to the next line
 func next(next_id: String) -> void:
+	_hide_continue_button()
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
+
+
+func _show_continue_button_after_delay(line_sequence: int) -> void:
+	if continue_button_delay > 0.0:
+		await get_tree().create_timer(continue_button_delay).timeout
+
+	if line_sequence != _line_sequence or not is_waiting_for_input:
+		return
+	if not is_instance_valid(dialogue_line) or dialogue_line.responses.size() > 0 or dialogue_line.has_tag("voice"):
+		return
+
+	continue_button.visible = true
+	continue_button.disabled = false
+	continue_button.grab_focus()
+
+
+func _hide_continue_button() -> void:
+	if continue_button == null:
+		return
+
+	continue_button.hide()
+	continue_button.disabled = true
+
+
+func _finish_current_line() -> void:
+	if not dialogue_label.is_typing:
+		return
+
+	if dialogue_label.has_method("_mutate_remaining_mutations"):
+		dialogue_label._mutate_remaining_mutations()
+	dialogue_label.visible_characters = dialogue_label.get_total_character_count()
+	dialogue_label.visible_ratio = 1.0
+	dialogue_label.is_typing = false
+	dialogue_label.skipped_typing.emit()
 
 
 #region Signals
@@ -204,7 +256,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		var speed_up_button_was_pressed: bool = event.is_action_pressed(speed_up_action)
 		if mouse_was_clicked or skip_button_was_pressed or speed_up_button_was_pressed:
 			get_viewport().set_input_as_handled()
-			dialogue_label.skip_typing()
+			_finish_current_line()
 			return
 
 	if not is_waiting_for_input: return
@@ -212,11 +264,22 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	# When there are no response options the balloon itself is the clickable thing
 	get_viewport().set_input_as_handled()
+	if continue_button.disabled:
+		return
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
+
+
+func _on_continue_button_pressed() -> void:
+	if not is_waiting_for_input or continue_button.disabled:
+		return
+	if not is_instance_valid(dialogue_line) or dialogue_line.responses.size() > 0:
+		return
+
+	next(dialogue_line.next_id)
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:

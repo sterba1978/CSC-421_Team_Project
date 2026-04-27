@@ -37,6 +37,7 @@ var _checklist_background_default_bottom := 0.0
 @onready var bear = $"../Peter"
 
 var autoload = Autoload
+var journal_reviewed_after_clues := false
 
 func _ready() -> void:
 	_cache_checklist_layout()
@@ -51,21 +52,31 @@ func _ready() -> void:
 
 func _on_clue1_closed():
 	clue1closed += 1
-	if clue2closed >= 1 and clue3closed >= 1:
-		bear.add_to_group("interactable")
-		update_checklist("Talk to Peter when ready")
+	_update_character_interaction_state()
 
 func _on_clue2_closed():
 	clue2closed += 1
-	if clue1closed >= 1 and clue3closed >= 1:
-		bear.add_to_group("interactable")
-		update_checklist("Talk to Peter when ready")
+	_update_character_interaction_state()
 
 func _on_clue3_closed():
 	clue3closed += 1
-	if clue1closed >= 1 and clue2closed >= 1:
+	_update_character_interaction_state()
+
+func on_journal_opened_for_case() -> void:
+	if _all_clues_reviewed():
+		journal_reviewed_after_clues = true
+	_update_character_interaction_state()
+
+func _update_character_interaction_state() -> void:
+	if _all_clues_reviewed() and journal_reviewed_after_clues:
 		bear.add_to_group("interactable")
 		update_checklist("Talk to Peter when ready")
+	elif _all_clues_reviewed():
+		bear.remove_from_group("interactable")
+		update_checklist("Open the journal and review the case")
+
+func _all_clues_reviewed() -> bool:
+	return clue1closed >= 1 and clue2closed >= 1 and clue3closed >= 1
 
 func _on_bear_talk():
 	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_lv3b)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqnnhd7ysxi0l"]
 
 [ext_resource type="Script" uid="uid://bh80ni85jndk1" path="res://scene/levels/level1/lv1scripts/lv1_door_cinematic_scene.gd" id="1_r2hj0"]
-[ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="2_bfuxu"]
-[ext_resource type="Texture2D" uid="uid://c6ekd58v8ste4" path="res://Rocky_the_Raccoon_Poster.png" id="3_ji8v2"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="2_bfuxu"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="3_ji8v2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.0431373, 0.0745098, 0.133333, 0.88)

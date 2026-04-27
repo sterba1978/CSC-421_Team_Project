@@ -31,7 +31,7 @@ func _ready() -> void:
 func _build_scene() -> void:
 	var background := TextureRect.new()
 	background.set_anchors_preset(Control.PRESET_FULL_RECT)
-	background.texture = load("res://assets/digital-art-with-city-landscape-architecture.jpeg")
+	background.texture = load("res://Rocky_poster.png")
 	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	add_child(background)
@@ -44,38 +44,45 @@ func _build_scene() -> void:
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.add_theme_constant_override("margin_left", 72)
-	margin.add_theme_constant_override("margin_top", 54)
+	margin.add_theme_constant_override("margin_top", 36)
 	margin.add_theme_constant_override("margin_right", 72)
-	margin.add_theme_constant_override("margin_bottom", 54)
+	margin.add_theme_constant_override("margin_bottom", 36)
 	add_child(margin)
 
 	var content := VBoxContainer.new()
 	content.alignment = BoxContainer.ALIGNMENT_CENTER
-	content.add_theme_constant_override("separation", 22)
+	content.add_theme_constant_override("separation", 14)
 	margin.add_child(content)
 
 	var kicker := Label.new()
-	kicker.text = "Case Files Complete"
+	kicker.text = "Case Results"
 	kicker.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	kicker.add_theme_font_size_override("font_size", 18)
 	kicker.add_theme_color_override("font_color", Color(0.7, 0.82, 0.97))
 	content.add_child(kicker)
 
 	var title := Label.new()
-	title.text = "Rocky's Lessons"
+	title.text = "Detective Grade"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.add_theme_font_size_override("font_size", 44)
+	title.add_theme_font_size_override("font_size", 38)
 	title.add_theme_color_override("font_color", Color(0.98, 0.96, 0.9))
 	content.add_child(title)
 
+	var results_scroll := ScrollContainer.new()
+	results_scroll.custom_minimum_size = Vector2(0, 320)
+	results_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	results_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	results_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	content.add_child(results_scroll)
+
 	var body := Label.new()
-	body.text = "Carla's case showed how phishing emails use urgency, strange addresses, and unsafe links to steal information.\n\nPatty's case showed how impersonators can fake a familiar face and pressure people into sharing account details.\n\nPeter's case showed how unsafe sites, suspicious downloads, and pop-up ads can lead to malware.\n\nThe mystery changes from case to case, but the habit stays the same: slow down, verify the source, and protect private information."
+	body.text = _build_results_text()
 	body.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	body.add_theme_font_size_override("font_size", 22)
+	body.add_theme_font_size_override("font_size", 20)
 	body.add_theme_color_override("font_color", Color(0.88, 0.91, 0.96))
 	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	content.add_child(body)
+	results_scroll.add_child(body)
 
 	_continue_button = Button.new()
 	_continue_button.text = "Continue"
@@ -89,6 +96,40 @@ func _build_scene() -> void:
 	_fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_fade_rect.color = Color.BLACK
 	add_child(_fade_rect)
+
+
+func _build_results_text() -> String:
+	var results := Autoload.get_case_results()
+	var overall_score := Autoload.get_overall_score()
+	var lines: Array[String] = [
+		"Overall Score: %d%%  Grade: %s" % [overall_score, Autoload.get_letter_grade(overall_score)],
+		"",
+	]
+
+	for result in results:
+		var mistakes := int(result.get("mistakes", 0))
+		var penalty_text := "No solve penalties" if mistakes == 0 else "%d wrong solve guess%s (-%d)" % [mistakes, "" if mistakes == 1 else "es", mistakes * 10]
+		lines.append("%s: %d%%  Grade: %s" % [
+			result.get("title", "Case"),
+			int(result.get("total_score", 0)),
+			result.get("grade", "Incomplete"),
+		])
+		lines.append("Solve choices: %d/50 | Journal: %d/50 | %s" % [
+			int(result.get("choice_score", 0)),
+			int(result.get("journal_score", 0)),
+			penalty_text,
+		])
+		var solve_feedback: Array = result.get("solve_feedback", [])
+		if not solve_feedback.is_empty():
+			var solve_feedback_text := PackedStringArray()
+			for feedback in solve_feedback:
+				solve_feedback_text.append(str(feedback))
+			lines.append("Solve review: %s" % [" ".join(solve_feedback_text)])
+		lines.append(str(result.get("journal_feedback", "")))
+		lines.append("")
+
+	lines.append("Journal answers are graded by whether they identify the suspicious clue and mention case-relevant warning signs or safety advice.")
+	return "\n".join(lines)
 
 
 func _on_continue_button_pressed() -> void:

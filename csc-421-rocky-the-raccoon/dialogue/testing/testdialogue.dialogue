@@ -85,18 +85,22 @@ do Autoload._show_mouse()
 			=> END
 		 - Email 2: Alice 
 			Rocky: [speed=0.5] FROM ALICE!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._record_case_mistake(1, "Email 2 was from Alice and did not include the strongest phishing warning signs.")
 			do Autoload._hide_mouse()
 			=> END
 		 - Email 3: Tony 
 			Rocky: [speed=0.5] FROM TONY!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._record_case_mistake(1, "Email 3 was a pizza offer, not the message asking for Carla's bank information.")
 			do Autoload._hide_mouse()
 			=> END
 	 - Spyware
 		Rocky: [speed=0.5] THROUGH SPYWARE!! No wait! this can't be it. I should revisit my filing cabinet.
+		do Autoload._record_case_mistake(1, "Carla's case was phishing, not spyware; the suspicious email tried to trick her into giving money or bank information.")
 		do Autoload._hide_mouse()
 		=> END
 	 - Social Media Impersonation
 		Rocky: [speed=0.5] THROUGH SOCIAL MEDIA IMPERSONATION!! No wait! this can't be it. I should revisit my filing cabinet.
+		do Autoload._record_case_mistake(1, "Carla's case happened through email phishing, not social media impersonation.")
 		do Autoload._hide_mouse()
 		=> END
  - No
@@ -119,10 +123,12 @@ do Autoload._show_mouse()
 	Rocky: [speed=0.5] The cyber threat that allowed someone to hack your PictoSnap account was...
 	 - Phishing
 		Rocky: [speed=0.5] A PHISHING ATTACK!! No wait! This can't be right. I should reinvestigate my clues.
+		do Autoload._record_case_mistake(2, "Patty's case was impersonation; the attacker pretended to be someone she knew.")
 		do Autoload._hide_mouse()
 		=> END
 	 - Spyware
 		Rocky: [speed=0.5] THROUGH SPYWARE!! No wait! This can't be right. I should reinvestigate my clues.
+		do Autoload._record_case_mistake(2, "Patty's case was not spyware; the key clue was a fake social profile asking for login information.")
 		do Autoload._hide_mouse()
 		=> END
 	 - Social Media Impersonation
@@ -148,10 +154,12 @@ do Autoload._show_mouse()
 			=> END
 		 - Clue 2
 			Rocky: [speed=0.5] CLUE 2!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._record_case_mistake(2, "Clue 2 was not the impersonator; Clue 1 had the fake Rodney account and login request.")
 			do Autoload._hide_mouse()
 			=> END
 		 - Clue 3
 			Rocky: [speed=0.5] CLUE 3!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._record_case_mistake(2, "Clue 3 sounded like a normal friend message; Clue 1 had the impersonation signs.")
 			do Autoload._hide_mouse()
 			=> END
  - No
@@ -175,16 +183,19 @@ do Autoload._show_mouse()
 	Rocky: [speed=0.5] The cyber threat that allowed the virus to hijack your laptop was...
 	 - Phishing
 		Rocky: [speed=0.5] A PHISHING ATTACK!! No wait! This can't be right. I should reinvestigate my clues.
+		do Autoload._record_case_mistake(3, "Peter's case was malware/spyware from an unsafe site, not phishing.")
 		do Autoload._hide_mouse()
 		=> END
 	 - Spyware
 		Rocky: [speed=0.5] THROUGH SPYWARE!! And the clue that suggests this is...
 		 - Bakery Webpage
 			Rocky: [speed=0.5] CLUE 1'S BAKERY WEBPAGE!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._record_case_mistake(3, "The bakery page was not suspicious enough to explain the malware infection.")
 			do Autoload._hide_mouse()
 			=> END
 		 - News Webpage
 			Rocky: [speed=0.5] CLUE 2'S NEWS WEBPAGE!! No wait! This can't be right. I should reinvestigate my clues.
+			do Autoload._record_case_mistake(3, "The news page had ads, but the movie page had the suspicious download that caused the infection.")
 			do Autoload._hide_mouse()
 			=> END
 		 - Movie Webpage
@@ -208,6 +219,7 @@ do Autoload._show_mouse()
 			=> END
 	 - Social Media Impersonation
 		Rocky: [speed=0.5] THROUGH SOCIAL MEDIA IMPERSONATION!! No wait! this can't be it. I should revisit my filing cabinet.
+		do Autoload._record_case_mistake(3, "Peter's case came from an unsafe website download, not social media impersonation.")
 		do Autoload._hide_mouse()
 		=> END
  - No

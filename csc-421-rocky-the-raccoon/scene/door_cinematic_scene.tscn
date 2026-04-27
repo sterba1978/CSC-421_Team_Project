@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scene/door_cinematic_scene.gd" id="1_qds1i"]
-[ext_resource type="Texture2D" uid="uid://cwaecv1p1jdtc" path="res://assets/digital-art-with-city-landscape-architecture.jpeg" id="2_bfuxu"]
+[ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="2_bfuxu"]
 [ext_resource type="Texture2D" uid="uid://bp7yxkeae56vj" path="res://Rocky_poster.png" id="3_ji8v2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]

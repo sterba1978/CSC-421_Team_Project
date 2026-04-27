@@ -5,6 +5,18 @@ const CURSOR_HOTSPOT := Vector2(42, 48)
 const EXTERIOR_BACKGROUND_MUSIC := preload("res://assets/audio/Speaking Out - Ambient Tension Vol 1 FINAL MIX.wav")
 const OFFICE_BACKGROUND_MUSIC := preload("res://assets/audio/Race Against Fate - Ambient Tension Vol 1 FINAL MIX.wav")
 const JOURNAL_UI_SCENE := preload("res://scene/journal_ui.tscn")
+const JOURNAL_CASE_TITLE := "Carla's Email Case"
+const JOURNAL_CASE_SUMMARY := "Carla's bank account was emptied after she checked her email. Compare each message for phishing warning signs before you talk to Carla."
+const JOURNAL_QUESTIONS := [
+	"Which email caused Carla's bank problem?",
+	"What phishing warning signs prove that email is unsafe?",
+	"What should Carla do next time before trusting a money or bank message?"
+]
+const JOURNAL_PLACEHOLDERS := [
+	"Example: Email 1: Rajah",
+	"Example: strange sender, urgent money request, unsafe link...",
+	"Example: verify the sender, do not share bank info, avoid suspicious links..."
+]
 
 @export var exterior_player_path: NodePath = ^"ExteriorPlayer"
 @export var interior_player_path: NodePath = ^"InteriorPlayer"
@@ -148,6 +160,7 @@ func _on_level1_ended() -> void:
 		return
 
 	_transition_queued = true
+	_grade_journal_answers()
 	await _transition_to_level_complete_cinematic_scene()
 	_transition_queued = false
 
@@ -288,6 +301,7 @@ func _ensure_journal_ui() -> void:
 		return
 
 	_journal_ui = JOURNAL_UI_SCENE.instantiate()
+	_journal_ui.configure_case(JOURNAL_CASE_TITLE, JOURNAL_CASE_SUMMARY, PackedStringArray(JOURNAL_QUESTIONS), PackedStringArray(JOURNAL_PLACEHOLDERS))
 	add_child(_journal_ui)
 	_journal_ui.journal_opened.connect(_on_journal_opened)
 	_journal_ui.journal_closed.connect(_on_journal_closed)
@@ -303,11 +317,18 @@ func _on_journal_opened() -> void:
 		_set_player_enabled(_active_player, false)
 	
 	journalopened += 1
+	if dialogue_manager != null and dialogue_manager.has_method("on_journal_opened_for_case"):
+		dialogue_manager.on_journal_opened_for_case()
 
 
 func _on_journal_closed() -> void:
 	if _active_player != null:
 		_set_player_enabled(_active_player, true)
+
+
+func _grade_journal_answers() -> void:
+	if _journal_ui != null and _journal_ui.has_method("get_question_answers"):
+		Autoload.grade_case_journal(1, _journal_ui.get_question_answers())
 
 
 func _can_open_journal() -> bool:

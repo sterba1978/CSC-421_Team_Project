@@ -48,6 +48,9 @@ func _on_click_area_input_event(
 
 
 func interact() -> void:
+	if not is_in_group("interactable"):
+		return
+
 	carla_talk.emit() #dialog signal 
 	print("talking to carla")
 

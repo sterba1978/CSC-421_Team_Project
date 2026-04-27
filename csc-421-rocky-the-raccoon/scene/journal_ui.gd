@@ -10,6 +10,11 @@ signal journal_closed
 	"Why is this clue suspicious?",
 	"What's your current theory for this case?"
 ])
+@export var answer_placeholders: PackedStringArray = PackedStringArray([
+	"Name the clue...",
+	"List the warning signs...",
+	"Explain what happened and what the client should do..."
+])
 
 @onready var _journal_button: Button = $Root/JournalShortcut/JournalButton
 @onready var _overlay: Control = $Root/Overlay
@@ -55,6 +60,20 @@ func is_open() -> bool:
 func set_shortcut_enabled(enabled: bool) -> void:
 	_shortcut_enabled = enabled
 	_sync_shortcut_visibility()
+
+
+func configure_case(title: String, summary: String, prompts: PackedStringArray, placeholders: PackedStringArray = PackedStringArray()) -> void:
+	case_title = title
+	case_summary = summary
+	question_prompts = prompts
+	answer_placeholders = placeholders
+
+	if not is_node_ready():
+		return
+
+	_case_title_label.text = case_title
+	_case_summary_label.text = case_summary
+	_build_question_inputs()
 
 
 func open_journal() -> void:
@@ -104,6 +123,10 @@ func add_clue(clue_id: String, clue_title: String, clue_text: String) -> void:
 	_refresh_clue_list()
 
 
+func get_question_answers() -> Array[String]:
+	return _question_answers.duplicate()
+
+
 func _on_journal_button_pressed() -> void:
 	open_journal()
 
@@ -139,16 +162,24 @@ func _build_question_inputs() -> void:
 		if index == question_prompts.size() - 1:
 			var theory_input := TextEdit.new()
 			theory_input.custom_minimum_size = Vector2(0.0, 120.0)
-			theory_input.placeholder_text = "Write your working theory here..."
+			theory_input.placeholder_text = _get_answer_placeholder(index, "Write your working theory here...")
 			theory_input.text_changed.connect(_on_theory_text_changed.bind(index, theory_input))
 			_questions_container.add_child(theory_input)
 			_question_inputs.append(theory_input)
 		else:
 			var answer_input := LineEdit.new()
-			answer_input.placeholder_text = "Type your answer..."
+			answer_input.placeholder_text = _get_answer_placeholder(index, "Type your answer...")
 			answer_input.text_changed.connect(_on_answer_text_changed.bind(index))
 			_questions_container.add_child(answer_input)
 			_question_inputs.append(answer_input)
+
+
+func _get_answer_placeholder(index: int, fallback: String) -> String:
+	if index >= 0 and index < answer_placeholders.size():
+		var placeholder := answer_placeholders[index].strip_edges()
+		if not placeholder.is_empty():
+			return placeholder
+	return fallback
 
 
 func _on_answer_text_changed(new_text: String, index: int) -> void:
