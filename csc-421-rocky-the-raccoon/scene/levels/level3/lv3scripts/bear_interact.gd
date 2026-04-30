@@ -1,5 +1,7 @@
 extends Node3D
 
+const PETER_TEXTURE := preload("res://assets/models/peterPolarBear_bear.png")
+
 @export var hover_highlight_enabled: bool = true
 @export var hover_highlight_color: Color = Color(1.0, 0.92, 0.35, 0.35)
 @export var click_area_path: NodePath = ^"StaticBody3D"
@@ -9,6 +11,7 @@ extends Node3D
 
 var _highlight_targets: Array[MeshInstance3D] = []
 var _highlight_material: StandardMaterial3D
+var _peter_material: StandardMaterial3D
 var _is_highlighted := false
 
 @onready var _click_target: CollisionObject3D = _resolve_click_target()
@@ -23,6 +26,7 @@ signal bear_talk # dialog signal
 
 func _ready() -> void:
 	#add_to_group("interactable")
+	_apply_peter_materials()
 
 	if _click_target:
 		_click_target.input_event.connect(_on_click_area_input_event)
@@ -93,6 +97,32 @@ func _build_highlight_material() -> void:
 	_highlight_material.albedo_color = hover_highlight_color
 	_highlight_material.emission_enabled = true
 	_highlight_material.emission = hover_highlight_color
+
+
+func _apply_peter_materials() -> void:
+	var peter_model := get_node_or_null("peterPolarBear")
+	if peter_model == null:
+		return
+
+	var duplicate_mesh := peter_model.get_node_or_null("Cube_Cube_001")
+	if duplicate_mesh is Node3D:
+		(duplicate_mesh as Node3D).visible = false
+
+	_peter_material = StandardMaterial3D.new()
+	_peter_material.albedo_texture = PETER_TEXTURE
+	_peter_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+
+	_apply_material_to_meshes(peter_model, _peter_material)
+
+
+func _apply_material_to_meshes(node: Node, material: Material) -> void:
+	for child in node.get_children():
+		if child is MeshInstance3D and child.mesh != null:
+			var mesh_instance := child as MeshInstance3D
+			mesh_instance.material_override = material
+			for surface_index in range(mesh_instance.mesh.get_surface_count()):
+				mesh_instance.set_surface_override_material(surface_index, material)
+		_apply_material_to_meshes(child, material)
 
 
 func _resolve_click_target() -> CollisionObject3D:

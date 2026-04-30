@@ -47,12 +47,13 @@ func _process(_delta: float) -> void:
 	if load_status == ResourceLoader.THREAD_LOAD_LOADED:
 		var packed_scene := ResourceLoader.load_threaded_get(GAME_SCENE_PATH) as PackedScene
 		if packed_scene != null:
-			_start_requested = false
-			get_tree().change_scene_to_packed(packed_scene)
+			_change_to_game_scene(packed_scene)
 			return
 
+		push_warning("StartMenu.gd: Threaded load returned an invalid scene for '%s'." % GAME_SCENE_PATH)
 		_finish_start_request(false)
 	elif load_status == ResourceLoader.THREAD_LOAD_FAILED:
+		push_warning("StartMenu.gd: Threaded load failed for '%s'." % GAME_SCENE_PATH)
 		_finish_start_request(false)
 
 
@@ -60,19 +61,16 @@ func _on_start_pressed() -> void:
 	if _start_requested:
 		return
 
+	_start_requested = true
 	SceneTransitionState.reset()
 	Autoload.reset_case_grades()
 	MusicManager.play_music(GAME_MUSIC, game_music_volume_db, game_music_start_position_sec)
-	_request_game_scene_load()
-	_start_requested = true
 	_start_button.disabled = true
 	_quit_button.disabled = true
 	_start_label.text = "Loading..."
 	if _menu_viewport != null:
 		_menu_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
-
-func _on_quit_pressed() -> void:
-	get_tree().quit()
+	_request_game_scene_load()
 
 
 func _request_game_scene_load() -> void:
@@ -80,11 +78,29 @@ func _request_game_scene_load() -> void:
 		return
 
 	var error := ResourceLoader.load_threaded_request(GAME_SCENE_PATH)
+	if error != OK:
+		push_warning("StartMenu.gd: Failed to request game scene load '%s' (error %d)." % [GAME_SCENE_PATH, error])
+		if _start_requested:
+			_finish_start_request(false)
+		return
+
+	_load_requested = true
+
+
+func _change_to_game_scene(game_scene: PackedScene) -> void:
+	_start_requested = false
+	var error := get_tree().change_scene_to_packed(game_scene)
 	if error == OK:
-		_load_requested = true
+		return
+
+	push_warning("StartMenu.gd: Failed to change to game scene '%s' (error %d)." % [GAME_SCENE_PATH, error])
+	_finish_start_request(false)
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
 
 
-func _finish_start_request(keep_loading: bool) -> void:
+func _finish_start_request(keep_loading: bool = true) -> void:
 	_start_requested = false
 	_start_button.disabled = false
 	_quit_button.disabled = false

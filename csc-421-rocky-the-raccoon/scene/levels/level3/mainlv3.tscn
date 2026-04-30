@@ -748,23 +748,26 @@ dialogue_resource = ExtResource("2_qpqon")
 transform = Transform3D(0.9440718, 0, -0.32974008, 0, 1, 0, 0.32974008, 0, 0.9440718, -5.863448, 1.1729071, 5.8832545)
 script = ExtResource("58_ck1jn")
 
+[node name="Cube_Cube_001" parent="Peter/peterPolarBear" parent_id_path=PackedInt32Array(1756733818, 221101091) index="0" unique_id=1355491693]
+visible = false
+
 [node name="Skeleton3D" parent="Peter/peterPolarBear/metarig" parent_id_path=PackedInt32Array(1756733818, 221101091, 1441137958) index="0" unique_id=1747231391]
-bones/0/position = Vector3(-2.4655744e-10, 0.49599648, -0.055200014)
+bones/0/position = Vector3(1.7763573e-15, 0.5018882, -0.055200007)
 bones/7/rotation = Quaternion(0.48613822, 0.49947104, 0.51408213, -0.49991795)
-bones/8/rotation = Quaternion(-0.33832404, 0.5855658, -0.3083241, 0.6690185)
+bones/8/rotation = Quaternion(-0.36487055, 0.6388469, -0.28030995, 0.6165797)
 bones/9/rotation = Quaternion(0.28798288, -0.08971548, -0.16169283, 0.9396129)
 bones/10/rotation = Quaternion(-0.0433313, -0.010123353, -0.06849297, 0.9966588)
-bones/12/rotation = Quaternion(-0.35404724, -0.61646754, 0.2927964, 0.63944405)
+bones/12/rotation = Quaternion(-0.36025336, -0.6300158, 0.28511527, 0.62610465)
 bones/13/rotation = Quaternion(0.3312433, 0.111729294, 0.15976328, 0.9231848)
 bones/14/rotation = Quaternion(-0.043331303, 0.010123355, 0.06849297, 0.9966588)
-bones/19/rotation = Quaternion(0.96308494, -0.10175212, 0.04200667, 0.24566121)
-bones/20/rotation = Quaternion(0.0032667592, -0.0164861, -0.011056008, 0.9997977)
-bones/21/rotation = Quaternion(-0.35379553, 0.034810103, -0.09152081, 0.93018335)
-bones/22/rotation = Quaternion(8.251975e-08, 0.96124876, -0.27568245, 3.017518e-07)
-bones/24/rotation = Quaternion(0.9091052, 0.09339073, -0.058276765, 0.4017585)
-bones/25/rotation = Quaternion(0.66728526, 0.15050317, -0.025328461, 0.72899777)
-bones/26/rotation = Quaternion(-0.4995562, -0.04305833, 0.083774425, 0.86114544)
-bones/27/rotation = Quaternion(-0.0036749938, 0.91825986, -0.3959545, -0.0023316047)
+bones/19/rotation = Quaternion(0.89222074, -0.09097273, 0.061984025, 0.43797728)
+bones/20/rotation = Quaternion(0.5277542, -0.12427894, -0.0009953436, 0.84025556)
+bones/21/rotation = Quaternion(-0.5965391, 0.05869358, -0.07837657, 0.79658866)
+bones/22/rotation = Quaternion(7.867507e-08, 0.95746326, -0.2885554, 3.0761683e-07)
+bones/24/rotation = Quaternion(0.95710456, 0.100746475, -0.044363935, 0.26801682)
+bones/25/rotation = Quaternion(0.16408098, 0.035953194, -0.009974771, 0.985741)
+bones/26/rotation = Quaternion(-0.48325664, -0.04059475, 0.08455431, 0.87044)
+bones/27/rotation = Quaternion(-0.005746028, 0.93817246, -0.34610137, -0.0036454732)
 
 [node name="chair" parent="." unique_id=1055528744 instance=ExtResource("51_vihe5")]
 transform = Transform3D(1.0965031, 8.049084e-10, 0.019315267, -6.674476e-10, 0.7302315, -6.870361e-12, -0.0187536, -8.044382e-12, 1.0235064, 1.3858695, 0.29845333, -0.7007909)
