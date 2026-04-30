@@ -105,6 +105,7 @@ func _ensure_fade_overlay() -> void:
 	_fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_fade_rect.color = Color.BLACK
+	_fade_rect.top_level = true
 	_fade_rect.z_index = 100
 	add_child(_fade_rect)
 

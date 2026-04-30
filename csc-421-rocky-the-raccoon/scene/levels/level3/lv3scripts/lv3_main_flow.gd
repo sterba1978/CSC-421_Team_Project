@@ -24,7 +24,7 @@ const JOURNAL_PLACEHOLDERS := [
 @export var office_door_path: NodePath = ^"Office_door"
 @export var interior_transition_delay_sec: float = 0.4
 @export_file("*.tscn") var door_cinematic_scene_path: String = "res://scene/levels/level1/lv1_door_cinematic_scene.tscn"
-@export_file("*.tscn") var ending_reflection_scene_path: String = "res://scene/levels/level3/ending_reflection_scene.tscn"
+@export_file("*.tscn") var snake_ending_cinematic_scene_path: String = "res://scene/levels/level3/lv3_snake_ending_cinematic_scene.tscn"
 @export var scene_transition_fade_duration: float = 0.4
 @export var look_mouse_sensitivity: float = 0.0015
 @export var exterior_sign_light_path: NodePath = ^"Environment/Exterior/StreetLamp/SignLight/SpotLight3D"
@@ -161,7 +161,7 @@ func _on_level3_ended() -> void:
 
 	_transition_queued = true
 	_grade_journal_answers()
-	await _transition_to_ending_reflection_scene()
+	await _transition_to_snake_ending_cinematic_scene()
 	_transition_queued = false
 
 
@@ -227,16 +227,16 @@ func _transition_to_cinematic_scene() -> void:
 		_set_active_player(_exterior_player)
 
 
-func _transition_to_ending_reflection_scene() -> void:
+func _transition_to_snake_ending_cinematic_scene() -> void:
 	_set_player_enabled(_exterior_player, false)
 	_set_player_enabled(_interior_player, false)
 	if _journal_ui != null and _journal_ui.is_open():
 		_journal_ui.close_journal()
 	await _fade_to_black(scene_transition_fade_duration)
 
-	var error := get_tree().change_scene_to_file(ending_reflection_scene_path)
+	var error := get_tree().change_scene_to_file(snake_ending_cinematic_scene_path)
 	if error != OK:
-		push_warning("main_flow.gd: Failed to load ending reflection scene '%s' (error %d)." % [ending_reflection_scene_path, error])
+		push_warning("main_flow.gd: Failed to load snake ending cinematic scene '%s' (error %d)." % [snake_ending_cinematic_scene_path, error])
 		await _fade_from_black(scene_transition_fade_duration)
 		_set_active_player(_interior_player)
 

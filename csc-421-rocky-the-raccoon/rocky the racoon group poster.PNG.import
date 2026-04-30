@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccd3f648iwgnu"
-path="res://.godot/imported/rocky the racoon group poster.PNG-adefb7837bc2bc520b865e3d640d993b.ctex"
+uid="uid://da0v3xro2q3vi"
+path="res://.godot/imported/rocky the racoon group poster.png-3666679b7fc92d8ad5db46bf4f38379c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rocky the racoon group poster.PNG"
-dest_files=["res://.godot/imported/rocky the racoon group poster.PNG-adefb7837bc2bc520b865e3d640d993b.ctex"]
+source_file="res://rocky the racoon group poster.png"
+dest_files=["res://.godot/imported/rocky the racoon group poster.png-3666679b7fc92d8ad5db46bf4f38379c.ctex"]
 
 [params]
 

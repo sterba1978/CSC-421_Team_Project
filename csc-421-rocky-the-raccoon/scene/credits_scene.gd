@@ -125,9 +125,12 @@ func _build_scene() -> void:
 	content.add_child(_continue_button)
 
 	_fade_rect = ColorRect.new()
+	_fade_rect.name = "FadeRect"
 	_fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_fade_rect.color = Color.BLACK
+	_fade_rect.top_level = true
+	_fade_rect.z_index = 100
 	add_child(_fade_rect)
 
 
@@ -154,6 +157,10 @@ func _return_to_menu() -> void:
 	var error := get_tree().change_scene_to_file(menu_scene_path)
 	if error != OK:
 		push_warning("credits_scene.gd: Failed to load menu scene '%s' (error %d)." % [menu_scene_path, error])
+		_is_transitioning = false
+		_can_continue = true
+		_continue_button.disabled = false
+		await _fade_from_black()
 
 
 func _apply_framed_button_style(button: Button) -> void:
