@@ -5,7 +5,7 @@ const CURSOR_HOTSPOT := Vector2(42, 48)
 const FALLBACK_OFFICE_SCENE := preload("res://scene/levels/level1/mainlv1.tscn")
 const CUTSCENE_AUDIO := preload("res://assets/audio/By The Paddy Wagon.mp3")
 
-@export_file("*.tscn") var office_scene_path: String = "res://scene/levels/level1/lv1main.tscn"
+@export_file("*.tscn") var office_scene_path: String = "res://scene/levels/level1/mainlv1.tscn"
 @export var fade_in_duration: float = 0.55
 @export var panel_reveal_duration: float = 0.6
 @export var background_pan_duration: float = 2.6

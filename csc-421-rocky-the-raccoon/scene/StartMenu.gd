@@ -17,7 +17,6 @@ const CURSOR_HOTSPOT := Vector2.ZERO
 @onready var _start_label: Label = $Layout/Card/Content/Overlay/Buttons/Start/Label
 @onready var _menu_viewport: SubViewport = $SubViewportContainer/SubViewport
 
-var _load_requested := false
 var _start_requested := false
 var _fade_rect: ColorRect
 
@@ -35,26 +34,7 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		_quit_button.hide()
 
-	_request_game_scene_load()
 	await _fade_from_black()
-
-
-func _process(_delta: float) -> void:
-	if not _start_requested:
-		return
-
-	var load_status := ResourceLoader.load_threaded_get_status(GAME_SCENE_PATH)
-	if load_status == ResourceLoader.THREAD_LOAD_LOADED:
-		var packed_scene := ResourceLoader.load_threaded_get(GAME_SCENE_PATH) as PackedScene
-		if packed_scene != null:
-			_change_to_game_scene(packed_scene)
-			return
-
-		push_warning("StartMenu.gd: Threaded load returned an invalid scene for '%s'." % GAME_SCENE_PATH)
-		_finish_start_request(false)
-	elif load_status == ResourceLoader.THREAD_LOAD_FAILED:
-		push_warning("StartMenu.gd: Threaded load failed for '%s'." % GAME_SCENE_PATH)
-		_finish_start_request(false)
 
 
 func _on_start_pressed() -> void:
@@ -70,26 +50,12 @@ func _on_start_pressed() -> void:
 	_start_label.text = "Loading..."
 	if _menu_viewport != null:
 		_menu_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
-	_request_game_scene_load()
+	_change_to_game_scene()
 
 
-func _request_game_scene_load() -> void:
-	if _load_requested:
-		return
-
-	var error := ResourceLoader.load_threaded_request(GAME_SCENE_PATH)
-	if error != OK:
-		push_warning("StartMenu.gd: Failed to request game scene load '%s' (error %d)." % [GAME_SCENE_PATH, error])
-		if _start_requested:
-			_finish_start_request(false)
-		return
-
-	_load_requested = true
-
-
-func _change_to_game_scene(game_scene: PackedScene) -> void:
+func _change_to_game_scene() -> void:
 	_start_requested = false
-	var error := get_tree().change_scene_to_packed(game_scene)
+	var error := get_tree().change_scene_to_file(GAME_SCENE_PATH)
 	if error == OK:
 		return
 
@@ -108,7 +74,6 @@ func _finish_start_request(keep_loading: bool = true) -> void:
 	if _menu_viewport != null:
 		_menu_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	if not keep_loading:
-		_load_requested = false
 		MusicManager.play_music(MENU_MUSIC, menu_music_volume_db, menu_music_start_position_sec)
 
 

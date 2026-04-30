@@ -1,7 +1,7 @@
 extends Control
 
 const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
-const CREDITS_BACKGROUND := preload("res://rocky the racoon group poster.PNG")
+const CREDITS_BACKGROUND := preload("res://rocky the racoon group poster.png")
 const CURSOR_HOTSPOT := Vector2(42, 48)
 const CREDITS_BODY := """Game Created
 
