@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dreetx8glqxg5"]
 
-[ext_resource type="PackedScene" uid="uid://qi8u1dccbr0e" path="res://NPCS/carlaChameleon.blend" id="1_466hm"]
+[ext_resource type="PackedScene" uid="uid://dd21idhne2jpg" path="res://assets/models/carlaChameleon.glb" id="1_466hm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_467db"]
 size = Vector3(0.62750244, 1, 1)

@@ -1,6 +1,6 @@
 extends Node3D
 
-const FILING_CABINET_MUSIC := preload("res://assets/audio/Reconstructing the Crime.mp3")
+const FILING_CABINET_MUSIC := preload("res://assets/audio/East West - John Patitucci.mp3")
 const INTERACT_SFX := preload("res://assets/audio/Interact.mp3")
 
 @export var hover_highlight_enabled: bool = true

@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://b38ccux5u1slr"]
 
-[ext_resource type="PackedScene" uid="uid://ctqeo3m7kdx03" path="res://NPCS/peterPolarBear.blend" id="1_bx6j5"]
+[ext_resource type="PackedScene" uid="uid://dfthalv0okro2" path="res://assets/models/peterPolarBear.glb" id="1_bx6j5"]
+[ext_resource type="Texture2D" uid="uid://bnsh6kgh8y8qh" path="res://assets/models/peterPolarBear_bear.png" id="2_0yrph"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbgat"]
 size = Vector3(1.6192474, 3.3359375, 1.7661743)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peter_texture"]
+albedo_texture = ExtResource("2_0yrph")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ensj"]
 transparency = 1
@@ -17,6 +21,28 @@ material = SubResource("StandardMaterial3D_5ensj")
 [node name="peterPolarBear" parent="." unique_id=221101091 instance=ExtResource("1_bx6j5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0458169, -1.1920929e-07, 0.013890028)
 
+[node name="Cube_Cube_001" parent="peterPolarBear" index="0"]
+visible = false
+material_override = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/0 = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/1 = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/2 = SubResource("StandardMaterial3D_peter_texture")
+
+[node name="peterPolarBear_Cube_Cube_001" parent="peterPolarBear/Cube_Cube_001" index="0"]
+visible = false
+material_override = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/0 = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/1 = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/2 = SubResource("StandardMaterial3D_peter_texture")
+
+[node name="Cube_Cube_001 Remeshed" parent="peterPolarBear/metarig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/0 = SubResource("StandardMaterial3D_peter_texture")
+
+[node name="peterPolarBear_Mesh_003" parent="peterPolarBear/metarig/Skeleton3D/Cube_Cube_001 Remeshed" index="0"]
+material_override = SubResource("StandardMaterial3D_peter_texture")
+surface_material_override/0 = SubResource("StandardMaterial3D_peter_texture")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=348304053]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=881619139]
@@ -26,3 +52,5 @@ shape = SubResource("BoxShape3D_cbgat")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1329767771]
 transform = Transform3D(3.486789, 0, 0, 0, 3.3937757, 0, 0, 0, 2.0116086, 0, 1.689728, 0)
 mesh = SubResource("BoxMesh_vrtc6")
+
+[editable path="peterPolarBear"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1mvqgmerc5sy"]
 
-[ext_resource type="PackedScene" uid="uid://bhngcurj5n6qn" path="res://assets/models/pattyPossum.blend" id="1_tx1ei"]
+[ext_resource type="PackedScene" uid="uid://bs1ep5nqjtd1s" path="res://assets/models/pattyPossum.glb" id="1_tx1ei"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfl32"]
 size = Vector3(3.1769104, 6.6193237, 3.845459)

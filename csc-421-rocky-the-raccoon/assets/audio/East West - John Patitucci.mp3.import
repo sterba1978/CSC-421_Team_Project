@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3nj688o7aynn"
+path="res://.godot/imported/East West - John Patitucci.mp3-79e6325c1b13b24f33f3741f32c5d42e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/East West - John Patitucci.mp3"
+dest_files=["res://.godot/imported/East West - John Patitucci.mp3-79e6325c1b13b24f33f3741f32c5d42e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

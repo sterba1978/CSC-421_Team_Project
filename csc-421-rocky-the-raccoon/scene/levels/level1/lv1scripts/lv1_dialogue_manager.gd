@@ -34,7 +34,7 @@ const CHECKLIST_BOTTOM_PADDING := 12.0
 
 var _checklist_background_default_bottom := 0.0
 
-@onready var carla = $"../Carla"
+@onready var carla = get_node_or_null("../Carla")
 
 var autoload = Autoload
 var journal_reviewed_after_clues := false
@@ -46,7 +46,10 @@ func _ready() -> void:
 	clue1.clue1_closed.connect(_on_clue1_closed)
 	clue2.clue2_closed.connect(_on_clue2_closed)
 	clue3.clue3_closed.connect(_on_clue3_closed)
-	carla.carla_talk.connect(_on_carla_talk)
+	if carla != null and carla.has_signal("carla_talk"):
+		carla.carla_talk.connect(_on_carla_talk)
+	else:
+		push_warning("Level 1 DialogueManager: Carla node or carla_talk signal was not found.")
 	autoload.dialogue_show_mouse.connect(_showmouse)
 	autoload.dialogue_hide_mouse.connect(_hidemouse)
 
@@ -69,10 +72,13 @@ func on_journal_opened_for_case() -> void:
 
 func _update_character_interaction_state() -> void:
 	if _all_clues_reviewed() and journal_reviewed_after_clues:
+		if carla == null:
+			return
 		carla.add_to_group("interactable")
 		update_checklist("Talk to Carla when ready")
 	elif _all_clues_reviewed():
-		carla.remove_from_group("interactable")
+		if carla != null:
+			carla.remove_from_group("interactable")
 		update_checklist("Open the journal and review the case")
 
 func _all_clues_reviewed() -> bool:

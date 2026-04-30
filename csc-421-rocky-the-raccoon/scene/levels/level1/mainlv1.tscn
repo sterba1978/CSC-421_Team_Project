@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://2o70amaqgn3d" path="res://addons/Kenny_3D_Building_kit/Furniture Kit/Models/GLTF format/ceilingFan.glb" id="18_1d7l8"]
 [ext_resource type="PackedScene" uid="uid://b3ksc10a56apj" path="res://addons/Furniture Kit/Models/GLTF format/loungeDesignSofaCorner.glb" id="19_bto8u"]
 [ext_resource type="ArrayMesh" uid="uid://begefj3dwk7xn" path="res://addons/blinds/storeCalifornien.obj" id="20_qp5lb"]
-[ext_resource type="PackedScene" uid="uid://dx55t40bn2l20" path="res://addons/Furniture Kit/Models/GLTF format/chairDesk.glb" id="21_w0751"]
 [ext_resource type="PackedScene" uid="uid://d3v4o1rmbr04g" path="res://addons/Furniture Kit/Models/GLTF format/chairModernCushion.glb" id="22_8jxyt"]
 [ext_resource type="PackedScene" uid="uid://0hwl21f02ft4" path="res://addons/Furniture Kit/Models/GLTF format/coatRackStanding.glb" id="23_1mwpu"]
 [ext_resource type="PackedScene" uid="uid://cbxv7ku68e8ku" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="24_uxpcb"]
@@ -55,14 +54,10 @@
 [ext_resource type="PackedScene" uid="uid://c1vmuvx2ql3jp" path="res://scene/tab_3.tscn" id="48_pn7ft"]
 [ext_resource type="PackedScene" uid="uid://bs20j6lul17wr" path="res://scene/folder.tscn" id="49_av3wx"]
 [ext_resource type="Script" uid="uid://bxvle6a6jsr0y" path="res://scene/levels/level1/lv1scripts/lv1clue2_ui.gd" id="49_qegld"]
-[ext_resource type="PackedScene" path="res://scene/rocky_character.tscn" id="51_dlx5p"]
+[ext_resource type="PackedScene" uid="uid://c77ev3332gp3n" path="res://assets/models/rocky sit.glb" id="51_dlx5p"]
 [ext_resource type="Script" uid="uid://cvhexhpo7kgs3" path="res://scene/levels/level1/lv1scripts/lv1clue3_ui.gd" id="51_ulqwy"]
 [ext_resource type="Script" uid="uid://dgtv36tj56kt8" path="res://scene/levels/level1/lv1scripts/lv1_dialogue_manager.gd" id="52_6yp6n"]
-[ext_resource type="Texture2D" uid="uid://duxfgof81nxvg" path="res://assets/models/textures/tripo_image_fcdea367_0.jpg" id="52_qpui5"]
-[ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="53_vxlfn"]
 [ext_resource type="PackedScene" uid="uid://dreetx8glqxg5" path="res://scene/levels/level1/carla.tscn" id="53_x2vst"]
-[ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="54_03yam"]
-[ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="55_ccxiq"]
 [ext_resource type="Script" uid="uid://bhn88afp1fkq8" path="res://scene/levels/level1/lv1scripts/carla_interact.gd" id="59_3bx2c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
@@ -204,16 +199,6 @@ ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvbb1"]
-resource_local_to_scene = true
-cull_mode = 2
-albedo_texture = ExtResource("52_qpui5")
-metallic = 1.0
-metallic_texture = ExtResource("53_vxlfn")
-roughness_texture = ExtResource("55_ccxiq")
-normal_enabled = true
-normal_texture = ExtResource("54_03yam")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_checklist_frame"]
 bg_color = Color(0, 0, 0, 0.48)
 border_width_left = 3
@@ -287,7 +272,7 @@ size = Vector3(1.2230766, 1.0204539, 2.5687847)
 [node name="roof-flat-center2" parent="Office" unique_id=1895759827 instance=ExtResource("5_mxa3u")]
 transform = Transform3D(17.887278, 0, 0, 0, 0.49888983, 0, 0, 0, 15.290456, 1.4372122, 4.204843, -1.6496292)
 
-[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=1960603868]
+[node name="roof-flat-center" parent="Office/roof-flat-center2" index="0" unique_id=2034171961]
 transform = Transform3D(1.0263907, 0, 0, 0, 1.6723273, 0, 0, 0, 1.031923, -0.018277004, -0.1649437, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_roof_flat_center2")
 
@@ -428,9 +413,6 @@ mesh = ExtResource("20_qp5lb")
 [node name="StoreCalifornien2" type="MeshInstance3D" parent="Decoration/Interior/Blinds" unique_id=469758882]
 transform = Transform3D(0.007947542, 0, 0, 0, 0.010998178, 0, 0, 0, 0.0049255174, -7.2742915, 2.7387753, 11.588473)
 mesh = ExtResource("20_qp5lb")
-
-[node name="chairDesk" parent="Decoration/Interior" unique_id=90216326 instance=ExtResource("21_w0751")]
-transform = Transform3D(-5.3220983, 0, -0.12570405, 0, 3.8821878, 0, 0.12904692, 0, -5.184238, -6.2746677, 0.99016976, 9.434728)
 
 [node name="chairModernCushion" parent="Decoration/Interior" unique_id=1032307393 instance=ExtResource("22_8jxyt")]
 transform = Transform3D(5.8498273, 0, 0, 0, 3.6533275, 0, 0, 0, 6.2050247, -8.851959, 0.9901707, 6.086622)
@@ -658,7 +640,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4jm02")
 transform = Transform3D(15.282894, -0.06533526, 0.596902, 0.090972394, 11.004559, -0.0063499357, -0.46665114, 0.005569944, 19.54739, -40.396683, 0, -5.0830803)
 
 [node name="building-d2" parent="Environment" unique_id=1410098912 instance=ExtResource("38_v1clc")]
-transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.335798, 32.885094, 0, -1.3864708)
+transform = Transform3D(26.771343, 0, 0, 0, 14.065918, 0, 0, 0, 31.350494, 32.885094, 0, -1.3864708)
 
 [node name="FilingCabinet" parent="." unique_id=469106259 instance=ExtResource("39_1avk1")]
 transform = Transform3D(-0.051055882, -1.1933616e-08, -1.2729701, 1.34353995e-08, 1.139, -1.39011105e-08, 1.2689732, -1.253943e-08, -0.051216688, -0.39442825, 1.1181563, 7.0113487)
@@ -685,7 +667,7 @@ script = ExtResource("42_at8ct")
 [node name="PitchPivot" type="Node3D" parent="InteriorPlayer" unique_id=1424281955]
 
 [node name="InsideCamera" type="Camera3D" parent="InteriorPlayer/PitchPivot" unique_id=1257327394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 2.0669656, 0.084218025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014960766, 1.8802018, -0.1584053)
 environment = SubResource("Environment_vc5kc")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1330093406]
@@ -762,22 +744,108 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_checklist_frame")
 script = ExtResource("52_6yp6n")
 dialogue_resource = ExtResource("2_kxy3q")
 
+[node name="chair" parent="." unique_id=1055528744 instance=ExtResource("51_dlx5p")]
+transform = Transform3D(1.0965031, 8.049084e-10, 0.019315267, -6.674476e-10, 0.7302315, -6.870361e-12, -0.0187536, -8.044382e-12, 1.0235064, 1.3459239, 0.30385494, -0.7007909)
+
+[node name="chair" parent="chair/chairDesk/chairDesk(Clone)" parent_id_path=PackedInt32Array(1055528744, 1394368366) index="0" unique_id=455501248]
+transform = Transform3D(0.9592085, 0, 0.28269967, 0, 1, 0, -0.28269967, 0, 0.9592085, 0.14034855, 0.19000003, -0.15340376)
+
+[node name="Armature_001" parent="chair" index="1" unique_id=1453170280]
+transform = Transform3D(0.029389689, -0.0020958565, 9.161281e-11, 0, -1.2879265e-09, -0.029464329, 0.0020958565, 0.029389689, -1.2846643e-09, -7.3071527, 1.0556232, 10.090607)
+visible = false
+
+[node name="Skeleton3D" parent="chair/Armature_001" index="0" unique_id=1017551247]
+visible = false
+
+[node name="my raccoon_001" parent="chair/Armature_001/Skeleton3D" index="0" unique_id=2132847068]
+visible = false
+
+[node name="rocky sit" parent="." unique_id=273968543 instance=ExtResource("51_dlx5p")]
+transform = Transform3D(1.3332461, 3.474307e-10, 0.010837294, -5.2282584e-10, 0.8860104, -2.124539e-12, -0.01196086, -1.5581788e-12, 1.2080054, 3.217205, -0.08328867, -2.6129494)
+
+[node name="chairDesk(Clone)" parent="rocky sit/chairDesk" parent_id_path=PackedInt32Array(273968543, 380684095) index="0" unique_id=1394368366]
+visible = false
+
+[node name="chair" parent="rocky sit/chairDesk/chairDesk(Clone)" index="0" unique_id=455501248]
+transform = Transform3D(0.3396773, 0, -0.94054204, 0, 1, 0, 0.94054204, 0, 0.3396773, 0.265755, 0.19000003, -0.102808595)
+visible = false
+
+[node name="Armature_001" parent="rocky sit" index="1" unique_id=1453170280]
+transform = Transform3D(0.003839425, 0.0292131, -1.2769453e-09, 0, -1.2879265e-09, -0.029464329, -0.0292131, 0.003839425, -1.6782663e-10, -7.850498, 1.0556232, 9.631238)
+
+[node name="Skeleton3D" parent="rocky sit/Armature_001" index="0" unique_id=1017551247]
+bones/0/position = Vector3(-38.300426, 3.2900999, -40.412968)
+bones/1/position = Vector3(8.224015e-08, 5.91167, -0.60179317)
+bones/1/rotation = Quaternion(-0.04792519, -0.0006615847, 0.00014386175, 0.99885076)
+bones/3/position = Vector3(6.726077e-08, 7.9229565, -1.2771343e-06)
+bones/3/rotation = Quaternion(-1.614803e-05, -0.04577901, -0.004403112, 0.9989419)
+bones/4/position = Vector3(4.7760277e-06, 8.913326, 1.278842e-05)
+bones/4/rotation = Quaternion(0.050356057, -0.10984943, -0.004964517, 0.9926595)
+bones/5/position = Vector3(2.32553e-05, 6.193679, 0.54991937)
+bones/5/rotation = Quaternion(5.929709e-05, 0.16907229, -0.0009401679, 0.9856032)
+bones/6/position = Vector3(4.209671, 7.3740582, -0.2170949)
+bones/6/rotation = Quaternion(-0.564383, -0.41549674, 0.5942682, -0.3945626)
+bones/7/position = Vector3(1.369516e-07, 8.941934, 1.5328751e-05)
+bones/7/rotation = Quaternion(0.2748609, -0.09527407, 0.13370916, 0.9473628)
+bones/8/position = Vector3(-5.1663246e-06, 13.144219, -2.4830515e-06)
+bones/9/position = Vector3(2.3765333e-06, 9.683855, 1.635075e-06)
+bones/10/position = Vector3(-1.9125772, -0.43612522, 2.2012796)
+bones/11/position = Vector3(-0.8484744, 2.2009366, 3.7133323e-06)
+bones/13/position = Vector3(0.72314334, 1.6141376, -2.9057264e-07)
+bones/14/position = Vector3(-1.4980518, 1.8244978, -0.3734419)
+bones/16/position = Vector3(0.009057641, 3.7973459, -2.928973e-07)
+bones/17/position = Vector3(-0.001708746, 1.8798296, -1.66893e-06)
+bones/18/position = Vector3(1.4980605, 6.324187, -0.4793408)
+bones/19/position = Vector3(0.04584837, 2.5294268, 9.269706e-06)
+bones/20/position = Vector3(-0.00853014, 1.8918469, -1.91435e-06)
+bones/21/position = Vector3(-0.037317753, 1.0448731, -1.4305115e-06)
+bones/22/position = Vector3(-6.5035157, 7.258685, 0.9162458)
+bones/22/rotation = Quaternion(0.5819064, -0.39771542, 0.594049, 0.38770267)
+bones/23/position = Vector3(-4.2750253e-06, 8.941932, 2.2435343e-06)
+bones/23/rotation = Quaternion(0.3137807, 0.2924818, -0.1086059, 0.8967725)
+bones/24/position = Vector3(-1.5149781e-06, 13.128688, -6.336435e-06)
+bones/24/rotation = Quaternion(-0.045744512, -0.37001878, -0.16730584, 0.9126897)
+bones/25/position = Vector3(2.193352e-06, 9.689044, -1.4002376e-07)
+bones/26/position = Vector3(2.0244918, -0.383589, 1.5264523)
+bones/27/position = Vector3(0.6255202, 1.9537677, -4.999214e-06)
+bones/29/position = Vector3(-0.64873064, 2.2621205, 3.3080578e-06)
+bones/30/position = Vector3(1.6790231, 2.0961955, -0.29457775)
+bones/31/position = Vector3(-0.002339691, 4.072529, -2.8315044e-06)
+bones/32/position = Vector3(0.0024377406, 3.6725562, 9.4213556e-07)
+bones/33/position = Vector3(-9.331107e-05, 1.8675978, -5.0067897e-06)
+bones/34/position = Vector3(-1.6790222, 6.276447, -0.3162794)
+bones/35/position = Vector3(-0.016690254, 2.2781067, -4.8853835e-06)
+bones/36/position = Vector3(0.0034956932, 2.057894, -5.3663825e-07)
+bones/37/position = Vector3(0.013195038, 1.1278445, 1.430511e-06)
+bones/38/position = Vector3(7.2889724, -0.22138405, 8.26145)
+bones/38/rotation = Quaternion(0.21863121, 0.53295505, 0.8012997, -0.16148746)
+bones/39/position = Vector3(-1.2534092e-06, 13.93039, -1.5036076e-06)
+bones/39/rotation = Quaternion(0.0024551526, -0.0031648302, 0.018003581, 0.99983)
+bones/40/position = Vector3(3.7693735e-07, 10.043129, 6.221453e-07)
+bones/40/rotation = Quaternion(0.37597406, -0.0880456, -0.017048877, 0.9222803)
+bones/42/position = Vector3(-2.1506567e-06, 5.0223236, -3.2410026e-06)
+bones/43/position = Vector3(-9.855255, -9.251142, 5.354846)
+bones/43/rotation = Quaternion(-0.10541198, 0.68774325, 0.718257, 0.0021375865)
+bones/44/position = Vector3(-6.2801064e-07, 13.927555, 1.6292142e-06)
+bones/45/position = Vector3(1.634191e-06, 10.043844, -3.5551038e-06)
+bones/45/rotation = Quaternion(0.26636636, -0.05535326, -0.115174495, 0.9553637)
+bones/46/position = Vector3(-6.898699e-07, 12.193043, 9.55235e-07)
+bones/47/position = Vector3(-3.1904783e-06, 4.919306, 1.1045486e-06)
+
 [node name="Carla" parent="." unique_id=690826194 instance=ExtResource("53_x2vst")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.280964, 1.0584215, 6.225989)
+transform = Transform3D(2.5257986, 0, 0, 0, 2, 0, 0, 0, 2, -8.09322, 1.1155776, 6.225989)
 script = ExtResource("59_3bx2c")
 
-[node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("51_dlx5p")]
-transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.2263389, 1.5406637, 10.88416)
-apply_textures = true
+[node name="high_poly" parent="Carla/carlaChameleon" parent_id_path=PackedInt32Array(690826194, 1561627548) index="0" unique_id=7089693]
+visible = false
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
-material_override = SubResource("StandardMaterial3D_qvbb1")
-
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
-material_override = SubResource("StandardMaterial3D_qvbb1")
+[node name="MeshInstance3D" parent="Carla" index="2" unique_id=2021681455]
+transform = Transform3D(0.6725699, 0, 0, 0, 1, 0, 0, 0, 1, 0.017204762, 0.52479726, -0.2842841)
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
 [editable path="Decoration/Interior/DeskMat"]
-[editable path="RockyCharacter"]
-[editable path="RockyCharacter/RockyModel"]
+[editable path="chair"]
+[editable path="rocky sit"]
+[editable path="Carla"]
+[editable path="Carla/carlaChameleon"]

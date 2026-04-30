@@ -1,7 +1,44 @@
 extends Control
 
 const MAGNIFYING_CURSOR := preload("res://assets/magnifying_cursor.png")
+const CREDITS_BACKGROUND := preload("res://rocky the racoon group poster.PNG")
 const CURSOR_HOTSPOT := Vector2(42, 48)
+const CREDITS_BODY := """Game Created
+
+Reese Barnett
+Alexa Schuijt
+Zach Terault
+Michael Sterba
+
+Asset acknowledgements
+
+KayKit assets by Kay Lousberg - www.kaylousberg.com
+Kenney asset packs - www.kenney.nl
+Dialogue Manager addon
+Godot Engine
+
+Character, Prop, and UI Bases
+
+Clickable journal base by Sanchit Gulati - https://github.com/sanchitgulati/story-teller
+Possum base by Spaxeboi - Sketchfab
+Polar bear base - Snow Bear free VR / AR / low-poly 3D model - CGTrader
+Chameleon base by WA7KVI - Sketchfab
+Glasses by Ardiller - https://www.cgtrader.com/designers/ardiller
+Wig by H-Art - https://www.cgtrader.com/designers/h-art
+
+Audio and Sound Effects
+
+By The Paddy Wagon
+East West by John Patitucci
+Reconstructing the Crime
+Ambient Tension Volume 1 music by Tom Ciccone
+Interact sound effect
+freesound community knocking-on-door sound effect
+SoundReality opening door sound effect
+fletchpike door closing sound effect
+freesound community page flip sound effect
+
+Thank you to everyone whose art, tools, music, and sound effects helped bring Rocky's office and cases to life."""
 
 @export_file("*.tscn") var menu_scene_path: String = "res://scene/StartMenu.tscn"
 @export var fade_in_duration: float = 0.55
@@ -24,11 +61,25 @@ func _ready() -> void:
 
 
 func _build_scene() -> void:
-	var background := ColorRect.new()
+	var background_fill := ColorRect.new()
+	background_fill.set_anchors_preset(Control.PRESET_FULL_RECT)
+	background_fill.mouse_filter = Control.MOUSE_FILTER_PASS
+	background_fill.color = Color(0.025, 0.03, 0.045)
+	add_child(background_fill)
+
+	var background := TextureRect.new()
 	background.set_anchors_preset(Control.PRESET_FULL_RECT)
 	background.mouse_filter = Control.MOUSE_FILTER_PASS
-	background.color = Color(0.025, 0.03, 0.045)
+	background.texture = CREDITS_BACKGROUND
+	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	background.stretch_mode = TextureRect.STRETCH_SCALE
 	add_child(background)
+
+	var background_overlay := ColorRect.new()
+	background_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	background_overlay.mouse_filter = Control.MOUSE_FILTER_PASS
+	background_overlay.color = Color(0.0, 0.0, 0.0, 0.32)
+	add_child(background_overlay)
 
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -50,14 +101,20 @@ func _build_scene() -> void:
 	title.add_theme_color_override("font_color", Color(0.98, 0.96, 0.9))
 	content.add_child(title)
 
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(0, 420)
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	content.add_child(scroll)
+
 	var body := Label.new()
-	body.text = "Asset acknowledgements\n\nKayKit assets by Kay Lousberg - www.kaylousberg.com\nKenney asset packs - www.kenney.nl\nDialogue Manager addon\nGodot Engine\n\nAudio and sound effects\n\nBy The Paddy Wagon\nAmbient Tension music tracks\nfreesound community knocking-on-door sound effect\nsoundreality opening door sound effect\nfletchpike door closing sound effect\nfreesound community page flip sound effect\n\nThank you to everyone whose art, tools, music, and sound effects helped bring Rocky's office and cases to life."
+	body.text = CREDITS_BODY
 	body.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	body.add_theme_font_size_override("font_size", 22)
+	body.add_theme_font_size_override("font_size", 20)
 	body.add_theme_color_override("font_color", Color(0.88, 0.91, 0.96))
 	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	content.add_child(body)
+	scroll.add_child(body)
 
 	_continue_button = Button.new()
 	_continue_button.text = "Exit To Title Screen"

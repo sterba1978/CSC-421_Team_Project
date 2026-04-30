@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://6e677xbp4154"]
 
-[ext_resource type="Script" path="res://scene/credits_scene.gd" id="1_credits"]
+[ext_resource type="Script" uid="uid://c0x81pp5b6bxd" path="res://scene/credits_scene.gd" id="1_credits"]
 
-[node name="CreditsScene" type="Control"]
+[node name="CreditsScene" type="Control" unique_id=459933170]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

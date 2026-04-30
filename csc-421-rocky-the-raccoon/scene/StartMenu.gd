@@ -12,9 +12,9 @@ const CURSOR_HOTSPOT := Vector2.ZERO
 @export var game_music_start_position_sec: float = 0.0
 @export var fade_in_duration: float = 0.35
 
-@onready var _start_button: BaseButton = $Layout/Card/Content/VBox/Buttons/Start
-@onready var _quit_button: BaseButton = $Layout/Card/Content/VBox/Buttons/Quit
-@onready var _start_label: Label = $Layout/Card/Content/VBox/Buttons/Start/Label
+@onready var _start_button: BaseButton = $Layout/Card/Content/Overlay/Buttons/Start
+@onready var _quit_button: BaseButton = $Layout/Card/Content/Overlay/Buttons/Quit
+@onready var _start_label: Label = $Layout/Card/Content/Overlay/Buttons/Start/Label
 @onready var _menu_viewport: SubViewport = $SubViewportContainer/SubViewport
 
 var _load_requested := false

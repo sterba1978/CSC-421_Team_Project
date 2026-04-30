@@ -50,12 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vmuvx2ql3jp" path="res://scene/tab_3.tscn" id="48_5jd34"]
 [ext_resource type="PackedScene" uid="uid://bs20j6lul17wr" path="res://scene/folder.tscn" id="49_nb2ay"]
 [ext_resource type="Script" uid="uid://b7iecdu8b8p5t" path="res://scene/dialogue_manager.gd" id="50_3og00"]
-[ext_resource type="PackedScene" path="res://scene/rocky_character.tscn" id="51_ihx53"]
-[ext_resource type="Texture2D" uid="uid://duxfgof81nxvg" path="res://assets/models/textures/tripo_image_fcdea367_0.jpg" id="52_6prl3"]
-[ext_resource type="Texture2D" uid="uid://dknb8g7i7nhww" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Metallic.jpg" id="53_e8q4e"]
-[ext_resource type="Texture2D" uid="uid://dau7sve52324l" path="res://assets/models/textures/tripo_image_fcdea367_2.jpg" id="54_byjf1"]
-[ext_resource type="Texture2D" uid="uid://c2ajacx3rlou5" path="res://assets/models/textures/tripo_image_fcdea367-1096-46b7-9c2b-22299aade409_Roughness.jpg" id="55_f32yq"]
-
+[ext_resource type="PackedScene" uid="uid://c77ev3332gp3n" path="res://assets/models/rocky sit.glb" id="51_ihx53"]
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxnrf"]
 transparency = 1
 albedo_color = Color(0.35546875, 0.2513275, 0.2513275, 1)
@@ -194,16 +189,6 @@ ambient_light_source = 2
 ambient_light_color = Color(0.47580624, 0.4765625, 0.45236206, 1)
 ambient_light_energy = 0.55
 tonemap_exposure = 0.15
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gwiq"]
-resource_local_to_scene = true
-cull_mode = 2
-albedo_texture = ExtResource("52_6prl3")
-metallic = 1.0
-metallic_texture = ExtResource("53_e8q4e")
-roughness_texture = ExtResource("55_f32yq")
-normal_enabled = true
-normal_texture = ExtResource("54_byjf1")
 
 [node name="main" type="Node3D" unique_id=1500498533]
 script = ExtResource("1_o3s6l")
@@ -726,18 +711,20 @@ color = Color(0, 0, 0, 0.4392157)
 script = ExtResource("50_3og00")
 dialogue_resource = ExtResource("2_qoyxt")
 
-[node name="RockyCharacter" parent="." unique_id=2089073251 instance=ExtResource("51_ihx53")]
+[node name="rocky sit2" parent="." unique_id=2089073251 instance=ExtResource("51_ihx53")]
 transform = Transform3D(3.6040041, 0, -0.14600748, 0, 2.5395176, 0, -0.13914455, 0, -3.7817616, -2.838601, 1.3406003, 3.0062504)
-apply_textures = true
 
-[node name="my raccoon" parent="RockyCharacter/RockyModel/Armature_001/Skeleton3D" index="0" unique_id=1260910467]
-material_override = SubResource("StandardMaterial3D_2gwiq")
+[node name="chairDesk(Clone)" parent="rocky sit2/chairDesk" index="0"]
+visible = false
 
-[node name="tripo_node_fcdea367_001" parent="RockyCharacter/RockyModel" index="5" unique_id=1959425414]
-material_override = SubResource("StandardMaterial3D_2gwiq")
+[node name="chair" parent="rocky sit2/chairDesk/chairDesk(Clone)" index="0"]
+transform = Transform3D(0.3396773, 0, -0.94054204, 0, 1, 0, 0.94054204, 0, 0.3396773, 0.265755, 0.19000003, -0.102808595)
+visible = false
+
+[node name="Armature_001" parent="rocky sit2" index="1"]
+transform = Transform3D(0.003839425, 0.0292131, -1.2769453e-09, 0, -1.2879265e-09, -0.029464329, -0.0292131, 0.003839425, -1.6782663e-10, -7.850498, 1.0556232, 9.631238)
 
 [editable path="Office"]
 [editable path="Office/roof-flat-center2"]
 [editable path="Decoration/Interior/DeskMat"]
-[editable path="RockyCharacter"]
-[editable path="RockyCharacter/RockyModel"]
+[editable path="rocky sit2"]

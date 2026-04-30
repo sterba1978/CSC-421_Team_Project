@@ -34,7 +34,7 @@ const CHECKLIST_BOTTOM_PADDING := 12.0
 
 var _checklist_background_default_bottom := 0.0
 
-@onready var patty = $"../Patty"
+@onready var patty = get_node_or_null("../Patty")
 
 var autoload = Autoload
 var journal_reviewed_after_clues := false
@@ -46,7 +46,10 @@ func _ready() -> void:
 	clue1.clue1_closed.connect(_on_clue1_closed)
 	clue2.clue2_closed.connect(_on_clue2_closed)
 	clue3.clue3_closed.connect(_on_clue3_closed)
-	patty.patty_talk.connect(_on_patty_talk)
+	if patty != null and patty.has_signal("patty_talk"):
+		patty.patty_talk.connect(_on_patty_talk)
+	else:
+		push_warning("Level 2 DialogueManager: Patty node or patty_talk signal was not found.")
 	autoload.dialogue_show_mouse.connect(_showmouse)
 	autoload.dialogue_hide_mouse.connect(_hidemouse)
 
@@ -69,10 +72,13 @@ func on_journal_opened_for_case() -> void:
 
 func _update_character_interaction_state() -> void:
 	if _all_clues_reviewed() and journal_reviewed_after_clues:
+		if patty == null:
+			return
 		patty.add_to_group("interactable")
 		update_checklist("Talk to Patty when ready")
 	elif _all_clues_reviewed():
-		patty.remove_from_group("interactable")
+		if patty != null:
+			patty.remove_from_group("interactable")
 		update_checklist("Open the journal and review the case")
 
 func _all_clues_reviewed() -> bool:
